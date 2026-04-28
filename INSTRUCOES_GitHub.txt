@@ -1,0 +1,21 @@
+# Como enviar o Dashboard para o GitHub
+
+## Passo 1: Criar repositório no GitHub
+1. Acesse https://github.com
+2. Clique em "New repository"
+3. Nome: `dashboard-roteirizacao`
+4. Público
+5. Clique "Create repository"
+
+## Passo 2: Executar o arquivo GitHub_Push.bat ou GitHub_Push.vbs
+1. Clique duas vezes no arquivo `GitHub_Push.bat` (mostra janela) OU `GitHub_Push.vbs` (invisível)
+2. Ele fará tudo automaticamente
+
+## Passo 3: Ativar GitHub Pages
+1. No repositório GitHub, vá em Settings > Pages
+2. Source: Deploy from a branch
+3. Branch: main, Folder: /(root)
+4. Save
+
+## Link online
+https://davidgomes12.github.io/dashboard-roteirizacao/dashboard.html
