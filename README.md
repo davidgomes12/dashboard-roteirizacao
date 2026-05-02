@@ -4,7 +4,7 @@ Dashboard interativo para indicadores de roteirização da Tirolez.
 
 ## Acesso Online
 
-Acesse o dashboard em: [https://SEU_USERNAME.github.io/dashboard-roteirizacao/dashboard.html](https://SEU_USERNAME.github.io/dashboard-roteirizacao/dashboard.html)
+Acesse o dashboard em: [https://davidgomes12.github.io/dashboard-roteirizacao/dashboard.html](https://davidgomes12.github.io/dashboard-roteirizacao/dashboard.html)
 
 ## Como Usar Localmente
 

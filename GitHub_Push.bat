@@ -1,24 +1,32 @@
 @echo off
-echo Inicializando repositório Git...
-cd /d "c:\Users\david.santos\OneDrive - TIROLEZ\Área de Trabalho\Projeto Indicador Roteiro\ETL"
+chcp 65001 >nul
+cd /d "%~dp0"
 
-echo Fazendo git init...
-git init
+echo Verificando alteracoes...
+git add -u
 
-echo Adicionando arquivos...
-git add .
+git diff --cached --quiet
+if %ERRORLEVEL% EQU 0 (
+    echo Nenhuma alteracao para enviar. Repositorio ja esta atualizado.
+    pause
+    exit /b 0
+)
 
 echo Fazendo commit...
-git commit -m "Initial commit for dashboard"
+for /f "tokens=1-3 delims=/ " %%a in ("%DATE%") do set DT=%%a/%%b/%%c
+for /f "tokens=1-2 delims=:" %%a in ("%TIME%") do set TM=%%a:%%b
+git commit -m "Update manual: %DT% %TM%"
 
-echo Renomeando branch para main...
-git branch -M main
+echo Enviando para GitHub...
+git push origin main
 
-echo Adicionando remote...
-git remote add origin https://github.com/davidgomes12/dashboard-roteirizacao.git
+if %ERRORLEVEL% EQU 0 (
+    echo.
+    echo Sucesso! Dashboard disponivel em:
+    echo https://davidgomes12.github.io/dashboard-roteirizacao/dashboard.html
+) else (
+    echo.
+    echo ERRO no push. Verifique a conexao com a internet ou autenticacao GitHub.
+)
 
-echo Fazendo push...
-git push -u origin main
-
-echo Pronto! Verifique no GitHub: https://github.com/davidgomes12/dashboard-roteirizacao
 pause
