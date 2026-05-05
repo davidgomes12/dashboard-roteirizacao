@@ -211,7 +211,18 @@
         .mini-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #C9A900, #EECB02); transition: width 0.8s ease; }
 
         .page-section { display: none; }
-        .page-section.active { display: block; }
+        .page-section.active { display: block; animation: pageEnter 0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
+        .page-section.leaving { display: block !important; animation: pageLeave 0.35s ease forwards; pointer-events: none; }
+        @keyframes pageEnter { from { opacity: 0; transform: translateX(32px) scale(0.997); } to { opacity: 1; transform: translateX(0) scale(1); } }
+        @keyframes pageLeave { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(-28px); } }
+
+        /* === MODO APRESENTAÇÃO === */
+        .pres-bar { position: fixed; bottom: 0; left: 0; height: 4px; width: 0%; background: linear-gradient(90deg, var(--primary-dark), var(--primary-light)); z-index: 9999; border-radius: 0 2px 0 0; display: none; transition: none; }
+        .pres-bar.active { display: block; }
+        .pres-badge { display: none; font-size: 0.62rem; font-weight: 700; color: white; background: var(--primary); padding: 3px 10px; border-radius: 20px; letter-spacing: 0.6px; text-transform: uppercase; }
+        .pres-badge.active { display: inline-block; animation: presPulse 2s ease-in-out infinite; }
+        .pres-countdown { font-size: 0.62rem; color: var(--text-muted); font-weight: 500; }
+        @keyframes presPulse { 0%,100%{ opacity:1; } 50%{ opacity:0.55; } }
 
         @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
         .animate-in { animation: fadeUp 0.5s ease forwards; }
@@ -230,6 +241,9 @@
 <body>
     <div class="loading-overlay" id="loading"><div class="spinner"></div></div>
 
+    <!-- Barra de progresso da apresentação (fundo da tela) -->
+    <div class="pres-bar" id="presBar"></div>
+
     <!-- HEADER -->
     <header class="header">
         <div class="header-inner">
@@ -247,6 +261,8 @@
                 <button class="tab" onclick="switchPage('vespertina',this)">Vespertina</button>
             </div>
             <div class="header-meta">
+                <span class="pres-badge" id="presBadge">&#9679; Apresentação</span>
+                <span class="pres-countdown" id="presCountdown"></span>
                 <span class="header-badge" id="headerDate">Atualizado em: --</span>
                 <img class="logo-vaca" src="logo_vaca.png" alt="" onerror="this.style.display='none'">
             </div>
@@ -1574,15 +1590,150 @@ function renderChartVespRealKgDia(porDia) {
 }
 
 // ============ PAGE SWITCH ============
+const PAGE_LABELS = { roteiro:'Roteiro', reentregas:'Reentregas', frota:'Frota', vespertina:'Vespertina' };
+let _switching = false;
+
 function switchPage(page, btn) {
-    document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    document.getElementById('page-'+page).classList.add('active');
-    btn.classList.add('active');
-    if (page === 'reentregas') setTimeout(applyFiltersReent, 100);
-    if (page === 'frota') setTimeout(applyFiltersFrota, 100);
-    if (page === 'vespertina') setTimeout(applyFiltersVesp, 100);
+    if (_switching) return;
+    const current = document.querySelector('.page-section.active');
+    const next    = document.getElementById('page-' + page);
+    if (!next || current === next) return;
+
+    _switching = true;
+    current.classList.add('leaving');
+
+    setTimeout(() => {
+        current.classList.remove('active', 'leaving');
+        next.classList.add('active');
+
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        if (btn) {
+            btn.classList.add('active');
+        } else {
+            document.querySelectorAll('.tab').forEach(t => {
+                if (t.textContent.trim() === PAGE_LABELS[page]) t.classList.add('active');
+            });
+        }
+
+        if (page === 'reentregas') setTimeout(applyFiltersReent, 100);
+        if (page === 'frota')      setTimeout(applyFiltersFrota, 100);
+        if (page === 'vespertina') setTimeout(applyFiltersVesp, 100);
+
+        _switching = false;
+    }, 380);
 }
+
+// ============ MODO APRESENTAÇÃO ============
+(function () {
+    const PAGES    = ['roteiro', 'reentregas', 'frota', 'vespertina'];
+    const DURATION = 30; // segundos por aba
+
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has('apresentacao')) return;
+
+    let idx         = 0;
+    let remaining   = DURATION;
+    let rafId       = null;
+    let scrollRafId = null;
+    let lastTs      = null;
+
+    const bar       = document.getElementById('presBar');
+    const badge     = document.getElementById('presBadge');
+    const countdown = document.getElementById('presCountdown');
+
+    bar.classList.add('active');
+    badge.classList.add('active');
+
+    // Filtros de cada aba
+    const FILTERS = {
+        roteiro:    { mes: 'filterMes',      dia: 'filterDia',      apply: () => applyFilters() },
+        reentregas: { mes: 'filterMesReent', dia: 'filterDiaReent', apply: () => applyFiltersReent() },
+        frota:      { mes: 'filterMesFrota', dia: 'filterDiaFrota', apply: () => applyFiltersFrota() },
+        vespertina: { mes: 'filterMesVesp',  dia: 'filterDiaVesp',  apply: () => applyFiltersVesp() },
+    };
+
+    // Seleciona a última opção do select e dispara o evento de mudança
+    function selectLast(id) {
+        const el = document.getElementById(id);
+        if (!el || el.options.length <= 1) return;
+        el.value = el.options[el.options.length - 1].value;
+        el.dispatchEvent(new Event('change'));
+    }
+
+    // Aplica o filtro de data mais recente (mês e dia) para a aba indicada
+    function applyPresFilters(page) {
+        const cfg = FILTERS[page];
+        if (!cfg) return;
+        selectLast(cfg.mes);           // → dispara onchange → atualiza lista de dias
+        setTimeout(() => {
+            selectLast(cfg.dia);       // → seleciona último dia do mês escolhido
+            cfg.apply();               // → re-renderiza com dia selecionado
+        }, 250);
+    }
+
+    // Scroll suave de cima a baixo ao longo dos segundos disponíveis
+    function stopScroll() {
+        if (scrollRafId) { cancelAnimationFrame(scrollRafId); scrollRafId = null; }
+    }
+
+    function startScroll() {
+        stopScroll();
+        window.scrollTo(0, 0);
+        let scrollStart = null;
+        const scrollMs = (DURATION - 2.5) * 1000; // reserva 2.5 s para filtros/charts
+
+        function step(ts) {
+            if (!scrollStart) scrollStart = ts;
+            const t = Math.min((ts - scrollStart) / scrollMs, 1);
+            // Ignora os extremos para não travar no topo nem embalar no fundo
+            const eased = t < 0.04 ? 0 : t > 0.96 ? 1 : (t - 0.04) / 0.92;
+            const maxY  = document.documentElement.scrollHeight - window.innerHeight;
+            if (maxY > 0) window.scrollTo(0, maxY * eased);
+            if (t < 1) scrollRafId = requestAnimationFrame(step);
+        }
+        scrollRafId = requestAnimationFrame(step);
+    }
+
+    // Chamado após cada troca de aba: aplica filtros e inicia scroll
+    function onPageActivated(page) {
+        applyPresFilters(page);
+        setTimeout(startScroll, 2500); // aguarda filtros + charts renderizarem
+    }
+
+    function tick(ts) {
+        if (!lastTs) lastTs = ts;
+        const elapsed = (ts - lastTs) / 1000;
+        lastTs = ts;
+
+        remaining -= elapsed;
+        if (remaining < 0) remaining = 0;
+
+        const pct = ((DURATION - remaining) / DURATION) * 100;
+        bar.style.width = pct + '%';
+        countdown.textContent = Math.ceil(remaining) + 's';
+
+        if (remaining <= 0) {
+            stopScroll();
+            idx = (idx + 1) % PAGES.length;
+            switchPage(PAGES[idx], null);
+            setTimeout(() => onPageActivated(PAGES[idx]), 420); // após transição
+            remaining = DURATION;
+            lastTs    = null;
+            bar.style.transition = 'none';
+            bar.style.width = '0%';
+            setTimeout(() => { bar.style.transition = ''; }, 50);
+        }
+
+        rafId = requestAnimationFrame(tick);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            onPageActivated(PAGES[idx]); // primeira aba já entra com filtro mais recente
+            rafId = requestAnimationFrame(tick);
+        }, 1800);
+    });
+})();
 
 // ============ INIT ============
 window.addEventListener('DOMContentLoaded', loadData);
