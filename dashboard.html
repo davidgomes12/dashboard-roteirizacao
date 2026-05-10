@@ -75,14 +75,61 @@
             border-radius: 20px; border: 1px solid var(--border);
         }
         .logo-vaca { height: 40px; opacity: 0.85; }
-        .tabs { display: flex; gap: 4px; background: var(--bg-surface); padding: 4px; border-radius: 12px; border: 1px solid var(--border); }
+        .tabs {
+            display: flex; gap: 4px; background: var(--bg-surface); padding: 4px;
+            border-radius: 12px; border: 1px solid var(--border);
+            position: relative; overflow: hidden;
+        }
+        .tabs::before {
+            content: ''; position: absolute; top: 4px; left: 0;
+            height: calc(100% - 8px); width: var(--tab-w, 0);
+            transform: translate3d(var(--tab-x, 0), 0, 0);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 50%, var(--primary-dark) 100%);
+            border-radius: 8px; pointer-events: none; z-index: 0;
+            box-shadow:
+                0 4px 18px rgba(226,10,24,0.45),
+                0 0 0 1px rgba(255,255,255,0.18) inset,
+                0 1px 0 rgba(255,255,255,0.5) inset;
+            transition:
+                transform 0.55s cubic-bezier(0.34, 1.45, 0.64, 1),
+                width 0.55s cubic-bezier(0.34, 1.45, 0.64, 1);
+            opacity: 0;
+        }
+        .tabs.indicator-ready::before { opacity: 1; }
+        .tabs::after {
+            content: ''; position: absolute; top: 4px; left: 0;
+            height: calc(100% - 8px); width: var(--tab-w, 0);
+            transform: translate3d(var(--tab-x, 0), 0, 0);
+            background: linear-gradient(180deg, rgba(255,255,255,0.42) 0%, transparent 60%);
+            border-radius: 8px 8px 4px 4px; pointer-events: none; z-index: 0;
+            transition:
+                transform 0.55s cubic-bezier(0.34, 1.45, 0.64, 1),
+                width 0.55s cubic-bezier(0.34, 1.45, 0.64, 1);
+            mix-blend-mode: overlay;
+        }
         .tab {
             padding: 8px 22px; border: none; background: transparent;
             color: var(--text-secondary); font-family: inherit; font-size: 0.8rem;
-            font-weight: 500; cursor: pointer; border-radius: 8px; transition: all 0.25s;
+            font-weight: 500; cursor: pointer; border-radius: 8px;
+            position: relative; z-index: 1;
+            transition: color 0.35s ease, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), letter-spacing 0.35s ease;
         }
-        .tab:hover { color: var(--text); background: rgba(255,255,255,0.04); }
-        .tab.active { background: var(--primary); color: white; box-shadow: 0 0 16px var(--primary-glow); }
+        .tab:hover:not(.active) { color: var(--primary); transform: translateY(-1px); }
+        .tab.active {
+            color: white; font-weight: 600; letter-spacing: 0.3px;
+            text-shadow: 0 1px 8px rgba(0,0,0,0.18);
+        }
+        .tab.active::after {
+            content: ''; position: absolute; left: 50%; bottom: -2px;
+            width: 4px; height: 4px; border-radius: 50%;
+            background: white; transform: translateX(-50%);
+            box-shadow: 0 0 8px rgba(255,255,255,0.9);
+            animation: tabDot 1.6s ease-in-out infinite;
+        }
+        @keyframes tabDot {
+            0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(0.8); }
+            50%      { opacity: 1;   transform: translateX(-50%) scale(1.2); }
+        }
 
         /* === MAIN === */
         .main { max-width: 1600px; margin: 0 auto; padding: 1.5rem 2rem 3rem; position: relative; z-index: 1; }
@@ -211,10 +258,38 @@
         .mini-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #C9A900, #EECB02); transition: width 0.8s ease; }
 
         .page-section { display: none; }
-        .page-section.active { display: block; animation: pageEnter 0.45s cubic-bezier(0.22,1,0.36,1) forwards; }
-        .page-section.leaving { display: block !important; animation: pageLeave 0.35s ease forwards; pointer-events: none; }
-        @keyframes pageEnter { from { opacity: 0; transform: translateX(32px) scale(0.997); } to { opacity: 1; transform: translateX(0) scale(1); } }
-        @keyframes pageLeave { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(-28px); } }
+        .main { perspective: 1600px; transform-style: preserve-3d; }
+        .page-section.active {
+            display: block;
+            animation: pageEnter3D 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            transform-origin: 50% 0;
+        }
+        .page-section.leaving {
+            display: block !important;
+            animation: pageLeave3D 0.42s cubic-bezier(0.55, 0, 0.78, 0.4) forwards;
+            pointer-events: none;
+            transform-origin: 50% 0;
+        }
+        .page-section.leaving.dir-right { animation-name: pageLeave3DLeft; }
+        .page-section.active.dir-right { animation-name: pageEnter3DRight; }
+        @keyframes pageEnter3D {
+            0%   { opacity: 0; transform: translate3d(36px, 12px, 0) rotateX(6deg) scale(0.98); filter: blur(8px); }
+            60%  { opacity: 1; filter: blur(0); }
+            100% { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0) scale(1); filter: blur(0); }
+        }
+        @keyframes pageLeave3D {
+            0%   { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0) scale(1); filter: blur(0); }
+            100% { opacity: 0; transform: translate3d(-30px, -10px, 0) rotateX(-4deg) scale(0.985); filter: blur(6px); }
+        }
+        @keyframes pageEnter3DRight {
+            0%   { opacity: 0; transform: translate3d(-36px, 12px, 0) rotateX(6deg) scale(0.98); filter: blur(8px); }
+            60%  { opacity: 1; filter: blur(0); }
+            100% { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0) scale(1); filter: blur(0); }
+        }
+        @keyframes pageLeave3DLeft {
+            0%   { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0) scale(1); filter: blur(0); }
+            100% { opacity: 0; transform: translate3d(30px, -10px, 0) rotateX(-4deg) scale(0.985); filter: blur(6px); }
+        }
 
         /* === MODO APRESENTAÇÃO === */
         .pres-bar { position: fixed; bottom: 0; left: 0; height: 4px; width: 0%; background: linear-gradient(90deg, var(--primary-dark), var(--primary-light)); z-index: 9999; border-radius: 0 2px 0 0; display: none; transition: none; }
@@ -233,6 +308,144 @@
         .loading-overlay.hide { opacity: 0; pointer-events: none; }
         .spinner { width: 48px; height: 48px; border: 3px solid var(--border); border-top-color: var(--primary); border-radius: 50%; animation: spin 0.8s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* =========================================================
+           ✨ EFEITOS MODERNOS DE INTERAÇÃO
+           ========================================================= */
+
+        /* Select com brilho ao mudar valor */
+        .filter-select { position: relative; transition: border-color 0.25s, box-shadow 0.4s, transform 0.25s; }
+        .filter-select.flash-glow {
+            animation: selectFlashGlow 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+            border-color: var(--primary) !important;
+        }
+        @keyframes selectFlashGlow {
+            0%   { box-shadow: 0 0 0 0 var(--primary-glow), 0 0 0 transparent; transform: scale(1); }
+            25%  { box-shadow: 0 0 0 8px rgba(226,10,24,0.18), 0 0 28px rgba(226,10,24,0.55); transform: scale(1.02); }
+            55%  { box-shadow: 0 0 0 16px rgba(226,10,24,0.0), 0 0 18px rgba(226,10,24,0.35); transform: scale(1); }
+            100% { box-shadow: 0 0 0 0 transparent, 0 0 0 transparent; transform: scale(1); }
+        }
+        .filter-select:focus { transform: translateY(-1px); }
+
+        /* Reset button gira ao clicar */
+        .filter-btn:active .material-icons-round { animation: spinOnce 0.6s cubic-bezier(0.22,1,0.36,1); }
+        @keyframes spinOnce { from { transform: rotate(0); } to { transform: rotate(-360deg); } }
+
+        /* KPI - efeito shimmer (varredura de luz) */
+        .kpi-card { isolation: isolate; }
+        .kpi-card .shimmer {
+            position: absolute; top: 0; left: -120%;
+            width: 70%; height: 100%;
+            background: linear-gradient(110deg, transparent 30%, rgba(255,255,255,0.55) 50%, transparent 70%);
+            transform: skewX(-22deg);
+            pointer-events: none; z-index: 1;
+            opacity: 0;
+        }
+        .kpi-card:hover .shimmer { animation: shimmerSweep 1.1s cubic-bezier(0.22, 1, 0.36, 1); }
+        @keyframes shimmerSweep {
+            0%   { left: -120%; opacity: 0; }
+            12%  { opacity: 0.9; }
+            85%  { opacity: 0.9; }
+            100% { left: 160%; opacity: 0; }
+        }
+
+        /* KPI value: efeito de "morph" ao atualizar */
+        .kpi-value { display: inline-block; will-change: transform, filter; }
+        .kpi-card.is-updating .kpi-value,
+        .kpi-card.is-updating .kpi-delta,
+        .kpi-card.is-updating .kpi-sub {
+            animation: valueMorph 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes valueMorph {
+            0%   { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+            38%  { opacity: 0; filter: blur(10px); transform: translateY(-10px) scale(1.06) rotateX(20deg); }
+            55%  { opacity: 0; filter: blur(10px); transform: translateY(8px) scale(0.96) rotateX(-12deg); }
+            100% { opacity: 1; filter: blur(0); transform: translateY(0) scale(1) rotateX(0); }
+        }
+
+        /* Pulso de luz após atualização */
+        .kpi-card.flash-pulse,
+        .chart-card.flash-pulse {
+            animation: flashPulse 1.3s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes flashPulse {
+            0%   { box-shadow: 0 4px 20px rgba(180,130,80,0.14), 0 0 0 1px rgba(200,160,100,0.18), inset 0 0 0 0 transparent; }
+            22%  { box-shadow: 0 8px 36px rgba(226,10,24,0.30), 0 0 0 1px rgba(226,10,24,0.50), inset 0 0 28px 4px rgba(226,10,24,0.18); }
+            100% { box-shadow: 0 4px 20px rgba(180,130,80,0.14), 0 0 0 1px rgba(200,160,100,0.18), inset 0 0 0 0 transparent; }
+        }
+
+        /* Linha de luz que "varre" o card durante atualização */
+        .chart-card { position: relative; isolation: isolate; }
+        .chart-card .scan-line {
+            position: absolute; top: 0; left: -10%;
+            width: 30%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(226,10,24,0.18), rgba(255,255,255,0.5), rgba(226,10,24,0.18), transparent);
+            pointer-events: none; opacity: 0; z-index: 2;
+            border-radius: var(--radius);
+        }
+        .chart-card.is-updating .scan-line {
+            animation: scanSweep 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes scanSweep {
+            0%   { left: -30%; opacity: 0; }
+            18%  { opacity: 1; }
+            82%  { opacity: 1; }
+            100% { left: 110%; opacity: 0; }
+        }
+
+        /* Conteúdo do card filtra/desfoca durante atualização */
+        .chart-card.is-updating .table-wrapper,
+        .chart-card.is-updating canvas,
+        .chart-card.is-updating .perf-container {
+            animation: contentFade 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes contentFade {
+            0%   { opacity: 1; filter: blur(0); transform: translateY(0); }
+            45%  { opacity: 0.15; filter: blur(6px); transform: translateY(-4px); }
+            100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+        }
+
+        /* Linhas da tabela - stagger reveal */
+        .data-table tbody tr.row-reveal {
+            animation: rowReveal 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+        }
+        @keyframes rowReveal {
+            from { opacity: 0; transform: translate3d(-14px, 4px, 0); filter: blur(4px); }
+            to   { opacity: 1; transform: translate3d(0, 0, 0); filter: blur(0); }
+        }
+
+        /* Brilho reativo ao mover o mouse sobre KPI cards */
+        .kpi-card { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s, border-color 0.35s; }
+        .kpi-card:hover { transform: translateY(-4px) scale(1.012); }
+
+        /* Floating ambient glow nos cards */
+        .kpi-card::after {
+            animation: ambientGlow 7s ease-in-out infinite alternate;
+        }
+        @keyframes ambientGlow {
+            0%   { opacity: 0.85; transform: scale(1) translate(0, 0); }
+            100% { opacity: 1;    transform: scale(1.08) translate(-4px, -4px); }
+        }
+
+        /* Header date ao atualizar */
+        .header-badge.flash-glow {
+            animation: badgeFlash 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        @keyframes badgeFlash {
+            0%   { background: var(--bg-surface); color: var(--text-secondary); }
+            50%  { background: var(--primary); color: white; box-shadow: 0 0 18px rgba(226,10,24,0.55); transform: scale(1.05); }
+            100% { background: var(--bg-surface); color: var(--text-secondary); }
+        }
+
+        /* Performance ring - pulse ao atualizar */
+        .perf-ring.is-updating .perf-ring-value { animation: valueMorph 0.62s cubic-bezier(0.22, 1, 0.36, 1); }
+        .perf-ring svg { transition: filter 0.4s ease; }
+        .perf-ring:hover svg { filter: drop-shadow(0 0 24px rgba(226,10,24,0.55)); }
+
+        /* Reduced motion respect */
+        @media (prefers-reduced-motion: reduce) {
+            * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+        }
 
         @media (max-width: 1024px) { .charts-row { grid-template-columns: 1fr; } .kpi-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } .main { padding: 1rem; } .perf-container { flex-direction: column; align-items: center; } }
         @media (max-width: 640px) { .header-inner { flex-direction: column; height: auto; padding: 1rem 0; gap: 0.8rem; } .kpi-value { font-size: 1.4rem; } }
@@ -1593,6 +1806,7 @@ function renderChartVespRealKgDia(porDia) {
 const PAGE_LABELS = { roteiro:'Roteiro', reentregas:'Reentregas', frota:'Frota', vespertina:'Vespertina' };
 let _switching = false;
 
+const PAGE_ORDER = ['roteiro', 'reentregas', 'frota', 'vespertina'];
 function switchPage(page, btn) {
     if (_switching) return;
     const current = document.querySelector('.page-section.active');
@@ -1600,27 +1814,41 @@ function switchPage(page, btn) {
     if (!next || current === next) return;
 
     _switching = true;
+
+    // Direção da transição (esquerda/direita) com base na ordem
+    const curId   = current.id.replace('page-', '');
+    const curIdx  = PAGE_ORDER.indexOf(curId);
+    const nextIdx = PAGE_ORDER.indexOf(page);
+    const goingRight = nextIdx < curIdx;
+
+    current.classList.toggle('dir-right', goingRight);
+    next.classList.toggle('dir-right', goingRight);
     current.classList.add('leaving');
 
-    setTimeout(() => {
-        current.classList.remove('active', 'leaving');
-        next.classList.add('active');
+    // Atualiza indicador de aba já no início (transição mais fluida)
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    if (btn) {
+        btn.classList.add('active');
+    } else {
+        document.querySelectorAll('.tab').forEach(t => {
+            if (t.textContent.trim() === PAGE_LABELS[page]) t.classList.add('active');
+        });
+    }
+    if (typeof updateTabIndicator === 'function') updateTabIndicator();
 
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        if (btn) {
-            btn.classList.add('active');
-        } else {
-            document.querySelectorAll('.tab').forEach(t => {
-                if (t.textContent.trim() === PAGE_LABELS[page]) t.classList.add('active');
-            });
-        }
+    setTimeout(() => {
+        current.classList.remove('active', 'leaving', 'dir-right');
+        next.classList.add('active');
 
         if (page === 'reentregas') setTimeout(applyFiltersReent, 100);
         if (page === 'frota')      setTimeout(applyFiltersFrota, 100);
         if (page === 'vespertina') setTimeout(applyFiltersVesp, 100);
 
+        // Limpa marcador de direção depois que entra
+        setTimeout(() => next.classList.remove('dir-right'), 720);
+
         _switching = false;
-    }, 380);
+    }, 420);
 }
 
 // ============ MODO APRESENTAÇÃO ============
@@ -1735,8 +1963,143 @@ function switchPage(page, btn) {
     });
 })();
 
+// =========================================================
+// ✨ EFEITOS MODERNOS — wrappers, count-up, tab indicator
+// =========================================================
+let _animationsReady = false;
+const PAGE_OF_FN = {
+    applyFilters:      'roteiro',
+    applyFiltersReent: 'reentregas',
+    applyFiltersFrota: 'frota',
+    applyFiltersVesp:  'vespertina',
+};
+
+// Injeta elementos auxiliares (shimmer e scan-line) em cada card
+function injectCardEffects() {
+    document.querySelectorAll('.kpi-card').forEach(c => {
+        if (!c.querySelector('.shimmer')) {
+            const s = document.createElement('span');
+            s.className = 'shimmer';
+            c.appendChild(s);
+        }
+    });
+    document.querySelectorAll('.chart-card').forEach(c => {
+        if (!c.querySelector('.scan-line')) {
+            const s = document.createElement('span');
+            s.className = 'scan-line';
+            c.appendChild(s);
+        }
+    });
+}
+
+// Envolve uma função applyFilters* com efeito visual de morph + pulso
+function wrapApplyFn(fnName) {
+    const orig = window[fnName];
+    if (typeof orig !== 'function') return;
+    const pageId = PAGE_OF_FN[fnName];
+
+    window[fnName] = function () {
+        // Sem animação no carregamento inicial: chama direto
+        if (!_animationsReady) return orig.apply(this, arguments);
+
+        const section = document.getElementById('page-' + pageId);
+        const args    = arguments;
+        const ctx     = this;
+
+        if (!section) return orig.apply(ctx, args);
+
+        const cards = section.querySelectorAll('.kpi-card, .chart-card');
+        const rings = section.querySelectorAll('.perf-ring');
+
+        cards.forEach((c, i) => {
+            c.classList.remove('flash-pulse');
+            c.classList.add('is-updating');
+            c.style.animationDelay = (i * 24) + 'ms';
+        });
+        rings.forEach(r => r.classList.add('is-updating'));
+
+        // Aplica os novos valores no meio da animação (já invisível)
+        setTimeout(() => {
+            orig.apply(ctx, args);
+
+            // Fase final: remove "is-updating" e dispara o pulso de luz
+            requestAnimationFrame(() => {
+                cards.forEach(c => {
+                    c.classList.remove('is-updating');
+                    void c.offsetWidth;       // força reflow
+                    c.classList.add('flash-pulse');
+                    c.style.animationDelay = '';
+                });
+                rings.forEach(r => r.classList.remove('is-updating'));
+
+                // anima as linhas de tabelas com stagger
+                section.querySelectorAll('.data-table tbody tr').forEach((tr, i) => {
+                    tr.classList.remove('row-reveal');
+                    void tr.offsetWidth;
+                    tr.classList.add('row-reveal');
+                    tr.style.animationDelay = (i * 22) + 'ms';
+                });
+            });
+        }, 240);
+    };
+}
+
+// Indicador deslizante das abas
+function updateTabIndicator() {
+    const tabs = document.querySelector('.tabs');
+    if (!tabs) return;
+    const active = tabs.querySelector('.tab.active');
+    if (!active) return;
+    const tRect = tabs.getBoundingClientRect();
+    const aRect = active.getBoundingClientRect();
+    tabs.style.setProperty('--tab-w', aRect.width + 'px');
+    tabs.style.setProperty('--tab-x', (aRect.left - tRect.left) + 'px');
+    tabs.classList.add('indicator-ready');
+}
+
+// Brilho ao mudar selects de filtro
+function bindSelectGlow() {
+    document.querySelectorAll('.filter-select').forEach(sel => {
+        sel.addEventListener('change', () => {
+            sel.classList.remove('flash-glow');
+            void sel.offsetWidth;
+            sel.classList.add('flash-glow');
+            setTimeout(() => sel.classList.remove('flash-glow'), 1000);
+        });
+    });
+}
+
+// Pisca o badge "Atualizado em" quando os dados são (re)carregados
+function flashHeaderDate() {
+    const el = document.getElementById('headerDate');
+    if (!el) return;
+    el.classList.remove('flash-glow');
+    void el.offsetWidth;
+    el.classList.add('flash-glow');
+    setTimeout(() => el.classList.remove('flash-glow'), 1100);
+}
+
+// Boot dos efeitos: roda 1 vez após o DOM e depois de DATA carregar
+function bootAnimations() {
+    injectCardEffects();
+    bindSelectGlow();
+    updateTabIndicator();
+    Object.keys(PAGE_OF_FN).forEach(wrapApplyFn);
+    window.addEventListener('resize', updateTabIndicator);
+    window.addEventListener('load', updateTabIndicator);
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(updateTabIndicator);
+    }
+    // Habilita as animações depois do load inicial (evita ruído)
+    setTimeout(() => { _animationsReady = true; flashHeaderDate(); }, 1200);
+}
+
+// =========================================================
 // ============ INIT ============
-window.addEventListener('DOMContentLoaded', loadData);
+window.addEventListener('DOMContentLoaded', () => {
+    loadData();
+    bootAnimations();
+});
 </script>
 </body>
 </html>
