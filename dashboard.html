@@ -6,7 +6,8 @@
     <title>Indicador de Roteiro 2026 — Tirolez</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"
+            onerror="var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.7/chart.umd.min.js';document.head.appendChild(s)"></script>
     <style>
         :root {
             --primary: #E20A18;
@@ -257,38 +258,28 @@
         .mini-bar { height: 6px; border-radius: 3px; background: var(--bg-surface); overflow: hidden; width: 100%; }
         .mini-bar-fill { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #C9A900, #EECB02); transition: width 0.8s ease; }
 
+        .main { position: relative; }
         .page-section { display: none; }
-        .main { perspective: 1600px; transform-style: preserve-3d; }
         .page-section.active {
             display: block;
-            animation: pageEnter3D 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-            transform-origin: 50% 0;
+            animation: pageFadeIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+            animation-delay: 0.18s;
+            opacity: 0;
         }
         .page-section.leaving {
             display: block !important;
-            animation: pageLeave3D 0.42s cubic-bezier(0.55, 0, 0.78, 0.4) forwards;
+            position: absolute; inset: 0; width: 100%;
+            animation: pageFadeOut 0.42s cubic-bezier(0.4, 0, 0.2, 1) both;
             pointer-events: none;
-            transform-origin: 50% 0;
+            z-index: 1;
         }
-        .page-section.leaving.dir-right { animation-name: pageLeave3DLeft; }
-        .page-section.active.dir-right { animation-name: pageEnter3DRight; }
-        @keyframes pageEnter3D {
-            0%   { opacity: 0; transform: translate3d(36px, 12px, 0) rotateX(6deg) scale(0.98); filter: blur(8px); }
-            60%  { opacity: 1; filter: blur(0); }
-            100% { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0) scale(1); filter: blur(0); }
+        @keyframes pageFadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
-        @keyframes pageLeave3D {
-            0%   { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0) scale(1); filter: blur(0); }
-            100% { opacity: 0; transform: translate3d(-30px, -10px, 0) rotateX(-4deg) scale(0.985); filter: blur(6px); }
-        }
-        @keyframes pageEnter3DRight {
-            0%   { opacity: 0; transform: translate3d(-36px, 12px, 0) rotateX(6deg) scale(0.98); filter: blur(8px); }
-            60%  { opacity: 1; filter: blur(0); }
-            100% { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0) scale(1); filter: blur(0); }
-        }
-        @keyframes pageLeave3DLeft {
-            0%   { opacity: 1; transform: translate3d(0, 0, 0) rotateX(0) scale(1); filter: blur(0); }
-            100% { opacity: 0; transform: translate3d(30px, -10px, 0) rotateX(-4deg) scale(0.985); filter: blur(6px); }
+        @keyframes pageFadeOut {
+            from { opacity: 1; transform: translateY(0); }
+            to   { opacity: 0; transform: translateY(-6px); }
         }
 
         /* === MODO APRESENTAÇÃO === */
@@ -320,10 +311,9 @@
             border-color: var(--primary) !important;
         }
         @keyframes selectFlashGlow {
-            0%   { box-shadow: 0 0 0 0 var(--primary-glow), 0 0 0 transparent; transform: scale(1); }
-            25%  { box-shadow: 0 0 0 8px rgba(226,10,24,0.18), 0 0 28px rgba(226,10,24,0.55); transform: scale(1.02); }
-            55%  { box-shadow: 0 0 0 16px rgba(226,10,24,0.0), 0 0 18px rgba(226,10,24,0.35); transform: scale(1); }
-            100% { box-shadow: 0 0 0 0 transparent, 0 0 0 transparent; transform: scale(1); }
+            0%   { box-shadow: 0 0 0 0 transparent; }
+            40%  { box-shadow: 0 0 0 4px rgba(226,10,24,0.10), 0 0 12px rgba(226,10,24,0.18); }
+            100% { box-shadow: 0 0 0 0 transparent; }
         }
         .filter-select:focus { transform: translateY(-1px); }
 
@@ -349,61 +339,9 @@
             100% { left: 160%; opacity: 0; }
         }
 
-        /* KPI value: efeito de "morph" ao atualizar */
-        .kpi-value { display: inline-block; will-change: transform, filter; }
-        .kpi-card.is-updating .kpi-value,
-        .kpi-card.is-updating .kpi-delta,
-        .kpi-card.is-updating .kpi-sub {
-            animation: valueMorph 0.62s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        @keyframes valueMorph {
-            0%   { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
-            38%  { opacity: 0; filter: blur(10px); transform: translateY(-10px) scale(1.06) rotateX(20deg); }
-            55%  { opacity: 0; filter: blur(10px); transform: translateY(8px) scale(0.96) rotateX(-12deg); }
-            100% { opacity: 1; filter: blur(0); transform: translateY(0) scale(1) rotateX(0); }
-        }
-
-        /* Pulso de luz após atualização */
-        .kpi-card.flash-pulse,
-        .chart-card.flash-pulse {
-            animation: flashPulse 1.3s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        @keyframes flashPulse {
-            0%   { box-shadow: 0 4px 20px rgba(180,130,80,0.14), 0 0 0 1px rgba(200,160,100,0.18), inset 0 0 0 0 transparent; }
-            22%  { box-shadow: 0 8px 36px rgba(226,10,24,0.30), 0 0 0 1px rgba(226,10,24,0.50), inset 0 0 28px 4px rgba(226,10,24,0.18); }
-            100% { box-shadow: 0 4px 20px rgba(180,130,80,0.14), 0 0 0 1px rgba(200,160,100,0.18), inset 0 0 0 0 transparent; }
-        }
-
-        /* Linha de luz que "varre" o card durante atualização */
+        /* KPI value: contador suave (count-up) - sem distorção, só o número anima */
+        .kpi-value { display: inline-block; font-variant-numeric: tabular-nums; }
         .chart-card { position: relative; isolation: isolate; }
-        .chart-card .scan-line {
-            position: absolute; top: 0; left: -10%;
-            width: 30%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(226,10,24,0.18), rgba(255,255,255,0.5), rgba(226,10,24,0.18), transparent);
-            pointer-events: none; opacity: 0; z-index: 2;
-            border-radius: var(--radius);
-        }
-        .chart-card.is-updating .scan-line {
-            animation: scanSweep 0.62s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        @keyframes scanSweep {
-            0%   { left: -30%; opacity: 0; }
-            18%  { opacity: 1; }
-            82%  { opacity: 1; }
-            100% { left: 110%; opacity: 0; }
-        }
-
-        /* Conteúdo do card filtra/desfoca durante atualização */
-        .chart-card.is-updating .table-wrapper,
-        .chart-card.is-updating canvas,
-        .chart-card.is-updating .perf-container {
-            animation: contentFade 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-        }
-        @keyframes contentFade {
-            0%   { opacity: 1; filter: blur(0); transform: translateY(0); }
-            45%  { opacity: 0.15; filter: blur(6px); transform: translateY(-4px); }
-            100% { opacity: 1; filter: blur(0); transform: translateY(0); }
-        }
 
         /* Linhas da tabela - stagger reveal */
         .data-table tbody tr.row-reveal {
@@ -437,8 +375,8 @@
             100% { background: var(--bg-surface); color: var(--text-secondary); }
         }
 
-        /* Performance ring - pulse ao atualizar */
-        .perf-ring.is-updating .perf-ring-value { animation: valueMorph 0.62s cubic-bezier(0.22, 1, 0.36, 1); }
+        /* Performance ring */
+        .perf-ring-value { font-variant-numeric: tabular-nums; }
         .perf-ring svg { transition: filter 0.4s ease; }
         .perf-ring:hover svg { filter: drop-shadow(0 0 24px rgba(226,10,24,0.55)); }
 
@@ -467,11 +405,11 @@
                     <span>Logística 2026 — Distribuição SP</span>
                 </div>
             </div>
-            <div class="tabs">
-                <button class="tab active" onclick="switchPage('roteiro',this)">Roteiro</button>
-                <button class="tab" onclick="switchPage('reentregas',this)">Reentregas</button>
-                <button class="tab" onclick="switchPage('frota',this)">Frota</button>
-                <button class="tab" onclick="switchPage('vespertina',this)">Vespertina</button>
+            <div class="tabs" role="tablist" aria-label="Seções do dashboard">
+                <button class="tab active" role="tab" aria-selected="true"  aria-controls="page-roteiro"     id="tab-roteiro"     onclick="switchPage('roteiro',this)">Roteiro</button>
+                <button class="tab"        role="tab" aria-selected="false" aria-controls="page-reentregas" id="tab-reentregas" onclick="switchPage('reentregas',this)">Reentregas</button>
+                <button class="tab"        role="tab" aria-selected="false" aria-controls="page-frota"      id="tab-frota"      onclick="switchPage('frota',this)">Frota</button>
+                <button class="tab"        role="tab" aria-selected="false" aria-controls="page-vespertina" id="tab-vespertina" onclick="switchPage('vespertina',this)">Vespertina</button>
             </div>
             <div class="header-meta">
                 <span class="pres-badge" id="presBadge">&#9679; Apresentação</span>
@@ -484,17 +422,17 @@
 
     <main class="main">
         <!-- ========== ROTEIRO ========== -->
-        <section class="page-section active" id="page-roteiro">
+        <section class="page-section active" id="page-roteiro" role="tabpanel" aria-labelledby="tab-roteiro">
             <div class="filters-bar animate-in">
                 <div class="filter-group">
                     <span class="filter-label">Mês</span>
-                    <select class="filter-select" id="filterMes" onchange="applyFilters()"><option value="all">Todos os Meses</option></select>
+                    <select class="filter-select" id="filterMes" aria-label="Filtrar por mês" onchange="applyFilters()"><option value="all">Todos os Meses</option></select>
                 </div>
                 <div class="filter-group">
                     <span class="filter-label">Dia</span>
-                    <select class="filter-select" id="filterDia" onchange="applyFilters()"><option value="all">Todos os Dias</option></select>
+                    <select class="filter-select" id="filterDia" aria-label="Filtrar por dia" onchange="applyFilters()"><option value="all">Todos os Dias</option></select>
                 </div>
-                <button class="filter-btn" onclick="resetFilters()">
+                <button class="filter-btn" aria-label="Limpar filtros de Roteiro" onclick="resetFilters()">
                     <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
                 </button>
             </div>
@@ -638,17 +576,17 @@
         </section>
 
         <!-- ========== REENTREGAS ========== -->
-        <section class="page-section" id="page-reentregas">
+        <section class="page-section" id="page-reentregas" role="tabpanel" aria-labelledby="tab-reentregas">
             <div class="filters-bar animate-in">
                 <div class="filter-group">
                     <span class="filter-label">Mês</span>
-                    <select class="filter-select" id="filterMesReent" onchange="applyFiltersReent()"><option value="all">Todos os Meses</option></select>
+                    <select class="filter-select" id="filterMesReent" aria-label="Filtrar reentregas por mês" onchange="applyFiltersReent()"><option value="all">Todos os Meses</option></select>
                 </div>
                 <div class="filter-group">
                     <span class="filter-label">Dia</span>
-                    <select class="filter-select" id="filterDiaReent" onchange="applyFiltersReent()"><option value="all">Todos os Dias</option></select>
+                    <select class="filter-select" id="filterDiaReent" aria-label="Filtrar reentregas por dia" onchange="applyFiltersReent()"><option value="all">Todos os Dias</option></select>
                 </div>
-                <button class="filter-btn" onclick="resetFiltersReent()">
+                <button class="filter-btn" aria-label="Limpar filtros de Reentregas" onclick="resetFiltersReent()">
                     <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
                 </button>
             </div>
@@ -744,17 +682,17 @@
         </section>
 
         <!-- ========== FROTA ========== -->
-        <section class="page-section" id="page-frota">
+        <section class="page-section" id="page-frota" role="tabpanel" aria-labelledby="tab-frota">
             <div class="filters-bar animate-in">
                 <div class="filter-group">
                     <span class="filter-label">Mês</span>
-                    <select class="filter-select" id="filterMesFrota" onchange="applyFiltersFrota()"><option value="all">Todos os Meses</option></select>
+                    <select class="filter-select" id="filterMesFrota" aria-label="Filtrar frota por mês" onchange="applyFiltersFrota()"><option value="all">Todos os Meses</option></select>
                 </div>
                 <div class="filter-group">
                     <span class="filter-label">Dia</span>
-                    <select class="filter-select" id="filterDiaFrota" onchange="applyFiltersFrota()"><option value="all">Todos os Dias</option></select>
+                    <select class="filter-select" id="filterDiaFrota" aria-label="Filtrar frota por dia" onchange="applyFiltersFrota()"><option value="all">Todos os Dias</option></select>
                 </div>
-                <button class="filter-btn" onclick="resetFiltersFrota()">
+                <button class="filter-btn" aria-label="Limpar filtros de Frota" onclick="resetFiltersFrota()">
                     <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
                 </button>
             </div>
@@ -833,17 +771,17 @@
         </section>
 
         <!-- ========== VESPERTINA ========== -->
-        <section class="page-section" id="page-vespertina">
+        <section class="page-section" id="page-vespertina" role="tabpanel" aria-labelledby="tab-vespertina">
             <div class="filters-bar animate-in">
                 <div class="filter-group">
                     <span class="filter-label">Mês</span>
-                    <select class="filter-select" id="filterMesVesp" onchange="applyFiltersVesp()"><option value="all">Todos os Meses</option></select>
+                    <select class="filter-select" id="filterMesVesp" aria-label="Filtrar Vespertina por mês" onchange="applyFiltersVesp()"><option value="all">Todos os Meses</option></select>
                 </div>
                 <div class="filter-group">
                     <span class="filter-label">Dia</span>
-                    <select class="filter-select" id="filterDiaVesp" onchange="applyFiltersVesp()"><option value="all">Todos os Dias</option></select>
+                    <select class="filter-select" id="filterDiaVesp" aria-label="Filtrar Vespertina por dia" onchange="applyFiltersVesp()"><option value="all">Todos os Dias</option></select>
                 </div>
-                <button class="filter-btn" onclick="resetFiltersVesp()">
+                <button class="filter-btn" aria-label="Limpar filtros de Vespertina" onclick="resetFiltersVesp()">
                     <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
                 </button>
             </div>
@@ -1013,43 +951,49 @@ const fmt = {
     diaLabel: d => { const [y,m,day]=d.split('-'); return day+'/'+m; },
 };
 
-// ============ FILTERS ROTEIRO ============
-function populateFilters() {
-    const sM = document.getElementById('filterMes');
-    const sD = document.getElementById('filterDia');
-    DATA.filtros.meses.forEach(m => { const o=document.createElement('option'); o.value=m; o.textContent=fmt.mesLabel(m); sM.appendChild(o); });
-    DATA.filtros.dias.forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=fmt.diaLabel(d); sD.appendChild(o); });
+// ============ HELPERS DE FILTRO (comuns a todas as abas) ============
+
+// Popula os <select> de mês e dia com as opções disponíveis
+function populateMesDia(mesId, diaId, meses, dias) {
+    const sM = document.getElementById(mesId);
+    const sD = document.getElementById(diaId);
+    meses.forEach(m => { const o=document.createElement('option'); o.value=m; o.textContent=fmt.mesLabel(m); sM.appendChild(o); });
+    dias.forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=fmt.diaLabel(d); sD.appendChild(o); });
 }
 
-function updateDiaOptions(mes) {
-    const s = document.getElementById('filterDia');
+// Recarrega as opções de dia filtrando pelo mês selecionado, mantendo seleção anterior se possível
+function updateDiaSelect(diaSelectId, allDias, selectedMes) {
+    const s = document.getElementById(diaSelectId);
     const cv = s.value;
     s.innerHTML = '<option value="all">Todos os Dias</option>';
-    let dias = DATA.filtros.dias;
-    if (mes !== 'all') dias = dias.filter(d => d.startsWith(mes));
+    const dias = selectedMes !== 'all' ? allDias.filter(d => d.startsWith(selectedMes)) : allDias;
     dias.forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=fmt.diaLabel(d); s.appendChild(o); });
     if (dias.includes(cv)) s.value = cv;
 }
+
+// Calcula KPIs a partir dos dados granulares por dia/mês (escala e vespertina)
+function kpisFromGrain(mes, dia, porDia, porMes, baseKpis) {
+    if (dia !== 'all') {
+        const d = porDia.find(r => r.DIA === dia);
+        if (d) return { peso_total:d.peso, frete_total:d.frete, qtd_veiculos:d.veiculos, qtd_entregas:d.entregas, ocupacao_total:d.ocupacao, real_kg_total:d.real_kg, capac_total:d.capac };
+    } else if (mes !== 'all') {
+        const m = porMes.find(r => r.MES_KEY === mes);
+        if (m) return { peso_total:m.peso, frete_total:m.frete, qtd_veiculos:m.veiculos, qtd_entregas:m.entregas, ocupacao_total:m.ocupacao, real_kg_total:m.real_kg, capac_total:m.capac };
+    }
+    return baseKpis;
+}
+
+// ============ FILTERS ROTEIRO ============
+function populateFilters() { populateMesDia('filterMes', 'filterDia', DATA.filtros.meses, DATA.filtros.dias); }
+
+function updateDiaOptions(mes) { updateDiaSelect('filterDia', DATA.filtros.dias, mes); }
 
 function resetFilters() { document.getElementById('filterMes').value='all'; document.getElementById('filterDia').value='all'; applyFilters(); }
 
 // ============ FILTERS REENTREGAS ============
-function populateFiltersReent() {
-    const sM = document.getElementById('filterMesReent');
-    const sD = document.getElementById('filterDiaReent');
-    (DATA.filtros.meses_reent||[]).forEach(m => { const o=document.createElement('option'); o.value=m; o.textContent=fmt.mesLabel(m); sM.appendChild(o); });
-    (DATA.filtros.dias_reent||[]).forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=fmt.diaLabel(d); sD.appendChild(o); });
-}
+function populateFiltersReent() { populateMesDia('filterMesReent', 'filterDiaReent', DATA.filtros.meses_reent||[], DATA.filtros.dias_reent||[]); }
 
-function updateDiaOptionsReent(mes) {
-    const s = document.getElementById('filterDiaReent');
-    const cv = s.value;
-    s.innerHTML = '<option value="all">Todos os Dias</option>';
-    let dias = DATA.filtros.dias_reent || [];
-    if (mes !== 'all') dias = dias.filter(d => d.startsWith(mes));
-    dias.forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=fmt.diaLabel(d); s.appendChild(o); });
-    if (dias.includes(cv)) s.value = cv;
-}
+function updateDiaOptionsReent(mes) { updateDiaSelect('filterDiaReent', DATA.filtros.dias_reent||[], mes); }
 
 function resetFiltersReent() { document.getElementById('filterMesReent').value='all'; document.getElementById('filterDiaReent').value='all'; applyFiltersReent(); }
 
@@ -1069,16 +1013,7 @@ function applyFilters() {
     }
     if (dia !== 'all') porVeiculoDia = porVeiculoDia.filter(r => r.DIA === dia);
 
-    let kpis;
-    if (dia !== 'all') {
-        const d = porDia.find(r => r.DIA === dia);
-        kpis = d ? { peso_total: d.peso, frete_total: d.frete, qtd_veiculos: d.veiculos, qtd_entregas: d.entregas, ocupacao_total: d.ocupacao, real_kg_total: d.real_kg } : DATA.kpis;
-    } else if (mes !== 'all') {
-        const m = DATA.por_mes.find(r => r.MES_KEY === mes);
-        kpis = m ? { peso_total: m.peso, frete_total: m.frete, qtd_veiculos: m.veiculos, qtd_entregas: m.entregas, ocupacao_total: m.ocupacao, real_kg_total: m.real_kg } : DATA.kpis;
-    } else {
-        kpis = DATA.kpis;
-    }
+    const kpis = kpisFromGrain(mes, dia, porDia, DATA.por_mes, DATA.kpis);
 
     document.getElementById('kpiVeiculos').textContent = fmt.num(kpis.qtd_veiculos);
     document.getElementById('kpiEntregas').textContent = fmt.num(kpis.qtd_entregas);
@@ -1506,22 +1441,9 @@ function renderTableReentDetail(tableId, data) {
 }
 
 // ============ FILTERS FROTA ============
-function populateFiltersFrota() {
-    const sM = document.getElementById('filterMesFrota');
-    const sD = document.getElementById('filterDiaFrota');
-    (DATA.filtros.meses_frota||[]).forEach(m => { const o=document.createElement('option'); o.value=m; o.textContent=fmt.mesLabel(m); sM.appendChild(o); });
-    (DATA.filtros.dias_frota||[]).forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=fmt.diaLabel(d); sD.appendChild(o); });
-}
+function populateFiltersFrota() { populateMesDia('filterMesFrota', 'filterDiaFrota', DATA.filtros.meses_frota||[], DATA.filtros.dias_frota||[]); }
 
-function updateDiaOptionsFrota(mes) {
-    const s = document.getElementById('filterDiaFrota');
-    const cv = s.value;
-    s.innerHTML = '<option value="all">Todos os Dias</option>';
-    let dias = DATA.filtros.dias_frota || [];
-    if (mes !== 'all') dias = dias.filter(d => d.startsWith(mes));
-    dias.forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=fmt.diaLabel(d); s.appendChild(o); });
-    if (dias.includes(cv)) s.value = cv;
-}
+function updateDiaOptionsFrota(mes) { updateDiaSelect('filterDiaFrota', DATA.filtros.dias_frota||[], mes); }
 
 function resetFiltersFrota() { document.getElementById('filterMesFrota').value='all'; document.getElementById('filterDiaFrota').value='all'; applyFiltersFrota(); }
 
@@ -1671,22 +1593,9 @@ function renderTableFrota(tableId, data, nameKey) {
 }
 
 // ============ FILTERS VESPERTINA ============
-function populateFiltersVesp() {
-    const sM = document.getElementById('filterMesVesp');
-    const sD = document.getElementById('filterDiaVesp');
-    (DATA.filtros.meses_vesp||[]).forEach(m => { const o=document.createElement('option'); o.value=m; o.textContent=fmt.mesLabel(m); sM.appendChild(o); });
-    (DATA.filtros.dias_vesp||[]).forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=fmt.diaLabel(d); sD.appendChild(o); });
-}
+function populateFiltersVesp() { populateMesDia('filterMesVesp', 'filterDiaVesp', DATA.filtros.meses_vesp||[], DATA.filtros.dias_vesp||[]); }
 
-function updateDiaOptionsVesp(mes) {
-    const s = document.getElementById('filterDiaVesp');
-    const cv = s.value;
-    s.innerHTML = '<option value="all">Todos os Dias</option>';
-    let dias = DATA.filtros.dias_vesp || [];
-    if (mes !== 'all') dias = dias.filter(d => d.startsWith(mes));
-    dias.forEach(d => { const o=document.createElement('option'); o.value=d; o.textContent=fmt.diaLabel(d); s.appendChild(o); });
-    if (dias.includes(cv)) s.value = cv;
-}
+function updateDiaOptionsVesp(mes) { updateDiaSelect('filterDiaVesp', DATA.filtros.dias_vesp||[], mes); }
 
 function resetFiltersVesp() { document.getElementById('filterMesVesp').value='all'; document.getElementById('filterDiaVesp').value='all'; applyFiltersVesp(); }
 
@@ -1713,16 +1622,7 @@ function applyFiltersVesp() {
         porVeiculoDiaTL = porVeiculoDiaTL.filter(r => r.DIA === dia);
     }
 
-    let kpis;
-    if (dia !== 'all') {
-        const d = porDia.find(r => r.DIA === dia);
-        kpis = d ? { peso_total: d.peso, frete_total: d.frete, qtd_veiculos: d.veiculos, qtd_entregas: d.entregas, ocupacao_total: d.ocupacao, real_kg_total: d.real_kg, capac_total: d.capac } : DATA.vesp_kpis;
-    } else if (mes !== 'all') {
-        const m = DATA.vesp_por_mes.find(r => r.MES_KEY === mes);
-        kpis = m ? { peso_total: m.peso, frete_total: m.frete, qtd_veiculos: m.veiculos, qtd_entregas: m.entregas, ocupacao_total: m.ocupacao, real_kg_total: m.real_kg, capac_total: m.capac } : DATA.vesp_kpis;
-    } else {
-        kpis = DATA.vesp_kpis;
-    }
+    const kpis = kpisFromGrain(mes, dia, porDia, DATA.vesp_por_mes, DATA.vesp_kpis);
 
     document.getElementById('kpiVespVeiculos').textContent = fmt.num(kpis.qtd_veiculos);
     document.getElementById('kpiVespEntregas').textContent = fmt.num(kpis.qtd_entregas);
@@ -1815,40 +1715,35 @@ function switchPage(page, btn) {
 
     _switching = true;
 
-    // Direção da transição (esquerda/direita) com base na ordem
-    const curId   = current.id.replace('page-', '');
-    const curIdx  = PAGE_ORDER.indexOf(curId);
-    const nextIdx = PAGE_ORDER.indexOf(page);
-    const goingRight = nextIdx < curIdx;
-
-    current.classList.toggle('dir-right', goingRight);
-    next.classList.toggle('dir-right', goingRight);
-    current.classList.add('leaving');
-
-    // Atualiza indicador de aba já no início (transição mais fluida)
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    // Atualiza visual e acessibilidade da aba imediatamente (sem esperar transição)
+    document.querySelectorAll('.tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
     if (btn) {
         btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
     } else {
         document.querySelectorAll('.tab').forEach(t => {
-            if (t.textContent.trim() === PAGE_LABELS[page]) t.classList.add('active');
+            if (t.textContent.trim() === PAGE_LABELS[page]) { t.classList.add('active'); t.setAttribute('aria-selected', 'true'); }
         });
     }
     if (typeof updateTabIndicator === 'function') updateTabIndicator();
 
+    // Inicia o fade-out da página atual; a próxima já entra com delay (definido no CSS)
+    current.classList.add('leaving');
+    next.classList.add('active');
+
+    if (page === 'reentregas') setTimeout(applyFiltersReent, 200);
+    if (page === 'frota')      setTimeout(applyFiltersFrota, 200);
+    if (page === 'vespertina') setTimeout(applyFiltersVesp, 200);
+
+    // Limpa o estado da página anterior após o fade-out terminar (420ms)
     setTimeout(() => {
-        current.classList.remove('active', 'leaving', 'dir-right');
-        next.classList.add('active');
+        current.classList.remove('active', 'leaving');
+    }, 440);
 
-        if (page === 'reentregas') setTimeout(applyFiltersReent, 100);
-        if (page === 'frota')      setTimeout(applyFiltersFrota, 100);
-        if (page === 'vespertina') setTimeout(applyFiltersVesp, 100);
-
-        // Limpa marcador de direção depois que entra
-        setTimeout(() => next.classList.remove('dir-right'), 720);
-
+    // Libera o lock após a entrada da próxima completar (delay 180 + 550ms)
+    setTimeout(() => {
         _switching = false;
-    }, 420);
+    }, 740);
 }
 
 // ============ MODO APRESENTAÇÃO ============
@@ -1992,7 +1887,79 @@ function injectCardEffects() {
     });
 }
 
-// Envolve uma função applyFilters* com efeito visual de morph + pulso
+// ---------- Count-up suave estilo cronômetro ----------
+// Faz o parsing do texto formatado (prefixo, sufixo, número, casas decimais)
+function _parseFormattedNumber(text) {
+    if (text == null) return null;
+    const str = String(text).trim();
+    if (!str || str === '--') return null;
+    // Captura: prefixo (não-numérico/sinal), número (com . , - ), sufixo
+    const m = str.match(/^([^0-9\-]*)(-?[0-9.,]+)(.*)$/);
+    if (!m) return null;
+    const prefix = m[1];
+    let numStr   = m[2];
+    const suffix = m[3];
+    // pt-BR: vírgula é decimal, ponto é milhar -> normaliza para JS
+    const hasComma = numStr.includes(',');
+    if (hasComma) {
+        numStr = numStr.replace(/\./g, '').replace(',', '.');
+    } else {
+        // sem vírgula: pontos podem ser milhares (ex.: "1.234") ou decimais raros
+        // se houver mais de um ponto ou o último grupo tem 3 dígitos, são milhares
+        const parts = numStr.split('.');
+        if (parts.length > 2 || (parts.length === 2 && parts[1].length === 3)) {
+            numStr = parts.join('');
+        }
+    }
+    const value = parseFloat(numStr);
+    if (!Number.isFinite(value)) return null;
+    // Detecta nº de casas decimais a partir do texto original
+    const decMatch = m[2].match(/,(\d+)$/);
+    const decimals = decMatch ? decMatch[1].length : 0;
+    return { value, prefix, suffix, decimals };
+}
+
+function _formatLikeBR(value, prefix, suffix, decimals) {
+    const n = Number(value).toLocaleString('pt-BR', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals,
+    });
+    return prefix + n + suffix;
+}
+
+// Anima o conteúdo numérico de `el` saindo de `fromText` para `toText`
+function animateNumber(el, fromText, toText, duration) {
+    const from = _parseFormattedNumber(fromText);
+    const to   = _parseFormattedNumber(toText);
+    // Se não der pra interpretar como número, aplica direto sem animar
+    if (!from || !to || from.value === to.value) {
+        el.textContent = toText;
+        return;
+    }
+    const start = performance.now();
+    const dur   = duration || 700;
+    const delta = to.value - from.value;
+    // easeOutExpo — rápido no início, acomoda macio no fim (sensação de cronômetro)
+    const ease = t => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
+
+    if (el._countRaf) cancelAnimationFrame(el._countRaf);
+
+    const step = now => {
+        const t = Math.min(1, (now - start) / dur);
+        const v = from.value + delta * ease(t);
+        el.textContent = _formatLikeBR(v, to.prefix, to.suffix, to.decimals);
+        if (t < 1) {
+            el._countRaf = requestAnimationFrame(step);
+        } else {
+            el.textContent = toText; // garante valor final exato
+            el._countRaf = null;
+        }
+    };
+    el._countRaf = requestAnimationFrame(step);
+}
+
+// Envolve uma função applyFilters* — captura valores antigos, aplica os novos
+// e roda o count-up entre eles. Sem morph, sem flash, sem blur.
 function wrapApplyFn(fnName) {
     const orig = window[fnName];
     if (typeof orig !== 'function') return;
@@ -2003,44 +1970,28 @@ function wrapApplyFn(fnName) {
         if (!_animationsReady) return orig.apply(this, arguments);
 
         const section = document.getElementById('page-' + pageId);
-        const args    = arguments;
-        const ctx     = this;
+        if (!section) return orig.apply(this, arguments);
 
-        if (!section) return orig.apply(ctx, args);
+        // 1) Captura valores antigos de todos elementos numéricos da página
+        const numEls = section.querySelectorAll('.kpi-value, .perf-ring-value');
+        const oldVals = Array.from(numEls).map(el => el.textContent);
 
-        const cards = section.querySelectorAll('.kpi-card, .chart-card');
-        const rings = section.querySelectorAll('.perf-ring');
+        // 2) Aplica os novos valores imediatamente (gráficos, tabelas, etc.)
+        orig.apply(this, arguments);
 
-        cards.forEach((c, i) => {
-            c.classList.remove('flash-pulse');
-            c.classList.add('is-updating');
-            c.style.animationDelay = (i * 24) + 'ms';
+        // 3) Anima cada KPI do valor antigo para o novo
+        numEls.forEach((el, i) => {
+            const newVal = el.textContent;
+            animateNumber(el, oldVals[i], newVal, 750);
         });
-        rings.forEach(r => r.classList.add('is-updating'));
 
-        // Aplica os novos valores no meio da animação (já invisível)
-        setTimeout(() => {
-            orig.apply(ctx, args);
-
-            // Fase final: remove "is-updating" e dispara o pulso de luz
-            requestAnimationFrame(() => {
-                cards.forEach(c => {
-                    c.classList.remove('is-updating');
-                    void c.offsetWidth;       // força reflow
-                    c.classList.add('flash-pulse');
-                    c.style.animationDelay = '';
-                });
-                rings.forEach(r => r.classList.remove('is-updating'));
-
-                // anima as linhas de tabelas com stagger
-                section.querySelectorAll('.data-table tbody tr').forEach((tr, i) => {
-                    tr.classList.remove('row-reveal');
-                    void tr.offsetWidth;
-                    tr.classList.add('row-reveal');
-                    tr.style.animationDelay = (i * 22) + 'ms';
-                });
-            });
-        }, 240);
+        // 4) Stagger sutil nas linhas da tabela (revelação leve, sem blur)
+        section.querySelectorAll('.data-table tbody tr').forEach((tr, i) => {
+            tr.classList.remove('row-reveal');
+            void tr.offsetWidth;
+            tr.classList.add('row-reveal');
+            tr.style.animationDelay = (i * 18) + 'ms';
+        });
     };
 }
 
@@ -2084,6 +2035,7 @@ function bootAnimations() {
     injectCardEffects();
     bindSelectGlow();
     updateTabIndicator();
+    document.querySelectorAll('.data-table thead th').forEach(th => { if (!th.hasAttribute('scope')) th.setAttribute('scope', 'col'); });
     Object.keys(PAGE_OF_FN).forEach(wrapApplyFn);
     window.addEventListener('resize', updateTabIndicator);
     window.addEventListener('load', updateTabIndicator);

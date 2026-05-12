@@ -39,7 +39,7 @@ def git_push():
         arquivos = [l.strip() for l in result.stdout.strip().splitlines()]
         log(f'Alterações detectadas: {", ".join(arquivos[:5])}{"..." if len(arquivos) > 5 else ""}')
 
-        subprocess.run(['git', 'add', '-u'], cwd=REPO_DIR)
+        subprocess.run(['git', 'add', '-A'], cwd=REPO_DIR)
 
         msg = f'Auto-update: {datetime.now().strftime("%d/%m/%Y %H:%M")}'
         r_commit = subprocess.run(

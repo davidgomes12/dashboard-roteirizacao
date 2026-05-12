@@ -7,3 +7,7 @@ _conectar_tunel.html
 _screenshot_*.png
 cloudflared.exe
 apresentacao.html
+
+# Cache parquet gerado pelo pipeline (recriado automaticamente)
+.cache_*.parquet
+.cache_*.parquet.meta

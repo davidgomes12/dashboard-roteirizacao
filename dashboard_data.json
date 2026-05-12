@@ -1,18 +1,18 @@
 {
-  "gerado_em": "10/05/2026 18:26",
+  "gerado_em": "12/05/2026 14:59",
   "kpis": {
-    "peso_total": 4734495.04,
-    "capac_total": 5607500.0,
-    "frete_total": 3057536.17,
-    "real_kg_total": 0.6458,
-    "ocupacao_total": 84.43,
-    "qtd_veiculos": 5851,
-    "qtd_entregas": 28302,
-    "reentregas": 1270,
-    "qtd_entregas_nf": 28557,
-    "pct_reentregas": 4.45,
+    "peso_total": 4798444.19,
+    "capac_total": 5689000.0,
+    "frete_total": 3101136.44,
+    "real_kg_total": 0.6463,
+    "ocupacao_total": 84.35,
+    "qtd_veiculos": 5932,
+    "qtd_entregas": 28716,
     "meta_ocupacao": 80,
-    "meta_real_kg": 0.67
+    "meta_real_kg": 0.67,
+    "reentregas": 1283,
+    "qtd_entregas_nf": 28760,
+    "pct_reentregas": 4.46
   },
   "filtros": {
     "meses": [
@@ -109,7 +109,8 @@
       "2026-05-06",
       "2026-05-07",
       "2026-05-08",
-      "2026-05-11"
+      "2026-05-11",
+      "2026-05-12"
     ],
     "meses_reent": [
       "2026-01",
@@ -205,7 +206,8 @@
       "2026-05-05",
       "2026-05-06",
       "2026-05-07",
-      "2026-05-08"
+      "2026-05-08",
+      "2026-05-11"
     ],
     "meses_frota": [
       "2026-01",
@@ -301,7 +303,8 @@
       "2026-05-06",
       "2026-05-07",
       "2026-05-08",
-      "2026-05-11"
+      "2026-05-11",
+      "2026-05-12"
     ],
     "meses_vesp": [
       "2026-01",
@@ -371,7 +374,9 @@
       "2026-05-05",
       "2026-05-06",
       "2026-05-07",
-      "2026-05-08"
+      "2026-05-08",
+      "2026-05-11",
+      "2026-05-12"
     ]
   },
   "por_dia": [
@@ -383,7 +388,9 @@
       "veiculos": 44,
       "entregas": 255,
       "real_kg": 0.6670727866,
-      "ocupacao": 88.91102
+      "ocupacao": 88.91102,
+      "media_entregas": 5.7954545455,
+      "media_peso": 808.282
     },
     {
       "DIA": "2026-01-05",
@@ -393,7 +400,9 @@
       "veiculos": 64,
       "entregas": 294,
       "real_kg": 0.6411712329,
-      "ocupacao": 88.0907033898
+      "ocupacao": 88.0907033898,
+      "media_entregas": 4.59375,
+      "media_peso": 812.086171875
     },
     {
       "DIA": "2026-01-06",
@@ -403,7 +412,9 @@
       "veiculos": 70,
       "entregas": 441,
       "real_kg": 0.6302049065,
-      "ocupacao": 89.7757666667
+      "ocupacao": 89.7757666667,
+      "media_entregas": 6.3,
+      "media_peso": 884.9325571429
     },
     {
       "DIA": "2026-01-07",
@@ -413,7 +424,9 @@
       "veiculos": 71,
       "entregas": 376,
       "real_kg": 0.6756299063,
-      "ocupacao": 81.6033068702
+      "ocupacao": 81.6033068702,
+      "media_entregas": 5.2957746479,
+      "media_peso": 752.8192394366
     },
     {
       "DIA": "2026-01-08",
@@ -423,7 +436,9 @@
       "veiculos": 71,
       "entregas": 424,
       "real_kg": 0.7322744934,
-      "ocupacao": 77.6234189781
+      "ocupacao": 77.6234189781,
+      "media_entregas": 5.9718309859,
+      "media_peso": 748.902
     },
     {
       "DIA": "2026-01-12",
@@ -433,7 +448,9 @@
       "veiculos": 49,
       "entregas": 257,
       "real_kg": 0.7479962199,
-      "ocupacao": 79.8802506024
+      "ocupacao": 79.8802506024,
+      "media_entregas": 5.2448979592,
+      "media_peso": 676.5368163265
     },
     {
       "DIA": "2026-01-13",
@@ -443,7 +460,9 @@
       "veiculos": 66,
       "entregas": 412,
       "real_kg": 0.7342084679,
-      "ocupacao": 80.2774409836
+      "ocupacao": 80.2774409836,
+      "media_entregas": 6.2424242424,
+      "media_peso": 741.9581666667
     },
     {
       "DIA": "2026-01-14",
@@ -453,7 +472,9 @@
       "veiculos": 68,
       "entregas": 347,
       "real_kg": 0.6187235528,
-      "ocupacao": 82.1275463768
+      "ocupacao": 82.1275463768,
+      "media_entregas": 5.1029411765,
+      "media_peso": 833.3530441176
     },
     {
       "DIA": "2026-01-15",
@@ -463,7 +484,9 @@
       "veiculos": 67,
       "entregas": 293,
       "real_kg": 0.7482745191,
-      "ocupacao": 83.1476461538
+      "ocupacao": 83.1476461538,
+      "media_entregas": 4.3731343284,
+      "media_peso": 725.990641791
     },
     {
       "DIA": "2026-01-16",
@@ -473,7 +496,9 @@
       "veiculos": 74,
       "entregas": 297,
       "real_kg": 0.6406196245,
-      "ocupacao": 82.9616385714
+      "ocupacao": 82.9616385714,
+      "media_entregas": 4.0135135135,
+      "media_peso": 784.7722567568
     },
     {
       "DIA": "2026-01-19",
@@ -483,7 +508,9 @@
       "veiculos": 57,
       "entregas": 262,
       "real_kg": 0.6823449998,
-      "ocupacao": 83.1685066667
+      "ocupacao": 83.1685066667,
+      "media_entregas": 4.5964912281,
+      "media_peso": 766.0257192982
     },
     {
       "DIA": "2026-01-20",
@@ -493,7 +520,9 @@
       "veiculos": 81,
       "entregas": 454,
       "real_kg": 0.642775706,
-      "ocupacao": 83.0336591195
+      "ocupacao": 83.0336591195,
+      "media_entregas": 5.6049382716,
+      "media_peso": 814.9599876543
     },
     {
       "DIA": "2026-01-21",
@@ -503,7 +532,9 @@
       "veiculos": 77,
       "entregas": 390,
       "real_kg": 0.5841470502,
-      "ocupacao": 89.7461651007
+      "ocupacao": 89.7461651007,
+      "media_entregas": 5.0649350649,
+      "media_peso": 868.3232857143
     },
     {
       "DIA": "2026-01-22",
@@ -513,7 +544,9 @@
       "veiculos": 73,
       "entregas": 344,
       "real_kg": 0.6214594737,
-      "ocupacao": 90.1093182482
+      "ocupacao": 90.1093182482,
+      "media_entregas": 4.7123287671,
+      "media_peso": 845.5463424658
     },
     {
       "DIA": "2026-01-23",
@@ -523,7 +556,9 @@
       "veiculos": 68,
       "entregas": 267,
       "real_kg": 0.7235615177,
-      "ocupacao": 79.9415833333
+      "ocupacao": 79.9415833333,
+      "media_entregas": 3.9264705882,
+      "media_peso": 705.3669117647
     },
     {
       "DIA": "2026-01-26",
@@ -533,7 +568,9 @@
       "veiculos": 50,
       "entregas": 243,
       "real_kg": 0.6248261584,
-      "ocupacao": 88.98285
+      "ocupacao": 88.98285,
+      "media_entregas": 4.86,
+      "media_peso": 854.23536
     },
     {
       "DIA": "2026-01-27",
@@ -543,7 +580,9 @@
       "veiculos": 86,
       "entregas": 534,
       "real_kg": 0.6876845795,
-      "ocupacao": 80.2880192771
+      "ocupacao": 80.2880192771,
+      "media_entregas": 6.2093023256,
+      "media_peso": 774.872744186
     },
     {
       "DIA": "2026-01-28",
@@ -553,7 +592,9 @@
       "veiculos": 74,
       "entregas": 383,
       "real_kg": 0.6449206847,
-      "ocupacao": 84.2235140845
+      "ocupacao": 84.2235140845,
+      "media_entregas": 5.1756756757,
+      "media_peso": 808.090472973
     },
     {
       "DIA": "2026-01-29",
@@ -563,7 +604,9 @@
       "veiculos": 80,
       "entregas": 390,
       "real_kg": 0.6928940392,
-      "ocupacao": 82.5666837838
+      "ocupacao": 82.5666837838,
+      "media_entregas": 4.875,
+      "media_peso": 763.741825
     },
     {
       "DIA": "2026-01-30",
@@ -573,7 +616,9 @@
       "veiculos": 68,
       "entregas": 290,
       "real_kg": 0.6463288591,
-      "ocupacao": 81.2753971014
+      "ocupacao": 81.2753971014,
+      "media_entregas": 4.2647058824,
+      "media_peso": 824.7062352941
     },
     {
       "DIA": "2026-02-02",
@@ -583,7 +628,9 @@
       "veiculos": 75,
       "entregas": 329,
       "real_kg": 0.5912273837,
-      "ocupacao": 83.5498150943
+      "ocupacao": 83.5498150943,
+      "media_entregas": 4.3866666667,
+      "media_peso": 885.62804
     },
     {
       "DIA": "2026-02-03",
@@ -593,7 +640,9 @@
       "veiculos": 78,
       "entregas": 391,
       "real_kg": 0.6570477998,
-      "ocupacao": 85.5358364865
+      "ocupacao": 85.5358364865,
+      "media_entregas": 5.0128205128,
+      "media_peso": 811.4938333333
     },
     {
       "DIA": "2026-02-04",
@@ -603,7 +652,9 @@
       "veiculos": 66,
       "entregas": 333,
       "real_kg": 0.6617039381,
-      "ocupacao": 86.9111157895
+      "ocupacao": 86.9111157895,
+      "media_entregas": 5.0454545455,
+      "media_peso": 750.596
     },
     {
       "DIA": "2026-02-05",
@@ -613,7 +664,9 @@
       "veiculos": 57,
       "entregas": 277,
       "real_kg": 0.8880546017,
-      "ocupacao": 84.5414050633
+      "ocupacao": 84.5414050633,
+      "media_entregas": 4.8596491228,
+      "media_peso": 585.8571052632
     },
     {
       "DIA": "2026-02-06",
@@ -623,7 +676,9 @@
       "veiculos": 35,
       "entregas": 191,
       "real_kg": 0.7551076836,
-      "ocupacao": 87.8648509804
+      "ocupacao": 87.8648509804,
+      "media_entregas": 5.4571428571,
+      "media_peso": 640.1582
     },
     {
       "DIA": "2026-02-09",
@@ -633,7 +688,9 @@
       "veiculos": 28,
       "entregas": 128,
       "real_kg": 0.7895090636,
-      "ocupacao": 74.980973913
+      "ocupacao": 74.980973913,
+      "media_entregas": 4.5714285714,
+      "media_peso": 615.9151428571
     },
     {
       "DIA": "2026-02-10",
@@ -643,7 +700,9 @@
       "veiculos": 82,
       "entregas": 580,
       "real_kg": 0.669340757,
-      "ocupacao": 83.9361346154
+      "ocupacao": 83.9361346154,
+      "media_entregas": 7.0731707317,
+      "media_peso": 798.4168902439
     },
     {
       "DIA": "2026-02-11",
@@ -653,7 +712,9 @@
       "veiculos": 79,
       "entregas": 406,
       "real_kg": 0.6542247247,
-      "ocupacao": 83.8721152318
+      "ocupacao": 83.8721152318,
+      "media_entregas": 5.1392405063,
+      "media_peso": 801.5626202532
     },
     {
       "DIA": "2026-02-12",
@@ -663,7 +724,9 @@
       "veiculos": 81,
       "entregas": 358,
       "real_kg": 0.6519601268,
-      "ocupacao": 83.3430566038
+      "ocupacao": 83.3430566038,
+      "media_entregas": 4.4197530864,
+      "media_peso": 817.9966666667
     },
     {
       "DIA": "2026-02-13",
@@ -673,7 +736,9 @@
       "veiculos": 64,
       "entregas": 344,
       "real_kg": 0.7298471695,
-      "ocupacao": 85.8493058824
+      "ocupacao": 85.8493058824,
+      "media_entregas": 5.375,
+      "media_peso": 684.11165625
     },
     {
       "DIA": "2026-02-16",
@@ -683,7 +748,9 @@
       "veiculos": 36,
       "entregas": 160,
       "real_kg": 0.653794769,
-      "ocupacao": 83.2950735294
+      "ocupacao": 83.2950735294,
+      "media_entregas": 4.4444444444,
+      "media_peso": 786.6756944444
     },
     {
       "DIA": "2026-02-18",
@@ -693,7 +760,9 @@
       "veiculos": 66,
       "entregas": 386,
       "real_kg": 0.5677392099,
-      "ocupacao": 85.9196927536
+      "ocupacao": 85.9196927536,
+      "media_entregas": 5.8484848485,
+      "media_peso": 898.2513333333
     },
     {
       "DIA": "2026-02-19",
@@ -703,7 +772,9 @@
       "veiculos": 71,
       "entregas": 380,
       "real_kg": 0.7641856592,
-      "ocupacao": 82.5041272727
+      "ocupacao": 82.5041272727,
+      "media_entregas": 5.3521126761,
+      "media_peso": 703.0281267606
     },
     {
       "DIA": "2026-02-20",
@@ -713,7 +784,9 @@
       "veiculos": 67,
       "entregas": 293,
       "real_kg": 0.6270500695,
-      "ocupacao": 86.3799165354
+      "ocupacao": 86.3799165354,
+      "media_entregas": 4.3731343284,
+      "media_peso": 818.6753283582
     },
     {
       "DIA": "2026-02-23",
@@ -723,7 +796,9 @@
       "veiculos": 57,
       "entregas": 240,
       "real_kg": 0.6206737231,
-      "ocupacao": 87.4705401869
+      "ocupacao": 87.4705401869,
+      "media_entregas": 4.2105263158,
+      "media_peso": 820.9954210526
     },
     {
       "DIA": "2026-02-24",
@@ -733,7 +808,9 @@
       "veiculos": 80,
       "entregas": 482,
       "real_kg": 0.6744646634,
-      "ocupacao": 85.5480541667
+      "ocupacao": 85.5480541667,
+      "media_entregas": 6.025,
+      "media_peso": 769.9324875
     },
     {
       "DIA": "2026-02-25",
@@ -743,7 +820,9 @@
       "veiculos": 65,
       "entregas": 303,
       "real_kg": 0.6036099756,
-      "ocupacao": 83.8745037594
+      "ocupacao": 83.8745037594,
+      "media_entregas": 4.6615384615,
+      "media_peso": 858.1006923077
     },
     {
       "DIA": "2026-02-26",
@@ -753,7 +832,9 @@
       "veiculos": 76,
       "entregas": 322,
       "real_kg": 0.6490630925,
-      "ocupacao": 83.2812894737
+      "ocupacao": 83.2812894737,
+      "media_entregas": 4.2368421053,
+      "media_peso": 832.8128947368
     },
     {
       "DIA": "2026-02-27",
@@ -763,7 +844,9 @@
       "veiculos": 81,
       "entregas": 297,
       "real_kg": 0.5922222793,
-      "ocupacao": 87.2667358491
+      "ocupacao": 87.2667358491,
+      "media_entregas": 3.6666666667,
+      "media_peso": 856.5068518519
     },
     {
       "DIA": "2026-03-02",
@@ -773,7 +856,9 @@
       "veiculos": 75,
       "entregas": 271,
       "real_kg": 0.574649637,
-      "ocupacao": 89.5098827586
+      "ocupacao": 89.5098827586,
+      "media_entregas": 3.6133333333,
+      "media_peso": 865.2622
     },
     {
       "DIA": "2026-03-03",
@@ -783,7 +868,9 @@
       "veiculos": 71,
       "entregas": 289,
       "real_kg": 0.6082091934,
-      "ocupacao": 88.5464546763
+      "ocupacao": 88.5464546763,
+      "media_entregas": 4.0704225352,
+      "media_peso": 866.7575492958
     },
     {
       "DIA": "2026-03-04",
@@ -793,7 +880,9 @@
       "veiculos": 62,
       "entregas": 327,
       "real_kg": 0.573004282,
-      "ocupacao": 77.065777027
+      "ocupacao": 77.065777027,
+      "media_entregas": 5.2741935484,
+      "media_peso": 919.8173387097
     },
     {
       "DIA": "2026-03-05",
@@ -803,7 +892,9 @@
       "veiculos": 75,
       "entregas": 399,
       "real_kg": 0.6821905574,
-      "ocupacao": 84.252323741
+      "ocupacao": 84.252323741,
+      "media_entregas": 5.32,
+      "media_peso": 780.7382
     },
     {
       "DIA": "2026-03-06",
@@ -813,7 +904,9 @@
       "veiculos": 50,
       "entregas": 259,
       "real_kg": 0.5782180996,
-      "ocupacao": 84.2065150943
+      "ocupacao": 84.2065150943,
+      "media_entregas": 5.18,
+      "media_peso": 892.58906
     },
     {
       "DIA": "2026-03-09",
@@ -823,7 +916,9 @@
       "veiculos": 45,
       "entregas": 155,
       "real_kg": 0.7700070868,
-      "ocupacao": 74.5613428571
+      "ocupacao": 74.5613428571,
+      "media_entregas": 3.4444444444,
+      "media_peso": 637.9137111111
     },
     {
       "DIA": "2026-03-10",
@@ -833,7 +928,9 @@
       "veiculos": 67,
       "entregas": 450,
       "real_kg": 0.6756382773,
-      "ocupacao": 91.6028017699
+      "ocupacao": 91.6028017699,
+      "media_entregas": 6.7164179104,
+      "media_peso": 772.4713880597
     },
     {
       "DIA": "2026-03-11",
@@ -843,7 +940,9 @@
       "veiculos": 62,
       "entregas": 345,
       "real_kg": 0.6013283967,
-      "ocupacao": 87.1340762712
+      "ocupacao": 87.1340762712,
+      "media_entregas": 5.564516129,
+      "media_peso": 829.1791129032
     },
     {
       "DIA": "2026-03-12",
@@ -853,7 +952,9 @@
       "veiculos": 69,
       "entregas": 379,
       "real_kg": 0.6555088156,
-      "ocupacao": 82.8394285714
+      "ocupacao": 82.8394285714,
+      "media_entregas": 5.4927536232,
+      "media_peso": 798.38
     },
     {
       "DIA": "2026-03-13",
@@ -863,7 +964,9 @@
       "veiculos": 61,
       "entregas": 248,
       "real_kg": 0.7571964942,
-      "ocupacao": 69.5132440945
+      "ocupacao": 69.5132440945,
+      "media_entregas": 4.0655737705,
+      "media_peso": 723.6214754098
     },
     {
       "DIA": "2026-03-16",
@@ -873,7 +976,9 @@
       "veiculos": 31,
       "entregas": 133,
       "real_kg": 0.8118863603,
-      "ocupacao": 64.4453934426
+      "ocupacao": 64.4453934426,
+      "media_entregas": 4.2903225806,
+      "media_peso": 634.059516129
     },
     {
       "DIA": "2026-03-17",
@@ -883,7 +988,9 @@
       "veiculos": 74,
       "entregas": 428,
       "real_kg": 0.6561883402,
-      "ocupacao": 91.4031
+      "ocupacao": 91.4031,
+      "media_entregas": 5.7837837838,
+      "media_peso": 815.2168378378
     },
     {
       "DIA": "2026-03-18",
@@ -893,7 +1000,9 @@
       "veiculos": 58,
       "entregas": 279,
       "real_kg": 0.5371567216,
-      "ocupacao": 85.3259666667
+      "ocupacao": 85.3259666667,
+      "media_entregas": 4.8103448276,
+      "media_peso": 970.9506551724
     },
     {
       "DIA": "2026-03-19",
@@ -903,7 +1012,9 @@
       "veiculos": 70,
       "entregas": 328,
       "real_kg": 0.5715512476,
-      "ocupacao": 93.7585
+      "ocupacao": 93.7585,
+      "media_entregas": 4.6857142857,
+      "media_peso": 950.9790714286
     },
     {
       "DIA": "2026-03-20",
@@ -913,7 +1024,9 @@
       "veiculos": 72,
       "entregas": 273,
       "real_kg": 0.6132567777,
-      "ocupacao": 83.926790411
+      "ocupacao": 83.926790411,
+      "media_entregas": 3.7916666667,
+      "media_peso": 850.9244027778
     },
     {
       "DIA": "2026-03-23",
@@ -923,7 +1036,9 @@
       "veiculos": 61,
       "entregas": 225,
       "real_kg": 0.5862382587,
-      "ocupacao": 81.4871067669
+      "ocupacao": 81.4871067669,
+      "media_entregas": 3.6885245902,
+      "media_peso": 888.3430491803
     },
     {
       "DIA": "2026-03-24",
@@ -933,7 +1048,9 @@
       "veiculos": 74,
       "entregas": 481,
       "real_kg": 0.6647837249,
-      "ocupacao": 83.972625
+      "ocupacao": 83.972625,
+      "media_entregas": 6.5,
+      "media_peso": 817.0309459459
     },
     {
       "DIA": "2026-03-25",
@@ -943,7 +1060,9 @@
       "veiculos": 74,
       "entregas": 354,
       "real_kg": 0.5715579043,
-      "ocupacao": 88.2601726027
+      "ocupacao": 88.2601726027,
+      "media_entregas": 4.7837837838,
+      "media_peso": 870.6746756757
     },
     {
       "DIA": "2026-03-26",
@@ -953,7 +1072,9 @@
       "veiculos": 76,
       "entregas": 348,
       "real_kg": 0.6781969503,
-      "ocupacao": 80.8725573333
+      "ocupacao": 80.8725573333,
+      "media_entregas": 4.5789473684,
+      "media_peso": 798.0844473684
     },
     {
       "DIA": "2026-03-27",
@@ -963,7 +1084,9 @@
       "veiculos": 70,
       "entregas": 349,
       "real_kg": 0.6386015434,
-      "ocupacao": 84.20775
+      "ocupacao": 84.20775,
+      "media_entregas": 4.9857142857,
+      "media_peso": 818.0181428571
     },
     {
       "DIA": "2026-03-30",
@@ -973,7 +1096,9 @@
       "veiculos": 68,
       "entregas": 252,
       "real_kg": 0.6369404795,
-      "ocupacao": 81.0839901408
+      "ocupacao": 81.0839901408,
+      "media_entregas": 3.7058823529,
+      "media_peso": 846.61225
     },
     {
       "DIA": "2026-03-31",
@@ -983,7 +1108,9 @@
       "veiculos": 75,
       "entregas": 445,
       "real_kg": 0.6372402098,
-      "ocupacao": 84.6463918367
+      "ocupacao": 84.6463918367,
+      "media_entregas": 5.9333333333,
+      "media_peso": 829.53464
     },
     {
       "DIA": "2026-04-01",
@@ -993,7 +1120,9 @@
       "veiculos": 49,
       "entregas": 294,
       "real_kg": 0.5250924585,
-      "ocupacao": 84.5553356522
+      "ocupacao": 84.5553356522,
+      "media_entregas": 6.0,
+      "media_peso": 992.2309795918
     },
     {
       "DIA": "2026-04-02",
@@ -1003,7 +1132,9 @@
       "veiculos": 69,
       "entregas": 347,
       "real_kg": 0.7106905712,
-      "ocupacao": 80.6421259843
+      "ocupacao": 80.6421259843,
+      "media_entregas": 5.0289855072,
+      "media_peso": 742.1413043478
     },
     {
       "DIA": "2026-04-06",
@@ -1013,7 +1144,9 @@
       "veiculos": 58,
       "entregas": 254,
       "real_kg": 0.7052215242,
-      "ocupacao": 84.0769645833
+      "ocupacao": 84.0769645833,
+      "media_entregas": 4.3793103448,
+      "media_peso": 695.809362069
     },
     {
       "DIA": "2026-04-07",
@@ -1023,7 +1156,9 @@
       "veiculos": 70,
       "entregas": 346,
       "real_kg": 0.6439583697,
-      "ocupacao": 93.5421492063
+      "ocupacao": 93.5421492063,
+      "media_entregas": 4.9428571429,
+      "media_peso": 841.8793428571
     },
     {
       "DIA": "2026-04-08",
@@ -1033,7 +1168,9 @@
       "veiculos": 63,
       "entregas": 298,
       "real_kg": 0.598610928,
-      "ocupacao": 83.1385116279
+      "ocupacao": 83.1385116279,
+      "media_entregas": 4.7301587302,
+      "media_peso": 851.18
     },
     {
       "DIA": "2026-04-09",
@@ -1043,7 +1180,9 @@
       "veiculos": 75,
       "entregas": 315,
       "real_kg": 0.7047450975,
-      "ocupacao": 76.9886857143
+      "ocupacao": 76.9886857143,
+      "media_entregas": 4.2,
+      "media_peso": 754.48912
     },
     {
       "DIA": "2026-04-10",
@@ -1053,7 +1192,9 @@
       "veiculos": 59,
       "entregas": 265,
       "real_kg": 0.6298741981,
-      "ocupacao": 82.7218300885
+      "ocupacao": 82.7218300885,
+      "media_entregas": 4.4915254237,
+      "media_peso": 792.1666779661
     },
     {
       "DIA": "2026-04-13",
@@ -1063,7 +1204,9 @@
       "veiculos": 57,
       "entregas": 243,
       "real_kg": 0.7753711282,
-      "ocupacao": 84.9652765432
+      "ocupacao": 84.9652765432,
+      "media_entregas": 4.2631578947,
+      "media_peso": 603.7006491228
     },
     {
       "DIA": "2026-04-14",
@@ -1073,7 +1216,9 @@
       "veiculos": 79,
       "entregas": 388,
       "real_kg": 0.6238346268,
-      "ocupacao": 88.7061137255
+      "ocupacao": 88.7061137255,
+      "media_entregas": 4.9113924051,
+      "media_peso": 858.9895822785
     },
     {
       "DIA": "2026-04-15",
@@ -1083,7 +1228,9 @@
       "veiculos": 71,
       "entregas": 288,
       "real_kg": 0.5479715482,
-      "ocupacao": 93.2784085106
+      "ocupacao": 93.2784085106,
+      "media_entregas": 4.0563380282,
+      "media_peso": 926.2151830986
     },
     {
       "DIA": "2026-04-16",
@@ -1093,7 +1240,9 @@
       "veiculos": 77,
       "entregas": 274,
       "real_kg": 0.6429719656,
-      "ocupacao": 85.2378928105
+      "ocupacao": 85.2378928105,
+      "media_entregas": 3.5584415584,
+      "media_peso": 846.844
     },
     {
       "DIA": "2026-04-17",
@@ -1103,7 +1252,9 @@
       "veiculos": 73,
       "entregas": 266,
       "real_kg": 0.6290718819,
-      "ocupacao": 85.3189280576
+      "ocupacao": 85.3189280576,
+      "media_entregas": 3.6438356164,
+      "media_peso": 812.2829452055
     },
     {
       "DIA": "2026-04-20",
@@ -1113,7 +1264,9 @@
       "veiculos": 57,
       "entregas": 275,
       "real_kg": 0.6062693468,
-      "ocupacao": 78.7509782946
+      "ocupacao": 78.7509782946,
+      "media_entregas": 4.8245614035,
+      "media_peso": 891.1294912281
     },
     {
       "DIA": "2026-04-22",
@@ -1123,7 +1276,9 @@
       "veiculos": 82,
       "entregas": 443,
       "real_kg": 0.6008253798,
-      "ocupacao": 86.8954409639
+      "ocupacao": 86.8954409639,
+      "media_entregas": 5.4024390244,
+      "media_peso": 879.5514146341
     },
     {
       "DIA": "2026-04-23",
@@ -1133,7 +1288,9 @@
       "veiculos": 71,
       "entregas": 301,
       "real_kg": 0.6719614627,
-      "ocupacao": 84.3629203008
+      "ocupacao": 84.3629203008,
+      "media_entregas": 4.2394366197,
+      "media_peso": 790.1597464789
     },
     {
       "DIA": "2026-04-24",
@@ -1143,7 +1300,9 @@
       "veiculos": 69,
       "entregas": 244,
       "real_kg": 0.6310470254,
-      "ocupacao": 81.8315120567
+      "ocupacao": 81.8315120567,
+      "media_entregas": 3.5362318841,
+      "media_peso": 836.1045797101
     },
     {
       "DIA": "2026-04-27",
@@ -1153,7 +1312,9 @@
       "veiculos": 66,
       "entregas": 314,
       "real_kg": 0.6717514726,
-      "ocupacao": 85.7256847458
+      "ocupacao": 85.7256847458,
+      "media_entregas": 4.7575757576,
+      "media_peso": 766.3356666667
     },
     {
       "DIA": "2026-04-28",
@@ -1163,7 +1324,9 @@
       "veiculos": 78,
       "entregas": 443,
       "real_kg": 0.6783010576,
-      "ocupacao": 84.7372191781
+      "ocupacao": 84.7372191781,
+      "media_entregas": 5.6794871795,
+      "media_peso": 793.0534615385
     },
     {
       "DIA": "2026-04-29",
@@ -1173,7 +1336,9 @@
       "veiculos": 79,
       "entregas": 338,
       "real_kg": 0.5948777403,
-      "ocupacao": 88.2177579618
+      "ocupacao": 88.2177579618,
+      "media_entregas": 4.2784810127,
+      "media_peso": 876.5941772152
     },
     {
       "DIA": "2026-04-30",
@@ -1183,7 +1348,9 @@
       "veiculos": 80,
       "entregas": 420,
       "real_kg": 0.6061335764,
-      "ocupacao": 87.3366083333
+      "ocupacao": 87.3366083333,
+      "media_entregas": 5.25,
+      "media_peso": 917.0343875
     },
     {
       "DIA": "2026-05-04",
@@ -1193,7 +1360,9 @@
       "veiculos": 65,
       "entregas": 250,
       "real_kg": 0.5304461492,
-      "ocupacao": 91.0756
+      "ocupacao": 91.0756,
+      "media_entregas": 3.8461538462,
+      "media_peso": 945.7850769231
     },
     {
       "DIA": "2026-05-05",
@@ -1203,7 +1372,9 @@
       "veiculos": 78,
       "entregas": 365,
       "real_kg": 0.6015700905,
-      "ocupacao": 90.2735118421
+      "ocupacao": 90.2735118421,
+      "media_entregas": 4.6794871795,
+      "media_peso": 879.5880641026
     },
     {
       "DIA": "2026-05-06",
@@ -1213,7 +1384,9 @@
       "veiculos": 75,
       "entregas": 311,
       "real_kg": 0.6412906177,
-      "ocupacao": 81.5865538462
+      "ocupacao": 81.5865538462,
+      "media_entregas": 4.1466666667,
+      "media_peso": 777.7918133333
     },
     {
       "DIA": "2026-05-07",
@@ -1223,7 +1396,9 @@
       "veiculos": 77,
       "entregas": 355,
       "real_kg": 0.7070384518,
-      "ocupacao": 81.2771489655
+      "ocupacao": 81.2771489655,
+      "media_entregas": 4.6103896104,
+      "media_peso": 765.2718571429
     },
     {
       "DIA": "2026-05-08",
@@ -1233,17 +1408,33 @@
       "veiculos": 71,
       "entregas": 306,
       "real_kg": 0.644965109,
-      "ocupacao": 83.1354691729
+      "ocupacao": 83.1354691729,
+      "media_entregas": 4.3098591549,
+      "media_peso": 778.6631971831
     },
     {
       "DIA": "2026-05-11",
-      "peso": 38335.869,
-      "capac": 47500,
-      "frete": 30256.916524,
-      "veiculos": 61,
-      "entregas": 189,
-      "real_kg": 0.7892586581,
-      "ocupacao": 80.7070926316
+      "peso": 39589.275,
+      "capac": 49000,
+      "frete": 31541.604724,
+      "veiculos": 64,
+      "entregas": 196,
+      "real_kg": 0.7967209484,
+      "ocupacao": 80.7944387755,
+      "media_entregas": 3.0625,
+      "media_peso": 618.582421875
+    },
+    {
+      "DIA": "2026-05-12",
+      "peso": 62695.743,
+      "capac": 80000,
+      "frete": 42315.578354,
+      "veiculos": 78,
+      "entregas": 407,
+      "real_kg": 0.6749354315,
+      "ocupacao": 78.36967875,
+      "media_entregas": 5.2179487179,
+      "media_peso": 803.7915769231
     }
   ],
   "por_mes": [
@@ -1255,7 +1446,9 @@
       "veiculos": 1358,
       "entregas": 6953,
       "real_kg": 0.6652196845,
-      "ocupacao": 83.7880124805
+      "ocupacao": 83.7880124805,
+      "media_entregas": 5.1200294551,
+      "media_peso": 790.9884536082
     },
     {
       "MES_KEY": "2026-02",
@@ -1265,7 +1458,9 @@
       "veiculos": 1244,
       "entregas": 6200,
       "real_kg": 0.6583061296,
-      "ocupacao": 84.7318372515
+      "ocupacao": 84.7318372515,
+      "media_entregas": 4.9839228296,
+      "media_peso": 788.0605763666
     },
     {
       "MES_KEY": "2026-03",
@@ -1275,7 +1470,9 @@
       "veiculos": 1440,
       "entregas": 7017,
       "real_kg": 0.6297752314,
-      "ocupacao": 83.9397451681
+      "ocupacao": 83.9397451681,
+      "media_entregas": 4.8729166667,
+      "media_peso": 832.4024729167
     },
     {
       "MES_KEY": "2026-04",
@@ -1285,55 +1482,59 @@
       "veiculos": 1382,
       "entregas": 6356,
       "real_kg": 0.6347634516,
-      "ocupacao": 85.1650954444
+      "ocupacao": 85.1650954444,
+      "media_entregas": 4.5991316932,
+      "media_peso": 825.1524081042
     },
     {
       "MES_KEY": "2026-05",
-      "peso": 340965.1740000001,
-      "capac": 401500,
-      "frete": 218868.228904,
-      "veiculos": 427,
-      "entregas": 1776,
-      "real_kg": 0.6419078709,
-      "ocupacao": 84.9228328767
+      "peso": 404914.323,
+      "capac": 483000,
+      "frete": 262468.495458,
+      "veiculos": 508,
+      "entregas": 2190,
+      "real_kg": 0.6482074862,
+      "ocupacao": 83.8331931677,
+      "media_entregas": 4.311023622,
+      "media_peso": 797.0754389764
     }
   ],
   "por_veiculo": [
     {
       "VEICULO": "FIORINO",
-      "peso": 1595558.503,
-      "capac": 1745000,
-      "frete": 1637443.2355640002,
-      "veiculos": 3490,
-      "entregas": 16515,
-      "real_kg": 1.0262508285,
-      "ocupacao": 91.4360173639,
-      "media_entregas": 4.7320916905,
-      "media_peso": 457.1800868195
+      "peso": 1616343.9270000001,
+      "capac": 1768000,
+      "frete": 1659521.002118,
+      "veiculos": 3536,
+      "entregas": 16731,
+      "real_kg": 1.0267128019,
+      "ocupacao": 91.4221678167,
+      "media_entregas": 4.7316176471,
+      "media_peso": 457.1108390837
     },
     {
       "VEICULO": "VAN",
-      "peso": 2423617.768,
-      "capac": 3060000,
-      "frete": 1200632.648048,
-      "veiculos": 2040,
-      "entregas": 10597,
-      "real_kg": 0.4953886145,
-      "ocupacao": 79.2031950327,
-      "media_entregas": 5.1946078431,
-      "media_peso": 1188.0479254902
+      "peso": 2455981.0220000003,
+      "capac": 3103500,
+      "frete": 1218154.5580479999,
+      "veiculos": 2069,
+      "entregas": 10772,
+      "real_kg": 0.4959951022,
+      "ocupacao": 79.1358473337,
+      "media_entregas": 5.2063798937,
+      "media_peso": 1187.0377100048
     },
     {
       "VEICULO": "VUC",
-      "peso": 715318.7690000001,
-      "capac": 802500,
-      "frete": 219460.289966,
-      "veiculos": 321,
-      "entregas": 1190,
-      "real_kg": 0.3068006873,
-      "ocupacao": 89.1362952025,
-      "media_entregas": 3.707165109,
-      "media_peso": 2228.4073800623
+      "peso": 726119.2400000001,
+      "capac": 817500,
+      "frete": 223460.879966,
+      "veiculos": 327,
+      "entregas": 1213,
+      "real_kg": 0.3077468102,
+      "ocupacao": 88.8219253823,
+      "media_entregas": 3.7094801223,
+      "media_peso": 2220.5481345566
     }
   ],
   "por_veiculo_dia": [
@@ -4681,15 +4882,15 @@
     {
       "DIA": "2026-05-11",
       "VEICULO": "FIORINO",
-      "peso": 19852.349,
-      "capac": 23000,
-      "frete": 20914.266524,
-      "veiculos": 46,
-      "entregas": 153,
-      "real_kg": 1.0534907745,
-      "ocupacao": 86.3145608696,
-      "media_entregas": 3.3260869565,
-      "media_peso": 431.5728043478
+      "peso": 21105.755,
+      "capac": 24500,
+      "frete": 22198.954724,
+      "veiculos": 49,
+      "entregas": 160,
+      "real_kg": 1.0517962861,
+      "ocupacao": 86.1459387755,
+      "media_entregas": 3.2653061224,
+      "media_peso": 430.7296938776
     },
     {
       "DIA": "2026-05-11",
@@ -4716,6 +4917,45 @@
       "ocupacao": 86.34406,
       "media_entregas": 4.0,
       "media_peso": 2158.6015
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "FIORINO",
+      "peso": 19532.018,
+      "capac": 21500,
+      "frete": 20793.078354,
+      "veiculos": 43,
+      "entregas": 209,
+      "real_kg": 1.0645637514,
+      "ocupacao": 90.8465953488,
+      "media_entregas": 4.8604651163,
+      "media_peso": 454.2329767442
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "VAN",
+      "peso": 32363.254,
+      "capac": 43500,
+      "frete": 17521.91,
+      "veiculos": 29,
+      "entregas": 175,
+      "real_kg": 0.5414137281,
+      "ocupacao": 74.3982850575,
+      "media_entregas": 6.0344827586,
+      "media_peso": 1115.9742758621
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "VUC",
+      "peso": 10800.471,
+      "capac": 15000,
+      "frete": 4000.59,
+      "veiculos": 6,
+      "entregas": 23,
+      "real_kg": 0.3704088461,
+      "ocupacao": 72.00314,
+      "media_entregas": 3.8333333333,
+      "media_peso": 1800.0785
     }
   ],
   "por_veiculo_mes": [
@@ -4878,79 +5118,79 @@
     {
       "MES_KEY": "2026-05",
       "VEICULO": "FIORINO",
-      "peso": 118559.166,
-      "capac": 129500,
-      "frete": 117976.774922,
-      "veiculos": 259,
-      "entregas": 1065,
-      "real_kg": 0.99508776,
-      "ocupacao": 91.5514795367,
-      "media_entregas": 4.111969112,
-      "media_peso": 457.7573976834
+      "peso": 139344.59,
+      "capac": 152500,
+      "frete": 140054.541476,
+      "veiculos": 305,
+      "entregas": 1281,
+      "real_kg": 1.0050949339,
+      "ocupacao": 91.3735016393,
+      "media_entregas": 4.2,
+      "media_peso": 456.8675081967
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VAN",
-      "peso": 179478.442,
-      "capac": 222000,
-      "frete": 87577.801982,
-      "veiculos": 148,
-      "entregas": 635,
-      "real_kg": 0.4879572221,
-      "ocupacao": 80.846145045,
-      "media_entregas": 4.2905405405,
-      "media_peso": 1212.6921756757
+      "peso": 211841.696,
+      "capac": 265500,
+      "frete": 105099.711982,
+      "veiculos": 177,
+      "entregas": 810,
+      "real_kg": 0.4961238225,
+      "ocupacao": 79.7897160075,
+      "media_entregas": 4.5762711864,
+      "media_peso": 1196.845740113
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VUC",
-      "peso": 42927.566,
-      "capac": 50000,
-      "frete": 13313.652,
-      "veiculos": 20,
-      "entregas": 76,
-      "real_kg": 0.3101422522,
-      "ocupacao": 85.855132,
-      "media_entregas": 3.8,
-      "media_peso": 2146.3783
+      "peso": 53728.037,
+      "capac": 65000,
+      "frete": 17314.242,
+      "veiculos": 26,
+      "entregas": 99,
+      "real_kg": 0.3222571113,
+      "ocupacao": 82.6585184615,
+      "media_entregas": 3.8076923077,
+      "media_peso": 2066.4629615385
     }
   ],
   "dist_0_100_veic": [
     {
       "VEICULO": "FIORINO",
-      "peso": 1479340.665,
-      "capac": 1613000,
-      "frete": 1439181.996834,
-      "veiculos": 3226,
-      "entregas": 15322,
-      "real_kg": 0.9728536712,
-      "ocupacao": 91.7136184129,
-      "media_entregas": 4.7495350279,
-      "media_peso": 458.5680920645
+      "peso": 1498050.323,
+      "capac": 1634000,
+      "frete": 1458722.072268,
+      "veiculos": 3268,
+      "entregas": 15516,
+      "real_kg": 0.973747043,
+      "ocupacao": 91.679946328,
+      "media_entregas": 4.7478580171,
+      "media_peso": 458.3997316401
     },
     {
       "VEICULO": "VAN",
-      "peso": 2282453.305,
-      "capac": 2874000,
-      "frete": 1098113.889808,
-      "veiculos": 1916,
-      "entregas": 10196,
-      "real_kg": 0.4811112181,
-      "ocupacao": 79.4173035839,
-      "media_entregas": 5.3215031315,
-      "media_peso": 1191.2595537578
+      "peso": 2310835.307,
+      "capac": 2911500,
+      "frete": 1112332.879808,
+      "veiculos": 1941,
+      "entregas": 10357,
+      "real_kg": 0.4813553248,
+      "ocupacao": 79.3692360295,
+      "media_entregas": 5.3359093251,
+      "media_peso": 1190.5385404431
     },
     {
       "VEICULO": "VUC",
-      "peso": 698157.988,
-      "capac": 787500,
-      "frete": 213324.788356,
-      "veiculos": 315,
-      "entregas": 1123,
-      "real_kg": 0.3055537457,
-      "ocupacao": 88.6549826032,
-      "media_entregas": 3.5650793651,
-      "media_peso": 2216.3745650794
+      "peso": 708958.459,
+      "capac": 802500,
+      "frete": 217325.378356,
+      "veiculos": 321,
+      "entregas": 1146,
+      "real_kg": 0.3065417664,
+      "ocupacao": 88.3437332087,
+      "media_entregas": 3.5700934579,
+      "media_peso": 2208.5933302181
     }
   ],
   "dist_0_100_dia": [
@@ -8298,15 +8538,15 @@
     {
       "DIA": "2026-05-11",
       "VEICULO": "FIORINO",
-      "peso": 18967.806,
-      "capac": 22000,
-      "frete": 19345.023126,
-      "veiculos": 44,
-      "entregas": 146,
-      "real_kg": 1.0198872303,
-      "ocupacao": 86.2173,
-      "media_entregas": 3.3181818182,
-      "media_peso": 431.0865
+      "peso": 20221.212,
+      "capac": 23500,
+      "frete": 20629.711326,
+      "veiculos": 47,
+      "entregas": 153,
+      "real_kg": 1.0202015253,
+      "ocupacao": 86.0477106383,
+      "media_entregas": 3.2553191489,
+      "media_peso": 430.2385531915
     },
     {
       "DIA": "2026-05-11",
@@ -8333,6 +8573,45 @@
       "ocupacao": 86.34406,
       "media_entregas": 4.0,
       "media_peso": 2158.6015
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "FIORINO",
+      "peso": 17456.252,
+      "capac": 19500,
+      "frete": 18255.387234,
+      "veiculos": 39,
+      "entregas": 187,
+      "real_kg": 1.0457793136,
+      "ocupacao": 89.5192410256,
+      "media_entregas": 4.7948717949,
+      "media_peso": 447.5962051282
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "VAN",
+      "peso": 28382.002,
+      "capac": 37500,
+      "frete": 14218.99,
+      "veiculos": 25,
+      "entregas": 161,
+      "real_kg": 0.5009861531,
+      "ocupacao": 75.6853386667,
+      "media_entregas": 6.44,
+      "media_peso": 1135.28008
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "VUC",
+      "peso": 10800.471,
+      "capac": 15000,
+      "frete": 4000.59,
+      "veiculos": 6,
+      "entregas": 23,
+      "real_kg": 0.3704088461,
+      "ocupacao": 72.00314,
+      "media_entregas": 3.8333333333,
+      "media_peso": 1800.0785
     }
   ],
   "dist_0_100_mes": [
@@ -8495,67 +8774,67 @@
     {
       "MES_KEY": "2026-05",
       "VEICULO": "FIORINO",
-      "peso": 113657.709,
-      "capac": 124000,
-      "frete": 109693.662488,
-      "veiculos": 248,
-      "entregas": 1007,
-      "real_kg": 0.965122942,
-      "ocupacao": 91.6594427419,
-      "media_entregas": 4.060483871,
-      "media_peso": 458.2972137097
+      "peso": 132367.367,
+      "capac": 145000,
+      "frete": 129233.737922,
+      "veiculos": 290,
+      "entregas": 1201,
+      "real_kg": 0.9763262717,
+      "ocupacao": 91.2878393103,
+      "media_entregas": 4.1413793103,
+      "media_peso": 456.4391965517
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VAN",
-      "peso": 167362.8,
-      "capac": 207000,
-      "frete": 78970.651982,
-      "veiculos": 138,
-      "entregas": 612,
-      "real_kg": 0.471853076,
-      "ocupacao": 80.8515942029,
-      "media_entregas": 4.4347826087,
-      "media_peso": 1212.7739130435
+      "peso": 195744.802,
+      "capac": 244500,
+      "frete": 93189.641982,
+      "veiculos": 163,
+      "entregas": 773,
+      "real_kg": 0.4760772242,
+      "ocupacao": 80.0592237219,
+      "media_entregas": 4.7423312883,
+      "media_peso": 1200.8883558282
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VUC",
-      "peso": 42927.566,
-      "capac": 50000,
-      "frete": 13313.652,
-      "veiculos": 20,
-      "entregas": 76,
-      "real_kg": 0.3101422522,
-      "ocupacao": 85.855132,
-      "media_entregas": 3.8,
-      "media_peso": 2146.3783
+      "peso": 53728.037,
+      "capac": 65000,
+      "frete": 17314.242,
+      "veiculos": 26,
+      "entregas": 99,
+      "real_kg": 0.3222571113,
+      "ocupacao": 82.6585184615,
+      "media_entregas": 3.8076923077,
+      "media_peso": 2066.4629615385
     }
   ],
   "dist_100p_veic": [
     {
       "VEICULO": "FIORINO",
-      "peso": 116217.838,
-      "capac": 132000,
-      "frete": 198261.23873,
-      "veiculos": 264,
-      "entregas": 1193,
-      "real_kg": 1.7059449921,
-      "ocupacao": 88.0438166667,
-      "media_entregas": 4.5189393939,
-      "media_peso": 440.2190833333
+      "peso": 118293.604,
+      "capac": 134000,
+      "frete": 200798.92985,
+      "veiculos": 268,
+      "entregas": 1215,
+      "real_kg": 1.6974622723,
+      "ocupacao": 88.2788089552,
+      "media_entregas": 4.5335820896,
+      "media_peso": 441.3940447761
     },
     {
       "VEICULO": "VAN",
-      "peso": 141164.463,
-      "capac": 186000,
-      "frete": 102518.75824,
-      "veiculos": 124,
-      "entregas": 401,
-      "real_kg": 0.7262363067,
-      "ocupacao": 75.8948725806,
-      "media_entregas": 3.2338709677,
-      "media_peso": 1138.4230887097
+      "peso": 145145.715,
+      "capac": 192000,
+      "frete": 105821.67824,
+      "veiculos": 128,
+      "entregas": 415,
+      "real_kg": 0.7290720104,
+      "ocupacao": 75.5967265625,
+      "media_entregas": 3.2421875,
+      "media_peso": 1133.9508984375
     },
     {
       "VEICULO": "VUC",
@@ -10325,6 +10604,32 @@
       "ocupacao": 70.0520333333,
       "media_entregas": 1.0,
       "media_peso": 1050.7805
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "FIORINO",
+      "peso": 2075.766,
+      "capac": 2000,
+      "frete": 2537.69112,
+      "veiculos": 4,
+      "entregas": 22,
+      "real_kg": 1.2225323664,
+      "ocupacao": 103.7883,
+      "media_entregas": 5.5,
+      "media_peso": 518.9415
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "VAN",
+      "peso": 3981.252,
+      "capac": 6000,
+      "frete": 3302.92,
+      "veiculos": 4,
+      "entregas": 14,
+      "real_kg": 0.8296184215,
+      "ocupacao": 66.3542,
+      "media_entregas": 3.5,
+      "media_peso": 995.313
     }
   ],
   "dist_100p_mes": [
@@ -10487,59 +10792,59 @@
     {
       "MES_KEY": "2026-05",
       "VEICULO": "FIORINO",
-      "peso": 4901.457,
-      "capac": 5500,
-      "frete": 8283.112434,
-      "veiculos": 11,
-      "entregas": 58,
-      "real_kg": 1.6899286139,
-      "ocupacao": 89.1174,
-      "media_entregas": 5.2727272727,
-      "media_peso": 445.587
+      "peso": 6977.223,
+      "capac": 7500,
+      "frete": 10820.803554,
+      "veiculos": 15,
+      "entregas": 80,
+      "real_kg": 1.5508754062,
+      "ocupacao": 93.02964,
+      "media_entregas": 5.3333333333,
+      "media_peso": 465.1482
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VAN",
-      "peso": 12115.642,
-      "capac": 15000,
-      "frete": 8607.15,
-      "veiculos": 10,
-      "entregas": 23,
-      "real_kg": 0.7104163362,
-      "ocupacao": 80.7709466667,
-      "media_entregas": 2.3,
-      "media_peso": 1211.5642
+      "peso": 16096.894,
+      "capac": 21000,
+      "frete": 11910.07,
+      "veiculos": 14,
+      "entregas": 37,
+      "real_kg": 0.7398986413,
+      "ocupacao": 76.6518761905,
+      "media_entregas": 2.6428571429,
+      "media_peso": 1149.7781428571
     }
   ],
   "reentregas_transportadora": [
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "reentregas": 435,
-      "entregas": 6671,
-      "pct": 6.52
+      "reentregas": 440,
+      "entregas": 6721,
+      "pct": 6.55
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "reentregas": 333,
-      "entregas": 7588,
+      "reentregas": 335,
+      "entregas": 7624,
       "pct": 4.39
     },
     {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
-      "reentregas": 186,
-      "entregas": 5326,
-      "pct": 3.49
+      "reentregas": 189,
+      "entregas": 5382,
+      "pct": 3.51
     },
     {
       "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "reentregas": 108,
-      "entregas": 2890,
-      "pct": 3.74
+      "reentregas": 110,
+      "entregas": 2911,
+      "pct": 3.78
     },
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
-      "reentregas": 93,
-      "entregas": 3208,
+      "reentregas": 94,
+      "entregas": 3241,
       "pct": 2.9
     },
     {
@@ -10551,14 +10856,14 @@
     {
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "reentregas": 17,
-      "entregas": 206,
-      "pct": 8.25
+      "entregas": 207,
+      "pct": 8.21
     },
     {
       "NOME TRANSPORTADORA": "LINDON JOHSON",
       "reentregas": 17,
-      "entregas": 433,
-      "pct": 3.93
+      "entregas": 438,
+      "pct": 3.88
     },
     {
       "NOME TRANSPORTADORA": "TRANS FARIAS",
@@ -10575,8 +10880,8 @@
     {
       "NOME TRANSPORTADORA": "VANDERLEI",
       "reentregas": 4,
-      "entregas": 257,
-      "pct": 1.56
+      "entregas": 258,
+      "pct": 1.55
     },
     {
       "NOME TRANSPORTADORA": "TRANSPORTES FRA",
@@ -10594,58 +10899,58 @@
   "reentregas_justificativa": [
     {
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 642,
-      "pct": 50.43
+      "reentregas": 652,
+      "pct": 50.7
     },
     {
       "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 156,
-      "pct": 12.25
+      "reentregas": 157,
+      "pct": 12.21
     },
     {
       "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
       "reentregas": 111,
-      "pct": 8.72
+      "pct": 8.63
     },
     {
       "DESC JUST OC": "RECUSA CLIENTE",
       "reentregas": 80,
-      "pct": 6.28
+      "pct": 6.22
     },
     {
       "DESC JUST OC": "LOCAL FECHADO",
       "reentregas": 62,
-      "pct": 4.87
+      "pct": 4.82
     },
     {
       "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
       "reentregas": 52,
-      "pct": 4.08
+      "pct": 4.04
     },
     {
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 43,
-      "pct": 3.38
+      "reentregas": 44,
+      "pct": 3.42
     },
     {
       "DESC JUST OC": "RECUSA BALANCO_LOJA",
       "reentregas": 39,
-      "pct": 3.06
+      "pct": 3.03
     },
     {
       "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
       "reentregas": 37,
-      "pct": 2.91
+      "pct": 2.88
     },
     {
       "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
       "reentregas": 19,
-      "pct": 1.49
+      "pct": 1.48
     },
     {
       "DESC JUST OC": "DIVERGENCIA DE PRECO",
       "reentregas": 7,
-      "pct": 0.55
+      "pct": 0.54
     },
     {
       "DESC JUST OC": "PROBLEMAS FORÇA MAIOR (CLIMÁTICOS)",
@@ -10658,24 +10963,24 @@
       "pct": 0.39
     },
     {
+      "DESC JUST OC": "RECUSA_SEM PEDIDO",
+      "reentregas": 4,
+      "pct": 0.31
+    },
+    {
       "DESC JUST OC": "FERIADO MUNICIPAL",
       "reentregas": 3,
-      "pct": 0.24
+      "pct": 0.23
     },
     {
       "DESC JUST OC": "DESACORDO COM O PEDIDO",
       "reentregas": 3,
-      "pct": 0.24
-    },
-    {
-      "DESC JUST OC": "RECUSA_SEM PEDIDO",
-      "reentregas": 3,
-      "pct": 0.24
+      "pct": 0.23
     },
     {
       "DESC JUST OC": "DUPLICIDADE PEDIDO",
       "reentregas": 3,
-      "pct": 0.24
+      "pct": 0.23
     },
     {
       "DESC JUST OC": "CADASTRO CLIENTE",
@@ -10692,22 +10997,22 @@
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 250
+      "reentregas": 255
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 160
+      "reentregas": 161
     },
     {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 88
+      "reentregas": 90
     },
     {
       "NOME TRANSPORTADORA": "SPEEDY LOG",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 54
+      "reentregas": 56
     },
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
@@ -10752,7 +11057,7 @@
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
       "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 22
+      "reentregas": 23
     },
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
@@ -10866,7 +11171,7 @@
     },
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
-      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "DESC JUST OC": "RECUSA CLIENTE",
       "reentregas": 5
     },
     {
@@ -10875,13 +11180,13 @@
       "reentregas": 5
     },
     {
-      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
-      "DESC JUST OC": "RECUSA CLIENTE",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
       "reentregas": 5
     },
     {
-      "NOME TRANSPORTADORA": "LINDON JOHSON",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
       "reentregas": 5
     },
     {
@@ -10890,9 +11195,9 @@
       "reentregas": 5
     },
     {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
-      "reentregas": 4
+      "NOME TRANSPORTADORA": "LINDON JOHSON",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 5
     },
     {
       "NOME TRANSPORTADORA": "CARLOS ALBERTO",
@@ -10905,7 +11210,7 @@
       "reentregas": 4
     },
     {
-      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
       "reentregas": 4
     },
@@ -10915,13 +11220,13 @@
       "reentregas": 4
     },
     {
-      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
-      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "RECUSA CLIENTE",
       "reentregas": 4
     },
     {
-      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
-      "DESC JUST OC": "RECUSA CLIENTE",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "PROBLEMAS FORÇA MAIOR (CLIMÁTICOS)",
       "reentregas": 4
     },
     {
@@ -10935,8 +11240,8 @@
       "reentregas": 4
     },
     {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "PROBLEMAS FORÇA MAIOR (CLIMÁTICOS)",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
       "reentregas": 4
     },
     {
@@ -10975,8 +11280,8 @@
       "reentregas": 3
     },
     {
-      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
-      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "DESC JUST OC": "RECUSA CLIENTE",
       "reentregas": 3
     },
     {
@@ -11000,14 +11305,14 @@
       "reentregas": 3
     },
     {
-      "NOME TRANSPORTADORA": "ARIOVALDO",
-      "DESC JUST OC": "RECUSA CLIENTE",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "RECUSA_SEM PEDIDO",
       "reentregas": 3
     },
     {
-      "NOME TRANSPORTADORA": "TRANS FARIAS",
-      "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 2
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
+      "reentregas": 3
     },
     {
       "NOME TRANSPORTADORA": "SPEEDY LOG",
@@ -11015,8 +11320,8 @@
       "reentregas": 2
     },
     {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "DIVERGENCIA DE PRECO",
+      "NOME TRANSPORTADORA": "TRANS FARIAS",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
       "reentregas": 2
     },
     {
@@ -11050,8 +11355,8 @@
       "reentregas": 2
     },
     {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "RECUSA_SEM PEDIDO",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DIVERGENCIA DE PRECO",
       "reentregas": 2
     },
     {
@@ -13270,6 +13575,31 @@
       "DIA": "2026-05-08",
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "reentregas": 7
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 5
     }
   ],
   "nf_transp_dia": [
@@ -17867,6 +18197,46 @@
       "DIA": "2026-05-08",
       "NOME TRANSPORTADORA": "VANDERLEI",
       "entregas": 4
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "entregas": 36
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "entregas": 1
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "LINDON JOHSON",
+      "entregas": 5
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "entregas": 33
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "entregas": 56
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "entregas": 21
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "entregas": 50
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "VANDERLEI",
+      "entregas": 1
     }
   ],
   "reentregas_just_dia": [
@@ -19934,6 +20304,26 @@
       "DIA": "2026-05-08",
       "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
       "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-11",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-11",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 10
+    },
+    {
+      "DIA": "2026-05-11",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-11",
+      "DESC JUST OC": "RECUSA_SEM PEDIDO",
+      "reentregas": 1
     }
   ],
   "reentregas_transp_just_dia": [
@@ -24376,6 +24766,48 @@
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
       "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "RECUSA_SEM PEDIDO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-11",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 5
     }
   ],
   "reentregas_dia": [
@@ -24726,6 +25158,10 @@
     {
       "DIA": "2026-05-08",
       "reentregas": 10
+    },
+    {
+      "DIA": "2026-05-11",
+      "reentregas": 13
     }
   ],
   "reentregas_mes": [
@@ -24747,7 +25183,7 @@
     },
     {
       "MES_KEY": "2026-05",
-      "reentregas": 67
+      "reentregas": 80
     }
   ],
   "nf_entregas_dia": [
@@ -25154,6 +25590,10 @@
     {
       "DIA": "2026-05-08",
       "qtd_entregas": 319
+    },
+    {
+      "DIA": "2026-05-11",
+      "qtd_entregas": 203
     }
   ],
   "nf_entregas_mes": [
@@ -25175,44 +25615,44 @@
     },
     {
       "MES_KEY": "2026-05",
-      "qtd_entregas": 1657
+      "qtd_entregas": 1860
     }
   ],
   "frota_kpis": {
-    "total_disp": 6074,
-    "total_util": 5358,
-    "pct_util": 88.21
+    "total_disp": 6143,
+    "total_util": 5427,
+    "pct_util": 88.34
   },
   "frota_transportadora": [
     {
       "Transportadora": "STYNGRAY TRANSPORTES",
-      "disponibilizado": 1684,
-      "utilizado": 1476,
-      "pct": 87.65
+      "disponibilizado": 1707,
+      "utilizado": 1499,
+      "pct": 87.81
     },
     {
       "Transportadora": "ADLER",
-      "disponibilizado": 1518,
-      "utilizado": 1377,
-      "pct": 90.71
+      "disponibilizado": 1536,
+      "utilizado": 1395,
+      "pct": 90.82
     },
     {
       "Transportadora": "RBT TRANSPORTES",
-      "disponibilizado": 1151,
-      "utilizado": 1032,
-      "pct": 89.66
+      "disponibilizado": 1166,
+      "utilizado": 1047,
+      "pct": 89.79
     },
     {
       "Transportadora": "PHOENIX LOGISTICA",
-      "disponibilizado": 858,
-      "utilizado": 738,
-      "pct": 86.01
+      "disponibilizado": 867,
+      "utilizado": 747,
+      "pct": 86.16
     },
     {
       "Transportadora": "SPEEDYLOG",
-      "disponibilizado": 539,
-      "utilizado": 460,
-      "pct": 85.34
+      "disponibilizado": 543,
+      "utilizado": 464,
+      "pct": 85.45
     },
     {
       "Transportadora": "SMART LOG",
@@ -25224,33 +25664,27 @@
   "frota_veiculo": [
     {
       "Veiculo": "FIORINO",
-      "disponibilizado": 3731,
-      "utilizado": 3360,
-      "pct": 90.06
+      "disponibilizado": 3771,
+      "utilizado": 3400,
+      "pct": 90.16
     },
     {
       "Veiculo": "HR",
-      "disponibilizado": 1133,
-      "utilizado": 983,
-      "pct": 86.76
+      "disponibilizado": 1148,
+      "utilizado": 998,
+      "pct": 86.93
     },
     {
       "Veiculo": "VAN",
-      "disponibilizado": 758,
-      "utilizado": 620,
-      "pct": 81.79
+      "disponibilizado": 769,
+      "utilizado": 630,
+      "pct": 81.92
     },
     {
       "Veiculo": "VUC",
-      "disponibilizado": 448,
-      "utilizado": 392,
-      "pct": 87.5
-    },
-    {
-      "Veiculo": "MASTER",
-      "disponibilizado": 4,
-      "utilizado": 3,
-      "pct": 75.0
+      "disponibilizado": 455,
+      "utilizado": 399,
+      "pct": 87.69
     }
   ],
   "frota_dia": [
@@ -25775,6 +26209,12 @@
       "disponibilizado": 73,
       "utilizado": 59,
       "pct": 80.82
+    },
+    {
+      "DIA": "2026-05-12",
+      "disponibilizado": 69,
+      "utilizado": 69,
+      "pct": 100.0
     }
   ],
   "frota_mes": [
@@ -25804,9 +26244,9 @@
     },
     {
       "MES_KEY": "2026-05",
-      "disponibilizado": 415,
-      "utilizado": 389,
-      "pct": 93.73
+      "disponibilizado": 484,
+      "utilizado": 458,
+      "pct": 94.63
     }
   ],
   "frota_transp_dia": [
@@ -29407,6 +29847,41 @@
       "disponibilizado": 24,
       "utilizado": 20,
       "pct": 83.33
+    },
+    {
+      "DIA": "2026-05-12",
+      "Transportadora": "ADLER",
+      "disponibilizado": 18,
+      "utilizado": 18,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-12",
+      "Transportadora": "PHOENIX LOGISTICA",
+      "disponibilizado": 9,
+      "utilizado": 9,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-12",
+      "Transportadora": "RBT TRANSPORTES",
+      "disponibilizado": 15,
+      "utilizado": 15,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-12",
+      "Transportadora": "SPEEDYLOG",
+      "disponibilizado": 4,
+      "utilizado": 4,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-12",
+      "Transportadora": "STYNGRAY TRANSPORTES",
+      "disponibilizado": 23,
+      "utilizado": 23,
+      "pct": 100.0
     }
   ],
   "frota_veic_dia": [
@@ -31582,17 +32057,10 @@
     },
     {
       "DIA": "2026-04-27",
-      "Veiculo": "MASTER",
-      "disponibilizado": 1,
-      "utilizado": 0,
-      "pct": 0.0
-    },
-    {
-      "DIA": "2026-04-27",
       "Veiculo": "VAN",
-      "disponibilizado": 8,
+      "disponibilizado": 9,
       "utilizado": 4,
-      "pct": 50.0
+      "pct": 44.44
     },
     {
       "DIA": "2026-04-27",
@@ -31701,17 +32169,10 @@
     },
     {
       "DIA": "2026-05-04",
-      "Veiculo": "MASTER",
-      "disponibilizado": 1,
-      "utilizado": 1,
-      "pct": 100.0
-    },
-    {
-      "DIA": "2026-05-04",
       "Veiculo": "VAN",
-      "disponibilizado": 5,
-      "utilizado": 4,
-      "pct": 80.0
+      "disponibilizado": 6,
+      "utilizado": 5,
+      "pct": 83.33
     },
     {
       "DIA": "2026-05-04",
@@ -31736,16 +32197,9 @@
     },
     {
       "DIA": "2026-05-05",
-      "Veiculo": "MASTER",
-      "disponibilizado": 1,
-      "utilizado": 1,
-      "pct": 100.0
-    },
-    {
-      "DIA": "2026-05-05",
       "Veiculo": "VAN",
-      "disponibilizado": 5,
-      "utilizado": 5,
+      "disponibilizado": 6,
+      "utilizado": 6,
       "pct": 100.0
     },
     {
@@ -31827,16 +32281,9 @@
     },
     {
       "DIA": "2026-05-08",
-      "Veiculo": "MASTER",
-      "disponibilizado": 1,
-      "utilizado": 1,
-      "pct": 100.0
-    },
-    {
-      "DIA": "2026-05-08",
       "Veiculo": "VAN",
-      "disponibilizado": 6,
-      "utilizado": 6,
+      "disponibilizado": 7,
+      "utilizado": 7,
       "pct": 100.0
     },
     {
@@ -31873,16 +32320,44 @@
       "disponibilizado": 5,
       "utilizado": 3,
       "pct": 60.0
+    },
+    {
+      "DIA": "2026-05-12",
+      "Veiculo": "FIORINO",
+      "disponibilizado": 40,
+      "utilizado": 40,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-12",
+      "Veiculo": "HR",
+      "disponibilizado": 15,
+      "utilizado": 15,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-12",
+      "Veiculo": "VAN",
+      "disponibilizado": 7,
+      "utilizado": 7,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-12",
+      "Veiculo": "VUC",
+      "disponibilizado": 7,
+      "utilizado": 7,
+      "pct": 100.0
     }
   ],
   "vesp_kpis": {
-    "peso_total": 127246.58,
-    "capac_total": 156000.0,
-    "frete_total": 81557.17,
-    "real_kg_total": 0.6409,
-    "ocupacao_total": 81.57,
-    "qtd_veiculos": 168,
-    "qtd_entregas": 532,
+    "peso_total": 132758.16,
+    "capac_total": 163000.0,
+    "frete_total": 85356.46,
+    "real_kg_total": 0.6429,
+    "ocupacao_total": 81.45,
+    "qtd_veiculos": 176,
+    "qtd_entregas": 554,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67
   },
@@ -31895,7 +32370,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.5687386111,
-      "ocupacao": 65.8533333333
+      "ocupacao": 65.8533333333,
+      "media_entregas": 2.0,
+      "media_peso": 987.8
     },
     {
       "DIA": "2026-01-06",
@@ -31905,7 +32382,9 @@
       "veiculos": 3,
       "entregas": 11,
       "real_kg": 0.4551000578,
-      "ocupacao": 96.5941428571
+      "ocupacao": 96.5941428571,
+      "media_entregas": 3.6666666667,
+      "media_peso": 1126.9316666667
     },
     {
       "DIA": "2026-01-07",
@@ -31915,7 +32394,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 1.1978444755,
-      "ocupacao": 71.5
+      "ocupacao": 71.5,
+      "media_entregas": 4.0,
+      "media_peso": 357.5
     },
     {
       "DIA": "2026-01-08",
@@ -31925,7 +32406,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.9830794307,
-      "ocupacao": 87.12
+      "ocupacao": 87.12,
+      "media_entregas": 2.0,
+      "media_peso": 435.6
     },
     {
       "DIA": "2026-01-13",
@@ -31935,7 +32418,9 @@
       "veiculos": 3,
       "entregas": 11,
       "real_kg": 0.5879280355,
-      "ocupacao": 96.492
+      "ocupacao": 96.492,
+      "media_entregas": 3.6666666667,
+      "media_peso": 804.1
     },
     {
       "DIA": "2026-01-14",
@@ -31945,7 +32430,9 @@
       "veiculos": 4,
       "entregas": 15,
       "real_kg": 0.689373978,
-      "ocupacao": 89.2833333333
+      "ocupacao": 89.2833333333,
+      "media_entregas": 3.75,
+      "media_peso": 669.625
     },
     {
       "DIA": "2026-01-16",
@@ -31955,7 +32442,9 @@
       "veiculos": 3,
       "entregas": 3,
       "real_kg": 0.4958574761,
-      "ocupacao": 74.3111111111
+      "ocupacao": 74.3111111111,
+      "media_entregas": 1.0,
+      "media_peso": 1114.6666666667
     },
     {
       "DIA": "2026-01-21",
@@ -31965,7 +32454,9 @@
       "veiculos": 3,
       "entregas": 7,
       "real_kg": 0.4239548531,
-      "ocupacao": 76.84
+      "ocupacao": 76.84,
+      "media_entregas": 2.3333333333,
+      "media_peso": 1408.7333333333
     },
     {
       "DIA": "2026-01-27",
@@ -31975,7 +32466,9 @@
       "veiculos": 3,
       "entregas": 12,
       "real_kg": 0.9117795016,
-      "ocupacao": 93.9326666667
+      "ocupacao": 93.9326666667,
+      "media_entregas": 4.0,
+      "media_peso": 469.6633333333
     },
     {
       "DIA": "2026-01-28",
@@ -31985,7 +32478,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 1.2015415264,
-      "ocupacao": 71.28
+      "ocupacao": 71.28,
+      "media_entregas": 2.0,
+      "media_peso": 356.4
     },
     {
       "DIA": "2026-02-02",
@@ -31995,7 +32490,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.2691094373,
-      "ocupacao": 99.308
+      "ocupacao": 99.308,
+      "media_entregas": 2.0,
+      "media_peso": 2482.7
     },
     {
       "DIA": "2026-02-03",
@@ -32005,7 +32502,9 @@
       "veiculos": 2,
       "entregas": 4,
       "real_kg": 1.0231260303,
-      "ocupacao": 83.71
+      "ocupacao": 83.71,
+      "media_entregas": 2.0,
+      "media_peso": 418.55
     },
     {
       "DIA": "2026-02-06",
@@ -32015,7 +32514,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.7415227706,
-      "ocupacao": 115.5
+      "ocupacao": 115.5,
+      "media_entregas": 1.0,
+      "media_peso": 577.5
     },
     {
       "DIA": "2026-02-09",
@@ -32025,7 +32526,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.2699466667,
-      "ocupacao": 99.0
+      "ocupacao": 99.0,
+      "media_entregas": 1.0,
+      "media_peso": 2475.0
     },
     {
       "DIA": "2026-02-10",
@@ -32035,7 +32538,9 @@
       "veiculos": 2,
       "entregas": 9,
       "real_kg": 0.8354065548,
-      "ocupacao": 102.52
+      "ocupacao": 102.52,
+      "media_entregas": 4.5,
+      "media_peso": 512.6
     },
     {
       "DIA": "2026-02-12",
@@ -32045,7 +32550,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 1.1186765935,
-      "ocupacao": 76.56
+      "ocupacao": 76.56,
+      "media_entregas": 4.0,
+      "media_peso": 382.8
     },
     {
       "DIA": "2026-02-13",
@@ -32055,7 +32562,9 @@
       "veiculos": 2,
       "entregas": 4,
       "real_kg": 1.162087924,
-      "ocupacao": 73.7
+      "ocupacao": 73.7,
+      "media_entregas": 2.0,
+      "media_peso": 368.5
     },
     {
       "DIA": "2026-02-16",
@@ -32065,7 +32574,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.8888115401,
-      "ocupacao": 96.36
+      "ocupacao": 96.36,
+      "media_entregas": 2.0,
+      "media_peso": 481.8
     },
     {
       "DIA": "2026-02-19",
@@ -32075,7 +32586,9 @@
       "veiculos": 3,
       "entregas": 12,
       "real_kg": 0.4790801621,
-      "ocupacao": 90.9228571429
+      "ocupacao": 90.9228571429,
+      "media_entregas": 4.0,
+      "media_peso": 1060.7666666667
     },
     {
       "DIA": "2026-02-20",
@@ -32085,7 +32598,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.2675682819,
-      "ocupacao": 99.88
+      "ocupacao": 99.88,
+      "media_entregas": 1.0,
+      "media_peso": 2497.0
     },
     {
       "DIA": "2026-02-24",
@@ -32095,7 +32610,9 @@
       "veiculos": 4,
       "entregas": 10,
       "real_kg": 0.5805728764,
-      "ocupacao": 88.99825
+      "ocupacao": 88.99825,
+      "media_entregas": 2.5,
+      "media_peso": 889.9825
     },
     {
       "DIA": "2026-02-25",
@@ -32105,7 +32622,9 @@
       "veiculos": 3,
       "entregas": 9,
       "real_kg": 0.6666629689,
-      "ocupacao": 85.096
+      "ocupacao": 85.096,
+      "media_entregas": 3.0,
+      "media_peso": 709.1333333333
     },
     {
       "DIA": "2026-02-27",
@@ -32115,7 +32634,9 @@
       "veiculos": 5,
       "entregas": 9,
       "real_kg": 0.4686547948,
-      "ocupacao": 79.1413333333
+      "ocupacao": 79.1413333333,
+      "media_entregas": 1.8,
+      "media_peso": 1187.12
     },
     {
       "DIA": "2026-03-09",
@@ -32125,7 +32646,9 @@
       "veiculos": 3,
       "entregas": 3,
       "real_kg": 0.7697469742,
-      "ocupacao": 73.7
+      "ocupacao": 73.7,
+      "media_entregas": 1.0,
+      "media_peso": 614.1666666667
     },
     {
       "DIA": "2026-03-10",
@@ -32135,7 +32658,9 @@
       "veiculos": 2,
       "entregas": 3,
       "real_kg": 0.8531059026,
-      "ocupacao": 58.025
+      "ocupacao": 58.025,
+      "media_entregas": 1.5,
+      "media_peso": 580.25
     },
     {
       "DIA": "2026-03-11",
@@ -32145,7 +32670,9 @@
       "veiculos": 3,
       "entregas": 11,
       "real_kg": 1.0783918408,
-      "ocupacao": 79.42
+      "ocupacao": 79.42,
+      "media_entregas": 3.6666666667,
+      "media_peso": 397.1
     },
     {
       "DIA": "2026-03-12",
@@ -32155,7 +32682,9 @@
       "veiculos": 2,
       "entregas": 5,
       "real_kg": 1.4830455411,
-      "ocupacao": 57.75
+      "ocupacao": 57.75,
+      "media_entregas": 2.5,
+      "media_peso": 288.75
     },
     {
       "DIA": "2026-03-16",
@@ -32165,7 +32694,9 @@
       "veiculos": 2,
       "entregas": 3,
       "real_kg": 0.4064761234,
-      "ocupacao": 89.9066666667
+      "ocupacao": 89.9066666667,
+      "media_entregas": 1.5,
+      "media_peso": 1348.6
     },
     {
       "DIA": "2026-03-17",
@@ -32175,7 +32706,9 @@
       "veiculos": 5,
       "entregas": 24,
       "real_kg": 0.9238240497,
-      "ocupacao": 92.708
+      "ocupacao": 92.708,
+      "media_entregas": 4.8,
+      "media_peso": 463.54
     },
     {
       "DIA": "2026-03-18",
@@ -32185,7 +32718,9 @@
       "veiculos": 2,
       "entregas": 6,
       "real_kg": 0.6360612914,
-      "ocupacao": 77.825
+      "ocupacao": 77.825,
+      "media_entregas": 3.0,
+      "media_peso": 778.25
     },
     {
       "DIA": "2026-03-19",
@@ -32195,7 +32730,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 1.0550120719,
-      "ocupacao": 81.18
+      "ocupacao": 81.18,
+      "media_entregas": 2.0,
+      "media_peso": 405.9
     },
     {
       "DIA": "2026-03-20",
@@ -32205,7 +32742,9 @@
       "veiculos": 3,
       "entregas": 5,
       "real_kg": 0.5652460245,
-      "ocupacao": 100.364
+      "ocupacao": 100.364,
+      "media_entregas": 1.6666666667,
+      "media_peso": 836.3666666667
     },
     {
       "DIA": "2026-03-23",
@@ -32215,7 +32754,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.7457843957,
-      "ocupacao": 114.84
+      "ocupacao": 114.84,
+      "media_entregas": 1.0,
+      "media_peso": 574.2
     },
     {
       "DIA": "2026-03-24",
@@ -32225,7 +32766,9 @@
       "veiculos": 3,
       "entregas": 4,
       "real_kg": 0.7064026856,
-      "ocupacao": 80.3088
+      "ocupacao": 80.3088,
+      "media_entregas": 1.3333333333,
+      "media_peso": 669.24
     },
     {
       "DIA": "2026-03-25",
@@ -32235,7 +32778,9 @@
       "veiculos": 3,
       "entregas": 7,
       "real_kg": 0.6756484674,
-      "ocupacao": 65.6228571429
+      "ocupacao": 65.6228571429,
+      "media_entregas": 2.3333333333,
+      "media_peso": 765.6
     },
     {
       "DIA": "2026-03-26",
@@ -32245,7 +32790,9 @@
       "veiculos": 7,
       "entregas": 14,
       "real_kg": 0.5854119858,
-      "ocupacao": 73.6627294118
+      "ocupacao": 73.6627294118,
+      "media_entregas": 2.0,
+      "media_peso": 894.476
     },
     {
       "DIA": "2026-03-27",
@@ -32255,7 +32802,9 @@
       "veiculos": 2,
       "entregas": 2,
       "real_kg": 0.9588656516,
-      "ocupacao": 89.32
+      "ocupacao": 89.32,
+      "media_entregas": 1.0,
+      "media_peso": 446.6
     },
     {
       "DIA": "2026-03-31",
@@ -32265,7 +32814,9 @@
       "veiculos": 5,
       "entregas": 9,
       "real_kg": 0.6218264344,
-      "ocupacao": 85.0911111111
+      "ocupacao": 85.0911111111,
+      "media_entregas": 1.8,
+      "media_peso": 765.82
     },
     {
       "DIA": "2026-04-02",
@@ -32275,7 +32826,9 @@
       "veiculos": 5,
       "entregas": 20,
       "real_kg": 1.1231951949,
-      "ocupacao": 76.252
+      "ocupacao": 76.252,
+      "media_entregas": 4.0,
+      "media_peso": 381.26
     },
     {
       "DIA": "2026-04-06",
@@ -32285,7 +32838,9 @@
       "veiculos": 2,
       "entregas": 5,
       "real_kg": 0.2905639362,
-      "ocupacao": 90.8578
+      "ocupacao": 90.8578,
+      "media_entregas": 2.5,
+      "media_peso": 2271.445
     },
     {
       "DIA": "2026-04-07",
@@ -32295,7 +32850,9 @@
       "veiculos": 3,
       "entregas": 12,
       "real_kg": 1.1540497664,
-      "ocupacao": 74.2133333333
+      "ocupacao": 74.2133333333,
+      "media_entregas": 4.0,
+      "media_peso": 371.0666666667
     },
     {
       "DIA": "2026-04-08",
@@ -32305,7 +32862,9 @@
       "veiculos": 2,
       "entregas": 7,
       "real_kg": 1.2165607955,
-      "ocupacao": 70.4
+      "ocupacao": 70.4,
+      "media_entregas": 3.5,
+      "media_peso": 352.0
     },
     {
       "DIA": "2026-04-09",
@@ -32315,7 +32874,9 @@
       "veiculos": 4,
       "entregas": 11,
       "real_kg": 0.9127926245,
-      "ocupacao": 67.43
+      "ocupacao": 67.43,
+      "media_entregas": 2.75,
+      "media_peso": 505.725
     },
     {
       "DIA": "2026-04-10",
@@ -32325,7 +32886,9 @@
       "veiculos": 3,
       "entregas": 8,
       "real_kg": 0.7513555838,
-      "ocupacao": 75.504
+      "ocupacao": 75.504,
+      "media_entregas": 2.6666666667,
+      "media_peso": 629.2
     },
     {
       "DIA": "2026-04-13",
@@ -32335,7 +32898,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 1.2203744657,
-      "ocupacao": 70.18
+      "ocupacao": 70.18,
+      "media_entregas": 2.0,
+      "media_peso": 350.9
     },
     {
       "DIA": "2026-04-14",
@@ -32345,7 +32910,9 @@
       "veiculos": 5,
       "entregas": 24,
       "real_kg": 0.9154161536,
-      "ocupacao": 70.9971428571
+      "ocupacao": 70.9971428571,
+      "media_entregas": 4.8,
+      "media_peso": 496.98
     },
     {
       "DIA": "2026-04-15",
@@ -32355,7 +32922,9 @@
       "veiculos": 3,
       "entregas": 15,
       "real_kg": 1.1360879024,
-      "ocupacao": 75.3866666667
+      "ocupacao": 75.3866666667,
+      "media_entregas": 5.0,
+      "media_peso": 376.9333333333
     },
     {
       "DIA": "2026-04-16",
@@ -32365,7 +32934,9 @@
       "veiculos": 3,
       "entregas": 8,
       "real_kg": 0.5576482293,
-      "ocupacao": 78.1125714286
+      "ocupacao": 78.1125714286,
+      "media_entregas": 2.6666666667,
+      "media_peso": 911.3133333333
     },
     {
       "DIA": "2026-04-17",
@@ -32375,7 +32946,9 @@
       "veiculos": 4,
       "entregas": 18,
       "real_kg": 0.7349499284,
-      "ocupacao": 83.7466666667
+      "ocupacao": 83.7466666667,
+      "media_entregas": 4.5,
+      "media_peso": 628.1
     },
     {
       "DIA": "2026-04-20",
@@ -32385,7 +32958,9 @@
       "veiculos": 2,
       "entregas": 4,
       "real_kg": 0.6400091137,
-      "ocupacao": 58.52
+      "ocupacao": 58.52,
+      "media_entregas": 2.0,
+      "media_peso": 877.8
     },
     {
       "DIA": "2026-04-22",
@@ -32395,7 +32970,9 @@
       "veiculos": 5,
       "entregas": 39,
       "real_kg": 0.5072122557,
-      "ocupacao": 90.14
+      "ocupacao": 90.14,
+      "media_entregas": 7.8,
+      "media_peso": 991.54
     },
     {
       "DIA": "2026-04-23",
@@ -32405,7 +32982,9 @@
       "veiculos": 2,
       "entregas": 3,
       "real_kg": 0.698778515,
-      "ocupacao": 70.84
+      "ocupacao": 70.84,
+      "media_entregas": 1.5,
+      "media_peso": 708.4
     },
     {
       "DIA": "2026-04-24",
@@ -32415,7 +32994,9 @@
       "veiculos": 2,
       "entregas": 5,
       "real_kg": 0.8189506163,
-      "ocupacao": 60.445
+      "ocupacao": 60.445,
+      "media_entregas": 2.5,
+      "media_peso": 604.45
     },
     {
       "DIA": "2026-04-27",
@@ -32425,7 +33006,9 @@
       "veiculos": 3,
       "entregas": 7,
       "real_kg": 0.5342728948,
-      "ocupacao": 82.2171428571
+      "ocupacao": 82.2171428571,
+      "media_entregas": 2.3333333333,
+      "media_peso": 959.2
     },
     {
       "DIA": "2026-04-28",
@@ -32435,7 +33018,9 @@
       "veiculos": 4,
       "entregas": 25,
       "real_kg": 1.0297768595,
-      "ocupacao": 87.12
+      "ocupacao": 87.12,
+      "media_entregas": 6.25,
+      "media_peso": 435.6
     },
     {
       "DIA": "2026-04-29",
@@ -32445,7 +33030,9 @@
       "veiculos": 4,
       "entregas": 13,
       "real_kg": 0.5633970124,
-      "ocupacao": 87.8625
+      "ocupacao": 87.8625,
+      "media_entregas": 3.25,
+      "media_peso": 878.625
     },
     {
       "DIA": "2026-04-30",
@@ -32455,7 +33042,9 @@
       "veiculos": 2,
       "entregas": 2,
       "real_kg": 0.3962940177,
-      "ocupacao": 92.2166666667
+      "ocupacao": 92.2166666667,
+      "media_entregas": 1.0,
+      "media_peso": 1383.25
     },
     {
       "DIA": "2026-05-05",
@@ -32465,7 +33054,9 @@
       "veiculos": 3,
       "entregas": 8,
       "real_kg": 0.4933959217,
-      "ocupacao": 79.816
+      "ocupacao": 79.816,
+      "media_entregas": 2.6666666667,
+      "media_peso": 1197.24
     },
     {
       "DIA": "2026-05-06",
@@ -32475,7 +33066,9 @@
       "veiculos": 4,
       "entregas": 22,
       "real_kg": 1.0203782993,
-      "ocupacao": 87.92245
+      "ocupacao": 87.92245,
+      "media_entregas": 5.5,
+      "media_peso": 439.61225
     },
     {
       "DIA": "2026-05-07",
@@ -32485,7 +33078,9 @@
       "veiculos": 3,
       "entregas": 10,
       "real_kg": 0.72880696,
-      "ocupacao": 64.2368571429
+      "ocupacao": 64.2368571429,
+      "media_entregas": 3.3333333333,
+      "media_peso": 749.43
     },
     {
       "DIA": "2026-05-08",
@@ -32495,7 +33090,33 @@
       "veiculos": 5,
       "entregas": 28,
       "real_kg": 1.0661357101,
-      "ocupacao": 80.333
+      "ocupacao": 80.333,
+      "media_entregas": 5.6,
+      "media_peso": 401.665
+    },
+    {
+      "DIA": "2026-05-11",
+      "peso": 1253.406,
+      "capac": 1500,
+      "frete": 1284.6882,
+      "veiculos": 3,
+      "entregas": 7,
+      "real_kg": 1.0249577551,
+      "ocupacao": 83.5604,
+      "media_entregas": 2.3333333333,
+      "media_peso": 417.802
+    },
+    {
+      "DIA": "2026-05-12",
+      "peso": 4258.177,
+      "capac": 5500,
+      "frete": 2514.6062,
+      "veiculos": 5,
+      "entregas": 15,
+      "real_kg": 0.5905358561,
+      "ocupacao": 77.4214,
+      "media_entregas": 3.0,
+      "media_peso": 851.6354
     }
   ],
   "vesp_por_mes": [
@@ -32507,7 +33128,9 @@
       "veiculos": 23,
       "entregas": 69,
       "real_kg": 0.5811894731,
-      "ocupacao": 83.3535531915
+      "ocupacao": 83.3535531915,
+      "media_entregas": 3.0,
+      "media_peso": 851.6558695652
     },
     {
       "MES_KEY": "2026-02",
@@ -32517,7 +33140,9 @@
       "veiculos": 27,
       "entregas": 68,
       "real_kg": 0.5189775726,
-      "ocupacao": 89.1570508475
+      "ocupacao": 89.1570508475,
+      "media_entregas": 2.5185185185,
+      "media_peso": 974.1233333333
     },
     {
       "MES_KEY": "2026-03",
@@ -32527,7 +33152,9 @@
       "veiculos": 44,
       "entregas": 99,
       "real_kg": 0.6946990215,
-      "ocupacao": 79.2646105263
+      "ocupacao": 79.2646105263,
+      "media_entregas": 2.25,
+      "media_peso": 684.558
     },
     {
       "MES_KEY": "2026-04",
@@ -32537,49 +33164,59 @@
       "veiculos": 59,
       "entregas": 228,
       "real_kg": 0.6786508444,
-      "ocupacao": 79.2949142857
+      "ocupacao": 79.2949142857,
+      "media_entregas": 3.8644067797,
+      "media_peso": 705.5903389831
     },
     {
       "MES_KEY": "2026-05",
-      "peso": 9606.784,
-      "capac": 12500,
-      "frete": 7346.1396,
-      "veiculos": 15,
-      "entregas": 68,
-      "real_kg": 0.7646824994,
-      "ocupacao": 76.854272
+      "peso": 15118.367,
+      "capac": 19500,
+      "frete": 11145.434,
+      "veiculos": 23,
+      "entregas": 90,
+      "real_kg": 0.7372114991,
+      "ocupacao": 77.5300871795,
+      "media_entregas": 3.9130434783,
+      "media_peso": 657.3203043478
     }
   ],
   "vesp_por_veiculo": [
     {
       "VEICULO": "FIORINO",
-      "peso": 46740.804,
-      "capac": 55500,
-      "frete": 47695.812082,
-      "veiculos": 111,
-      "entregas": 387,
-      "real_kg": 1.0204319995,
-      "ocupacao": 84.2176648649
+      "peso": 48990.744,
+      "capac": 58500,
+      "frete": 50265.188482,
+      "veiculos": 117,
+      "entregas": 401,
+      "real_kg": 1.026013985,
+      "ocupacao": 83.7448615385,
+      "media_entregas": 3.4273504274,
+      "media_peso": 418.7243076923
     },
     {
       "VEICULO": "VAN",
-      "peso": 46771.087,
-      "capac": 63000,
-      "frete": 23855.82,
-      "veiculos": 42,
-      "entregas": 115,
-      "real_kg": 0.510054855,
-      "ocupacao": 74.2398206349
+      "peso": 48032.842,
+      "capac": 64500,
+      "frete": 24417.62,
+      "veiculos": 43,
+      "entregas": 120,
+      "real_kg": 0.5083525976,
+      "ocupacao": 74.4695224806,
+      "media_entregas": 2.7906976744,
+      "media_peso": 1117.0428372093
     },
     {
       "VEICULO": "VUC",
-      "peso": 33734.69,
-      "capac": 37500,
-      "frete": 10005.534,
-      "veiculos": 15,
-      "entregas": 30,
-      "real_kg": 0.2965948109,
-      "ocupacao": 89.9591733333
+      "peso": 35734.578,
+      "capac": 40000,
+      "frete": 10673.652,
+      "veiculos": 16,
+      "entregas": 33,
+      "real_kg": 0.2986925437,
+      "ocupacao": 89.336445,
+      "media_entregas": 2.0625,
+      "media_peso": 2233.411125
     }
   ],
   "vesp_por_veiculo_dia": [
@@ -32592,7 +33229,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.5687386111,
-      "ocupacao": 65.8533333333
+      "ocupacao": 65.8533333333,
+      "media_entregas": 2.0,
+      "media_peso": 987.8
     },
     {
       "DIA": "2026-01-06",
@@ -32603,7 +33242,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 1.1502217295,
-      "ocupacao": 72.16
+      "ocupacao": 72.16,
+      "media_entregas": 1.0,
+      "media_peso": 360.8
     },
     {
       "DIA": "2026-01-06",
@@ -32614,7 +33255,9 @@
       "veiculos": 2,
       "entregas": 10,
       "real_kg": 0.3720535961,
-      "ocupacao": 100.6665
+      "ocupacao": 100.6665,
+      "media_entregas": 5.0,
+      "media_peso": 1509.9975
     },
     {
       "DIA": "2026-01-07",
@@ -32625,7 +33268,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 1.1978444755,
-      "ocupacao": 71.5
+      "ocupacao": 71.5,
+      "media_entregas": 4.0,
+      "media_peso": 357.5
     },
     {
       "DIA": "2026-01-08",
@@ -32636,7 +33281,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.9830794307,
-      "ocupacao": 87.12
+      "ocupacao": 87.12,
+      "media_entregas": 2.0,
+      "media_peso": 435.6
     },
     {
       "DIA": "2026-01-13",
@@ -32647,7 +33294,9 @@
       "veiculos": 2,
       "entregas": 10,
       "real_kg": 0.7856699385,
-      "ocupacao": 109.01
+      "ocupacao": 109.01,
+      "media_entregas": 5.0,
+      "media_peso": 545.05
     },
     {
       "DIA": "2026-01-13",
@@ -32658,7 +33307,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.4248978974,
-      "ocupacao": 88.1466666667
+      "ocupacao": 88.1466666667,
+      "media_entregas": 1.0,
+      "media_peso": 1322.2
     },
     {
       "DIA": "2026-01-14",
@@ -32669,7 +33320,9 @@
       "veiculos": 3,
       "entregas": 11,
       "real_kg": 1.073435996,
-      "ocupacao": 79.7866666667
+      "ocupacao": 79.7866666667,
+      "media_entregas": 3.6666666667,
+      "media_peso": 398.9333333333
     },
     {
       "DIA": "2026-01-14",
@@ -32680,7 +33333,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 0.379159074,
-      "ocupacao": 98.78
+      "ocupacao": 98.78,
+      "media_entregas": 4.0,
+      "media_peso": 1481.7
     },
     {
       "DIA": "2026-01-16",
@@ -32691,7 +33346,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 1.247754662,
-      "ocupacao": 68.64
+      "ocupacao": 68.64,
+      "media_entregas": 1.0,
+      "media_peso": 343.2
     },
     {
       "DIA": "2026-01-16",
@@ -32702,7 +33359,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.5503526646,
-      "ocupacao": 68.0533333333
+      "ocupacao": 68.0533333333,
+      "media_entregas": 1.0,
+      "media_peso": 1020.8
     },
     {
       "DIA": "2026-01-16",
@@ -32713,7 +33372,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.3374333333,
-      "ocupacao": 79.2
+      "ocupacao": 79.2,
+      "media_entregas": 1.0,
+      "media_peso": 1980.0
     },
     {
       "DIA": "2026-01-21",
@@ -32724,7 +33385,9 @@
       "veiculos": 2,
       "entregas": 5,
       "real_kg": 0.5185048454,
-      "ocupacao": 72.2333333333
+      "ocupacao": 72.2333333333,
+      "media_entregas": 2.5,
+      "media_peso": 1083.5
     },
     {
       "DIA": "2026-01-21",
@@ -32735,7 +33398,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.3244551282,
-      "ocupacao": 82.368
+      "ocupacao": 82.368,
+      "media_entregas": 2.0,
+      "media_peso": 2059.2
     },
     {
       "DIA": "2026-01-27",
@@ -32746,7 +33411,9 @@
       "veiculos": 3,
       "entregas": 12,
       "real_kg": 0.9117795016,
-      "ocupacao": 93.9326666667
+      "ocupacao": 93.9326666667,
+      "media_entregas": 4.0,
+      "media_peso": 469.6633333333
     },
     {
       "DIA": "2026-01-28",
@@ -32757,7 +33424,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 1.2015415264,
-      "ocupacao": 71.28
+      "ocupacao": 71.28,
+      "media_entregas": 2.0,
+      "media_peso": 356.4
     },
     {
       "DIA": "2026-02-02",
@@ -32768,7 +33437,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.2691094373,
-      "ocupacao": 99.308
+      "ocupacao": 99.308,
+      "media_entregas": 2.0,
+      "media_peso": 2482.7
     },
     {
       "DIA": "2026-02-03",
@@ -32779,7 +33450,9 @@
       "veiculos": 2,
       "entregas": 4,
       "real_kg": 1.0231260303,
-      "ocupacao": 83.71
+      "ocupacao": 83.71,
+      "media_entregas": 2.0,
+      "media_peso": 418.55
     },
     {
       "DIA": "2026-02-06",
@@ -32790,7 +33463,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.7415227706,
-      "ocupacao": 115.5
+      "ocupacao": 115.5,
+      "media_entregas": 1.0,
+      "media_peso": 577.5
     },
     {
       "DIA": "2026-02-09",
@@ -32801,7 +33476,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.2699466667,
-      "ocupacao": 99.0
+      "ocupacao": 99.0,
+      "media_entregas": 1.0,
+      "media_peso": 2475.0
     },
     {
       "DIA": "2026-02-10",
@@ -32812,7 +33489,9 @@
       "veiculos": 2,
       "entregas": 9,
       "real_kg": 0.8354065548,
-      "ocupacao": 102.52
+      "ocupacao": 102.52,
+      "media_entregas": 4.5,
+      "media_peso": 512.6
     },
     {
       "DIA": "2026-02-12",
@@ -32823,7 +33502,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 1.1186765935,
-      "ocupacao": 76.56
+      "ocupacao": 76.56,
+      "media_entregas": 4.0,
+      "media_peso": 382.8
     },
     {
       "DIA": "2026-02-13",
@@ -32834,7 +33515,9 @@
       "veiculos": 2,
       "entregas": 4,
       "real_kg": 1.162087924,
-      "ocupacao": 73.7
+      "ocupacao": 73.7,
+      "media_entregas": 2.0,
+      "media_peso": 368.5
     },
     {
       "DIA": "2026-02-16",
@@ -32845,7 +33528,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.8888115401,
-      "ocupacao": 96.36
+      "ocupacao": 96.36,
+      "media_entregas": 2.0,
+      "media_peso": 481.8
     },
     {
       "DIA": "2026-02-19",
@@ -32856,7 +33541,9 @@
       "veiculos": 2,
       "entregas": 8,
       "real_kg": 0.8898273247,
-      "ocupacao": 96.25
+      "ocupacao": 96.25,
+      "media_entregas": 4.0,
+      "media_peso": 481.25
     },
     {
       "DIA": "2026-02-19",
@@ -32867,7 +33554,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 0.3009811695,
-      "ocupacao": 88.792
+      "ocupacao": 88.792,
+      "media_entregas": 4.0,
+      "media_peso": 2219.8
     },
     {
       "DIA": "2026-02-20",
@@ -32878,7 +33567,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.2675682819,
-      "ocupacao": 99.88
+      "ocupacao": 99.88,
+      "media_entregas": 1.0,
+      "media_peso": 2497.0
     },
     {
       "DIA": "2026-02-24",
@@ -32889,7 +33580,9 @@
       "veiculos": 2,
       "entregas": 6,
       "real_kg": 1.0381318788,
-      "ocupacao": 82.5
+      "ocupacao": 82.5,
+      "media_entregas": 3.0,
+      "media_peso": 412.5
     },
     {
       "DIA": "2026-02-24",
@@ -32900,7 +33593,9 @@
       "veiculos": 2,
       "entregas": 4,
       "real_kg": 0.4425488038,
-      "ocupacao": 91.1643333333
+      "ocupacao": 91.1643333333,
+      "media_entregas": 2.0,
+      "media_peso": 1367.465
     },
     {
       "DIA": "2026-02-25",
@@ -32911,7 +33606,9 @@
       "veiculos": 2,
       "entregas": 6,
       "real_kg": 1.2203744657,
-      "ocupacao": 70.18
+      "ocupacao": 70.18,
+      "media_entregas": 3.0,
+      "media_peso": 350.9
     },
     {
       "DIA": "2026-02-25",
@@ -32922,7 +33619,9 @@
       "veiculos": 1,
       "entregas": 3,
       "real_kg": 0.3940796857,
-      "ocupacao": 95.04
+      "ocupacao": 95.04,
+      "media_entregas": 3.0,
+      "media_peso": 1425.6
     },
     {
       "DIA": "2026-02-27",
@@ -32933,7 +33632,9 @@
       "veiculos": 1,
       "entregas": 3,
       "real_kg": 0.9403368467,
-      "ocupacao": 91.08
+      "ocupacao": 91.08,
+      "media_entregas": 3.0,
+      "media_peso": 455.4
     },
     {
       "DIA": "2026-02-27",
@@ -32944,7 +33645,9 @@
       "veiculos": 3,
       "entregas": 5,
       "real_kg": 0.501368396,
-      "ocupacao": 74.7022222222
+      "ocupacao": 74.7022222222,
+      "media_entregas": 1.6666666667,
+      "media_peso": 1120.5333333333
     },
     {
       "DIA": "2026-02-27",
@@ -32955,7 +33658,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.3153582555,
-      "ocupacao": 84.744
+      "ocupacao": 84.744,
+      "media_entregas": 1.0,
+      "media_peso": 2118.6
     },
     {
       "DIA": "2026-03-09",
@@ -32966,7 +33671,9 @@
       "veiculos": 2,
       "entregas": 2,
       "real_kg": 0.9600479767,
-      "ocupacao": 89.21
+      "ocupacao": 89.21,
+      "media_entregas": 1.0,
+      "media_peso": 446.05
     },
     {
       "DIA": "2026-03-09",
@@ -32977,7 +33684,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.5911195286,
-      "ocupacao": 63.36
+      "ocupacao": 63.36,
+      "media_entregas": 1.0,
+      "media_peso": 950.4
     },
     {
       "DIA": "2026-03-10",
@@ -32988,7 +33697,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 1.2722204397,
-      "ocupacao": 67.32
+      "ocupacao": 67.32,
+      "media_entregas": 1.0,
+      "media_peso": 336.6
     },
     {
       "DIA": "2026-03-10",
@@ -32999,7 +33710,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.6818788688,
-      "ocupacao": 54.9266666667
+      "ocupacao": 54.9266666667,
+      "media_entregas": 2.0,
+      "media_peso": 823.9
     },
     {
       "DIA": "2026-03-11",
@@ -33010,7 +33723,9 @@
       "veiculos": 3,
       "entregas": 11,
       "real_kg": 1.0783918408,
-      "ocupacao": 79.42
+      "ocupacao": 79.42,
+      "media_entregas": 3.6666666667,
+      "media_peso": 397.1
     },
     {
       "DIA": "2026-03-12",
@@ -33021,7 +33736,9 @@
       "veiculos": 2,
       "entregas": 5,
       "real_kg": 1.4830455411,
-      "ocupacao": 57.75
+      "ocupacao": 57.75,
+      "media_entregas": 2.5,
+      "media_peso": 288.75
     },
     {
       "DIA": "2026-03-16",
@@ -33032,7 +33749,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.7156239973,
-      "ocupacao": 119.68
+      "ocupacao": 119.68,
+      "media_entregas": 2.0,
+      "media_peso": 598.4
     },
     {
       "DIA": "2026-03-16",
@@ -33043,7 +33762,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.3183333333,
-      "ocupacao": 83.952
+      "ocupacao": 83.952,
+      "media_entregas": 1.0,
+      "media_peso": 2098.8
     },
     {
       "DIA": "2026-03-17",
@@ -33054,7 +33775,9 @@
       "veiculos": 5,
       "entregas": 24,
       "real_kg": 0.9238240497,
-      "ocupacao": 92.708
+      "ocupacao": 92.708,
+      "media_entregas": 4.8,
+      "media_peso": 463.54
     },
     {
       "DIA": "2026-03-18",
@@ -33065,7 +33788,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 1.8450211116,
-      "ocupacao": 46.42
+      "ocupacao": 46.42,
+      "media_entregas": 4.0,
+      "media_peso": 232.1
     },
     {
       "DIA": "2026-03-18",
@@ -33076,7 +33801,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.424192087,
-      "ocupacao": 88.2933333333
+      "ocupacao": 88.2933333333,
+      "media_entregas": 2.0,
+      "media_peso": 1324.4
     },
     {
       "DIA": "2026-03-19",
@@ -33087,7 +33814,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 1.0550120719,
-      "ocupacao": 81.18
+      "ocupacao": 81.18,
+      "media_entregas": 2.0,
+      "media_peso": 405.9
     },
     {
       "DIA": "2026-03-20",
@@ -33098,7 +33827,9 @@
       "veiculos": 2,
       "entregas": 3,
       "real_kg": 0.9660036093,
-      "ocupacao": 88.66
+      "ocupacao": 88.66,
+      "media_entregas": 1.5,
+      "media_peso": 443.3
     },
     {
       "DIA": "2026-03-20",
@@ -33109,7 +33840,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.3462557781,
-      "ocupacao": 108.1666666667
+      "ocupacao": 108.1666666667,
+      "media_entregas": 2.0,
+      "media_peso": 1622.5
     },
     {
       "DIA": "2026-03-23",
@@ -33120,7 +33853,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.7457843957,
-      "ocupacao": 114.84
+      "ocupacao": 114.84,
+      "media_entregas": 1.0,
+      "media_peso": 574.2
     },
     {
       "DIA": "2026-03-24",
@@ -33131,7 +33866,9 @@
       "veiculos": 2,
       "entregas": 2,
       "real_kg": 0.8787798071,
-      "ocupacao": 97.46
+      "ocupacao": 97.46,
+      "media_entregas": 1.0,
+      "media_peso": 487.3
     },
     {
       "DIA": "2026-03-24",
@@ -33142,7 +33879,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.5437896856,
-      "ocupacao": 68.8746666667
+      "ocupacao": 68.8746666667,
+      "media_entregas": 2.0,
+      "media_peso": 1033.12
     },
     {
       "DIA": "2026-03-25",
@@ -33153,7 +33892,9 @@
       "veiculos": 1,
       "entregas": 3,
       "real_kg": 0.8807679967,
-      "ocupacao": 97.24
+      "ocupacao": 97.24,
+      "media_entregas": 3.0,
+      "media_peso": 486.2
     },
     {
       "DIA": "2026-03-25",
@@ -33164,7 +33905,9 @@
       "veiculos": 2,
       "entregas": 4,
       "real_kg": 0.6205677676,
-      "ocupacao": 60.3533333333
+      "ocupacao": 60.3533333333,
+      "media_entregas": 2.0,
+      "media_peso": 905.3
     },
     {
       "DIA": "2026-03-26",
@@ -33175,7 +33918,9 @@
       "veiculos": 2,
       "entregas": 6,
       "real_kg": 0.9346925679,
-      "ocupacao": 91.63
+      "ocupacao": 91.63,
+      "media_entregas": 3.0,
+      "media_peso": 458.15
     },
     {
       "DIA": "2026-03-26",
@@ -33186,7 +33931,9 @@
       "veiculos": 5,
       "entregas": 8,
       "real_kg": 0.5255347395,
-      "ocupacao": 71.2670933333
+      "ocupacao": 71.2670933333,
+      "media_entregas": 1.6,
+      "media_peso": 1069.0064
     },
     {
       "DIA": "2026-03-27",
@@ -33197,7 +33944,9 @@
       "veiculos": 2,
       "entregas": 2,
       "real_kg": 0.9588656516,
-      "ocupacao": 89.32
+      "ocupacao": 89.32,
+      "media_entregas": 1.0,
+      "media_peso": 446.6
     },
     {
       "DIA": "2026-03-31",
@@ -33208,7 +33957,9 @@
       "veiculos": 4,
       "entregas": 7,
       "real_kg": 1.0131410658,
-      "ocupacao": 84.535
+      "ocupacao": 84.535,
+      "media_entregas": 1.75,
+      "media_peso": 422.675
     },
     {
       "DIA": "2026-03-31",
@@ -33219,7 +33970,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.3124382716,
-      "ocupacao": 85.536
+      "ocupacao": 85.536,
+      "media_entregas": 2.0,
+      "media_peso": 2138.4
     },
     {
       "DIA": "2026-04-02",
@@ -33230,7 +33983,9 @@
       "veiculos": 5,
       "entregas": 20,
       "real_kg": 1.1231951949,
-      "ocupacao": 76.252
+      "ocupacao": 76.252,
+      "media_entregas": 4.0,
+      "media_peso": 381.26
     },
     {
       "DIA": "2026-04-06",
@@ -33241,7 +33996,9 @@
       "veiculos": 2,
       "entregas": 5,
       "real_kg": 0.2905639362,
-      "ocupacao": 90.8578
+      "ocupacao": 90.8578,
+      "media_entregas": 2.5,
+      "media_peso": 2271.445
     },
     {
       "DIA": "2026-04-07",
@@ -33252,7 +34009,9 @@
       "veiculos": 3,
       "entregas": 12,
       "real_kg": 1.1540497664,
-      "ocupacao": 74.2133333333
+      "ocupacao": 74.2133333333,
+      "media_entregas": 4.0,
+      "media_peso": 371.0666666667
     },
     {
       "DIA": "2026-04-08",
@@ -33263,7 +34022,9 @@
       "veiculos": 2,
       "entregas": 7,
       "real_kg": 1.2165607955,
-      "ocupacao": 70.4
+      "ocupacao": 70.4,
+      "media_entregas": 3.5,
+      "media_peso": 352.0
     },
     {
       "DIA": "2026-04-09",
@@ -33274,7 +34035,9 @@
       "veiculos": 3,
       "entregas": 8,
       "real_kg": 1.0146814628,
-      "ocupacao": 84.4066666667
+      "ocupacao": 84.4066666667,
+      "media_entregas": 2.6666666667,
+      "media_peso": 422.0333333333
     },
     {
       "DIA": "2026-04-09",
@@ -33285,7 +34048,9 @@
       "veiculos": 1,
       "entregas": 3,
       "real_kg": 0.7423361522,
-      "ocupacao": 50.4533333333
+      "ocupacao": 50.4533333333,
+      "media_entregas": 3.0,
+      "media_peso": 756.8
     },
     {
       "DIA": "2026-04-10",
@@ -33296,7 +34061,9 @@
       "veiculos": 2,
       "entregas": 5,
       "real_kg": 1.0904746626,
-      "ocupacao": 78.54
+      "ocupacao": 78.54,
+      "media_entregas": 2.5,
+      "media_peso": 392.7
     },
     {
       "DIA": "2026-04-10",
@@ -33307,7 +34074,9 @@
       "veiculos": 1,
       "entregas": 3,
       "real_kg": 0.509707857,
-      "ocupacao": 73.48
+      "ocupacao": 73.48,
+      "media_entregas": 3.0,
+      "media_peso": 1102.2
     },
     {
       "DIA": "2026-04-13",
@@ -33318,7 +34087,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 1.2203744657,
-      "ocupacao": 70.18
+      "ocupacao": 70.18,
+      "media_entregas": 2.0,
+      "media_peso": 350.9
     },
     {
       "DIA": "2026-04-14",
@@ -33329,7 +34100,9 @@
       "veiculos": 4,
       "entregas": 18,
       "real_kg": 1.1075375663,
-      "ocupacao": 77.33
+      "ocupacao": 77.33,
+      "media_entregas": 4.5,
+      "media_peso": 386.65
     },
     {
       "DIA": "2026-04-14",
@@ -33340,7 +34113,9 @@
       "veiculos": 1,
       "entregas": 6,
       "real_kg": 0.5987424065,
-      "ocupacao": 62.5533333333
+      "ocupacao": 62.5533333333,
+      "media_entregas": 6.0,
+      "media_peso": 938.3
     },
     {
       "DIA": "2026-04-15",
@@ -33351,7 +34126,9 @@
       "veiculos": 3,
       "entregas": 15,
       "real_kg": 1.1360879024,
-      "ocupacao": 75.3866666667
+      "ocupacao": 75.3866666667,
+      "media_entregas": 5.0,
+      "media_peso": 376.9333333333
     },
     {
       "DIA": "2026-04-16",
@@ -33362,7 +34139,9 @@
       "veiculos": 2,
       "entregas": 7,
       "real_kg": 1.3187650899,
-      "ocupacao": 64.944
+      "ocupacao": 64.944,
+      "media_entregas": 3.5,
+      "media_peso": 324.72
     },
     {
       "DIA": "2026-04-16",
@@ -33373,7 +34152,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.3205171504,
-      "ocupacao": 83.38
+      "ocupacao": 83.38,
+      "media_entregas": 1.0,
+      "media_peso": 2084.5
     },
     {
       "DIA": "2026-04-17",
@@ -33384,7 +34165,9 @@
       "veiculos": 3,
       "entregas": 13,
       "real_kg": 0.7613418277,
-      "ocupacao": 112.4933333333
+      "ocupacao": 112.4933333333,
+      "media_entregas": 4.3333333333,
+      "media_peso": 562.4666666667
     },
     {
       "DIA": "2026-04-17",
@@ -33395,7 +34178,9 @@
       "veiculos": 1,
       "entregas": 5,
       "real_kg": 0.680969697,
-      "ocupacao": 55.0
+      "ocupacao": 55.0,
+      "media_entregas": 5.0,
+      "media_peso": 825.0
     },
     {
       "DIA": "2026-04-20",
@@ -33406,7 +34191,9 @@
       "veiculos": 2,
       "entregas": 4,
       "real_kg": 0.6400091137,
-      "ocupacao": 58.52
+      "ocupacao": 58.52,
+      "media_entregas": 2.0,
+      "media_peso": 877.8
     },
     {
       "DIA": "2026-04-22",
@@ -33417,7 +34204,9 @@
       "veiculos": 3,
       "entregas": 24,
       "real_kg": 0.9261684089,
-      "ocupacao": 92.4733333333
+      "ocupacao": 92.4733333333,
+      "media_entregas": 8.0,
+      "media_peso": 462.3666666667
     },
     {
       "DIA": "2026-04-22",
@@ -33428,7 +34217,9 @@
       "veiculos": 1,
       "entregas": 8,
       "real_kg": 0.516930438,
-      "ocupacao": 72.4533333333
+      "ocupacao": 72.4533333333,
+      "media_entregas": 8.0,
+      "media_peso": 1086.8
     },
     {
       "DIA": "2026-04-22",
@@ -33439,7 +34230,9 @@
       "veiculos": 1,
       "entregas": 7,
       "real_kg": 0.2689902569,
-      "ocupacao": 99.352
+      "ocupacao": 99.352,
+      "media_entregas": 7.0,
+      "media_peso": 2483.8
     },
     {
       "DIA": "2026-04-23",
@@ -33450,7 +34243,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 1.1059643595,
-      "ocupacao": 77.44
+      "ocupacao": 77.44,
+      "media_entregas": 1.0,
+      "media_peso": 387.2
     },
     {
       "DIA": "2026-04-23",
@@ -33461,7 +34256,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.5456487956,
-      "ocupacao": 68.64
+      "ocupacao": 68.64,
+      "media_entregas": 2.0,
+      "media_peso": 1029.6
     },
     {
       "DIA": "2026-04-24",
@@ -33472,7 +34269,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 0.9495108647,
-      "ocupacao": 90.2
+      "ocupacao": 90.2,
+      "media_entregas": 4.0,
+      "media_peso": 451.0
     },
     {
       "DIA": "2026-04-24",
@@ -33483,7 +34282,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.7412587413,
-      "ocupacao": 50.5266666667
+      "ocupacao": 50.5266666667,
+      "media_entregas": 1.0,
+      "media_peso": 757.9
     },
     {
       "DIA": "2026-04-27",
@@ -33494,7 +34295,9 @@
       "veiculos": 2,
       "entregas": 6,
       "real_kg": 1.1453302793,
-      "ocupacao": 75.9
+      "ocupacao": 75.9,
+      "media_entregas": 3.0,
+      "media_peso": 379.5
     },
     {
       "DIA": "2026-04-27",
@@ -33505,7 +34308,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.3153582555,
-      "ocupacao": 84.744
+      "ocupacao": 84.744,
+      "media_entregas": 1.0,
+      "media_peso": 2118.6
     },
     {
       "DIA": "2026-04-28",
@@ -33516,7 +34321,9 @@
       "veiculos": 4,
       "entregas": 25,
       "real_kg": 1.0297768595,
-      "ocupacao": 87.12
+      "ocupacao": 87.12,
+      "media_entregas": 6.25,
+      "media_peso": 435.6
     },
     {
       "DIA": "2026-04-29",
@@ -33527,7 +34334,9 @@
       "veiculos": 2,
       "entregas": 3,
       "real_kg": 0.9011561448,
-      "ocupacao": 95.04
+      "ocupacao": 95.04,
+      "media_entregas": 1.5,
+      "media_peso": 475.2
     },
     {
       "DIA": "2026-04-29",
@@ -33538,7 +34347,9 @@
       "veiculos": 2,
       "entregas": 10,
       "real_kg": 0.4382044382,
-      "ocupacao": 85.47
+      "ocupacao": 85.47,
+      "media_entregas": 5.0,
+      "media_peso": 1282.05
     },
     {
       "DIA": "2026-04-30",
@@ -33549,7 +34360,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 1.2933536696,
-      "ocupacao": 66.22
+      "ocupacao": 66.22,
+      "media_entregas": 1.0,
+      "media_peso": 331.1
     },
     {
       "DIA": "2026-04-30",
@@ -33560,7 +34373,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.2743360434,
-      "ocupacao": 97.416
+      "ocupacao": 97.416,
+      "media_entregas": 1.0,
+      "media_peso": 2435.4
     },
     {
       "DIA": "2026-05-05",
@@ -33571,7 +34386,9 @@
       "veiculos": 3,
       "entregas": 8,
       "real_kg": 0.4933959217,
-      "ocupacao": 79.816
+      "ocupacao": 79.816,
+      "media_entregas": 2.6666666667,
+      "media_peso": 1197.24
     },
     {
       "DIA": "2026-05-06",
@@ -33582,7 +34399,9 @@
       "veiculos": 4,
       "entregas": 22,
       "real_kg": 1.0203782993,
-      "ocupacao": 87.92245
+      "ocupacao": 87.92245,
+      "media_entregas": 5.5,
+      "media_peso": 439.61225
     },
     {
       "DIA": "2026-05-07",
@@ -33593,7 +34412,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 1.3517342172,
-      "ocupacao": 63.36
+      "ocupacao": 63.36,
+      "media_entregas": 1.0,
+      "media_peso": 316.8
     },
     {
       "DIA": "2026-05-07",
@@ -33604,7 +34425,9 @@
       "veiculos": 2,
       "entregas": 9,
       "real_kg": 0.6266353955,
-      "ocupacao": 64.383
+      "ocupacao": 64.383,
+      "media_entregas": 4.5,
+      "media_peso": 965.745
     },
     {
       "DIA": "2026-05-08",
@@ -33615,7 +34438,61 @@
       "veiculos": 5,
       "entregas": 28,
       "real_kg": 1.0661357101,
-      "ocupacao": 80.333
+      "ocupacao": 80.333,
+      "media_entregas": 5.6,
+      "media_peso": 401.665
+    },
+    {
+      "DIA": "2026-05-11",
+      "VEICULO": "FIORINO",
+      "peso": 1253.406,
+      "capac": 1500,
+      "frete": 1284.6882,
+      "veiculos": 3,
+      "entregas": 7,
+      "real_kg": 1.0249577551,
+      "ocupacao": 83.5604,
+      "media_entregas": 2.3333333333,
+      "media_peso": 417.802
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "FIORINO",
+      "peso": 996.534,
+      "capac": 1500,
+      "frete": 1284.6882,
+      "veiculos": 3,
+      "entregas": 7,
+      "real_kg": 1.2891564161,
+      "ocupacao": 66.4356,
+      "media_entregas": 2.3333333333,
+      "media_peso": 332.178
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "VAN",
+      "peso": 1261.755,
+      "capac": 1500,
+      "frete": 561.8,
+      "veiculos": 1,
+      "entregas": 5,
+      "real_kg": 0.4452528423,
+      "ocupacao": 84.117,
+      "media_entregas": 5.0,
+      "media_peso": 1261.755
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "VUC",
+      "peso": 1999.888,
+      "capac": 2500,
+      "frete": 668.118,
+      "veiculos": 1,
+      "entregas": 3,
+      "real_kg": 0.3340777084,
+      "ocupacao": 79.99552,
+      "media_entregas": 3.0,
+      "media_peso": 1999.888
     }
   ],
   "vesp_por_veiculo_mes": [
@@ -33628,7 +34505,9 @@
       "veiculos": 13,
       "entregas": 43,
       "real_kg": 1.0007861765,
-      "ocupacao": 85.3752307692
+      "ocupacao": 85.3752307692,
+      "media_entregas": 3.3076923077,
+      "media_peso": 426.8761538462
     },
     {
       "MES_KEY": "2026-01",
@@ -33639,7 +34518,9 @@
       "veiculos": 8,
       "entregas": 23,
       "real_kg": 0.4494626979,
-      "ocupacao": 83.329125
+      "ocupacao": 83.329125,
+      "media_entregas": 2.875,
+      "media_peso": 1249.936875
     },
     {
       "MES_KEY": "2026-01",
@@ -33650,7 +34531,9 @@
       "veiculos": 2,
       "entregas": 3,
       "real_kg": 0.3308169935,
-      "ocupacao": 80.784
+      "ocupacao": 80.784,
+      "media_entregas": 1.5,
+      "media_peso": 2019.6
     },
     {
       "MES_KEY": "2026-02",
@@ -33661,7 +34544,9 @@
       "veiculos": 16,
       "entregas": 47,
       "real_kg": 0.9807575614,
-      "ocupacao": 87.32625
+      "ocupacao": 87.32625,
+      "media_entregas": 2.9375,
+      "media_peso": 436.63125
     },
     {
       "MES_KEY": "2026-02",
@@ -33672,7 +34557,9 @@
       "veiculos": 6,
       "entregas": 12,
       "real_kg": 0.4596490622,
-      "ocupacao": 83.5792222222
+      "ocupacao": 83.5792222222,
+      "media_entregas": 2.0,
+      "media_peso": 1253.6883333333
     },
     {
       "MES_KEY": "2026-02",
@@ -33683,7 +34570,9 @@
       "veiculos": 5,
       "entregas": 9,
       "real_kg": 0.2832664863,
-      "ocupacao": 94.3448
+      "ocupacao": 94.3448,
+      "media_entregas": 1.8,
+      "media_peso": 2358.62
     },
     {
       "MES_KEY": "2026-03",
@@ -33694,7 +34583,9 @@
       "veiculos": 30,
       "entregas": 75,
       "real_kg": 0.9902478918,
-      "ocupacao": 86.4893333333
+      "ocupacao": 86.4893333333,
+      "media_entregas": 2.5,
+      "media_peso": 432.4466666667
     },
     {
       "MES_KEY": "2026-03",
@@ -33705,7 +34596,9 @@
       "veiculos": 12,
       "entregas": 21,
       "real_kg": 0.5222017867,
-      "ocupacao": 71.7219555556
+      "ocupacao": 71.7219555556,
+      "media_entregas": 1.75,
+      "media_peso": 1075.8293333333
     },
     {
       "MES_KEY": "2026-03",
@@ -33716,7 +34609,9 @@
       "veiculos": 2,
       "entregas": 3,
       "real_kg": 0.3153582555,
-      "ocupacao": 84.744
+      "ocupacao": 84.744,
+      "media_entregas": 1.5,
+      "media_peso": 2118.6
     },
     {
       "MES_KEY": "2026-04",
@@ -33727,7 +34622,9 @@
       "veiculos": 42,
       "entregas": 171,
       "real_kg": 1.0543205513,
-      "ocupacao": 81.6587619048
+      "ocupacao": 81.6587619048,
+      "media_entregas": 4.0714285714,
+      "media_peso": 408.2938095238
     },
     {
       "MES_KEY": "2026-04",
@@ -33738,7 +34635,9 @@
       "veiculos": 11,
       "entregas": 42,
       "real_kg": 0.5713414014,
-      "ocupacao": 65.5533333333
+      "ocupacao": 65.5533333333,
+      "media_entregas": 3.8181818182,
+      "media_peso": 983.3
     },
     {
       "MES_KEY": "2026-04",
@@ -33749,72 +34648,97 @@
       "veiculos": 6,
       "entregas": 15,
       "real_kg": 0.2921636655,
-      "ocupacao": 91.1012666667
+      "ocupacao": 91.1012666667,
+      "media_entregas": 2.5,
+      "media_peso": 2277.5316666667
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "FIORINO",
-      "peso": 4083.574,
-      "capac": 5000,
-      "frete": 4363.6596,
-      "veiculos": 10,
-      "entregas": 51,
-      "real_kg": 1.0685883493,
-      "ocupacao": 81.67148
+      "peso": 6333.514,
+      "capac": 8000,
+      "frete": 6933.036,
+      "veiculos": 16,
+      "entregas": 65,
+      "real_kg": 1.0946586682,
+      "ocupacao": 79.168925,
+      "media_entregas": 4.0625,
+      "media_peso": 395.844625
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VAN",
-      "peso": 5523.21,
-      "capac": 7500,
-      "frete": 2982.48,
-      "veiculos": 5,
-      "entregas": 17,
-      "real_kg": 0.5399903317,
-      "ocupacao": 73.6428
+      "peso": 6784.965,
+      "capac": 9000,
+      "frete": 3544.28,
+      "veiculos": 6,
+      "entregas": 22,
+      "real_kg": 0.5223726283,
+      "ocupacao": 75.3885,
+      "media_entregas": 3.6666666667,
+      "media_peso": 1130.8275
+    },
+    {
+      "MES_KEY": "2026-05",
+      "VEICULO": "VUC",
+      "peso": 1999.888,
+      "capac": 2500,
+      "frete": 668.118,
+      "veiculos": 1,
+      "entregas": 3,
+      "real_kg": 0.3340777084,
+      "ocupacao": 79.99552,
+      "media_entregas": 3.0,
+      "media_peso": 1999.888
     }
   ],
   "vesp_tl_kpis": {
-    "peso_total": 36070.36,
-    "capac_total": 45000.0,
-    "frete_total": 25669.12,
-    "real_kg_total": 0.7116,
-    "ocupacao_total": 80.16,
-    "qtd_veiculos": 54,
-    "qtd_entregas": 237,
+    "peso_total": 41224.45,
+    "capac_total": 51500.0,
+    "frete_total": 29040.18,
+    "real_kg_total": 0.7044,
+    "ocupacao_total": 80.05,
+    "qtd_veiculos": 61,
+    "qtd_entregas": 258,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67
   },
   "vesp_tl_por_veiculo": [
     {
       "VEICULO": "FIORINO",
-      "peso": 16141.774,
-      "capac": 20000,
-      "frete": 17291.9072,
-      "veiculos": 40,
-      "entregas": 181,
-      "real_kg": 1.0712519702,
-      "ocupacao": 80.70887
+      "peso": 18034.214,
+      "capac": 22500,
+      "frete": 19433.0542,
+      "veiculos": 45,
+      "entregas": 194,
+      "real_kg": 1.0775659089,
+      "ocupacao": 80.1520622222,
+      "media_entregas": 4.3111111111,
+      "media_peso": 400.7603111111
     },
     {
       "VEICULO": "VAN",
-      "peso": 10786.49,
-      "capac": 15000,
-      "frete": 5704.74,
-      "veiculos": 10,
-      "entregas": 45,
-      "real_kg": 0.5288782542,
-      "ocupacao": 71.9099333333
+      "peso": 12048.245,
+      "capac": 16500,
+      "frete": 6266.54,
+      "veiculos": 11,
+      "entregas": 50,
+      "real_kg": 0.5201205653,
+      "ocupacao": 73.0196666667,
+      "media_entregas": 4.5454545455,
+      "media_peso": 1095.295
     },
     {
       "VEICULO": "VUC",
-      "peso": 9142.1,
-      "capac": 10000,
-      "frete": 2672.472,
-      "veiculos": 4,
-      "entregas": 11,
-      "real_kg": 0.2923258332,
-      "ocupacao": 91.421
+      "peso": 11141.988,
+      "capac": 12500,
+      "frete": 3340.59,
+      "veiculos": 5,
+      "entregas": 14,
+      "real_kg": 0.2998199244,
+      "ocupacao": 89.135904,
+      "media_entregas": 2.8,
+      "media_peso": 2228.3976
     }
   ],
   "vesp_tl_por_veiculo_dia": [
@@ -33827,7 +34751,9 @@
       "veiculos": 2,
       "entregas": 6,
       "real_kg": 0.9346925679,
-      "ocupacao": 91.63
+      "ocupacao": 91.63,
+      "media_entregas": 3.0,
+      "media_peso": 458.15
     },
     {
       "DIA": "2026-03-26",
@@ -33838,7 +34764,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.4291825821,
-      "ocupacao": 87.2666666667
+      "ocupacao": 87.2666666667,
+      "media_entregas": 2.0,
+      "media_peso": 1309.0
     },
     {
       "DIA": "2026-03-27",
@@ -33849,7 +34777,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 1.2165607955,
-      "ocupacao": 70.4
+      "ocupacao": 70.4,
+      "media_entregas": 1.0,
+      "media_peso": 352.0
     },
     {
       "DIA": "2026-03-31",
@@ -33860,7 +34790,9 @@
       "veiculos": 4,
       "entregas": 7,
       "real_kg": 1.0131410658,
-      "ocupacao": 84.535
+      "ocupacao": 84.535,
+      "media_entregas": 1.75,
+      "media_peso": 422.675
     },
     {
       "DIA": "2026-03-31",
@@ -33871,7 +34803,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.3124382716,
-      "ocupacao": 85.536
+      "ocupacao": 85.536,
+      "media_entregas": 2.0,
+      "media_peso": 2138.4
     },
     {
       "DIA": "2026-04-02",
@@ -33882,7 +34816,9 @@
       "veiculos": 3,
       "entregas": 16,
       "real_kg": 1.097648838,
-      "ocupacao": 78.0266666667
+      "ocupacao": 78.0266666667,
+      "media_entregas": 5.3333333333,
+      "media_peso": 390.1333333333
     },
     {
       "DIA": "2026-04-07",
@@ -33893,7 +34829,9 @@
       "veiculos": 1,
       "entregas": 5,
       "real_kg": 1.452609905,
-      "ocupacao": 58.96
+      "ocupacao": 58.96,
+      "media_entregas": 5.0,
+      "media_peso": 294.8
     },
     {
       "DIA": "2026-04-09",
@@ -33904,7 +34842,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 1.3063740085,
-      "ocupacao": 65.56
+      "ocupacao": 65.56,
+      "media_entregas": 4.0,
+      "media_peso": 327.8
     },
     {
       "DIA": "2026-04-10",
@@ -33915,7 +34855,9 @@
       "veiculos": 1,
       "entregas": 3,
       "real_kg": 1.1059643595,
-      "ocupacao": 77.44
+      "ocupacao": 77.44,
+      "media_entregas": 3.0,
+      "media_peso": 387.2
     },
     {
       "DIA": "2026-04-10",
@@ -33926,7 +34868,9 @@
       "veiculos": 1,
       "entregas": 3,
       "real_kg": 0.509707857,
-      "ocupacao": 73.48
+      "ocupacao": 73.48,
+      "media_entregas": 3.0,
+      "media_peso": 1102.2
     },
     {
       "DIA": "2026-04-13",
@@ -33937,7 +34881,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 1.2203744657,
-      "ocupacao": 70.18
+      "ocupacao": 70.18,
+      "media_entregas": 2.0,
+      "media_peso": 350.9
     },
     {
       "DIA": "2026-04-14",
@@ -33948,7 +34894,9 @@
       "veiculos": 2,
       "entregas": 11,
       "real_kg": 1.3564440925,
-      "ocupacao": 63.14
+      "ocupacao": 63.14,
+      "media_entregas": 5.5,
+      "media_peso": 315.7
     },
     {
       "DIA": "2026-04-14",
@@ -33959,7 +34907,9 @@
       "veiculos": 1,
       "entregas": 6,
       "real_kg": 0.5987424065,
-      "ocupacao": 62.5533333333
+      "ocupacao": 62.5533333333,
+      "media_entregas": 6.0,
+      "media_peso": 938.3
     },
     {
       "DIA": "2026-04-15",
@@ -33970,7 +34920,9 @@
       "veiculos": 3,
       "entregas": 15,
       "real_kg": 1.1360879024,
-      "ocupacao": 75.3866666667
+      "ocupacao": 75.3866666667,
+      "media_entregas": 5.0,
+      "media_peso": 376.9333333333
     },
     {
       "DIA": "2026-04-16",
@@ -33981,7 +34933,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 1.5571978182,
-      "ocupacao": 55.0
+      "ocupacao": 55.0,
+      "media_entregas": 1.0,
+      "media_peso": 275.0
     },
     {
       "DIA": "2026-04-16",
@@ -33992,7 +34946,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.3205171504,
-      "ocupacao": 83.38
+      "ocupacao": 83.38,
+      "media_entregas": 1.0,
+      "media_peso": 2084.5
     },
     {
       "DIA": "2026-04-17",
@@ -34003,7 +34959,9 @@
       "veiculos": 1,
       "entregas": 5,
       "real_kg": 0.7801592275,
-      "ocupacao": 109.78
+      "ocupacao": 109.78,
+      "media_entregas": 5.0,
+      "media_peso": 548.9
     },
     {
       "DIA": "2026-04-17",
@@ -34014,7 +34972,9 @@
       "veiculos": 1,
       "entregas": 5,
       "real_kg": 0.680969697,
-      "ocupacao": 55.0
+      "ocupacao": 55.0,
+      "media_entregas": 5.0,
+      "media_peso": 825.0
     },
     {
       "DIA": "2026-04-22",
@@ -34025,7 +34985,9 @@
       "veiculos": 3,
       "entregas": 24,
       "real_kg": 0.9261684089,
-      "ocupacao": 92.4733333333
+      "ocupacao": 92.4733333333,
+      "media_entregas": 8.0,
+      "media_peso": 462.3666666667
     },
     {
       "DIA": "2026-04-22",
@@ -34036,7 +34998,9 @@
       "veiculos": 1,
       "entregas": 8,
       "real_kg": 0.516930438,
-      "ocupacao": 72.4533333333
+      "ocupacao": 72.4533333333,
+      "media_entregas": 8.0,
+      "media_peso": 1086.8
     },
     {
       "DIA": "2026-04-22",
@@ -34047,7 +35011,9 @@
       "veiculos": 1,
       "entregas": 7,
       "real_kg": 0.2689902569,
-      "ocupacao": 99.352
+      "ocupacao": 99.352,
+      "media_entregas": 7.0,
+      "media_peso": 2483.8
     },
     {
       "DIA": "2026-04-23",
@@ -34058,7 +35024,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 1.1059643595,
-      "ocupacao": 77.44
+      "ocupacao": 77.44,
+      "media_entregas": 1.0,
+      "media_peso": 387.2
     },
     {
       "DIA": "2026-04-23",
@@ -34069,7 +35037,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.5456487956,
-      "ocupacao": 68.64
+      "ocupacao": 68.64,
+      "media_entregas": 2.0,
+      "media_peso": 1029.6
     },
     {
       "DIA": "2026-04-24",
@@ -34080,7 +35050,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 0.9495108647,
-      "ocupacao": 90.2
+      "ocupacao": 90.2,
+      "media_entregas": 4.0,
+      "media_peso": 451.0
     },
     {
       "DIA": "2026-04-28",
@@ -34091,7 +35063,9 @@
       "veiculos": 4,
       "entregas": 25,
       "real_kg": 1.0297768595,
-      "ocupacao": 87.12
+      "ocupacao": 87.12,
+      "media_entregas": 6.25,
+      "media_peso": 435.6
     },
     {
       "DIA": "2026-04-29",
@@ -34102,7 +35076,9 @@
       "veiculos": 2,
       "entregas": 10,
       "real_kg": 0.4382044382,
-      "ocupacao": 85.47
+      "ocupacao": 85.47,
+      "media_entregas": 5.0,
+      "media_peso": 1282.05
     },
     {
       "DIA": "2026-04-30",
@@ -34113,7 +35089,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 1.2933536696,
-      "ocupacao": 66.22
+      "ocupacao": 66.22,
+      "media_entregas": 1.0,
+      "media_peso": 331.1
     },
     {
       "DIA": "2026-04-30",
@@ -34124,7 +35102,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 0.2743360434,
-      "ocupacao": 97.416
+      "ocupacao": 97.416,
+      "media_entregas": 1.0,
+      "media_peso": 2435.4
     },
     {
       "DIA": "2026-05-06",
@@ -34135,7 +35115,9 @@
       "veiculos": 4,
       "entregas": 22,
       "real_kg": 1.0203782993,
-      "ocupacao": 87.92245
+      "ocupacao": 87.92245,
+      "media_entregas": 5.5,
+      "media_peso": 439.61225
     },
     {
       "DIA": "2026-05-07",
@@ -34146,7 +35128,9 @@
       "veiculos": 2,
       "entregas": 9,
       "real_kg": 0.6266353955,
-      "ocupacao": 64.383
+      "ocupacao": 64.383,
+      "media_entregas": 4.5,
+      "media_peso": 965.745
     },
     {
       "DIA": "2026-05-08",
@@ -34157,7 +35141,61 @@
       "veiculos": 5,
       "entregas": 28,
       "real_kg": 1.0661357101,
-      "ocupacao": 80.333
+      "ocupacao": 80.333,
+      "media_entregas": 5.6,
+      "media_peso": 401.665
+    },
+    {
+      "DIA": "2026-05-11",
+      "VEICULO": "FIORINO",
+      "peso": 1253.406,
+      "capac": 1500,
+      "frete": 1284.6882,
+      "veiculos": 3,
+      "entregas": 7,
+      "real_kg": 1.0249577551,
+      "ocupacao": 83.5604,
+      "media_entregas": 2.3333333333,
+      "media_peso": 417.802
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "FIORINO",
+      "peso": 639.034,
+      "capac": 1000,
+      "frete": 856.4588,
+      "veiculos": 2,
+      "entregas": 6,
+      "real_kg": 1.3402397994,
+      "ocupacao": 63.9034,
+      "media_entregas": 3.0,
+      "media_peso": 319.517
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "VAN",
+      "peso": 1261.755,
+      "capac": 1500,
+      "frete": 561.8,
+      "veiculos": 1,
+      "entregas": 5,
+      "real_kg": 0.4452528423,
+      "ocupacao": 84.117,
+      "media_entregas": 5.0,
+      "media_peso": 1261.755
+    },
+    {
+      "DIA": "2026-05-12",
+      "VEICULO": "VUC",
+      "peso": 1999.888,
+      "capac": 2500,
+      "frete": 668.118,
+      "veiculos": 1,
+      "entregas": 3,
+      "real_kg": 0.3340777084,
+      "ocupacao": 79.99552,
+      "media_entregas": 3.0,
+      "media_peso": 1999.888
     }
   ],
   "vesp_tl_por_veiculo_mes": [
@@ -34170,7 +35208,9 @@
       "veiculos": 7,
       "entregas": 14,
       "real_kg": 1.0130469077,
-      "ocupacao": 84.5428571429
+      "ocupacao": 84.5428571429,
+      "media_entregas": 2.0,
+      "media_peso": 422.7142857143
     },
     {
       "MES_KEY": "2026-03",
@@ -34181,7 +35221,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.4291825821,
-      "ocupacao": 87.2666666667
+      "ocupacao": 87.2666666667,
+      "media_entregas": 2.0,
+      "media_peso": 1309.0
     },
     {
       "MES_KEY": "2026-03",
@@ -34192,7 +35234,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 0.3124382716,
-      "ocupacao": 85.536
+      "ocupacao": 85.536,
+      "media_entregas": 2.0,
+      "media_peso": 2138.4
     },
     {
       "MES_KEY": "2026-04",
@@ -34203,7 +35247,9 @@
       "veiculos": 24,
       "entregas": 117,
       "real_kg": 1.1001350042,
-      "ocupacao": 78.4666666667
+      "ocupacao": 78.4666666667,
+      "media_entregas": 4.875,
+      "media_peso": 392.3333333333
     },
     {
       "MES_KEY": "2026-04",
@@ -34214,7 +35260,9 @@
       "veiculos": 7,
       "entregas": 34,
       "real_kg": 0.5211502783,
-      "ocupacao": 71.8666666667
+      "ocupacao": 71.8666666667,
+      "media_entregas": 4.8571428571,
+      "media_peso": 1078.0
     },
     {
       "MES_KEY": "2026-04",
@@ -34225,29 +35273,48 @@
       "veiculos": 3,
       "entregas": 9,
       "real_kg": 0.2861850165,
-      "ocupacao": 93.3826666667
+      "ocupacao": 93.3826666667,
+      "media_entregas": 3.0,
+      "media_peso": 2334.5666666667
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "FIORINO",
-      "peso": 3766.774,
-      "capac": 4500,
-      "frete": 3935.4302,
-      "veiculos": 9,
-      "entregas": 50,
-      "real_kg": 1.0447747064,
-      "ocupacao": 83.7060888889
+      "peso": 5659.214,
+      "capac": 7000,
+      "frete": 6076.5772,
+      "veiculos": 14,
+      "entregas": 63,
+      "real_kg": 1.0737493228,
+      "ocupacao": 80.8459142857,
+      "media_entregas": 4.5,
+      "media_peso": 404.2295714286
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VAN",
-      "peso": 1931.49,
-      "capac": 3000,
-      "frete": 1210.34,
-      "veiculos": 2,
-      "entregas": 9,
-      "real_kg": 0.6266353955,
-      "ocupacao": 64.383
+      "peso": 3193.245,
+      "capac": 4500,
+      "frete": 1772.14,
+      "veiculos": 3,
+      "entregas": 14,
+      "real_kg": 0.554965247,
+      "ocupacao": 70.961,
+      "media_entregas": 4.6666666667,
+      "media_peso": 1064.415
+    },
+    {
+      "MES_KEY": "2026-05",
+      "VEICULO": "VUC",
+      "peso": 1999.888,
+      "capac": 2500,
+      "frete": 668.118,
+      "veiculos": 1,
+      "entregas": 3,
+      "real_kg": 0.3340777084,
+      "ocupacao": 79.99552,
+      "media_entregas": 3.0,
+      "media_peso": 1999.888
     }
   ],
   "vesp_tl_por_dia": [
@@ -34259,7 +35326,9 @@
       "veiculos": 3,
       "entregas": 8,
       "real_kg": 0.6373337528,
-      "ocupacao": 89.012
+      "ocupacao": 89.012,
+      "media_entregas": 2.6666666667,
+      "media_peso": 741.7666666667
     },
     {
       "DIA": "2026-03-27",
@@ -34269,7 +35338,9 @@
       "veiculos": 1,
       "entregas": 1,
       "real_kg": 1.2165607955,
-      "ocupacao": 70.4
+      "ocupacao": 70.4,
+      "media_entregas": 1.0,
+      "media_peso": 352.0
     },
     {
       "DIA": "2026-03-31",
@@ -34279,7 +35350,9 @@
       "veiculos": 5,
       "entregas": 9,
       "real_kg": 0.6218264344,
-      "ocupacao": 85.0911111111
+      "ocupacao": 85.0911111111,
+      "media_entregas": 1.8,
+      "media_peso": 765.82
     },
     {
       "DIA": "2026-04-02",
@@ -34289,7 +35362,9 @@
       "veiculos": 3,
       "entregas": 16,
       "real_kg": 1.097648838,
-      "ocupacao": 78.0266666667
+      "ocupacao": 78.0266666667,
+      "media_entregas": 5.3333333333,
+      "media_peso": 390.1333333333
     },
     {
       "DIA": "2026-04-07",
@@ -34299,7 +35374,9 @@
       "veiculos": 1,
       "entregas": 5,
       "real_kg": 1.452609905,
-      "ocupacao": 58.96
+      "ocupacao": 58.96,
+      "media_entregas": 5.0,
+      "media_peso": 294.8
     },
     {
       "DIA": "2026-04-09",
@@ -34309,7 +35386,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 1.3063740085,
-      "ocupacao": 65.56
+      "ocupacao": 65.56,
+      "media_entregas": 4.0,
+      "media_peso": 327.8
     },
     {
       "DIA": "2026-04-10",
@@ -34319,7 +35398,9 @@
       "veiculos": 2,
       "entregas": 6,
       "real_kg": 0.664716933,
-      "ocupacao": 74.47
+      "ocupacao": 74.47,
+      "media_entregas": 3.0,
+      "media_peso": 744.7
     },
     {
       "DIA": "2026-04-13",
@@ -34329,7 +35410,9 @@
       "veiculos": 1,
       "entregas": 2,
       "real_kg": 1.2203744657,
-      "ocupacao": 70.18
+      "ocupacao": 70.18,
+      "media_entregas": 2.0,
+      "media_peso": 350.9
     },
     {
       "DIA": "2026-04-14",
@@ -34339,7 +35422,9 @@
       "veiculos": 3,
       "entregas": 17,
       "real_kg": 0.9035222017,
-      "ocupacao": 62.788
+      "ocupacao": 62.788,
+      "media_entregas": 5.6666666667,
+      "media_peso": 523.2333333333
     },
     {
       "DIA": "2026-04-15",
@@ -34349,7 +35434,9 @@
       "veiculos": 3,
       "entregas": 15,
       "real_kg": 1.1360879024,
-      "ocupacao": 75.3866666667
+      "ocupacao": 75.3866666667,
+      "media_entregas": 5.0,
+      "media_peso": 376.9333333333
     },
     {
       "DIA": "2026-04-16",
@@ -34359,7 +35446,9 @@
       "veiculos": 2,
       "entregas": 2,
       "real_kg": 0.4646524264,
-      "ocupacao": 78.65
+      "ocupacao": 78.65,
+      "media_entregas": 1.0,
+      "media_peso": 1179.75
     },
     {
       "DIA": "2026-04-17",
@@ -34369,7 +35458,9 @@
       "veiculos": 2,
       "entregas": 10,
       "real_kg": 0.7205978601,
-      "ocupacao": 68.695
+      "ocupacao": 68.695,
+      "media_entregas": 5.0,
+      "media_peso": 686.95
     },
     {
       "DIA": "2026-04-22",
@@ -34379,7 +35470,9 @@
       "veiculos": 5,
       "entregas": 39,
       "real_kg": 0.5072122557,
-      "ocupacao": 90.14
+      "ocupacao": 90.14,
+      "media_entregas": 7.8,
+      "media_peso": 991.54
     },
     {
       "DIA": "2026-04-23",
@@ -34389,7 +35482,9 @@
       "veiculos": 2,
       "entregas": 3,
       "real_kg": 0.698778515,
-      "ocupacao": 70.84
+      "ocupacao": 70.84,
+      "media_entregas": 1.5,
+      "media_peso": 708.4
     },
     {
       "DIA": "2026-04-24",
@@ -34399,7 +35494,9 @@
       "veiculos": 1,
       "entregas": 4,
       "real_kg": 0.9495108647,
-      "ocupacao": 90.2
+      "ocupacao": 90.2,
+      "media_entregas": 4.0,
+      "media_peso": 451.0
     },
     {
       "DIA": "2026-04-28",
@@ -34409,7 +35506,9 @@
       "veiculos": 4,
       "entregas": 25,
       "real_kg": 1.0297768595,
-      "ocupacao": 87.12
+      "ocupacao": 87.12,
+      "media_entregas": 6.25,
+      "media_peso": 435.6
     },
     {
       "DIA": "2026-04-29",
@@ -34419,7 +35518,9 @@
       "veiculos": 2,
       "entregas": 10,
       "real_kg": 0.4382044382,
-      "ocupacao": 85.47
+      "ocupacao": 85.47,
+      "media_entregas": 5.0,
+      "media_peso": 1282.05
     },
     {
       "DIA": "2026-04-30",
@@ -34429,7 +35530,9 @@
       "veiculos": 2,
       "entregas": 2,
       "real_kg": 0.3962940177,
-      "ocupacao": 92.2166666667
+      "ocupacao": 92.2166666667,
+      "media_entregas": 1.0,
+      "media_peso": 1383.25
     },
     {
       "DIA": "2026-05-06",
@@ -34439,7 +35542,9 @@
       "veiculos": 4,
       "entregas": 22,
       "real_kg": 1.0203782993,
-      "ocupacao": 87.92245
+      "ocupacao": 87.92245,
+      "media_entregas": 5.5,
+      "media_peso": 439.61225
     },
     {
       "DIA": "2026-05-07",
@@ -34449,7 +35554,9 @@
       "veiculos": 2,
       "entregas": 9,
       "real_kg": 0.6266353955,
-      "ocupacao": 64.383
+      "ocupacao": 64.383,
+      "media_entregas": 4.5,
+      "media_peso": 965.745
     },
     {
       "DIA": "2026-05-08",
@@ -34459,7 +35566,33 @@
       "veiculos": 5,
       "entregas": 28,
       "real_kg": 1.0661357101,
-      "ocupacao": 80.333
+      "ocupacao": 80.333,
+      "media_entregas": 5.6,
+      "media_peso": 401.665
+    },
+    {
+      "DIA": "2026-05-11",
+      "peso": 1253.406,
+      "capac": 1500,
+      "frete": 1284.6882,
+      "veiculos": 3,
+      "entregas": 7,
+      "real_kg": 1.0249577551,
+      "ocupacao": 83.5604,
+      "media_entregas": 2.3333333333,
+      "media_peso": 417.802
+    },
+    {
+      "DIA": "2026-05-12",
+      "peso": 3900.677,
+      "capac": 5000,
+      "frete": 2086.3768,
+      "veiculos": 4,
+      "entregas": 14,
+      "real_kg": 0.5348755613,
+      "ocupacao": 78.01354,
+      "media_entregas": 3.5,
+      "media_peso": 975.16925
     }
   ],
   "vesp_tl_por_mes": [
@@ -34471,7 +35604,9 @@
       "veiculos": 9,
       "entregas": 18,
       "real_kg": 0.659890703,
-      "ocupacao": 85.4186666667
+      "ocupacao": 85.4186666667,
+      "media_entregas": 2.0,
+      "media_peso": 711.8222222222
     },
     {
       "MES_KEY": "2026-04",
@@ -34481,17 +35616,21 @@
       "veiculos": 34,
       "entregas": 160,
       "real_kg": 0.6799644993,
-      "ocupacao": 79.8856666667
+      "ocupacao": 79.8856666667,
+      "media_entregas": 4.7058823529,
+      "media_peso": 704.8735294118
     },
     {
       "MES_KEY": "2026-05",
-      "peso": 5698.264,
-      "capac": 7500,
-      "frete": 5145.7702,
-      "veiculos": 11,
-      "entregas": 59,
-      "real_kg": 0.9030417334,
-      "ocupacao": 75.9768533333
+      "peso": 10852.347,
+      "capac": 14000,
+      "frete": 8516.8352,
+      "veiculos": 18,
+      "entregas": 80,
+      "real_kg": 0.7847920086,
+      "ocupacao": 77.5167642857,
+      "media_entregas": 4.4444444444,
+      "media_peso": 602.9081666667
     }
   ]
 }
