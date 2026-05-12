@@ -12,8 +12,8 @@ if %ERRORLEVEL% NEQ 0 (
 :: Gera index.html standalone (sem servidor, sem Python)
 python gerar_index.py
 
-:: Mata servidor antigo, inicia novo oculto, abre dashboard e metas.html com cache-bust
-powershell -NoProfile -Command "$v=[System.DateTime]::UtcNow.Ticks; Get-NetTCPConnection -LocalPort 8080 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }; Start-Process python -ArgumentList '-m','http.server','8080' -WindowStyle Hidden; Start-Sleep 2; Start-Process ('http://localhost:8080/dashboard.html?v='+$v); Start-Sleep 1; Start-Process ('http://localhost:8080/metas.html?v='+$v)"
+:: Mata servidor antigo, inicia novo oculto, abre dashboard e check_metas via HTTP
+powershell -NoProfile -Command "Get-NetTCPConnection -LocalPort 8080 -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }; Start-Process python -ArgumentList '-m','http.server','8080' -WindowStyle Hidden; Start-Sleep 2; Start-Process 'http://localhost:8080/dashboard.html'; Start-Sleep 1; Start-Process 'http://localhost:8080/check_metas.html'"
 
 :: Envia dados atualizados para o GitHub (em segundo plano, nao bloqueia)
 set MSG=Dados atualizados: %DATE% %TIME:~0,8%
