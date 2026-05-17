@@ -1,5 +1,5 @@
 {
-  "gerado_em": "17/05/2026 15:06",
+  "gerado_em": "17/05/2026 15:53",
   "kpis": {
     "peso_total": 4981529.43,
     "capac_total": 5915500.0,
@@ -388,6 +388,18 @@
       "2026-05-07",
       "2026-05-08",
       "2026-05-11",
+      "2026-05-12",
+      "2026-05-13",
+      "2026-05-14",
+      "2026-05-15"
+    ],
+    "meses_levi_reent": [
+      "2026-05"
+    ],
+    "dias_levi_reent": [
+      "2026-05-05",
+      "2026-05-06",
+      "2026-05-07",
       "2026-05-12",
       "2026-05-13",
       "2026-05-14",
@@ -37192,6 +37204,557 @@
       "ocupacao": 75.7498634146,
       "media_entregas": 4.2592592593,
       "media_peso": 575.1378518519
+    }
+  ],
+  "levi_reent_kpis": {
+    "reentregas": 26,
+    "qtd_entregas_nf": 959,
+    "pct_reentregas": 2.71
+  },
+  "levi_reentregas_transportadora": [
+    {
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 8,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "reentregas": 5,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 3,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
+      "reentregas": 3,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "TRANSMASSA LOGI",
+      "reentregas": 2,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "CARGOFRIO LOGIS",
+      "reentregas": 1,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "reentregas": 1,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "FOCO TRANSPORTE",
+      "reentregas": 1,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "STECK TRANSPORT",
+      "reentregas": 1,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "reentregas": 1,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "O PROPRIO",
+      "reentregas": 1,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
+      "reentregas": 1,
+      "entregas": 0,
+      "pct": 0.0
+    }
+  ],
+  "levi_reentregas_justificativa": [
+    {
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 21,
+      "pct": 80.77
+    },
+    {
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 2,
+      "pct": 7.69
+    },
+    {
+      "DESC JUST OC": "CADASTRO CLIENTE",
+      "reentregas": 1,
+      "pct": 3.85
+    },
+    {
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1,
+      "pct": 3.85
+    },
+    {
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1,
+      "pct": 3.85
+    }
+  ],
+  "levi_reentregas_transp_just": [
+    {
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 5
+    },
+    {
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 5
+    },
+    {
+      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "TRANSMASSA LOGI",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "FOCO TRANSPORTE",
+      "DESC JUST OC": "CADASTRO CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "CARGOFRIO LOGIS",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "O PROPRIO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "STECK TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    }
+  ],
+  "levi_reentregas_transp_dia": [
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "O PROPRIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "STECK TRANSPORT",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "TRANSMASSA LOGI",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-06",
+      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-06",
+      "NOME TRANSPORTADORA": "FOCO TRANSPORTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-06",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-07",
+      "NOME TRANSPORTADORA": "CARGOFRIO LOGIS",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-07",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-12",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 6
+    },
+    {
+      "DIA": "2026-05-12",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-12",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-13",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-13",
+      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-14",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-14",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-15",
+      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
+      "reentregas": 2
+    }
+  ],
+  "levi_nf_transp_dia": [],
+  "levi_reentregas_just_dia": [
+    {
+      "DIA": "2026-05-05",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 6
+    },
+    {
+      "DIA": "2026-05-06",
+      "DESC JUST OC": "CADASTRO CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-06",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-07",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-12",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 6
+    },
+    {
+      "DIA": "2026-05-12",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-13",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-13",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-14",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-14",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-15",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    }
+  ],
+  "levi_reentregas_transp_just_dia": [
+    {
+      "DIA": "2026-05-12",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-12",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-06",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "TRANSMASSA LOGI",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-15",
+      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "STECK TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "O PROPRIO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-06",
+      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-06",
+      "NOME TRANSPORTADORA": "FOCO TRANSPORTE",
+      "DESC JUST OC": "CADASTRO CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-07",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-07",
+      "NOME TRANSPORTADORA": "CARGOFRIO LOGIS",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-12",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-12",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-13",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-13",
+      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-14",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-14",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    }
+  ],
+  "levi_reentregas_dia": [
+    {
+      "DIA": "2026-05-05",
+      "reentregas": 6
+    },
+    {
+      "DIA": "2026-05-06",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-07",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-12",
+      "reentregas": 8
+    },
+    {
+      "DIA": "2026-05-13",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-14",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-15",
+      "reentregas": 2
+    }
+  ],
+  "levi_reentregas_mes": [
+    {
+      "MES_KEY": "2026-05",
+      "reentregas": 26
+    }
+  ],
+  "levi_nf_entregas_dia": [
+    {
+      "DIA": "2026-05-06",
+      "qtd_entregas": 107
+    },
+    {
+      "DIA": "2026-05-07",
+      "qtd_entregas": 119
+    },
+    {
+      "DIA": "2026-05-08",
+      "qtd_entregas": 108
+    },
+    {
+      "DIA": "2026-05-11",
+      "qtd_entregas": 36
+    },
+    {
+      "DIA": "2026-05-12",
+      "qtd_entregas": 169
+    },
+    {
+      "DIA": "2026-05-13",
+      "qtd_entregas": 121
+    },
+    {
+      "DIA": "2026-05-14",
+      "qtd_entregas": 108
+    },
+    {
+      "DIA": "2026-05-15",
+      "qtd_entregas": 128
+    },
+    {
+      "DIA": "2026-05-18",
+      "qtd_entregas": 63
+    }
+  ],
+  "levi_nf_entregas_mes": [
+    {
+      "MES_KEY": "2026-05",
+      "qtd_entregas": 959
     }
   ],
   "levitare_kpis": {

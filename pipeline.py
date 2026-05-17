@@ -37,7 +37,8 @@ TRANSPORTADORAS_FILTRO = _cfg["filtros"]["transportadoras"]
 MOTIVO_REENTREGA       = _cfg["filtros"]["motivo_reentrega"]
 UF_FILTRO              = _cfg["filtros"]["uf"]
 FATOR_PESO             = _cfg["filtros"]["fator_peso"]
-EMPRESA_REENTREGA      = str(_cfg["filtros"]["empresa_reentrega"]).strip()
+EMPRESA_REENTREGA          = str(_cfg["filtros"]["empresa_reentrega"]).strip()
+EMPRESA_REENTREGA_LEVITARE = str(_cfg["filtros"]["empresa_reentrega_levitare"]).strip()
 META_OCUPACAO          = _cfg["metas"]["ocupacao"]
 META_REAL_KG           = _cfg["metas"]["real_kg"]
 
@@ -198,34 +199,37 @@ def load_nf(df_raw):
     return df
 
 
-def load_ocorrencias(nf_raw, nf_filtrado):
-    print("[3/5] Carregando Ocorrências...")
-    df = _read_excel_cached(OCORRENCIAS_PATH)
-    _validar_schema(df, SCHEMA_OCORR, "OCORRENCIAS")
-
-    df["EMPRESA"] = df["EMPRESA"].astype(str).str.strip().str.zfill(2)
-    df = df[df["EMPRESA"] == EMPRESA_REENTREGA].copy()
+def _ocorrencias_por_empresa(df_ocorr, nf_raw, empresa, label):
+    df = df_ocorr[df_ocorr["EMPRESA"] == empresa].copy()
     df = df[df["UF"] == UF_FILTRO].copy()
     df = df[df["MOTIVO OCORRÊNCIA"] == MOTIVO_REENTREGA].copy()
 
     nf_lookup = nf_raw.drop_duplicates(subset=["NFF"])[["NFF", "NOME TRANSPORTADORA"]].copy()
     nf_lookup["NFF"] = pd.to_numeric(nf_lookup["NFF"], errors="coerce")
     df["DOCUMENTO"]  = pd.to_numeric(df["DOCUMENTO"], errors="coerce")
-
     df = df.merge(nf_lookup, left_on="DOCUMENTO", right_on="NFF", how="left")
 
     sem_match = df["NOME TRANSPORTADORA"].isna().sum()
     if sem_match > 0:
-        print(f"   [AVISO] {sem_match} ocorrências sem transportadora na NF (DOCUMENTO sem match)")
+        print(f"   [AVISO] {label}: {sem_match} ocorrências sem transportadora na NF")
 
     df["DATA INCLUSÃO"] = pd.to_datetime(df["DATA INCLUSÃO"], errors="coerce")
     df["COD. CLIENTE"]  = df["COD. CLIENTE"].astype(str)
     df["CHAVE_ENTREGA"] = df["DATA INCLUSÃO"].dt.strftime("%Y-%m-%d") + "_" + df["COD. CLIENTE"]
     df["MES_KEY"] = df["DATA INCLUSÃO"].dt.strftime("%Y-%m")
     df["DIA"]     = df["DATA INCLUSÃO"].dt.strftime("%Y-%m-%d")
-
-    print(f"   -> {len(df)} registros | {df['CHAVE_ENTREGA'].nunique()} reentregas (chave distinta)")
+    print(f"   -> {label}: {len(df)} registros | {df['CHAVE_ENTREGA'].nunique()} reentregas")
     return df
+
+
+def load_ocorrencias(nf_raw, nf_filtrado):
+    print("[3/5] Carregando Ocorrências...")
+    df = _read_excel_cached(OCORRENCIAS_PATH)
+    _validar_schema(df, SCHEMA_OCORR, "OCORRENCIAS")
+    df["EMPRESA"] = df["EMPRESA"].astype(str).str.strip().str.zfill(2)
+    tirolez  = _ocorrencias_por_empresa(df, nf_raw, EMPRESA_REENTREGA,          "TIROLEZ")
+    levitare = _ocorrencias_por_empresa(df, nf_raw, EMPRESA_REENTREGA_LEVITARE, "LEVITARE")
+    return tirolez, levitare
 
 
 def load_frota():
@@ -266,6 +270,64 @@ def load_levitare():
     df["DIA"]     = df["DATA"].dt.strftime("%Y-%m-%d")
     print(f"   -> {len(df)} registros | {df['DIA'].nunique()} dias")
     return df
+
+
+def build_reentregas_aggrs(reentregas, nf_total, nf_dia_df, nf_mes_df,
+                            nf_transp_totals, nf_transp_dia_df):
+    """Gera todos os agregados de reentregas para um operador (TIROLEZ ou LEVITARE)."""
+    def r(df):
+        return json.loads(df.to_json(orient="records", date_format="iso"))
+
+    total_reent   = int(reentregas["CHAVE_ENTREGA"].nunique())
+    qtd_nf        = int(nf_total)
+    pct_reent     = round(total_reent / qtd_nf * 100, 2) if qtd_nf > 0 else 0
+
+    reent_transp = reentregas.groupby("NOME TRANSPORTADORA").agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
+    reent_transp = reent_transp.merge(nf_transp_totals, on="NOME TRANSPORTADORA", how="left").fillna(0)
+    reent_transp["entregas"] = reent_transp["entregas"].astype(int)
+    reent_transp["pct"] = np.where(
+        reent_transp["entregas"] > 0,
+        round(reent_transp["reentregas"] / reent_transp["entregas"] * 100, 2), 0)
+
+    reent_just = reentregas.groupby("DESC JUST OC").agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
+    tj = reent_just["reentregas"].sum()
+    reent_just["pct"] = round(reent_just["reentregas"] / tj * 100, 2) if tj > 0 else 0
+
+    reent_transp_just = reentregas.groupby(["NOME TRANSPORTADORA", "DESC JUST OC"]).agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
+
+    reent_transp_dia = reentregas.groupby(["DIA", "NOME TRANSPORTADORA"]).agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+    reent_just_dia   = reentregas.groupby(["DIA", "DESC JUST OC"]).agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+    reent_tj_dia     = reentregas.groupby(["DIA", "NOME TRANSPORTADORA", "DESC JUST OC"]).agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
+    reent_dia = reentregas.groupby("DIA").agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("DIA")
+    reent_mes = reentregas.groupby("MES_KEY").agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("MES_KEY")
+
+    meses = sorted(reentregas["MES_KEY"].dropna().unique().tolist())
+    dias  = sorted(reentregas["DIA"].dropna().unique().tolist())
+
+    return {
+        "kpis": {"reentregas": total_reent, "qtd_entregas_nf": qtd_nf, "pct_reentregas": pct_reent},
+        "reentregas_transportadora":  r(reent_transp),
+        "reentregas_justificativa":   r(reent_just),
+        "reentregas_transp_just":     r(reent_transp_just),
+        "reentregas_transp_dia":      r(reent_transp_dia),
+        "nf_transp_dia":              r(nf_transp_dia_df),
+        "reentregas_just_dia":        r(reent_just_dia),
+        "reentregas_transp_just_dia": r(reent_tj_dia),
+        "reentregas_dia":             r(reent_dia),
+        "reentregas_mes":             r(reent_mes),
+        "nf_entregas_dia":            r(nf_dia_df),
+        "nf_entregas_mes":            r(nf_mes_df),
+        "filtros_meses": meses,
+        "filtros_dias":  dias,
+    }
 
 
 # ============================================================
@@ -445,7 +507,7 @@ def main():
     escala      = load_escala()
     nf_raw      = load_nf_raw()          # lido uma única vez
     nf          = load_nf(nf_raw)
-    reentregas  = load_ocorrencias(nf_raw, nf)
+    reentregas, reentregas_levi = load_ocorrencias(nf_raw, nf)
     frota_disp, frota_util = load_frota()
     df_levitare = load_levitare()
 
@@ -493,7 +555,38 @@ def main():
     data["vesp_tl_por_dia"]         = r(tl_dia)
     data["vesp_tl_por_mes"]         = r(tl_mes)
 
-    # === LEVITARE ===
+    # === LEVITARE REENTREGAS ===
+    levi_nf_dia = (df_levitare.groupby("DIA")["ENTREGAS"].sum()
+                   .reset_index().rename(columns={"ENTREGAS": "qtd_entregas"})
+                   .sort_values("DIA"))
+    levi_nf_mes = (df_levitare.groupby("MES_KEY")["ENTREGAS"].sum()
+                   .reset_index().rename(columns={"ENTREGAS": "qtd_entregas"})
+                   .sort_values("MES_KEY"))
+    levi_nf_total = int(df_levitare["ENTREGAS"].sum())
+    _empty_transp = pd.DataFrame(columns=["NOME TRANSPORTADORA", "entregas"])
+    _empty_transp_dia = pd.DataFrame(columns=["DIA", "NOME TRANSPORTADORA", "entregas"])
+
+    levi_reent_block = build_reentregas_aggrs(
+        reentregas_levi, levi_nf_total,
+        levi_nf_dia, levi_nf_mes,
+        _empty_transp, _empty_transp_dia,
+    )
+    data["levi_reent_kpis"]                  = levi_reent_block["kpis"]
+    data["levi_reentregas_transportadora"]   = levi_reent_block["reentregas_transportadora"]
+    data["levi_reentregas_justificativa"]    = levi_reent_block["reentregas_justificativa"]
+    data["levi_reentregas_transp_just"]      = levi_reent_block["reentregas_transp_just"]
+    data["levi_reentregas_transp_dia"]       = levi_reent_block["reentregas_transp_dia"]
+    data["levi_nf_transp_dia"]               = levi_reent_block["nf_transp_dia"]
+    data["levi_reentregas_just_dia"]         = levi_reent_block["reentregas_just_dia"]
+    data["levi_reentregas_transp_just_dia"]  = levi_reent_block["reentregas_transp_just_dia"]
+    data["levi_reentregas_dia"]              = levi_reent_block["reentregas_dia"]
+    data["levi_reentregas_mes"]              = levi_reent_block["reentregas_mes"]
+    data["levi_nf_entregas_dia"]             = levi_reent_block["nf_entregas_dia"]
+    data["levi_nf_entregas_mes"]             = levi_reent_block["nf_entregas_mes"]
+    data["filtros"]["meses_levi_reent"]      = levi_reent_block["filtros_meses"]
+    data["filtros"]["dias_levi_reent"]       = levi_reent_block["filtros_dias"]
+
+    # === LEVITARE ROTEIRO ===
     lv_kpis, lv_dia, lv_mes, lv_veic, lv_veic_dia, lv_veic_mes, lv_meses, lv_dias = \
         build_escala_aggregations(df_levitare)
     data["levitare_kpis"]            = lv_kpis

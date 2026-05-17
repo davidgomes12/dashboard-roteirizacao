@@ -395,6 +395,7 @@
             background: var(--primary-subtle); margin: 1.5rem 0 1rem;
         }
         .operator-title .material-icons-round { font-size: 18px; }
+        .operator-title img { height: 28px; width: auto; object-fit: contain; }
         .operator-title.levitare { color: var(--accent-blue); border-color: var(--accent-blue); background: var(--accent-blue-glow); }
     </style>
 </head>
@@ -448,7 +449,7 @@
 
             <!-- ── TIROLEZ ── -->
             <div class="operator-title">
-                <span class="material-icons-round">local_shipping</span> TIROLEZ
+                <img src="logo_tirolez.png" alt="Tirolez"> TIROLEZ
             </div>
 
             <!-- KPIs -->
@@ -589,7 +590,7 @@
             </div>
             <!-- ── LEVITARE ── -->
             <div class="operator-title levitare">
-                <span class="material-icons-round">route</span> LEVITARE
+                <img src="logo_vaca.png" alt="Levitare"> LEVITARE
             </div>
 
             <!-- KPIs LEVITARE -->
@@ -616,15 +617,13 @@
                     <div class="kpi-icon"><span class="material-icons-round">donut_large</span></div>
                     <div class="kpi-label">Ocupação</div>
                     <div class="kpi-value" id="leviKpiOcupacao">--</div>
-                    <div class="kpi-sub">meta: 80%</div>
-                    <div class="kpi-delta" id="leviKpiOcupacaoDelta">--</div>
+                    <div class="kpi-sub">taxa de ocupação</div>
                 </div>
                 <div class="kpi-card animate-in stagger-4">
                     <div class="kpi-icon"><span class="material-icons-round">speed</span></div>
                     <div class="kpi-label">R$ / Kg</div>
                     <div class="kpi-value" id="leviKpiRealKg">--</div>
-                    <div class="kpi-sub">meta: R$ 0,67</div>
-                    <div class="kpi-delta" id="leviKpiRealKgDelta">--</div>
+                    <div class="kpi-sub">custo por kg</div>
                 </div>
             </div>
 
@@ -644,8 +643,6 @@
                                 <div class="perf-ring-unit">OCUPAÇÃO</div>
                             </div>
                             <div class="perf-ring-label">Ocupação</div>
-                            <div class="perf-ring-meta">Meta: 80%</div>
-                            <div class="perf-status" id="ringLeviOcupacaoStatus">--</div>
                         </div>
                         <div class="perf-ring">
                             <svg width="160" height="160" viewBox="0 0 160 160">
@@ -658,8 +655,6 @@
                                 <div class="perf-ring-unit">R$ / KG</div>
                             </div>
                             <div class="perf-ring-label">Real Kg</div>
-                            <div class="perf-ring-meta">Meta: R$ 0,67</div>
-                            <div class="perf-status" id="ringLeviRealKgStatus">--</div>
                         </div>
                     </div>
                 </div>
@@ -706,6 +701,11 @@
                 <button class="filter-btn" aria-label="Limpar filtros de Reentregas" onclick="resetFiltersReent()">
                     <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
                 </button>
+            </div>
+
+            <!-- ── TIROLEZ ── -->
+            <div class="operator-title">
+                <img src="logo_tirolez.png" alt="Tirolez"> TIROLEZ
             </div>
 
             <div class="kpi-grid">
@@ -794,6 +794,62 @@
                             <th>Transportadora</th><th>Justificativa</th><th class="num">Reentregas</th>
                         </tr></thead><tbody></tbody></table>
                     </div>
+                </div>
+            </div>
+
+            <!-- ── LEVITARE REENTREGAS ── -->
+            <div class="operator-title levitare">
+                <img src="logo_vaca.png" alt="Levitare"> LEVITARE
+            </div>
+
+            <div class="kpi-grid">
+                <div class="kpi-card animate-in stagger-1">
+                    <div class="kpi-icon"><span class="material-icons-round">replay</span></div>
+                    <div class="kpi-label">Reentregas</div>
+                    <div class="kpi-value highlight" id="kpiLeviReentregas">--</div>
+                    <div class="kpi-sub">contagem distinta (chave)</div>
+                </div>
+                <div class="kpi-card animate-in stagger-2">
+                    <div class="kpi-icon"><span class="material-icons-round">assignment_turned_in</span></div>
+                    <div class="kpi-label">Qtd. Entregas</div>
+                    <div class="kpi-value" id="kpiLeviEntregasNF">--</div>
+                    <div class="kpi-sub">paradas realizadas</div>
+                </div>
+                <div class="kpi-card animate-in stagger-3">
+                    <div class="kpi-icon"><span class="material-icons-round">percent</span></div>
+                    <div class="kpi-label">% Reentregas</div>
+                    <div class="kpi-value highlight" id="kpiLeviPctReent">--</div>
+                    <div class="kpi-sub">reentregas / entregas</div>
+                </div>
+                <div class="kpi-card animate-in stagger-4">
+                    <div class="kpi-icon"><span class="material-icons-round">calendar_month</span></div>
+                    <div class="kpi-label">Reentregas Mês</div>
+                    <div class="kpi-value highlight" id="kpiLeviReentMes">--</div>
+                    <div class="kpi-sub" id="kpiLeviReentMesSub">mês selecionado</div>
+                </div>
+                <div class="kpi-card animate-in stagger-5">
+                    <div class="kpi-icon"><span class="material-icons-round">percent</span></div>
+                    <div class="kpi-label">% Reentregas Mês</div>
+                    <div class="kpi-value highlight" id="kpiLeviPctReentMes">--</div>
+                    <div class="kpi-sub" id="kpiLeviPctReentMesSub">mês selecionado</div>
+                </div>
+            </div>
+
+            <div class="charts-row full">
+                <div class="chart-card animate-in stagger-1">
+                    <div class="chart-title"><span class="dot"></span>Reentregas por Dia</div>
+                    <div style="position:relative;width:100%;height:280px;"><canvas id="chartLeviReentDia"></canvas></div>
+                </div>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-card animate-in stagger-1">
+                    <div class="chart-title"><span class="dot"></span>Reentregas por Justificativa — <span id="labelLeviJustDia">Dia</span></div>
+                    <div style="position:relative;width:100%;"><canvas id="chartLeviReentJustDia" height="280"></canvas></div>
+                </div>
+                <div class="chart-card animate-in stagger-2">
+                    <div class="chart-title"><span class="dot"></span>Reentregas por Justificativa — <span id="labelLeviJustMes">Mês</span></div>
+                    <div style="position:relative;width:100%;"><canvas id="chartLeviReentJustMes" height="280"></canvas></div>
                 </div>
             </div>
         </section>
@@ -1029,6 +1085,10 @@
 <script>
 let DATA = null;
 let chartRealKgDia = null;
+let chartLeviRealKgDia = null;
+let chartLeviReentDia = null;
+let chartLeviReentJustDia = null;
+let chartLeviReentJustMes = null;
 let chartReentJustDia = null;
 let chartReentJustMes = null;
 let chartReentDia = null;
@@ -1191,6 +1251,100 @@ function applyFilters() {
     renderTableVeiculo('tableDist0100Mes', mes !== 'all' ? d0100Mes : DATA.dist_0_100_veic);
     renderTableVeiculo('tableDist100pDia', d100pDia);
     renderTableVeiculo('tableDist100pMes', mes !== 'all' ? d100pMes : DATA.dist_100p_veic);
+
+    applyLevitare(mes, dia);
+}
+
+// ============ APPLY LEVITARE ============
+function applyLevitare(mes, dia) {
+    if (!DATA.levitare_kpis) return;
+
+    let porDia        = DATA.levitare_por_dia;
+    let porVeiculoDia = DATA.levitare_por_veiculo_dia;
+    let porVeiculoMes = DATA.levitare_por_veiculo_mes;
+
+    if (mes !== 'all') {
+        porDia        = porDia.filter(r => r.DIA.startsWith(mes));
+        porVeiculoMes = porVeiculoMes.filter(r => r.MES_KEY === mes);
+    }
+    if (dia !== 'all') {
+        porVeiculoDia = porVeiculoDia.filter(r => r.DIA === dia);
+    }
+
+    let kpis;
+    if (dia !== 'all') {
+        const d = DATA.levitare_por_dia.find(r => r.DIA === dia);
+        kpis = d ? { peso_total: d.peso, frete_total: d.frete, qtd_veiculos: d.veiculos, qtd_entregas: d.entregas, ocupacao_total: d.ocupacao, real_kg_total: d.real_kg } : DATA.levitare_kpis;
+    } else if (mes !== 'all') {
+        const m = DATA.levitare_por_mes.find(r => r.MES_KEY === mes);
+        kpis = m ? { peso_total: m.peso, frete_total: m.frete, qtd_veiculos: m.veiculos, qtd_entregas: m.entregas, ocupacao_total: m.ocupacao, real_kg_total: m.real_kg } : DATA.levitare_kpis;
+    } else {
+        kpis = DATA.levitare_kpis;
+    }
+
+    document.getElementById('leviKpiVeiculos').textContent = fmt.num(kpis.qtd_veiculos);
+    document.getElementById('leviKpiEntregas').textContent = fmt.num(kpis.qtd_entregas);
+    document.getElementById('leviKpiPeso').textContent     = fmt.tons(kpis.peso_total);
+
+    const occRounded = Math.round(kpis.ocupacao_total);
+    document.getElementById('leviKpiOcupacao').textContent = occRounded + '%';
+
+    const rkRounded = Math.round(kpis.real_kg_total * 100) / 100;
+    document.getElementById('leviKpiRealKg').textContent = fmt.brl(rkRounded);
+
+    drawRing('ringLeviOcupacao', kpis.ocupacao_total, 100, false);
+    document.getElementById('ringLeviOcupacaoVal').textContent = occRounded + '%';
+
+    drawRing('ringLeviRealKg', kpis.real_kg_total, 1.5, true);
+    document.getElementById('ringLeviRealKgVal').textContent = fmt.brl(rkRounded);
+
+    renderChartLeviRealKgDia(porDia);
+    renderTableVeiculo('tableLeviDia', porVeiculoDia);
+    renderTableVeiculo('tableLeviMes', mes !== 'all' ? porVeiculoMes : DATA.levitare_por_veiculo);
+}
+
+function renderChartLeviRealKgDia(data) {
+    const ctx = document.getElementById('chartLeviRealKgDia').getContext('2d');
+    if (chartLeviRealKgDia) chartLeviRealKgDia.destroy();
+    const labels = data.map(r => fmt.diaLabel(r.DIA));
+    const values = data.map(r => r.real_kg);
+    const grad = ctx.createLinearGradient(0, 0, 0, 300);
+    grad.addColorStop(0, 'rgba(34,44,113,0.18)');
+    grad.addColorStop(1, 'rgba(34,44,113,0.02)');
+    chartLeviRealKgDia = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels,
+            datasets: [{
+                label: 'R$/Kg', data: values,
+                borderColor: '#222C71', backgroundColor: grad,
+                borderWidth: 2, fill: true, tension: 0.4,
+                pointRadius: 0, pointHoverRadius: 5,
+                pointHoverBackgroundColor: '#222C71',
+                pointHoverBorderColor: '#fff', pointHoverBorderWidth: 2,
+            }, {
+                label: 'Meta R$ 0,67',
+                data: Array(labels.length).fill(0.67),
+                borderColor: 'rgba(245,158,11,0.6)', borderWidth: 1.5, borderDash: [6,4],
+                pointRadius: 0, fill: false,
+            }]
+        },
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: { display: false },
+                tooltip: { backgroundColor: 'rgba(255,255,255,0.98)', borderColor: 'rgba(34,44,113,0.18)', borderWidth: 1, padding: 12, cornerRadius: 10,
+                    titleColor: '#1C1C2E', bodyColor: '#5A5A7A', titleFont: { weight: '600' },
+                    callbacks: { label: c => c.datasetIndex===0 ? 'R$/Kg: '+fmt.dec(c.raw,2) : 'Meta: R$ 0,67' }
+                }
+            },
+            scales: {
+                x: { grid: { color: 'rgba(34,44,113,0.07)' }, ticks: { color: '#6B6B8A', font: { size: 10 }, maxTicksLimit: 15 }, border: { display: false } },
+                y: { grid: { color: 'rgba(34,44,113,0.07)' }, ticks: { color: '#6B6B8A', font: { size: 10 }, callback: v => 'R$ '+v.toFixed(2) }, border: { display: false } }
+            }
+        }
+    });
 }
 
 // ============ APPLY REENTREGAS ============
@@ -1308,6 +1462,157 @@ function applyFiltersReent() {
     renderTableReentTransp('tableReentTranspMes', transpMes);
     renderChartReentJust('chartReentJustMes', justMes, 'mes');
     renderTableReentDetail('tableReentDetailMes', detailMes);
+
+    applyLeviReent(mes, dia);
+}
+
+// ============ APPLY LEVITARE REENTREGAS ============
+function applyLeviReent(mes, dia) {
+    if (!DATA.levi_reent_kpis) return;
+
+    let totalReent, totalEntregas;
+    if (dia !== 'all') {
+        const rd = DATA.levi_reentregas_dia.find(r => r.DIA === dia);
+        const nd = DATA.levi_nf_entregas_dia.find(r => r.DIA === dia);
+        totalReent    = rd ? rd.reentregas : 0;
+        totalEntregas = nd ? nd.qtd_entregas : 0;
+    } else if (mes !== 'all') {
+        const rm = DATA.levi_reentregas_mes.find(r => r.MES_KEY === mes);
+        const nm = DATA.levi_nf_entregas_mes.find(r => r.MES_KEY === mes);
+        totalReent    = rm ? rm.reentregas : 0;
+        totalEntregas = nm ? nm.qtd_entregas : 0;
+    } else {
+        totalReent    = DATA.levi_reent_kpis.reentregas;
+        totalEntregas = DATA.levi_reent_kpis.qtd_entregas_nf;
+    }
+    const pct = totalEntregas > 0 ? (totalReent / totalEntregas * 100) : 0;
+    document.getElementById('kpiLeviReentregas').textContent  = fmt.num(totalReent);
+    document.getElementById('kpiLeviEntregasNF').textContent  = fmt.num(totalEntregas);
+    document.getElementById('kpiLeviPctReent').textContent    = fmt.pct(pct);
+
+    const mesKpiKey = dia !== 'all' ? dia.substring(0,7) : (mes !== 'all' ? mes : null);
+    if (mesKpiKey) {
+        const rm = DATA.levi_reentregas_mes.find(r => r.MES_KEY === mesKpiKey);
+        const nm = DATA.levi_nf_entregas_mes.find(r => r.MES_KEY === mesKpiKey);
+        const reentMes    = rm ? rm.reentregas : 0;
+        const entregasMes = nm ? nm.qtd_entregas : 0;
+        const pctMes = entregasMes > 0 ? (reentMes / entregasMes * 100) : 0;
+        document.getElementById('kpiLeviReentMes').textContent        = fmt.num(reentMes);
+        document.getElementById('kpiLeviPctReentMes').textContent     = fmt.pct(pctMes);
+        document.getElementById('kpiLeviReentMesSub').textContent     = fmt.mesLabel(mesKpiKey);
+        document.getElementById('kpiLeviPctReentMesSub').textContent  = fmt.mesLabel(mesKpiKey);
+    } else {
+        document.getElementById('kpiLeviReentMes').textContent        = fmt.num(totalReent);
+        document.getElementById('kpiLeviPctReentMes').textContent     = fmt.pct(pct);
+        document.getElementById('kpiLeviReentMesSub').textContent     = 'todos os meses';
+        document.getElementById('kpiLeviPctReentMesSub').textContent  = 'todos os meses';
+    }
+
+    // Gráfico de linha por dia
+    let leviReentDiaChart = DATA.levi_reentregas_dia;
+    if (mes !== 'all') leviReentDiaChart = leviReentDiaChart.filter(r => r.DIA.startsWith(mes));
+    else if (dia !== 'all') leviReentDiaChart = leviReentDiaChart.filter(r => r.DIA.startsWith(dia.substring(0,7)));
+    renderChartLeviReentDia(leviReentDiaChart);
+
+    // Dados DIA
+    let transpDia, justDia, detailDia, labelDia;
+    if (dia !== 'all') {
+        transpDia = aggregateReentTransp(DATA.levi_reentregas_transp_dia.filter(r => r.DIA === dia), []);
+        justDia   = aggregateReent(DATA.levi_reentregas_just_dia.filter(r => r.DIA === dia), 'DESC JUST OC');
+        detailDia = DATA.levi_reentregas_transp_just_dia.filter(r => r.DIA === dia).sort((a,b) => b.reentregas - a.reentregas);
+        labelDia  = fmt.diaLabel(dia);
+    } else if (mes !== 'all') {
+        transpDia = aggregateReentTransp(DATA.levi_reentregas_transp_dia.filter(r => r.DIA.startsWith(mes)), []);
+        justDia   = aggregateReent(DATA.levi_reentregas_just_dia.filter(r => r.DIA.startsWith(mes)), 'DESC JUST OC');
+        detailDia = aggregateReentDetail(DATA.levi_reentregas_transp_just_dia.filter(r => r.DIA.startsWith(mes)));
+        labelDia  = 'Todos os Dias';
+    } else {
+        transpDia = DATA.levi_reentregas_transportadora;
+        justDia   = DATA.levi_reentregas_justificativa;
+        detailDia = DATA.levi_reentregas_transp_just;
+        labelDia  = 'Todos os Dias';
+    }
+
+    // Dados MÊS
+    let transpMes, justMes, detailMes, labelMes;
+    const mesKey = dia !== 'all' ? dia.substring(0,7) : mes;
+    if (mesKey !== 'all') {
+        transpMes = aggregateReentTransp(DATA.levi_reentregas_transp_dia.filter(r => r.DIA.startsWith(mesKey)), []);
+        justMes   = aggregateReent(DATA.levi_reentregas_just_dia.filter(r => r.DIA.startsWith(mesKey)), 'DESC JUST OC');
+        detailMes = aggregateReentDetail(DATA.levi_reentregas_transp_just_dia.filter(r => r.DIA.startsWith(mesKey)));
+        labelMes  = fmt.mesLabel(mesKey);
+    } else {
+        transpMes = DATA.levi_reentregas_transportadora;
+        justMes   = DATA.levi_reentregas_justificativa;
+        detailMes = DATA.levi_reentregas_transp_just;
+        labelMes  = 'Todos os Meses';
+    }
+
+    document.getElementById('labelLeviJustDia').textContent = labelDia;
+    document.getElementById('labelLeviJustMes').textContent = labelMes;
+
+    renderChartLeviReentJust('chartLeviReentJustDia', justDia, 'dia');
+    renderChartLeviReentJust('chartLeviReentJustMes', justMes, 'mes');
+}
+
+function renderChartLeviReentDia(data) {
+    const ctx = document.getElementById('chartLeviReentDia').getContext('2d');
+    if (chartLeviReentDia) chartLeviReentDia.destroy();
+    const labels = data.map(r => fmt.diaLabel(r.DIA));
+    const values = data.map(r => r.reentregas);
+    const grad = ctx.createLinearGradient(0, 0, 0, 280);
+    grad.addColorStop(0, 'rgba(34,44,113,0.18)');
+    grad.addColorStop(1, 'rgba(34,44,113,0.02)');
+    chartLeviReentDia = new Chart(ctx, {
+        type: 'line',
+        data: { labels, datasets: [{
+            label: 'Reentregas', data: values,
+            borderColor: '#222C71', backgroundColor: grad,
+            borderWidth: 2, fill: true, tension: 0.4,
+            pointRadius: 0, pointHoverRadius: 5,
+            pointHoverBackgroundColor: '#222C71', pointHoverBorderColor: '#fff', pointHoverBorderWidth: 2,
+        }]},
+        options: {
+            responsive: true, maintainAspectRatio: false,
+            interaction: { mode: 'index', intersect: false },
+            plugins: { legend: { display: false },
+                tooltip: { backgroundColor: 'rgba(255,255,255,0.98)', borderColor: 'rgba(34,44,113,0.18)', borderWidth: 1, padding: 12, cornerRadius: 10,
+                    titleColor: '#1C1C2E', bodyColor: '#5A5A7A', titleFont: { weight: '600' },
+                    callbacks: { label: c => 'Reentregas: ' + fmt.num(c.raw) }
+                }
+            },
+            scales: {
+                x: { grid: { color: 'rgba(34,44,113,0.07)' }, ticks: { color: '#6B6B8A', font: { size: 10 }, maxTicksLimit: 15 }, border: { display: false } },
+                y: { grid: { color: 'rgba(34,44,113,0.07)' }, ticks: { color: '#6B6B8A', font: { size: 10 } }, border: { display: false }, beginAtZero: true }
+            }
+        }
+    });
+}
+
+function renderChartLeviReentJust(canvasId, data, scope) {
+    const ctx = document.getElementById(canvasId).getContext('2d');
+    if (scope === 'dia' && chartLeviReentJustDia) chartLeviReentJustDia.destroy();
+    if (scope === 'mes' && chartLeviReentJustMes) chartLeviReentJustMes.destroy();
+    const top    = data.slice(0, 8);
+    const colors = ['#222C71','#3949AB','#5C6BC0','#7986CB','#9FA8DA','#C5CAE9','#1A237E','#283593'];
+    const chart = new Chart(ctx, {
+        type: 'bar',
+        data: { labels: top.map(r => r['DESC JUST OC'] || 'N/A'),
+            datasets: [{ data: top.map(r => r.reentregas), backgroundColor: colors.slice(0, top.length), borderRadius: 6, borderSkipped: false, barThickness: 28 }]
+        },
+        options: {
+            indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+            plugins: { legend: { display: false },
+                tooltip: { backgroundColor: 'rgba(255,255,255,0.98)', borderColor: 'rgba(34,44,113,0.18)', borderWidth: 1, padding: 12, cornerRadius: 10, titleColor: '#1C1C2E', bodyColor: '#5A5A7A' }
+            },
+            scales: {
+                x: { grid: { color: 'rgba(34,44,113,0.07)' }, ticks: { color: '#6B6B8A', font: { size: 10 } }, border: { display: false } },
+                y: { grid: { display: false }, ticks: { color: '#5A5A7A', font: { size: 10 }, callback: function(v){ const l=this.getLabelForValue(v); return l.length>30?l.substr(0,30)+'...':l; } }, border: { display: false } }
+            }
+        }
+    });
+    if (scope === 'dia') chartLeviReentJustDia = chart;
+    if (scope === 'mes') chartLeviReentJustMes = chart;
 }
 
 function aggregateReentTransp(reentData, nfData) {
