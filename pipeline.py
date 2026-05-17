@@ -26,11 +26,12 @@ _cfg_path = os.path.join(ETL_DIR, "config.json")
 with open(_cfg_path, encoding="utf-8") as _f:
     _cfg = json.load(_f)
 
-ESCALA_PATH  = _cfg["caminhos"]["escala"]
-FROTA_PATH   = _cfg["caminhos"]["frota"]
-NF_PATH      = os.path.join(DADOS_DIR, "NF.xlsx")
+ESCALA_PATH   = _cfg["caminhos"]["escala"]
+FROTA_PATH    = _cfg["caminhos"]["frota"]
+LEVITARE_PATH = _cfg["caminhos"]["levitare"]
+NF_PATH       = os.path.join(DADOS_DIR, "NF.xlsx")
 OCORRENCIAS_PATH = os.path.join(DADOS_DIR, "Ocorrencias.xlsx")
-OUTPUT_JSON  = os.path.join(ETL_DIR, "dashboard_data.json")
+OUTPUT_JSON   = os.path.join(ETL_DIR, "dashboard_data.json")
 
 TRANSPORTADORAS_FILTRO = _cfg["filtros"]["transportadoras"]
 MOTIVO_REENTREGA       = _cfg["filtros"]["motivo_reentrega"]
@@ -243,6 +244,30 @@ def load_frota():
     return disp, util
 
 
+def load_levitare():
+    print("[5/6] Carregando LEVITARE...")
+    df = _read_excel_cached(LEVITARE_PATH, sheet_name="Base", header=0)
+    df = df.rename(columns={
+        "Data":                  "DATA",
+        "Número de paradas":     "ENTREGAS",
+        "Tipos de Equipamento":  "VEICULO",
+        "Entrega Total PESO":    "PESO",
+        "Capacidade":            "CAPAC.",
+        "Frete":                 "CUSTO FRETE",
+    })
+    df["DATA"]        = pd.to_datetime(df["DATA"], errors="coerce")
+    df["PESO"]        = pd.to_numeric(df["PESO"], errors="coerce").fillna(0)
+    df["CAPAC."]      = pd.to_numeric(df["CAPAC."], errors="coerce").fillna(0)
+    df["CUSTO FRETE"] = pd.to_numeric(df["CUSTO FRETE"], errors="coerce").fillna(0)
+    df["ENTREGAS"]    = pd.to_numeric(df["ENTREGAS"], errors="coerce").fillna(0)
+    df = df.dropna(subset=["DATA"])
+    df["PESO_AJUSTADO"] = df["PESO"]   # sem fator de ajuste no Levitare
+    df["MES_KEY"] = df["DATA"].dt.strftime("%Y-%m")
+    df["DIA"]     = df["DATA"].dt.strftime("%Y-%m-%d")
+    print(f"   -> {len(df)} registros | {df['DIA'].nunique()} dias")
+    return df
+
+
 # ============================================================
 # KPIs PRINCIPAIS
 # ============================================================
@@ -396,8 +421,11 @@ def _validar_caminhos():
         for path, nome in [(NF_PATH, "NF.xlsx"), (OCORRENCIAS_PATH, "Ocorrencias.xlsx")]:
             if not os.path.exists(path):
                 erros.append(f"Arquivo não encontrado: {path}")
-    for path, nome in [(ESCALA_PATH, "ESCALA (config.json → caminhos.escala)"),
-                       (FROTA_PATH,  "FROTA  (config.json → caminhos.frota)")]:
+    for path, nome in [
+        (ESCALA_PATH,   "ESCALA   (config.json → caminhos.escala)"),
+        (FROTA_PATH,    "FROTA    (config.json → caminhos.frota)"),
+        (LEVITARE_PATH, "LEVITARE (config.json → caminhos.levitare)"),
+    ]:
         if not os.path.exists(path):
             erros.append(f"Arquivo não encontrado: {path}\n  → Verifique o caminho em config.json ({nome})")
     if erros:
@@ -419,11 +447,12 @@ def main():
     nf          = load_nf(nf_raw)
     reentregas  = load_ocorrencias(nf_raw, nf)
     frota_disp, frota_util = load_frota()
+    df_levitare = load_levitare()
 
     data = build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util)
 
     # === VESPERTINA ===
-    print("[5/5] Processando Vespertina...")
+    print("[6/6] Processando Vespertina...")
     escala["ROTA"] = escala["ROTA"].astype(str).str.strip().str.upper()
     escala["TRANSPORTADORA - MOTORISTA"] = escala["TRANSPORTADORA - MOTORISTA"].astype(str).str.strip().str.upper()
     vesp    = escala[escala["ROTA"] == "VESPERTINA"].copy()
@@ -463,6 +492,18 @@ def main():
     data["vesp_tl_por_veiculo_mes"] = r(tl_veic_mes)
     data["vesp_tl_por_dia"]         = r(tl_dia)
     data["vesp_tl_por_mes"]         = r(tl_mes)
+
+    # === LEVITARE ===
+    lv_kpis, lv_dia, lv_mes, lv_veic, lv_veic_dia, lv_veic_mes, lv_meses, lv_dias = \
+        build_escala_aggregations(df_levitare)
+    data["levitare_kpis"]            = lv_kpis
+    data["levitare_por_dia"]         = r(lv_dia)
+    data["levitare_por_mes"]         = r(lv_mes)
+    data["levitare_por_veiculo"]     = r(lv_veic)
+    data["levitare_por_veiculo_dia"] = r(lv_veic_dia)
+    data["levitare_por_veiculo_mes"] = r(lv_veic_mes)
+    data["filtros"]["meses_levitare"] = lv_meses
+    data["filtros"]["dias_levitare"]  = lv_dias
 
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

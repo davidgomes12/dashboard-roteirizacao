@@ -387,6 +387,15 @@
 
         @media (max-width: 1024px) { .charts-row { grid-template-columns: 1fr; } .kpi-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); } .main { padding: 1rem; } .perf-container { flex-direction: column; align-items: center; } }
         @media (max-width: 640px) { .header-inner { flex-direction: column; height: auto; padding: 1rem 0; gap: 0.8rem; } .kpi-value { font-size: 1.4rem; } }
+        .operator-title {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 0.95rem; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--primary); border-left: 4px solid var(--primary);
+            padding: 10px 18px; border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            background: var(--primary-subtle); margin: 1.5rem 0 1rem;
+        }
+        .operator-title .material-icons-round { font-size: 18px; }
+        .operator-title.levitare { color: var(--accent-blue); border-color: var(--accent-blue); background: var(--accent-blue-glow); }
     </style>
 </head>
 <body>
@@ -435,6 +444,11 @@
                 <button class="filter-btn" aria-label="Limpar filtros de Roteiro" onclick="resetFilters()">
                     <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
                 </button>
+            </div>
+
+            <!-- ── TIROLEZ ── -->
+            <div class="operator-title">
+                <span class="material-icons-round">local_shipping</span> TIROLEZ
             </div>
 
             <!-- KPIs -->
@@ -567,6 +581,109 @@
                     <div class="chart-title"><span class="dot"></span>Rotas +100 km · Mês</div>
                     <div class="table-wrapper">
                         <table class="data-table" id="tableDist100pMes"><thead><tr>
+                            <th>Veículo</th><th class="num">Qtd. Veículos</th><th class="num">Méd. Entregas</th>
+                            <th class="num">Méd. Peso</th><th class="num">Méd. Ocupação</th><th class="num">Real Kg</th>
+                        </tr></thead><tbody></tbody></table>
+                    </div>
+                </div>
+            </div>
+            <!-- ── LEVITARE ── -->
+            <div class="operator-title levitare">
+                <span class="material-icons-round">route</span> LEVITARE
+            </div>
+
+            <!-- KPIs LEVITARE -->
+            <div class="kpi-grid">
+                <div class="kpi-card animate-in stagger-1">
+                    <div class="kpi-icon"><span class="material-icons-round">local_shipping</span></div>
+                    <div class="kpi-label">Qtd. Veículos</div>
+                    <div class="kpi-value" id="leviKpiVeiculos">--</div>
+                    <div class="kpi-sub">veículos no período</div>
+                </div>
+                <div class="kpi-card animate-in stagger-2">
+                    <div class="kpi-icon"><span class="material-icons-round">inventory_2</span></div>
+                    <div class="kpi-label">Qtd. Entregas</div>
+                    <div class="kpi-value" id="leviKpiEntregas">--</div>
+                    <div class="kpi-sub">paradas realizadas</div>
+                </div>
+                <div class="kpi-card animate-in stagger-3">
+                    <div class="kpi-icon"><span class="material-icons-round">scale</span></div>
+                    <div class="kpi-label">Peso Total</div>
+                    <div class="kpi-value highlight" id="leviKpiPeso">--</div>
+                    <div class="kpi-sub">tons transportadas</div>
+                </div>
+                <div class="kpi-card animate-in stagger-4">
+                    <div class="kpi-icon"><span class="material-icons-round">donut_large</span></div>
+                    <div class="kpi-label">Ocupação</div>
+                    <div class="kpi-value" id="leviKpiOcupacao">--</div>
+                    <div class="kpi-sub">meta: 80%</div>
+                    <div class="kpi-delta" id="leviKpiOcupacaoDelta">--</div>
+                </div>
+                <div class="kpi-card animate-in stagger-4">
+                    <div class="kpi-icon"><span class="material-icons-round">speed</span></div>
+                    <div class="kpi-label">R$ / Kg</div>
+                    <div class="kpi-value" id="leviKpiRealKg">--</div>
+                    <div class="kpi-sub">meta: R$ 0,67</div>
+                    <div class="kpi-delta" id="leviKpiRealKgDelta">--</div>
+                </div>
+            </div>
+
+            <!-- Performance Rings + Chart LEVITARE -->
+            <div class="charts-row">
+                <div class="chart-card animate-in stagger-1">
+                    <div class="chart-title"><span class="dot"></span>Performance</div>
+                    <div class="perf-container">
+                        <div class="perf-ring">
+                            <svg width="160" height="160" viewBox="0 0 160 160">
+                                <circle class="perf-ring-bg" cx="80" cy="80" r="68" stroke-width="12"/>
+                                <circle class="perf-ring-fill" id="ringLeviOcupacao" cx="80" cy="80" r="68" stroke-width="12"
+                                    stroke-dasharray="427.26" stroke-dashoffset="427.26"/>
+                            </svg>
+                            <div class="perf-ring-center">
+                                <div class="perf-ring-value" id="ringLeviOcupacaoVal">--</div>
+                                <div class="perf-ring-unit">OCUPAÇÃO</div>
+                            </div>
+                            <div class="perf-ring-label">Ocupação</div>
+                            <div class="perf-ring-meta">Meta: 80%</div>
+                            <div class="perf-status" id="ringLeviOcupacaoStatus">--</div>
+                        </div>
+                        <div class="perf-ring">
+                            <svg width="160" height="160" viewBox="0 0 160 160">
+                                <circle class="perf-ring-bg" cx="80" cy="80" r="68" stroke-width="12"/>
+                                <circle class="perf-ring-fill" id="ringLeviRealKg" cx="80" cy="80" r="68" stroke-width="12"
+                                    stroke-dasharray="427.26" stroke-dashoffset="427.26"/>
+                            </svg>
+                            <div class="perf-ring-center">
+                                <div class="perf-ring-value" id="ringLeviRealKgVal">--</div>
+                                <div class="perf-ring-unit">R$ / KG</div>
+                            </div>
+                            <div class="perf-ring-label">Real Kg</div>
+                            <div class="perf-ring-meta">Meta: R$ 0,67</div>
+                            <div class="perf-status" id="ringLeviRealKgStatus">--</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chart-card animate-in stagger-2">
+                    <div class="chart-title"><span class="dot"></span>Real Kg por Dia</div>
+                    <div style="position:relative;width:100%;"><canvas id="chartLeviRealKgDia" height="220"></canvas></div>
+                </div>
+            </div>
+
+            <!-- Tables LEVITARE (dia e mês — sem faixas de KM) -->
+            <div class="charts-row">
+                <div class="chart-card animate-in stagger-3">
+                    <div class="chart-title"><span class="dot"></span>Distribuição do Dia</div>
+                    <div class="table-wrapper">
+                        <table class="data-table" id="tableLeviDia"><thead><tr>
+                            <th>Veículo</th><th class="num">Qtd. Veículos</th><th class="num">Méd. Entregas</th>
+                            <th class="num">Méd. Peso</th><th class="num">Méd. Ocupação</th><th class="num">Real Kg</th>
+                        </tr></thead><tbody></tbody></table>
+                    </div>
+                </div>
+                <div class="chart-card animate-in stagger-4">
+                    <div class="chart-title"><span class="dot"></span>Distribuição do Mês</div>
+                    <div class="table-wrapper">
+                        <table class="data-table" id="tableLeviMes"><thead><tr>
                             <th>Veículo</th><th class="num">Qtd. Veículos</th><th class="num">Méd. Entregas</th>
                             <th class="num">Méd. Peso</th><th class="num">Méd. Ocupação</th><th class="num">Real Kg</th>
                         </tr></thead><tbody></tbody></table>
