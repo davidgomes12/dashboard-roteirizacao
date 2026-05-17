@@ -36,6 +36,7 @@ TRANSPORTADORAS_FILTRO = _cfg["filtros"]["transportadoras"]
 MOTIVO_REENTREGA       = _cfg["filtros"]["motivo_reentrega"]
 UF_FILTRO              = _cfg["filtros"]["uf"]
 FATOR_PESO             = _cfg["filtros"]["fator_peso"]
+EMPRESA_REENTREGA      = str(_cfg["filtros"]["empresa_reentrega"]).strip()
 META_OCUPACAO          = _cfg["metas"]["ocupacao"]
 META_REAL_KG           = _cfg["metas"]["real_kg"]
 
@@ -78,7 +79,7 @@ SCHEMA_ESCALA = {"ID", "DATA", "PESO", "CAPAC.", "CUSTO FRETE", "ENTREGAS",
 SCHEMA_NF     = {"UF", "TRANSPORTADORA", "DATA  SAÍDA", "COD. CLIENTE", "NFF",
                  "NOME TRANSPORTADORA"}
 SCHEMA_OCORR  = {"UF", "MOTIVO OCORRÊNCIA", "DOCUMENTO", "DATA INCLUSÃO",
-                 "COD. CLIENTE", "DESC JUST OC"}
+                 "COD. CLIENTE", "DESC JUST OC", "EMPRESA"}
 
 def _validar_schema(df, esperadas, nome):
     faltando = esperadas - set(df.columns)
@@ -201,6 +202,8 @@ def load_ocorrencias(nf_raw, nf_filtrado):
     df = _read_excel_cached(OCORRENCIAS_PATH)
     _validar_schema(df, SCHEMA_OCORR, "OCORRENCIAS")
 
+    df["EMPRESA"] = df["EMPRESA"].astype(str).str.strip().str.zfill(2)
+    df = df[df["EMPRESA"] == EMPRESA_REENTREGA].copy()
     df = df[df["UF"] == UF_FILTRO].copy()
     df = df[df["MOTIVO OCORRÊNCIA"] == MOTIVO_REENTREGA].copy()
 
@@ -384,10 +387,32 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util):
 # ============================================================
 # MAIN
 # ============================================================
+def _validar_caminhos():
+    erros = []
+    if not os.path.isdir(DADOS_DIR):
+        erros.append(f"Pasta 'Dados/' não encontrada: {DADOS_DIR}\n"
+                     "  → Crie a pasta e coloque NF.xlsx e Ocorrencias.xlsx nela.")
+    else:
+        for path, nome in [(NF_PATH, "NF.xlsx"), (OCORRENCIAS_PATH, "Ocorrencias.xlsx")]:
+            if not os.path.exists(path):
+                erros.append(f"Arquivo não encontrado: {path}")
+    for path, nome in [(ESCALA_PATH, "ESCALA (config.json → caminhos.escala)"),
+                       (FROTA_PATH,  "FROTA  (config.json → caminhos.frota)")]:
+        if not os.path.exists(path):
+            erros.append(f"Arquivo não encontrado: {path}\n  → Verifique o caminho em config.json ({nome})")
+    if erros:
+        print("\n[ERRO] Problemas encontrados antes de iniciar o ETL:")
+        for e in erros:
+            print(f"  • {e}")
+        raise SystemExit(1)
+
+
 def main():
     print("=" * 60)
     print("  PIPELINE ETL - INDICADOR ROTEIRO 2026")
     print("=" * 60)
+
+    _validar_caminhos()
 
     escala      = load_escala()
     nf_raw      = load_nf_raw()          # lido uma única vez

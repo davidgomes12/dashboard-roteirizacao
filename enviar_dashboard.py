@@ -3,6 +3,7 @@ Enviar Dashboard por E-mail — Indicador da Roteirização 2026
 Atualiza pipeline, captura screenshots dos dashboards e envia via Outlook.
 """
 
+import json
 import subprocess
 import sys
 import os
@@ -12,7 +13,9 @@ from datetime import datetime
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PIPELINE = os.path.join(BASE_DIR, "pipeline.py")
-DEST_EMAIL = "roteirizacao@tirolez.com.br; entregas.capitalsp@tirolez.com.br; Operacao.Logistica@tirolez.com.br; customer.service@tirolez.com.br; pagamentos.logistica@tirolez.com.br"
+
+with open(os.path.join(BASE_DIR, "config.json"), encoding="utf-8") as _f:
+    DEST_EMAIL = json.load(_f)["distribuicao"]["email_destino"]
 
 
 def kill_port(port):
