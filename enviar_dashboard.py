@@ -1,6 +1,6 @@
 """
-Enviar Dashboard por E-mail — Indicador da Roteirização 2026
-Atualiza pipeline, captura screenshots dos dashboards e envia via Outlook.
+Enviar Dashboard por E-mail e WhatsApp — Indicador da Roteirização 2026
+Atualiza pipeline, captura screenshots dos dashboards e envia via Outlook e WhatsApp Desktop.
 """
 
 import json
@@ -15,7 +15,9 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PIPELINE = os.path.join(BASE_DIR, "pipeline.py")
 
 with open(os.path.join(BASE_DIR, "config.json"), encoding="utf-8") as _f:
-    DEST_EMAIL = json.load(_f)["distribuicao"]["email_destino"]
+    _cfg = json.load(_f)["distribuicao"]
+    DEST_EMAIL = _cfg["email_destino"]
+    DEST_WHATSAPP = _cfg.get("whatsapp_contatos", [])
 
 
 def kill_port(port):
@@ -179,20 +181,98 @@ def send_email(screenshots):
         print(f"     - {addr.strip()}")
 
 
+def send_whatsapp(screenshots):
+    """Envia screenshots via WhatsApp Desktop (automação de interface)."""
+    try:
+        import pyautogui
+        import pyperclip
+        import win32clipboard
+        import win32gui
+        import win32con
+        from PIL import Image
+        import io
+    except ImportError as e:
+        print(f"   [ERRO] Dependência ausente: {e}")
+        print("   Execute: pip install pyautogui pyperclip pillow")
+        return False
+
+    pyautogui.FAILSAFE = True
+    pyautogui.PAUSE = 0.25
+
+    def _copy_image_clipboard(path):
+        img = Image.open(path).convert("RGB")
+        buf = io.BytesIO()
+        img.save(buf, "BMP")
+        data = buf.getvalue()[14:]  # CF_DIB: remove os 14 bytes do cabeçalho BMP
+        win32clipboard.OpenClipboard()
+        win32clipboard.EmptyClipboard()
+        win32clipboard.SetClipboardData(win32clipboard.CF_DIB, data)
+        win32clipboard.CloseClipboard()
+
+    def _focus_whatsapp():
+        hwnd = win32gui.FindWindow(None, "WhatsApp")
+        if hwnd:
+            if win32gui.IsIconic(hwnd):
+                win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+            win32gui.SetForegroundWindow(hwnd)
+            time.sleep(2)
+            return True
+        # Tenta abrir via URI scheme
+        subprocess.run("start whatsapp:", shell=True)
+        time.sleep(7)
+        hwnd = win32gui.FindWindow(None, "WhatsApp")
+        if hwnd:
+            win32gui.SetForegroundWindow(hwnd)
+            time.sleep(2)
+            return True
+        return False
+
+    if not _focus_whatsapp():
+        print("   [ERRO] WhatsApp Desktop não encontrado. Abra o app e tente novamente.")
+        return False
+
+    for contato in DEST_WHATSAPP:
+        print(f"   -> '{contato}'...", end=" ", flush=True)
+
+        # Abre a busca e navega até o contato/grupo
+        pyautogui.hotkey("ctrl", "f")
+        time.sleep(0.8)
+        pyautogui.hotkey("ctrl", "a")
+        pyperclip.copy(contato)
+        pyautogui.hotkey("ctrl", "v")
+        time.sleep(2)
+        pyautogui.press("enter")
+        time.sleep(1.5)
+
+        # Envia cada screenshot colando via clipboard
+        for name, path, date_label in screenshots:
+            _copy_image_clipboard(path)
+            time.sleep(0.4)
+            pyautogui.hotkey("ctrl", "v")
+            time.sleep(2.5)   # aguarda o preview da imagem aparecer
+            pyautogui.press("enter")
+            time.sleep(2)
+
+        print(f"OK ({len(screenshots)} imagens)")
+
+    return True
+
+
 def main():
+    total = "5" if DEST_WHATSAPP else "4"
     print("=" * 60)
-    print("  ENVIAR DASHBOARD POR E-MAIL")
+    print("  ENVIAR DASHBOARD — E-MAIL + WHATSAPP")
     print("=" * 60)
 
     # 1. Pipeline
-    print("\n[1/4] Atualizando dados...")
+    print(f"\n[1/{total}] Atualizando dados...")
     result = subprocess.run([sys.executable, PIPELINE], cwd=BASE_DIR)
     if result.returncode != 0:
         print("[ERRO] Pipeline falhou.")
         return False
 
     # 2. Servidor
-    print("\n[2/4] Iniciando servidor...")
+    print(f"\n[2/{total}] Iniciando servidor...")
     kill_port(8080)
     time.sleep(1)
     server = subprocess.Popen(
@@ -206,36 +286,50 @@ def main():
         return False
 
     # 3. Screenshots
-    print("\n[3/4] Capturando dashboards...")
+    print(f"\n[3/{total}] Capturando dashboards...")
+    screenshots = []
     try:
         screenshots = capture_screenshots()
     except Exception as e:
         print(f"[ERRO] Captura falhou: {e}")
-        server.terminate()
         return False
     finally:
         server.terminate()
 
+    if not screenshots:
+        return False
+
+    sucesso = True
+
     # 4. E-mail
-    print("\n[4/4] Enviando e-mail...")
+    print(f"\n[4/{total}] Enviando e-mail...")
     try:
         send_email(screenshots)
     except Exception as e:
-        print(f"[ERRO] Envio falhou: {e}")
+        print(f"[ERRO] E-mail falhou: {e}")
         print("   Verifique se o Outlook está aberto e configurado.")
-        return False
-    finally:
-        # Limpar screenshots
-        for _, path, _ in screenshots:
-            try:
-                os.remove(path)
-            except OSError:
-                pass
+        sucesso = False
+
+    # 5. WhatsApp
+    if DEST_WHATSAPP:
+        print(f"\n[5/{total}] Enviando por WhatsApp...")
+        try:
+            send_whatsapp(screenshots)
+        except Exception as e:
+            print(f"[ERRO] WhatsApp falhou: {e}")
+            sucesso = False
+
+    # Limpar screenshots temporários
+    for _, path, _ in screenshots:
+        try:
+            os.remove(path)
+        except OSError:
+            pass
 
     print("\n" + "=" * 60)
-    print("  CONCLUÍDO!")
+    print("  CONCLUÍDO!" if sucesso else "  CONCLUÍDO COM ERROS.")
     print("=" * 60)
-    return True
+    return sucesso
 
 
 if __name__ == "__main__":
