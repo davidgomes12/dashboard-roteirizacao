@@ -1,18 +1,18 @@
 {
-  "gerado_em": "22/05/2026 20:47",
+  "gerado_em": "01/06/2026 11:31",
   "kpis": {
-    "peso_total": 5267865.91,
-    "capac_total": 6245500.0,
-    "frete_total": 3404862.76,
-    "real_kg_total": 0.6463,
-    "ocupacao_total": 84.35,
-    "qtd_veiculos": 6523,
-    "qtd_entregas": 31190,
+    "peso_total": 5578730.52,
+    "capac_total": 6624000.0,
+    "frete_total": 3607725.14,
+    "real_kg_total": 0.6467,
+    "ocupacao_total": 84.22,
+    "qtd_veiculos": 6916,
+    "qtd_entregas": 32962,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67,
-    "reentregas": 1399,
-    "qtd_entregas_nf": 31652,
-    "pct_reentregas": 4.42
+    "reentregas": 1460,
+    "qtd_entregas_nf": 33265,
+    "pct_reentregas": 4.39
   },
   "filtros": {
     "meses": [
@@ -20,7 +20,8 @@
       "2026-02",
       "2026-03",
       "2026-04",
-      "2026-05"
+      "2026-05",
+      "2026-06"
     ],
     "dias": [
       "2026-01-02",
@@ -119,7 +120,12 @@
       "2026-05-20",
       "2026-05-21",
       "2026-05-22",
-      "2026-05-25"
+      "2026-05-25",
+      "2026-05-26",
+      "2026-05-27",
+      "2026-05-28",
+      "2026-05-29",
+      "2026-06-01"
     ],
     "meses_reent": [
       "2026-01",
@@ -225,14 +231,20 @@
       "2026-05-19",
       "2026-05-20",
       "2026-05-21",
-      "2026-05-22"
+      "2026-05-22",
+      "2026-05-25",
+      "2026-05-26",
+      "2026-05-27",
+      "2026-05-28",
+      "2026-05-29"
     ],
     "meses_frota": [
       "2026-01",
       "2026-02",
       "2026-03",
       "2026-04",
-      "2026-05"
+      "2026-05",
+      "2026-06"
     ],
     "dias_frota": [
       "2026-01-05",
@@ -331,7 +343,12 @@
       "2026-05-20",
       "2026-05-21",
       "2026-05-22",
-      "2026-05-25"
+      "2026-05-25",
+      "2026-05-26",
+      "2026-05-27",
+      "2026-05-28",
+      "2026-05-29",
+      "2026-06-01"
     ],
     "meses_vesp": [
       "2026-01",
@@ -411,7 +428,22 @@
       "2026-05-19",
       "2026-05-20",
       "2026-05-21",
-      "2026-05-22"
+      "2026-05-22",
+      "2026-05-25",
+      "2026-05-26",
+      "2026-05-27",
+      "2026-05-28",
+      "2026-05-29"
+    ],
+    "meses_fresc": [
+      "2026-05",
+      "2026-06"
+    ],
+    "dias_fresc": [
+      "2026-05-27",
+      "2026-05-28",
+      "2026-05-29",
+      "2026-06-01"
     ],
     "meses_levi_reent": [
       "2026-05"
@@ -427,10 +459,16 @@
       "2026-05-18",
       "2026-05-19",
       "2026-05-20",
-      "2026-05-21"
+      "2026-05-21",
+      "2026-05-25",
+      "2026-05-26",
+      "2026-05-27",
+      "2026-05-28",
+      "2026-05-29"
     ],
     "meses_levitare": [
-      "2026-05"
+      "2026-05",
+      "2026-06"
     ],
     "dias_levitare": [
       "2026-05-06",
@@ -446,7 +484,12 @@
       "2026-05-20",
       "2026-05-21",
       "2026-05-22",
-      "2026-05-25"
+      "2026-05-25",
+      "2026-05-26",
+      "2026-05-27",
+      "2026-05-28",
+      "2026-05-29",
+      "2026-06-01"
     ]
   },
   "por_dia": [
@@ -1604,15 +1647,75 @@
     },
     {
       "DIA": "2026-05-25",
-      "peso": 34227.215,
-      "capac": 41000,
-      "frete": 21781.53813,
-      "veiculos": 44,
-      "entregas": 124,
-      "real_kg": 0.6363806734,
-      "ocupacao": 83.4810121951,
-      "media_entregas": 2.8181818182,
-      "media_peso": 777.89125
+      "peso": 35201.815,
+      "capac": 42000,
+      "frete": 22637.99693,
+      "veiculos": 46,
+      "entregas": 129,
+      "real_kg": 0.6430917534,
+      "ocupacao": 83.8138452381,
+      "media_entregas": 2.8043478261,
+      "media_peso": 765.2568478261
+    },
+    {
+      "DIA": "2026-05-26",
+      "peso": 66884.785,
+      "capac": 79000,
+      "frete": 42355.78148,
+      "veiculos": 78,
+      "entregas": 417,
+      "real_kg": 0.6332648222,
+      "ocupacao": 84.6642848101,
+      "media_entregas": 5.3461538462,
+      "media_peso": 857.4972435897
+    },
+    {
+      "DIA": "2026-05-27",
+      "peso": 66003.674,
+      "capac": 79000,
+      "frete": 40922.35284,
+      "veiculos": 82,
+      "entregas": 375,
+      "real_kg": 0.6200011357,
+      "ocupacao": 83.5489544304,
+      "media_entregas": 4.5731707317,
+      "media_peso": 804.9228536585
+    },
+    {
+      "DIA": "2026-05-28",
+      "peso": 63388.666,
+      "capac": 77500,
+      "frete": 42933.555658,
+      "veiculos": 79,
+      "entregas": 333,
+      "real_kg": 0.6773065024,
+      "ocupacao": 81.7918270968,
+      "media_entregas": 4.2151898734,
+      "media_peso": 802.3881772152
+    },
+    {
+      "DIA": "2026-05-29",
+      "peso": 65473.232,
+      "capac": 79000,
+      "frete": 41345.667904,
+      "veiculos": 82,
+      "entregas": 330,
+      "real_kg": 0.631489643,
+      "ocupacao": 82.8775088608,
+      "media_entregas": 4.0243902439,
+      "media_peso": 798.4540487805
+    },
+    {
+      "DIA": "2026-06-01",
+      "peso": 48139.652,
+      "capac": 63000,
+      "frete": 34448.57232,
+      "veiculos": 70,
+      "entregas": 312,
+      "real_kg": 0.7155966213,
+      "ocupacao": 76.4121460317,
+      "media_entregas": 4.4571428571,
+      "media_peso": 687.7093142857
     }
   ],
   "por_mes": [
@@ -1666,53 +1769,65 @@
     },
     {
       "MES_KEY": "2026-05",
-      "peso": 874336.045,
-      "capac": 1039500,
-      "frete": 566194.810374,
-      "veiculos": 1099,
-      "entregas": 4664,
-      "real_kg": 0.647571164,
-      "ocupacao": 84.1112116402,
-      "media_entregas": 4.2438580528,
-      "media_peso": 795.5741992721
+      "peso": 1137061.002,
+      "capac": 1355000,
+      "frete": 734608.627056,
+      "veiculos": 1422,
+      "entregas": 6124,
+      "real_kg": 0.6460591171,
+      "ocupacao": 83.915941107,
+      "media_entregas": 4.3066104079,
+      "media_peso": 799.6209578059
+    },
+    {
+      "MES_KEY": "2026-06",
+      "peso": 48139.652,
+      "capac": 63000,
+      "frete": 34448.57232,
+      "veiculos": 70,
+      "entregas": 312,
+      "real_kg": 0.7155966213,
+      "ocupacao": 76.4121460317,
+      "media_entregas": 4.4571428571,
+      "media_peso": 687.7093142857
     }
   ],
   "por_veiculo": [
     {
       "VEICULO": "FIORINO",
-      "peso": 1777680.9160000002,
-      "capac": 1946500,
-      "frete": 1825015.565846,
-      "veiculos": 3893,
-      "entregas": 18187,
-      "real_kg": 1.0266271913,
-      "ocupacao": 91.3270442332,
-      "media_entregas": 4.671718469,
-      "media_peso": 456.6352211662
+      "peso": 1881699.8310000002,
+      "capac": 2063000,
+      "frete": 1933459.9100600001,
+      "veiculos": 4126,
+      "entregas": 19209,
+      "real_kg": 1.027507086,
+      "ocupacao": 91.2118192438,
+      "media_entregas": 4.6555986428,
+      "media_peso": 456.0590962191
     },
     {
       "VEICULO": "VAN",
-      "peso": 2703534.768,
-      "capac": 3414000,
-      "frete": 1338251.6680359999,
-      "veiculos": 2276,
-      "entregas": 11727,
-      "real_kg": 0.4950007242,
-      "ocupacao": 79.1896534271,
-      "media_entregas": 5.1524604569,
-      "media_peso": 1187.844801406
+      "peso": 2862961.8710000003,
+      "capac": 3621000,
+      "frete": 1417771.108024,
+      "veiculos": 2414,
+      "entregas": 12405,
+      "real_kg": 0.4952113133,
+      "ocupacao": 79.0655032035,
+      "media_entregas": 5.1387738194,
+      "media_peso": 1185.982548053
     },
     {
       "VEICULO": "VUC",
-      "peso": 786650.2270000001,
-      "capac": 885000,
-      "frete": 241595.521166,
-      "veiculos": 354,
-      "entregas": 1276,
-      "real_kg": 0.3071193688,
-      "ocupacao": 88.8870312994,
-      "media_entregas": 3.604519774,
-      "media_peso": 2222.1757824859
+      "peso": 834068.8180000001,
+      "capac": 940000,
+      "frete": 256494.125966,
+      "veiculos": 376,
+      "entregas": 1348,
+      "real_kg": 0.3075215383,
+      "ocupacao": 88.7307253191,
+      "media_entregas": 3.585106383,
+      "media_peso": 2218.2681329787
     }
   ],
   "por_veiculo_dia": [
@@ -5450,15 +5565,15 @@
     {
       "DIA": "2026-05-25",
       "VEICULO": "FIORINO",
-      "peso": 13072.081,
-      "capac": 14000,
-      "frete": 12431.34013,
-      "veiculos": 28,
-      "entregas": 78,
-      "real_kg": 0.9509840193,
-      "ocupacao": 93.3720071429,
-      "media_entregas": 2.7857142857,
-      "media_peso": 466.8600357143
+      "peso": 14046.681,
+      "capac": 15000,
+      "frete": 13287.79893,
+      "veiculos": 30,
+      "entregas": 83,
+      "real_kg": 0.9459742789,
+      "ocupacao": 93.64454,
+      "media_entregas": 2.7666666667,
+      "media_peso": 468.2227
     },
     {
       "DIA": "2026-05-25",
@@ -5485,6 +5600,201 @@
       "ocupacao": 81.3095066667,
       "media_entregas": 2.6666666667,
       "media_peso": 2032.7376666667
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "FIORINO",
+      "peso": 19970.808,
+      "capac": 21500,
+      "frete": 21968.97948,
+      "veiculos": 43,
+      "entregas": 198,
+      "real_kg": 1.1000546137,
+      "ocupacao": 92.8874790698,
+      "media_entregas": 4.6046511628,
+      "media_peso": 464.4373953488
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "VAN",
+      "peso": 35656.555,
+      "capac": 45000,
+      "frete": 17054.33,
+      "veiculos": 30,
+      "entregas": 194,
+      "real_kg": 0.4782943837,
+      "ocupacao": 79.2367888889,
+      "media_entregas": 6.4666666667,
+      "media_peso": 1188.5518333333
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "VUC",
+      "peso": 11257.422,
+      "capac": 12500,
+      "frete": 3332.472,
+      "veiculos": 5,
+      "entregas": 25,
+      "real_kg": 0.2960244361,
+      "ocupacao": 90.059376,
+      "media_entregas": 5.0,
+      "media_peso": 2251.4844
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "FIORINO",
+      "peso": 21601.69,
+      "capac": 24500,
+      "frete": 21533.93124,
+      "veiculos": 49,
+      "entregas": 228,
+      "real_kg": 0.9968632658,
+      "ocupacao": 88.1701632653,
+      "media_entregas": 4.6530612245,
+      "media_peso": 440.8508163265
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "VAN",
+      "peso": 33562.397,
+      "capac": 42000,
+      "frete": 15975.75,
+      "veiculos": 28,
+      "entregas": 132,
+      "real_kg": 0.4760014608,
+      "ocupacao": 79.9104690476,
+      "media_entregas": 4.7142857143,
+      "media_peso": 1198.6570357143
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "VUC",
+      "peso": 10839.587,
+      "capac": 12500,
+      "frete": 3412.6716,
+      "veiculos": 5,
+      "entregas": 15,
+      "real_kg": 0.3148340984,
+      "ocupacao": 86.716696,
+      "media_entregas": 3.0,
+      "media_peso": 2167.9174
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "FIORINO",
+      "peso": 19969.763,
+      "capac": 23000,
+      "frete": 22527.712064,
+      "veiculos": 46,
+      "entregas": 192,
+      "real_kg": 1.1280911077,
+      "ocupacao": 86.8250565217,
+      "media_entregas": 4.1739130435,
+      "media_peso": 434.1252826087
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "VAN",
+      "peso": 33279.312,
+      "capac": 42000,
+      "frete": 16993.171994,
+      "veiculos": 28,
+      "entregas": 125,
+      "real_kg": 0.5106226954,
+      "ocupacao": 79.2364571429,
+      "media_entregas": 4.4642857143,
+      "media_peso": 1188.5468571429
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "VUC",
+      "peso": 10139.591,
+      "capac": 12500,
+      "frete": 3412.6716,
+      "veiculos": 5,
+      "entregas": 16,
+      "real_kg": 0.3365689602,
+      "ocupacao": 81.116728,
+      "media_entregas": 3.2,
+      "media_peso": 2027.9182
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "FIORINO",
+      "peso": 21870.079,
+      "capac": 24500,
+      "frete": 21957.246304,
+      "veiculos": 49,
+      "entregas": 209,
+      "real_kg": 1.0039856877,
+      "ocupacao": 89.2656285714,
+      "media_entregas": 4.2653061224,
+      "media_peso": 446.3281428571
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "VAN",
+      "peso": 33045.87,
+      "capac": 42000,
+      "frete": 15975.75,
+      "veiculos": 28,
+      "entregas": 108,
+      "real_kg": 0.4834416525,
+      "ocupacao": 78.6806428571,
+      "media_entregas": 3.8571428571,
+      "media_peso": 1180.2096428571
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "VUC",
+      "peso": 10557.283,
+      "capac": 12500,
+      "frete": 3412.6716,
+      "veiculos": 5,
+      "entregas": 13,
+      "real_kg": 0.3232528294,
+      "ocupacao": 84.458264,
+      "media_entregas": 2.6,
+      "media_peso": 2111.4566
+    },
+    {
+      "DIA": "2026-06-01",
+      "VEICULO": "FIORINO",
+      "peso": 19631.975,
+      "capac": 22000,
+      "frete": 19600.016326,
+      "veiculos": 44,
+      "entregas": 190,
+      "real_kg": 0.9983721111,
+      "ocupacao": 89.23625,
+      "media_entregas": 4.3181818182,
+      "media_peso": 446.18125
+    },
+    {
+      "DIA": "2026-06-01",
+      "VEICULO": "VAN",
+      "peso": 23882.969,
+      "capac": 36000,
+      "frete": 13520.437994,
+      "veiculos": 24,
+      "entregas": 119,
+      "real_kg": 0.5661121109,
+      "ocupacao": 66.3415805556,
+      "media_entregas": 4.9583333333,
+      "media_peso": 995.1237083333
+    },
+    {
+      "DIA": "2026-06-01",
+      "VEICULO": "VUC",
+      "peso": 4624.708,
+      "capac": 5000,
+      "frete": 1328.118,
+      "veiculos": 2,
+      "entregas": 3,
+      "real_kg": 0.2871787797,
+      "ocupacao": 92.49416,
+      "media_entregas": 1.5,
+      "media_peso": 2312.354
     }
   ],
   "por_veiculo_mes": [
@@ -5647,79 +5957,118 @@
     {
       "MES_KEY": "2026-05",
       "VEICULO": "FIORINO",
-      "peso": 300681.579,
-      "capac": 331000,
-      "frete": 305549.105204,
-      "veiculos": 662,
-      "entregas": 2737,
-      "real_kg": 1.0161883086,
-      "ocupacao": 90.8403561934,
-      "media_entregas": 4.1344410876,
-      "media_peso": 454.2017809668
+      "peso": 385068.519,
+      "capac": 425500,
+      "frete": 394393.433092,
+      "veiculos": 851,
+      "entregas": 3569,
+      "real_kg": 1.0242162463,
+      "ocupacao": 90.4978893067,
+      "media_entregas": 4.1938895417,
+      "media_peso": 452.4894465335
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VAN",
-      "peso": 459395.442,
-      "capac": 576000,
-      "frete": 225196.82197,
-      "veiculos": 384,
-      "entregas": 1765,
-      "real_kg": 0.4902025605,
-      "ocupacao": 79.756153125,
-      "media_entregas": 4.5963541667,
-      "media_peso": 1196.342296875
+      "peso": 594939.576,
+      "capac": 747000,
+      "frete": 291195.823964,
+      "veiculos": 498,
+      "entregas": 2324,
+      "real_kg": 0.4894544517,
+      "ocupacao": 79.6438522088,
+      "media_entregas": 4.6666666667,
+      "media_peso": 1194.6577831325
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VUC",
-      "peso": 114259.024,
-      "capac": 132500,
-      "frete": 35448.8832,
-      "veiculos": 53,
-      "entregas": 162,
-      "real_kg": 0.3102501838,
-      "ocupacao": 86.2332256604,
-      "media_entregas": 3.0566037736,
-      "media_peso": 2155.8306415094
+      "peso": 157052.907,
+      "capac": 182500,
+      "frete": 49019.37,
+      "veiculos": 73,
+      "entregas": 231,
+      "real_kg": 0.3121201061,
+      "ocupacao": 86.0563873973,
+      "media_entregas": 3.1643835616,
+      "media_peso": 2151.4096849315
+    },
+    {
+      "MES_KEY": "2026-06",
+      "VEICULO": "FIORINO",
+      "peso": 19631.975,
+      "capac": 22000,
+      "frete": 19600.016326,
+      "veiculos": 44,
+      "entregas": 190,
+      "real_kg": 0.9983721111,
+      "ocupacao": 89.23625,
+      "media_entregas": 4.3181818182,
+      "media_peso": 446.18125
+    },
+    {
+      "MES_KEY": "2026-06",
+      "VEICULO": "VAN",
+      "peso": 23882.969,
+      "capac": 36000,
+      "frete": 13520.437994,
+      "veiculos": 24,
+      "entregas": 119,
+      "real_kg": 0.5661121109,
+      "ocupacao": 66.3415805556,
+      "media_entregas": 4.9583333333,
+      "media_peso": 995.1237083333
+    },
+    {
+      "MES_KEY": "2026-06",
+      "VEICULO": "VUC",
+      "peso": 4624.708,
+      "capac": 5000,
+      "frete": 1328.118,
+      "veiculos": 2,
+      "entregas": 3,
+      "real_kg": 0.2871787797,
+      "ocupacao": 92.49416,
+      "media_entregas": 1.5,
+      "media_peso": 2312.354
     }
   ],
   "dist_0_100_veic": [
     {
       "VEICULO": "FIORINO",
-      "peso": 1650159.324,
-      "capac": 1802000,
-      "frete": 1608218.4754380002,
-      "veiculos": 3604,
-      "entregas": 16881,
-      "real_kg": 0.9745837581,
-      "ocupacao": 91.5737693674,
-      "media_entregas": 4.6839622642,
-      "media_peso": 457.8688468368
+      "peso": 1747073.7240000002,
+      "capac": 1910000,
+      "frete": 1703934.1187340003,
+      "veiculos": 3820,
+      "entregas": 17835,
+      "real_kg": 0.9753075072,
+      "ocupacao": 91.4698284817,
+      "media_entregas": 4.6688481675,
+      "media_peso": 457.3491424084
     },
     {
       "VEICULO": "VAN",
-      "peso": 2550211.257,
-      "capac": 3211500,
-      "frete": 1226341.429796,
-      "veiculos": 2141,
-      "entregas": 11295,
-      "real_kg": 0.480878369,
-      "ocupacao": 79.4087266698,
-      "media_entregas": 5.2755721625,
-      "media_peso": 1191.1309000467
+      "peso": 2704691.847,
+      "capac": 3411000,
+      "frete": 1301748.469784,
+      "veiculos": 2274,
+      "entregas": 11953,
+      "real_kg": 0.4812927104,
+      "ocupacao": 79.2932233069,
+      "media_entregas": 5.2563764292,
+      "media_peso": 1189.3983496042
     },
     {
       "VEICULO": "VUC",
-      "peso": 769489.4460000001,
-      "capac": 870000,
-      "frete": 235460.019556,
-      "veiculos": 348,
-      "entregas": 1209,
-      "real_kg": 0.3059951254,
-      "ocupacao": 88.4470627586,
-      "media_entregas": 3.474137931,
-      "media_peso": 2211.1765689655
+      "peso": 816908.037,
+      "capac": 925000,
+      "frete": 250358.624356,
+      "veiculos": 370,
+      "entregas": 1281,
+      "real_kg": 0.3064710017,
+      "ocupacao": 88.3143823784,
+      "media_entregas": 3.4621621622,
+      "media_peso": 2207.8595594595
     }
   ],
   "dist_0_100_dia": [
@@ -9457,15 +9806,15 @@
     {
       "DIA": "2026-05-25",
       "VEICULO": "FIORINO",
-      "peso": 13072.081,
-      "capac": 14000,
-      "frete": 12431.34013,
-      "veiculos": 28,
-      "entregas": 78,
-      "real_kg": 0.9509840193,
-      "ocupacao": 93.3720071429,
-      "media_entregas": 2.7857142857,
-      "media_peso": 466.8600357143
+      "peso": 14046.681,
+      "capac": 15000,
+      "frete": 13287.79893,
+      "veiculos": 30,
+      "entregas": 83,
+      "real_kg": 0.9459742789,
+      "ocupacao": 93.64454,
+      "media_entregas": 2.7666666667,
+      "media_peso": 468.2227
     },
     {
       "DIA": "2026-05-25",
@@ -9492,6 +9841,201 @@
       "ocupacao": 81.3095066667,
       "media_entregas": 2.6666666667,
       "media_peso": 2032.7376666667
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "FIORINO",
+      "peso": 16392.541,
+      "capac": 17500,
+      "frete": 15801.468802,
+      "veiculos": 35,
+      "entregas": 157,
+      "real_kg": 0.9639426128,
+      "ocupacao": 93.6716628571,
+      "media_entregas": 4.4857142857,
+      "media_peso": 468.3583142857
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "VAN",
+      "peso": 35656.555,
+      "capac": 45000,
+      "frete": 17054.33,
+      "veiculos": 30,
+      "entregas": 194,
+      "real_kg": 0.4782943837,
+      "ocupacao": 79.2367888889,
+      "media_entregas": 6.4666666667,
+      "media_peso": 1188.5518333333
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "VUC",
+      "peso": 11257.422,
+      "capac": 12500,
+      "frete": 3332.472,
+      "veiculos": 5,
+      "entregas": 25,
+      "real_kg": 0.2960244361,
+      "ocupacao": 90.059376,
+      "media_entregas": 5.0,
+      "media_peso": 2251.4844
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "FIORINO",
+      "peso": 21236.226,
+      "capac": 24000,
+      "frete": 20787.47924,
+      "veiculos": 48,
+      "entregas": 227,
+      "real_kg": 0.9788688084,
+      "ocupacao": 88.484275,
+      "media_entregas": 4.7291666667,
+      "media_peso": 442.421375
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "VAN",
+      "peso": 32614.571,
+      "capac": 40500,
+      "frete": 15163.23,
+      "veiculos": 27,
+      "entregas": 130,
+      "real_kg": 0.4649219516,
+      "ocupacao": 80.5298049383,
+      "media_entregas": 4.8148148148,
+      "media_peso": 1207.9470740741
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "VUC",
+      "peso": 10839.587,
+      "capac": 12500,
+      "frete": 3412.6716,
+      "veiculos": 5,
+      "entregas": 15,
+      "real_kg": 0.3148340984,
+      "ocupacao": 86.716696,
+      "media_entregas": 3.0,
+      "media_peso": 2167.9174
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "FIORINO",
+      "peso": 17506.346,
+      "capac": 20000,
+      "frete": 18228.271384,
+      "veiculos": 40,
+      "entregas": 171,
+      "real_kg": 1.041237925,
+      "ocupacao": 87.53173,
+      "media_entregas": 4.275,
+      "media_peso": 437.65865
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "VAN",
+      "peso": 30133.73,
+      "capac": 37500,
+      "frete": 14505.811994,
+      "veiculos": 25,
+      "entregas": 115,
+      "real_kg": 0.4813812294,
+      "ocupacao": 80.3566133333,
+      "media_entregas": 4.6,
+      "media_peso": 1205.3492
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "VUC",
+      "peso": 10139.591,
+      "capac": 12500,
+      "frete": 3412.6716,
+      "veiculos": 5,
+      "entregas": 16,
+      "real_kg": 0.3365689602,
+      "ocupacao": 81.116728,
+      "media_entregas": 3.2,
+      "media_peso": 2027.9182
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "FIORINO",
+      "peso": 21406.297,
+      "capac": 24000,
+      "frete": 21188.400744,
+      "veiculos": 48,
+      "entregas": 207,
+      "real_kg": 0.9898209272,
+      "ocupacao": 89.1929041667,
+      "media_entregas": 4.3125,
+      "media_peso": 445.9645208333
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "VAN",
+      "peso": 32192.765,
+      "capac": 40500,
+      "frete": 15163.23,
+      "veiculos": 27,
+      "entregas": 100,
+      "real_kg": 0.4710135958,
+      "ocupacao": 79.488308642,
+      "media_entregas": 3.7037037037,
+      "media_peso": 1192.3246296296
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "VUC",
+      "peso": 10557.283,
+      "capac": 12500,
+      "frete": 3412.6716,
+      "veiculos": 5,
+      "entregas": 13,
+      "real_kg": 0.3232528294,
+      "ocupacao": 84.458264,
+      "media_entregas": 2.6,
+      "media_peso": 2111.4566
+    },
+    {
+      "DIA": "2026-06-01",
+      "VEICULO": "FIORINO",
+      "peso": 19398.39,
+      "capac": 21500,
+      "frete": 18853.564326,
+      "veiculos": 43,
+      "entregas": 187,
+      "real_kg": 0.9719138715,
+      "ocupacao": 90.2250697674,
+      "media_entregas": 4.3488372093,
+      "media_peso": 451.1253488372
+    },
+    {
+      "DIA": "2026-06-01",
+      "VEICULO": "VAN",
+      "peso": 23882.969,
+      "capac": 36000,
+      "frete": 13520.437994,
+      "veiculos": 24,
+      "entregas": 119,
+      "real_kg": 0.5661121109,
+      "ocupacao": 66.3415805556,
+      "media_entregas": 4.9583333333,
+      "media_peso": 995.1237083333
+    },
+    {
+      "DIA": "2026-06-01",
+      "VEICULO": "VUC",
+      "peso": 4624.708,
+      "capac": 5000,
+      "frete": 1328.118,
+      "veiculos": 2,
+      "entregas": 3,
+      "real_kg": 0.2871787797,
+      "ocupacao": 92.49416,
+      "media_entregas": 1.5,
+      "media_peso": 2312.354
     }
   ],
   "dist_0_100_mes": [
@@ -9654,67 +10198,106 @@
     {
       "MES_KEY": "2026-05",
       "VEICULO": "FIORINO",
-      "peso": 284476.368,
-      "capac": 313000,
-      "frete": 278730.141092,
-      "veiculos": 626,
-      "entregas": 2566,
-      "real_kg": 0.979800688,
-      "ocupacao": 90.8870185304,
-      "media_entregas": 4.0990415335,
-      "media_peso": 454.4350926518
+      "peso": 361992.378,
+      "capac": 399500,
+      "frete": 355592.220062,
+      "veiculos": 799,
+      "entregas": 3333,
+      "real_kg": 0.9823196334,
+      "ocupacao": 90.6113586984,
+      "media_entregas": 4.1714643304,
+      "media_peso": 453.0567934919
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VAN",
-      "peso": 435120.752,
-      "capac": 544500,
-      "frete": 207198.19197,
-      "veiculos": 363,
-      "entregas": 1711,
-      "real_kg": 0.476185498,
-      "ocupacao": 79.9119838384,
-      "media_entregas": 4.7134986226,
-      "media_peso": 1198.6797575758
+      "peso": 565718.373,
+      "capac": 708000,
+      "frete": 269084.793964,
+      "veiculos": 472,
+      "entregas": 2250,
+      "real_kg": 0.4756515022,
+      "ocupacao": 79.903725,
+      "media_entregas": 4.7669491525,
+      "media_peso": 1198.555875
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VUC",
-      "peso": 114259.024,
-      "capac": 132500,
-      "frete": 35448.8832,
-      "veiculos": 53,
-      "entregas": 162,
-      "real_kg": 0.3102501838,
-      "ocupacao": 86.2332256604,
-      "media_entregas": 3.0566037736,
-      "media_peso": 2155.8306415094
+      "peso": 157052.907,
+      "capac": 182500,
+      "frete": 49019.37,
+      "veiculos": 73,
+      "entregas": 231,
+      "real_kg": 0.3121201061,
+      "ocupacao": 86.0563873973,
+      "media_entregas": 3.1643835616,
+      "media_peso": 2151.4096849315
+    },
+    {
+      "MES_KEY": "2026-06",
+      "VEICULO": "FIORINO",
+      "peso": 19398.39,
+      "capac": 21500,
+      "frete": 18853.564326,
+      "veiculos": 43,
+      "entregas": 187,
+      "real_kg": 0.9719138715,
+      "ocupacao": 90.2250697674,
+      "media_entregas": 4.3488372093,
+      "media_peso": 451.1253488372
+    },
+    {
+      "MES_KEY": "2026-06",
+      "VEICULO": "VAN",
+      "peso": 23882.969,
+      "capac": 36000,
+      "frete": 13520.437994,
+      "veiculos": 24,
+      "entregas": 119,
+      "real_kg": 0.5661121109,
+      "ocupacao": 66.3415805556,
+      "media_entregas": 4.9583333333,
+      "media_peso": 995.1237083333
+    },
+    {
+      "MES_KEY": "2026-06",
+      "VEICULO": "VUC",
+      "peso": 4624.708,
+      "capac": 5000,
+      "frete": 1328.118,
+      "veiculos": 2,
+      "entregas": 3,
+      "real_kg": 0.2871787797,
+      "ocupacao": 92.49416,
+      "media_entregas": 1.5,
+      "media_peso": 2312.354
     }
   ],
   "dist_100p_veic": [
     {
       "VEICULO": "FIORINO",
-      "peso": 127521.592,
-      "capac": 144500,
-      "frete": 216797.090408,
-      "veiculos": 289,
-      "entregas": 1306,
-      "real_kg": 1.7000814294,
-      "ocupacao": 88.2502366782,
-      "media_entregas": 4.5190311419,
-      "media_peso": 441.251183391
+      "peso": 134626.107,
+      "capac": 153000,
+      "frete": 229525.791326,
+      "veiculos": 306,
+      "entregas": 1374,
+      "real_kg": 1.7049129358,
+      "ocupacao": 87.9909196078,
+      "media_entregas": 4.4901960784,
+      "media_peso": 439.9545980392
     },
     {
       "VEICULO": "VAN",
-      "peso": 153323.511,
-      "capac": 202500,
-      "frete": 111910.23824,
-      "veiculos": 135,
-      "entregas": 432,
-      "real_kg": 0.729896136,
-      "ocupacao": 75.7153140741,
-      "media_entregas": 3.2,
-      "media_peso": 1135.7297111111
+      "peso": 158270.024,
+      "capac": 210000,
+      "frete": 116022.63824,
+      "veiculos": 140,
+      "entregas": 452,
+      "real_kg": 0.7330676733,
+      "ocupacao": 75.3666780952,
+      "media_entregas": 3.2285714286,
+      "media_peso": 1130.5001714286
     },
     {
       "VEICULO": "VUC",
@@ -11666,6 +12249,110 @@
       "ocupacao": 88.0,
       "media_entregas": 1.0,
       "media_peso": 1320.0
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "FIORINO",
+      "peso": 3578.267,
+      "capac": 4000,
+      "frete": 6167.510678,
+      "veiculos": 8,
+      "entregas": 41,
+      "real_kg": 1.7236027043,
+      "ocupacao": 89.456675,
+      "media_entregas": 5.125,
+      "media_peso": 447.283375
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "FIORINO",
+      "peso": 365.464,
+      "capac": 500,
+      "frete": 746.452,
+      "veiculos": 1,
+      "entregas": 1,
+      "real_kg": 2.042477508,
+      "ocupacao": 73.0928,
+      "media_entregas": 1.0,
+      "media_peso": 365.464
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "VAN",
+      "peso": 947.826,
+      "capac": 1500,
+      "frete": 812.52,
+      "veiculos": 1,
+      "entregas": 2,
+      "real_kg": 0.8572459502,
+      "ocupacao": 63.1884,
+      "media_entregas": 2.0,
+      "media_peso": 947.826
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "FIORINO",
+      "peso": 2463.417,
+      "capac": 3000,
+      "frete": 4299.44068,
+      "veiculos": 6,
+      "entregas": 21,
+      "real_kg": 1.7453158276,
+      "ocupacao": 82.1139,
+      "media_entregas": 3.5,
+      "media_peso": 410.5695
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "VAN",
+      "peso": 3145.582,
+      "capac": 4500,
+      "frete": 2487.36,
+      "veiculos": 3,
+      "entregas": 10,
+      "real_kg": 0.7907471495,
+      "ocupacao": 69.9018222222,
+      "media_entregas": 3.3333333333,
+      "media_peso": 1048.5273333333
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "FIORINO",
+      "peso": 463.782,
+      "capac": 500,
+      "frete": 768.84556,
+      "veiculos": 1,
+      "entregas": 2,
+      "real_kg": 1.6577736092,
+      "ocupacao": 92.7564,
+      "media_entregas": 2.0,
+      "media_peso": 463.782
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "VAN",
+      "peso": 853.105,
+      "capac": 1500,
+      "frete": 812.52,
+      "veiculos": 1,
+      "entregas": 8,
+      "real_kg": 0.9524267236,
+      "ocupacao": 56.8736666667,
+      "media_entregas": 8.0,
+      "media_peso": 853.105
+    },
+    {
+      "DIA": "2026-06-01",
+      "VEICULO": "FIORINO",
+      "peso": 233.585,
+      "capac": 500,
+      "frete": 746.452,
+      "veiculos": 1,
+      "entregas": 3,
+      "real_kg": 3.1956332812,
+      "ocupacao": 46.717,
+      "media_entregas": 3.0,
+      "media_peso": 233.585
     }
   ],
   "dist_100p_mes": [
@@ -11828,60 +12515,73 @@
     {
       "MES_KEY": "2026-05",
       "VEICULO": "FIORINO",
-      "peso": 16205.211,
-      "capac": 18000,
-      "frete": 26818.964112,
-      "veiculos": 36,
-      "entregas": 171,
-      "real_kg": 1.6549592666,
-      "ocupacao": 90.02895,
-      "media_entregas": 4.75,
-      "media_peso": 450.14475
+      "peso": 23076.141,
+      "capac": 26000,
+      "frete": 38801.21303,
+      "veiculos": 52,
+      "entregas": 236,
+      "real_kg": 1.6814428821,
+      "ocupacao": 88.7543884615,
+      "media_entregas": 4.5384615385,
+      "media_peso": 443.7719423077
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VAN",
-      "peso": 24274.69,
-      "capac": 31500,
-      "frete": 17998.63,
-      "veiculos": 21,
-      "entregas": 54,
-      "real_kg": 0.7414566365,
-      "ocupacao": 77.0625079365,
-      "media_entregas": 2.5714285714,
-      "media_peso": 1155.9376190476
+      "peso": 29221.203,
+      "capac": 39000,
+      "frete": 22111.03,
+      "veiculos": 26,
+      "entregas": 74,
+      "real_kg": 0.7566776084,
+      "ocupacao": 74.9261615385,
+      "media_entregas": 2.8461538462,
+      "media_peso": 1123.8924230769
+    },
+    {
+      "MES_KEY": "2026-06",
+      "VEICULO": "FIORINO",
+      "peso": 233.585,
+      "capac": 500,
+      "frete": 746.452,
+      "veiculos": 1,
+      "entregas": 3,
+      "real_kg": 3.1956332812,
+      "ocupacao": 46.717,
+      "media_entregas": 3.0,
+      "media_peso": 233.585
     }
   ],
   "reentregas_transportadora": [
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "reentregas": 488,
-      "entregas": 7590,
-      "pct": 6.43
+      "reentregas": 512,
+      "entregas": 8166,
+      "pct": 6.27
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "reentregas": 374,
-      "entregas": 8468,
-      "pct": 4.42
+      "reentregas": 396,
+      "entregas": 8925,
+      "pct": 4.44
     },
     {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
-      "reentregas": 206,
-      "entregas": 5951,
-      "pct": 3.46
+      "reentregas": 215,
+      "entregas": 6238,
+      "pct": 3.45
     },
     {
       "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "reentregas": 116,
-      "entregas": 3078,
+      "reentregas": 117,
+      "entregas": 3103,
       "pct": 3.77
     },
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
-      "reentregas": 99,
-      "entregas": 3550,
-      "pct": 2.79
+      "reentregas": 103,
+      "entregas": 3722,
+      "pct": 2.77
     },
     {
       "NOME TRANSPORTADORA": "SMART LOG TRANS",
@@ -11891,33 +12591,33 @@
     },
     {
       "NOME TRANSPORTADORA": "ARIOVALDO",
-      "reentregas": 18,
-      "entregas": 226,
-      "pct": 7.96
+      "reentregas": 19,
+      "entregas": 248,
+      "pct": 7.66
     },
     {
       "NOME TRANSPORTADORA": "LINDON JOHSON",
       "reentregas": 17,
-      "entregas": 488,
-      "pct": 3.48
+      "entregas": 518,
+      "pct": 3.28
     },
     {
       "NOME TRANSPORTADORA": "TRANS FARIAS",
       "reentregas": 17,
-      "entregas": 441,
-      "pct": 3.85
+      "entregas": 468,
+      "pct": 3.63
     },
     {
       "NOME TRANSPORTADORA": "CARLOS ALBERTO",
       "reentregas": 15,
-      "entregas": 328,
-      "pct": 4.57
+      "entregas": 346,
+      "pct": 4.34
     },
     {
       "NOME TRANSPORTADORA": "VANDERLEI",
-      "reentregas": 4,
-      "entregas": 272,
-      "pct": 1.47
+      "reentregas": 5,
+      "entregas": 289,
+      "pct": 1.73
     },
     {
       "NOME TRANSPORTADORA": "TRANSPORTES FRA",
@@ -11935,78 +12635,78 @@
   "reentregas_justificativa": [
     {
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 705,
-      "pct": 50.29
+      "reentregas": 728,
+      "pct": 49.76
     },
     {
       "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 172,
-      "pct": 12.27
+      "reentregas": 186,
+      "pct": 12.71
     },
     {
       "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
-      "reentregas": 126,
-      "pct": 8.99
+      "reentregas": 136,
+      "pct": 9.3
     },
     {
       "DESC JUST OC": "RECUSA CLIENTE",
-      "reentregas": 83,
-      "pct": 5.92
+      "reentregas": 84,
+      "pct": 5.74
     },
     {
       "DESC JUST OC": "LOCAL FECHADO",
       "reentregas": 63,
-      "pct": 4.49
-    },
-    {
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 54,
-      "pct": 3.85
+      "pct": 4.31
     },
     {
       "DESC JUST OC": "RECUSA BALANCO_LOJA",
-      "reentregas": 54,
-      "pct": 3.85
+      "reentregas": 58,
+      "pct": 3.96
+    },
+    {
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 57,
+      "pct": 3.9
     },
     {
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 49,
-      "pct": 3.5
+      "reentregas": 52,
+      "pct": 3.55
     },
     {
       "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
       "reentregas": 39,
-      "pct": 2.78
+      "pct": 2.67
     },
     {
       "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
-      "reentregas": 22,
+      "reentregas": 23,
       "pct": 1.57
     },
     {
       "DESC JUST OC": "DIVERGENCIA DE PRECO",
       "reentregas": 7,
-      "pct": 0.5
+      "pct": 0.48
+    },
+    {
+      "DESC JUST OC": "DUPLICIDADE PEDIDO",
+      "reentregas": 7,
+      "pct": 0.48
     },
     {
       "DESC JUST OC": "PROBLEMAS FORÇA MAIOR (CLIMÁTICOS)",
       "reentregas": 6,
-      "pct": 0.43
+      "pct": 0.41
     },
     {
       "DESC JUST OC": "BOLETO PRORROGACAO",
       "reentregas": 5,
-      "pct": 0.36
-    },
-    {
-      "DESC JUST OC": "DUPLICIDADE PEDIDO",
-      "reentregas": 5,
-      "pct": 0.36
+      "pct": 0.34
     },
     {
       "DESC JUST OC": "RECUSA_SEM PEDIDO",
       "reentregas": 4,
-      "pct": 0.29
+      "pct": 0.27
     },
     {
       "DESC JUST OC": "FERIADO MUNICIPAL",
@@ -12033,17 +12733,22 @@
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 276
+      "reentregas": 287
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 179
+      "reentregas": 186
     },
     {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 99
+      "reentregas": 103
+    },
+    {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 61
     },
     {
       "NOME TRANSPORTADORA": "SPEEDY LOG",
@@ -12051,19 +12756,14 @@
       "reentregas": 60
     },
     {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
-      "reentregas": 59
-    },
-    {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 54
+      "reentregas": 60
     },
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 48
+      "reentregas": 52
     },
     {
       "NOME TRANSPORTADORA": "SMART LOG TRANS",
@@ -12078,12 +12778,12 @@
     {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
       "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
-      "reentregas": 33
+      "reentregas": 34
     },
     {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
       "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 28
+      "reentregas": 30
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
@@ -12093,27 +12793,32 @@
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
       "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 25
+      "reentregas": 27
     },
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 21
+      "reentregas": 22
     },
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "RECUSA CLIENTE",
+      "reentregas": 22
+    },
+    {
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
       "reentregas": 21
     },
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "RECUSA BALANCO_LOJA",
-      "reentregas": 19
+      "reentregas": 21
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "DESC JUST OC": "RECUSA BALANCO_LOJA",
-      "reentregas": 18
+      "reentregas": 19
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
@@ -12126,9 +12831,9 @@
       "reentregas": 18
     },
     {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
-      "reentregas": 16
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 15
     },
     {
       "NOME TRANSPORTADORA": "SPEEDY LOG",
@@ -12141,9 +12846,14 @@
       "reentregas": 15
     },
     {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 14
+      "reentregas": 13
+    },
+    {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
+      "reentregas": 12
     },
     {
       "NOME TRANSPORTADORA": "SPEEDY LOG",
@@ -12152,23 +12862,13 @@
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 12
-    },
-    {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 11
-    },
-    {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
-      "reentregas": 11
+      "reentregas": 12
     },
     {
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 10
+      "reentregas": 11
     },
     {
       "NOME TRANSPORTADORA": "SPEEDY LOG",
@@ -12181,9 +12881,19 @@
       "reentregas": 9
     },
     {
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 8
+    },
+    {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
       "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
       "reentregas": 8
+    },
+    {
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 7
     },
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
@@ -12196,19 +12906,9 @@
       "reentregas": 7
     },
     {
-      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
-      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
-      "reentregas": 6
-    },
-    {
-      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
-      "DESC JUST OC": "RECUSA CLIENTE",
-      "reentregas": 6
-    },
-    {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 6
+      "reentregas": 7
     },
     {
       "NOME TRANSPORTADORA": "SMART LOG TRANS",
@@ -12216,8 +12916,8 @@
       "reentregas": 6
     },
     {
-      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
-      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "RECUSA CLIENTE",
       "reentregas": 6
     },
     {
@@ -12231,6 +12931,11 @@
       "reentregas": 5
     },
     {
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "DUPLICIDADE PEDIDO",
+      "reentregas": 5
+    },
+    {
       "NOME TRANSPORTADORA": "LINDON JOHSON",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
       "reentregas": 5
@@ -12243,6 +12948,11 @@
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
       "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 5
+    },
+    {
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
       "reentregas": 5
     },
     {
@@ -12261,6 +12971,11 @@
       "reentregas": 4
     },
     {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "PROBLEMAS FORÇA MAIOR (CLIMÁTICOS)",
+      "reentregas": 4
+    },
+    {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
       "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
       "reentregas": 4
@@ -12276,31 +12991,6 @@
       "reentregas": 4
     },
     {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "DUPLICIDADE PEDIDO",
-      "reentregas": 4
-    },
-    {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "PROBLEMAS FORÇA MAIOR (CLIMÁTICOS)",
-      "reentregas": 4
-    },
-    {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 4
-    },
-    {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "SMART LOG TRANS",
-      "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 3
-    },
-    {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
       "reentregas": 3
@@ -12311,8 +13001,28 @@
       "reentregas": 3
     },
     {
-      "NOME TRANSPORTADORA": "ARIOVALDO",
-      "DESC JUST OC": "RECUSA CLIENTE",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "DIVERGENCIA DE PRECO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
       "reentregas": 3
     },
     {
@@ -12322,12 +13032,12 @@
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "BOLETO PRORROGACAO",
+      "DESC JUST OC": "RECUSA_SEM PEDIDO",
       "reentregas": 3
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "DIVERGENCIA DE PRECO",
+      "DESC JUST OC": "BOLETO PRORROGACAO",
       "reentregas": 3
     },
     {
@@ -12336,23 +13046,13 @@
       "reentregas": 3
     },
     {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "RECUSA_SEM PEDIDO",
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "DESC JUST OC": "RECUSA CLIENTE",
       "reentregas": 3
     },
     {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
-      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "NOME TRANSPORTADORA": "SMART LOG TRANS",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
       "reentregas": 3
     },
     {
@@ -12361,7 +13061,32 @@
       "reentregas": 2
     },
     {
+      "NOME TRANSPORTADORA": "TRANS FARIAS",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "TRANS FARIAS",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "SMART LOG TRANS",
+      "DESC JUST OC": "LOCAL FECHADO",
+      "reentregas": 2
+    },
+    {
       "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "DIVERGENCIA DE PRECO",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "DIVERGENCIA DE PRECO",
       "reentregas": 2
     },
@@ -12371,13 +13096,8 @@
       "reentregas": 2
     },
     {
-      "NOME TRANSPORTADORA": "SMART LOG TRANS",
-      "DESC JUST OC": "LOCAL FECHADO",
-      "reentregas": 2
-    },
-    {
-      "NOME TRANSPORTADORA": "TRANS FARIAS",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
       "reentregas": 2
     },
     {
@@ -12386,38 +13106,13 @@
       "reentregas": 2
     },
     {
-      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
-      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
-      "reentregas": 2
-    },
-    {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "DESC JUST OC": "RECUSA BALANCO_LOJA",
-      "reentregas": 2
-    },
-    {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "DIVERGENCIA DE PRECO",
-      "reentregas": 2
-    },
-    {
-      "NOME TRANSPORTADORA": "TRANS FARIAS",
-      "DESC JUST OC": "RECUSA BALANCO_LOJA",
-      "reentregas": 2
-    },
-    {
-      "NOME TRANSPORTADORA": "LIMA CARGO EXPR",
-      "DESC JUST OC": "FORA DE HORARIO",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "OPERACAO EXPEDICAO",
       "reentregas": 1
     },
     {
       "NOME TRANSPORTADORA": "LINDON JOHSON",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
-      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
       "reentregas": 1
     },
     {
@@ -12426,8 +13121,13 @@
       "reentregas": 1
     },
     {
-      "NOME TRANSPORTADORA": "ARIOVALDO",
-      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "NOME TRANSPORTADORA": "LIMA CARGO EXPR",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "LINDON JOHSON",
+      "DESC JUST OC": "LOCAL FECHADO",
       "reentregas": 1
     },
     {
@@ -12436,13 +13136,23 @@
       "reentregas": 1
     },
     {
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
       "NOME TRANSPORTADORA": "CARLOS ALBERTO",
       "DESC JUST OC": "LOCAL FECHADO",
       "reentregas": 1
     },
     {
+      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
+      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
       "NOME TRANSPORTADORA": "ARIOVALDO",
-      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
       "reentregas": 1
     },
     {
@@ -12456,18 +13166,13 @@
       "reentregas": 1
     },
     {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "OPERACAO EXPEDICAO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "LINDON JOHSON",
-      "DESC JUST OC": "LOCAL FECHADO",
-      "reentregas": 1
-    },
-    {
       "NOME TRANSPORTADORA": "SMART LOG TRANS",
       "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "BOLETO PRORROGACAO",
       "reentregas": 1
     },
     {
@@ -12481,13 +13186,8 @@
       "reentregas": 1
     },
     {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "DESC JUST OC": "BOLETO PRORROGACAO",
-      "reentregas": 1
-    },
-    {
       "NOME TRANSPORTADORA": "SMART LOG TRANS",
-      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
       "reentregas": 1
     },
     {
@@ -12502,7 +13202,7 @@
     },
     {
       "NOME TRANSPORTADORA": "SMART LOG TRANS",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
       "reentregas": 1
     },
     {
@@ -12511,13 +13211,18 @@
       "reentregas": 1
     },
     {
-      "NOME TRANSPORTADORA": "TRANS FARIAS",
-      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "RECUSA_SEM PEDIDO",
       "reentregas": 1
     },
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "RECUSA_SEM PEDIDO",
+      "DESC JUST OC": "DUPLICIDADE PEDIDO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "TRANS FARIAS",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
       "reentregas": 1
     },
     {
@@ -12548,6 +13253,11 @@
     {
       "NOME TRANSPORTADORA": "VANDERLEI",
       "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "VANDERLEI",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
       "reentregas": 1
     },
     {
@@ -14801,6 +15511,101 @@
       "DIA": "2026-05-22",
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "reentregas": 5
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 8
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "VANDERLEI",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 7
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 11
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 5
     }
   ],
   "nf_transp_dia": [
@@ -19853,6 +20658,231 @@
       "DIA": "2026-05-22",
       "NOME TRANSPORTADORA": "TRANS FARIAS",
       "entregas": 3
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "entregas": 34
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "LINDON JOHSON",
+      "entregas": 4
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "entregas": 18
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "entregas": 42
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "entregas": 5
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "entregas": 31
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "entregas": 135
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "entregas": 8
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
+      "entregas": 5
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "LINDON JOHSON",
+      "entregas": 5
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "entregas": 35
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "entregas": 57
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "entregas": 5
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "entregas": 163
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "TRANS FARIAS",
+      "entregas": 10
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "VANDERLEI",
+      "entregas": 8
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "entregas": 104
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "entregas": 4
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
+      "entregas": 5
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "LINDON JOHSON",
+      "entregas": 5
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "entregas": 39
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "entregas": 65
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "entregas": 3
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "entregas": 147
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "TRANS FARIAS",
+      "entregas": 6
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "VANDERLEI",
+      "entregas": 2
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "entregas": 97
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "entregas": 2
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
+      "entregas": 4
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "LINDON JOHSON",
+      "entregas": 8
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "entregas": 37
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "entregas": 66
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "entregas": 6
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "entregas": 127
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "TRANS FARIAS",
+      "entregas": 7
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "entregas": 87
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "entregas": 8
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
+      "entregas": 4
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "LINDON JOHSON",
+      "entregas": 8
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "entregas": 43
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "entregas": 57
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "entregas": 6
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "entregas": 108
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "TRANS FARIAS",
+      "entregas": 4
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "VANDERLEI",
+      "entregas": 7
     }
   ],
   "reentregas_just_dia": [
@@ -22164,6 +23194,121 @@
     {
       "DIA": "2026-05-22",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-25",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-25",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-25",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-25",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-26",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 5
+    },
+    {
+      "DIA": "2026-05-26",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-26",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-26",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-27",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 6
+    },
+    {
+      "DIA": "2026-05-27",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 7
+    },
+    {
+      "DIA": "2026-05-27",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-28",
+      "DESC JUST OC": "DUPLICIDADE PEDIDO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-28",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 8
+    },
+    {
+      "DIA": "2026-05-28",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-28",
+      "DESC JUST OC": "RECUSA CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-29",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-29",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
       "reentregas": 1
     }
   ],
@@ -27081,6 +28226,258 @@
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
       "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 5
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "VANDERLEI",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "DUPLICIDADE PEDIDO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DUPLICIDADE PEDIDO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 7
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "RECUSA CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
+      "reentregas": 1
     }
   ],
   "reentregas_dia": [
@@ -27471,6 +28868,26 @@
     {
       "DIA": "2026-05-22",
       "reentregas": 10
+    },
+    {
+      "DIA": "2026-05-25",
+      "reentregas": 5
+    },
+    {
+      "DIA": "2026-05-26",
+      "reentregas": 14
+    },
+    {
+      "DIA": "2026-05-27",
+      "reentregas": 14
+    },
+    {
+      "DIA": "2026-05-28",
+      "reentregas": 20
+    },
+    {
+      "DIA": "2026-05-29",
+      "reentregas": 8
     }
   ],
   "reentregas_mes": [
@@ -27492,7 +28909,7 @@
     },
     {
       "MES_KEY": "2026-05",
-      "reentregas": 196
+      "reentregas": 257
     }
   ],
   "nf_entregas_dia": [
@@ -27939,6 +29356,26 @@
     {
       "DIA": "2026-05-22",
       "qtd_entregas": 295
+    },
+    {
+      "DIA": "2026-05-25",
+      "qtd_entregas": 134
+    },
+    {
+      "DIA": "2026-05-26",
+      "qtd_entregas": 427
+    },
+    {
+      "DIA": "2026-05-27",
+      "qtd_entregas": 375
+    },
+    {
+      "DIA": "2026-05-28",
+      "qtd_entregas": 350
+    },
+    {
+      "DIA": "2026-05-29",
+      "qtd_entregas": 327
     }
   ],
   "nf_entregas_mes": [
@@ -27960,38 +29397,38 @@
     },
     {
       "MES_KEY": "2026-05",
-      "qtd_entregas": 4752
+      "qtd_entregas": 6365
     }
   ],
   "frota_kpis": {
-    "total_disp": 6774,
-    "total_util": 5965,
-    "pct_util": 88.06
+    "total_disp": 7137,
+    "total_util": 6315,
+    "pct_util": 88.48
   },
   "frota_transportadora": [
     {
       "Transportadora": "STYNGRAY TRANSPORTES",
-      "disponibilizado": 1924,
-      "utilizado": 1665,
-      "pct": 86.54
+      "disponibilizado": 2054,
+      "utilizado": 1786,
+      "pct": 86.95
     },
     {
       "Transportadora": "ADLER",
-      "disponibilizado": 1710,
-      "utilizado": 1547,
-      "pct": 90.47
+      "disponibilizado": 1820,
+      "utilizado": 1657,
+      "pct": 91.04
     },
     {
       "Transportadora": "RBT TRANSPORTES",
-      "disponibilizado": 1301,
-      "utilizado": 1168,
-      "pct": 89.78
+      "disponibilizado": 1375,
+      "utilizado": 1238,
+      "pct": 90.04
     },
     {
       "Transportadora": "PHOENIX LOGISTICA",
-      "disponibilizado": 950,
-      "utilizado": 823,
-      "pct": 86.63
+      "disponibilizado": 999,
+      "utilizado": 872,
+      "pct": 87.29
     },
     {
       "Transportadora": "SPEEDYLOG",
@@ -28009,27 +29446,27 @@
   "frota_veiculo": [
     {
       "Veiculo": "FIORINO",
-      "disponibilizado": 4152,
-      "utilizado": 3735,
-      "pct": 89.96
+      "disponibilizado": 4372,
+      "utilizado": 3947,
+      "pct": 90.28
     },
     {
       "Veiculo": "HR",
-      "disponibilizado": 1279,
-      "utilizado": 1109,
-      "pct": 86.71
+      "disponibilizado": 1355,
+      "utilizado": 1184,
+      "pct": 87.38
     },
     {
       "Veiculo": "VAN",
-      "disponibilizado": 826,
-      "utilizado": 680,
-      "pct": 82.32
+      "disponibilizado": 863,
+      "utilizado": 717,
+      "pct": 83.08
     },
     {
       "Veiculo": "VUC",
-      "disponibilizado": 508,
-      "utilizado": 434,
-      "pct": 85.43
+      "disponibilizado": 538,
+      "utilizado": 460,
+      "pct": 85.5
     },
     {
       "Veiculo": "TRANSIT",
@@ -28626,6 +30063,36 @@
       "disponibilizado": 74,
       "utilizado": 44,
       "pct": 59.46
+    },
+    {
+      "DIA": "2026-05-26",
+      "disponibilizado": 69,
+      "utilizado": 69,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-27",
+      "disponibilizado": 72,
+      "utilizado": 72,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-28",
+      "disponibilizado": 73,
+      "utilizado": 73,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-29",
+      "disponibilizado": 73,
+      "utilizado": 73,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-06-01",
+      "disponibilizado": 76,
+      "utilizado": 63,
+      "pct": 82.89
     }
   ],
   "frota_mes": [
@@ -28655,9 +30122,15 @@
     },
     {
       "MES_KEY": "2026-05",
-      "disponibilizado": 1115,
-      "utilizado": 996,
-      "pct": 89.33
+      "disponibilizado": 1402,
+      "utilizado": 1283,
+      "pct": 91.51
+    },
+    {
+      "MES_KEY": "2026-06",
+      "disponibilizado": 76,
+      "utilizado": 63,
+      "pct": 82.89
     }
   ],
   "frota_transp_dia": [
@@ -32580,6 +34053,146 @@
       "disponibilizado": 27,
       "utilizado": 12,
       "pct": 44.44
+    },
+    {
+      "DIA": "2026-05-26",
+      "Transportadora": "ADLER",
+      "disponibilizado": 20,
+      "utilizado": 20,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-26",
+      "Transportadora": "PHOENIX LOGISTICA",
+      "disponibilizado": 8,
+      "utilizado": 8,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-26",
+      "Transportadora": "RBT TRANSPORTES",
+      "disponibilizado": 13,
+      "utilizado": 13,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-26",
+      "Transportadora": "STYNGRAY TRANSPORTES",
+      "disponibilizado": 28,
+      "utilizado": 28,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-27",
+      "Transportadora": "ADLER",
+      "disponibilizado": 23,
+      "utilizado": 23,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-27",
+      "Transportadora": "PHOENIX LOGISTICA",
+      "disponibilizado": 9,
+      "utilizado": 9,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-27",
+      "Transportadora": "RBT TRANSPORTES",
+      "disponibilizado": 15,
+      "utilizado": 15,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-27",
+      "Transportadora": "STYNGRAY TRANSPORTES",
+      "disponibilizado": 25,
+      "utilizado": 25,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-28",
+      "Transportadora": "ADLER",
+      "disponibilizado": 22,
+      "utilizado": 22,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-28",
+      "Transportadora": "PHOENIX LOGISTICA",
+      "disponibilizado": 10,
+      "utilizado": 10,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-28",
+      "Transportadora": "RBT TRANSPORTES",
+      "disponibilizado": 14,
+      "utilizado": 14,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-28",
+      "Transportadora": "STYNGRAY TRANSPORTES",
+      "disponibilizado": 27,
+      "utilizado": 27,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-29",
+      "Transportadora": "ADLER",
+      "disponibilizado": 23,
+      "utilizado": 23,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-29",
+      "Transportadora": "PHOENIX LOGISTICA",
+      "disponibilizado": 11,
+      "utilizado": 11,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-29",
+      "Transportadora": "RBT TRANSPORTES",
+      "disponibilizado": 15,
+      "utilizado": 15,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-29",
+      "Transportadora": "STYNGRAY TRANSPORTES",
+      "disponibilizado": 24,
+      "utilizado": 24,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-06-01",
+      "Transportadora": "ADLER",
+      "disponibilizado": 22,
+      "utilizado": 22,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-06-01",
+      "Transportadora": "PHOENIX LOGISTICA",
+      "disponibilizado": 11,
+      "utilizado": 11,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-06-01",
+      "Transportadora": "RBT TRANSPORTES",
+      "disponibilizado": 17,
+      "utilizado": 13,
+      "pct": 76.47
+    },
+    {
+      "DIA": "2026-06-01",
+      "Transportadora": "STYNGRAY TRANSPORTES",
+      "disponibilizado": 26,
+      "utilizado": 17,
+      "pct": 65.38
     }
   ],
   "frota_veic_dia": [
@@ -35354,16 +36967,156 @@
       "disponibilizado": 7,
       "utilizado": 3,
       "pct": 42.86
+    },
+    {
+      "DIA": "2026-05-26",
+      "Veiculo": "FIORINO",
+      "disponibilizado": 39,
+      "utilizado": 39,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-26",
+      "Veiculo": "HR",
+      "disponibilizado": 15,
+      "utilizado": 15,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-26",
+      "Veiculo": "VAN",
+      "disponibilizado": 9,
+      "utilizado": 9,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-26",
+      "Veiculo": "VUC",
+      "disponibilizado": 6,
+      "utilizado": 6,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-27",
+      "Veiculo": "FIORINO",
+      "disponibilizado": 43,
+      "utilizado": 43,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-27",
+      "Veiculo": "HR",
+      "disponibilizado": 15,
+      "utilizado": 15,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-27",
+      "Veiculo": "VAN",
+      "disponibilizado": 8,
+      "utilizado": 8,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-27",
+      "Veiculo": "VUC",
+      "disponibilizado": 6,
+      "utilizado": 6,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-28",
+      "Veiculo": "FIORINO",
+      "disponibilizado": 44,
+      "utilizado": 44,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-28",
+      "Veiculo": "HR",
+      "disponibilizado": 15,
+      "utilizado": 15,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-28",
+      "Veiculo": "VAN",
+      "disponibilizado": 8,
+      "utilizado": 8,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-28",
+      "Veiculo": "VUC",
+      "disponibilizado": 6,
+      "utilizado": 6,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-29",
+      "Veiculo": "FIORINO",
+      "disponibilizado": 45,
+      "utilizado": 45,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-29",
+      "Veiculo": "HR",
+      "disponibilizado": 16,
+      "utilizado": 16,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-29",
+      "Veiculo": "VAN",
+      "disponibilizado": 6,
+      "utilizado": 6,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-05-29",
+      "Veiculo": "VUC",
+      "disponibilizado": 6,
+      "utilizado": 6,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-06-01",
+      "Veiculo": "FIORINO",
+      "disponibilizado": 49,
+      "utilizado": 41,
+      "pct": 83.67
+    },
+    {
+      "DIA": "2026-06-01",
+      "Veiculo": "HR",
+      "disponibilizado": 15,
+      "utilizado": 14,
+      "pct": 93.33
+    },
+    {
+      "DIA": "2026-06-01",
+      "Veiculo": "VAN",
+      "disponibilizado": 6,
+      "utilizado": 6,
+      "pct": 100.0
+    },
+    {
+      "DIA": "2026-06-01",
+      "Veiculo": "VUC",
+      "disponibilizado": 6,
+      "utilizado": 2,
+      "pct": 33.33
     }
   ],
   "vesp_kpis": {
-    "peso_total": 152227.75,
-    "capac_total": 188000.0,
-    "frete_total": 99646.11,
-    "real_kg_total": 0.6546,
-    "ocupacao_total": 80.97,
-    "qtd_veiculos": 206,
-    "qtd_entregas": 684,
+    "peso_total": 164816.33,
+    "capac_total": 203500.0,
+    "frete_total": 110029.67,
+    "real_kg_total": 0.6676,
+    "ocupacao_total": 80.99,
+    "qtd_veiculos": 229,
+    "qtd_entregas": 806,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67
   },
@@ -36219,6 +37972,66 @@
       "ocupacao": 82.6323666667,
       "media_entregas": 2.5,
       "media_peso": 1239.4855
+    },
+    {
+      "DIA": "2026-05-25",
+      "peso": 974.6,
+      "capac": 1000,
+      "frete": 856.4588,
+      "veiculos": 2,
+      "entregas": 5,
+      "real_kg": 0.8787798071,
+      "ocupacao": 97.46,
+      "media_entregas": 2.5,
+      "media_peso": 487.3
+    },
+    {
+      "DIA": "2026-05-26",
+      "peso": 3365.725,
+      "capac": 4000,
+      "frete": 2702.947,
+      "veiculos": 6,
+      "entregas": 32,
+      "real_kg": 0.8030801685,
+      "ocupacao": 84.143125,
+      "media_entregas": 5.3333333333,
+      "media_peso": 560.9541666667
+    },
+    {
+      "DIA": "2026-05-27",
+      "peso": 2057.286,
+      "capac": 3000,
+      "frete": 2569.3764,
+      "veiculos": 6,
+      "entregas": 35,
+      "real_kg": 1.248915513,
+      "ocupacao": 68.5762,
+      "media_entregas": 5.8333333333,
+      "media_peso": 342.881
+    },
+    {
+      "DIA": "2026-05-28",
+      "peso": 3803.8,
+      "capac": 4000,
+      "frete": 1980.0588,
+      "veiculos": 4,
+      "entregas": 13,
+      "real_kg": 0.5205475577,
+      "ocupacao": 95.095,
+      "media_entregas": 3.25,
+      "media_peso": 950.95
+    },
+    {
+      "DIA": "2026-05-29",
+      "peso": 2387.176,
+      "capac": 3500,
+      "frete": 2274.7176,
+      "veiculos": 5,
+      "entregas": 37,
+      "real_kg": 0.9528906122,
+      "ocupacao": 68.2050285714,
+      "media_entregas": 7.4,
+      "media_peso": 477.4352
     }
   ],
   "vesp_por_mes": [
@@ -36272,41 +38085,41 @@
     },
     {
       "MES_KEY": "2026-05",
-      "peso": 34587.949,
-      "capac": 44500,
-      "frete": 25435.082,
-      "veiculos": 53,
-      "entregas": 220,
-      "real_kg": 0.7353741039,
-      "ocupacao": 77.7257280899,
-      "media_entregas": 4.1509433962,
-      "media_peso": 652.6028113208
+      "peso": 47176.536,
+      "capac": 60000,
+      "frete": 35818.6406,
+      "veiculos": 76,
+      "entregas": 342,
+      "real_kg": 0.75924694,
+      "ocupacao": 78.62756,
+      "media_entregas": 4.5,
+      "media_peso": 620.7438947368
     }
   ],
   "vesp_por_veiculo": [
     {
       "VEICULO": "FIORINO",
-      "peso": 57029.775,
-      "capac": 69500,
-      "frete": 59767.600882,
-      "veiculos": 139,
-      "entregas": 507,
-      "real_kg": 1.0480069557,
-      "ocupacao": 82.0572302158,
-      "media_entregas": 3.6474820144,
-      "media_peso": 410.2861510791
+      "peso": 63969.312,
+      "capac": 79000,
+      "frete": 67903.959482,
+      "veiculos": 158,
+      "entregas": 616,
+      "real_kg": 1.0615083602,
+      "ocupacao": 80.9738126582,
+      "media_entregas": 3.8987341772,
+      "media_peso": 404.8690632911
     },
     {
       "VEICULO": "VAN",
-      "peso": 54496.453,
-      "capac": 73500,
-      "frete": 27788.42,
-      "veiculos": 49,
-      "entregas": 140,
-      "real_kg": 0.5099124525,
-      "ocupacao": 74.1448340136,
-      "media_entregas": 2.8571428571,
-      "media_peso": 1112.1725102041
+      "peso": 60145.503,
+      "capac": 79500,
+      "frete": 30035.62,
+      "veiculos": 53,
+      "entregas": 153,
+      "real_kg": 0.4993826388,
+      "ocupacao": 75.6547207547,
+      "media_entregas": 2.8867924528,
+      "media_peso": 1134.8208113208
     },
     {
       "VEICULO": "VUC",
@@ -37790,6 +39603,110 @@
       "ocupacao": 99.6776,
       "media_entregas": 3.0,
       "media_peso": 2491.94
+    },
+    {
+      "DIA": "2026-05-25",
+      "VEICULO": "FIORINO",
+      "peso": 974.6,
+      "capac": 1000,
+      "frete": 856.4588,
+      "veiculos": 2,
+      "entregas": 5,
+      "real_kg": 0.8787798071,
+      "ocupacao": 97.46,
+      "media_entregas": 2.5,
+      "media_peso": 487.3
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "FIORINO",
+      "peso": 1979.725,
+      "capac": 2500,
+      "frete": 2141.147,
+      "veiculos": 5,
+      "entregas": 27,
+      "real_kg": 1.0815375873,
+      "ocupacao": 79.189,
+      "media_entregas": 5.4,
+      "media_peso": 395.945
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "VAN",
+      "peso": 1386.0,
+      "capac": 1500,
+      "frete": 561.8,
+      "veiculos": 1,
+      "entregas": 5,
+      "real_kg": 0.4053391053,
+      "ocupacao": 92.4,
+      "media_entregas": 5.0,
+      "media_peso": 1386.0
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "FIORINO",
+      "peso": 2057.286,
+      "capac": 3000,
+      "frete": 2569.3764,
+      "veiculos": 6,
+      "entregas": 35,
+      "real_kg": 1.248915513,
+      "ocupacao": 68.5762,
+      "media_entregas": 5.8333333333,
+      "media_peso": 342.881
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "FIORINO",
+      "peso": 819.5,
+      "capac": 1000,
+      "frete": 856.4588,
+      "veiculos": 2,
+      "entregas": 8,
+      "real_kg": 1.0450992068,
+      "ocupacao": 81.95,
+      "media_entregas": 4.0,
+      "media_peso": 409.75
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "VAN",
+      "peso": 2984.3,
+      "capac": 3000,
+      "frete": 1123.6,
+      "veiculos": 2,
+      "entregas": 5,
+      "real_kg": 0.3765037027,
+      "ocupacao": 99.4766666667,
+      "media_entregas": 2.5,
+      "media_peso": 1492.15
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "FIORINO",
+      "peso": 1108.426,
+      "capac": 2000,
+      "frete": 1712.9176,
+      "veiculos": 4,
+      "entregas": 34,
+      "real_kg": 1.5453603578,
+      "ocupacao": 55.4213,
+      "media_entregas": 8.5,
+      "media_peso": 277.1065
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "VAN",
+      "peso": 1278.75,
+      "capac": 1500,
+      "frete": 561.8,
+      "veiculos": 1,
+      "entregas": 3,
+      "real_kg": 0.4393352884,
+      "ocupacao": 85.25,
+      "media_entregas": 3.0,
+      "media_peso": 1278.75
     }
   ],
   "vesp_por_veiculo_mes": [
@@ -37952,28 +39869,28 @@
     {
       "MES_KEY": "2026-05",
       "VEICULO": "FIORINO",
-      "peso": 14372.545,
-      "capac": 19000,
-      "frete": 16435.4484,
-      "veiculos": 38,
-      "entregas": 171,
-      "real_kg": 1.143530836,
-      "ocupacao": 75.6449736842,
-      "media_entregas": 4.5,
-      "media_peso": 378.2248684211
+      "peso": 21312.082,
+      "capac": 28500,
+      "frete": 24571.807,
+      "veiculos": 57,
+      "entregas": 280,
+      "real_kg": 1.1529519734,
+      "ocupacao": 74.7792350877,
+      "media_entregas": 4.9122807018,
+      "media_peso": 373.8961754386
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VAN",
-      "peso": 13248.576,
-      "capac": 18000,
-      "frete": 6915.08,
-      "veiculos": 12,
-      "entregas": 42,
-      "real_kg": 0.5219489249,
-      "ocupacao": 73.6032,
-      "media_entregas": 3.5,
-      "media_peso": 1104.048
+      "peso": 18897.626,
+      "capac": 24000,
+      "frete": 9162.28,
+      "veiculos": 16,
+      "entregas": 55,
+      "real_kg": 0.4848376193,
+      "ocupacao": 78.7401083333,
+      "media_entregas": 3.4375,
+      "media_peso": 1181.101625
     },
     {
       "MES_KEY": "2026-05",
@@ -37990,40 +39907,40 @@
     }
   ],
   "vesp_tl_kpis": {
-    "peso_total": 58219.03,
-    "capac_total": 74000.0,
-    "frete_total": 42581.51,
-    "real_kg_total": 0.7314,
-    "ocupacao_total": 78.67,
-    "qtd_veiculos": 90,
-    "qtd_entregas": 387,
+    "peso_total": 68678.02,
+    "capac_total": 87500.0,
+    "frete_total": 51975.04,
+    "real_kg_total": 0.7568,
+    "ocupacao_total": 78.49,
+    "qtd_veiculos": 111,
+    "qtd_entregas": 507,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67
   },
   "vesp_tl_por_veiculo": [
     {
       "VEICULO": "FIORINO",
-      "peso": 26073.245,
-      "capac": 33500,
-      "frete": 28935.4666,
-      "veiculos": 67,
-      "entregas": 300,
-      "real_kg": 1.1097761939,
-      "ocupacao": 77.8305820896,
-      "media_entregas": 4.4776119403,
-      "media_peso": 389.1529104478
+      "peso": 32635.482,
+      "capac": 42500,
+      "frete": 36643.5958,
+      "veiculos": 85,
+      "entregas": 408,
+      "real_kg": 1.1228146041,
+      "ocupacao": 76.7893694118,
+      "media_entregas": 4.8,
+      "media_peso": 383.9468470588
     },
     {
       "VEICULO": "VAN",
-      "peso": 18511.856,
-      "capac": 25500,
-      "frete": 9637.34,
-      "veiculos": 17,
-      "entregas": 70,
-      "real_kg": 0.5206036607,
-      "ocupacao": 72.5955137255,
-      "media_entregas": 4.1176470588,
-      "media_peso": 1088.9327058824
+      "peso": 22408.606,
+      "capac": 30000,
+      "frete": 11322.74,
+      "veiculos": 20,
+      "entregas": 82,
+      "real_kg": 0.5052853355,
+      "ocupacao": 74.6953533333,
+      "media_entregas": 4.1,
+      "media_peso": 1120.4303
     },
     {
       "VEICULO": "VUC",
@@ -38675,6 +40592,110 @@
       "ocupacao": 99.6776,
       "media_entregas": 3.0,
       "media_peso": 2491.94
+    },
+    {
+      "DIA": "2026-05-25",
+      "VEICULO": "FIORINO",
+      "peso": 597.3,
+      "capac": 500,
+      "frete": 428.2294,
+      "veiculos": 1,
+      "entregas": 4,
+      "real_kg": 0.7169419052,
+      "ocupacao": 119.46,
+      "media_entregas": 4.0,
+      "media_peso": 597.3
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "FIORINO",
+      "peso": 1979.725,
+      "capac": 2500,
+      "frete": 2141.147,
+      "veiculos": 5,
+      "entregas": 27,
+      "real_kg": 1.0815375873,
+      "ocupacao": 79.189,
+      "media_entregas": 5.4,
+      "media_peso": 395.945
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "VAN",
+      "peso": 1386.0,
+      "capac": 1500,
+      "frete": 561.8,
+      "veiculos": 1,
+      "entregas": 5,
+      "real_kg": 0.4053391053,
+      "ocupacao": 92.4,
+      "media_entregas": 5.0,
+      "media_peso": 1386.0
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "FIORINO",
+      "peso": 2057.286,
+      "capac": 3000,
+      "frete": 2569.3764,
+      "veiculos": 6,
+      "entregas": 35,
+      "real_kg": 1.248915513,
+      "ocupacao": 68.5762,
+      "media_entregas": 5.8333333333,
+      "media_peso": 342.881
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "FIORINO",
+      "peso": 819.5,
+      "capac": 1000,
+      "frete": 856.4588,
+      "veiculos": 2,
+      "entregas": 8,
+      "real_kg": 1.0450992068,
+      "ocupacao": 81.95,
+      "media_entregas": 4.0,
+      "media_peso": 409.75
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "VAN",
+      "peso": 1232.0,
+      "capac": 1500,
+      "frete": 561.8,
+      "veiculos": 1,
+      "entregas": 4,
+      "real_kg": 0.4560064935,
+      "ocupacao": 82.1333333333,
+      "media_entregas": 4.0,
+      "media_peso": 1232.0
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "FIORINO",
+      "peso": 1108.426,
+      "capac": 2000,
+      "frete": 1712.9176,
+      "veiculos": 4,
+      "entregas": 34,
+      "real_kg": 1.5453603578,
+      "ocupacao": 55.4213,
+      "media_entregas": 8.5,
+      "media_peso": 277.1065
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "VAN",
+      "peso": 1278.75,
+      "capac": 1500,
+      "frete": 561.8,
+      "veiculos": 1,
+      "entregas": 3,
+      "real_kg": 0.4393352884,
+      "ocupacao": 85.25,
+      "media_entregas": 3.0,
+      "media_peso": 1278.75
     }
   ],
   "vesp_tl_por_veiculo_mes": [
@@ -38759,28 +40780,28 @@
     {
       "MES_KEY": "2026-05",
       "VEICULO": "FIORINO",
-      "peso": 13698.245,
-      "capac": 18000,
-      "frete": 15578.9896,
-      "veiculos": 36,
-      "entregas": 169,
-      "real_kg": 1.1372982159,
-      "ocupacao": 76.1013611111,
-      "media_entregas": 4.6944444444,
-      "media_peso": 380.5068055556
+      "peso": 20260.482,
+      "capac": 27000,
+      "frete": 23287.1188,
+      "veiculos": 54,
+      "entregas": 277,
+      "real_kg": 1.1493862189,
+      "ocupacao": 75.0388222222,
+      "media_entregas": 5.1296296296,
+      "media_peso": 375.1941111111
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VAN",
-      "peso": 9656.856,
-      "capac": 13500,
-      "frete": 5142.94,
-      "veiculos": 9,
-      "entregas": 34,
-      "real_kg": 0.5325687781,
-      "ocupacao": 71.5322666667,
-      "media_entregas": 3.7777777778,
-      "media_peso": 1072.984
+      "peso": 13553.606,
+      "capac": 18000,
+      "frete": 6828.34,
+      "veiculos": 12,
+      "entregas": 46,
+      "real_kg": 0.5038024567,
+      "ocupacao": 75.2978111111,
+      "media_entregas": 3.8333333333,
+      "media_peso": 1129.4671666667
     },
     {
       "MES_KEY": "2026-05",
@@ -39168,6 +41189,66 @@
       "ocupacao": 82.6323666667,
       "media_entregas": 2.5,
       "media_peso": 1239.4855
+    },
+    {
+      "DIA": "2026-05-25",
+      "peso": 597.3,
+      "capac": 500,
+      "frete": 428.2294,
+      "veiculos": 1,
+      "entregas": 4,
+      "real_kg": 0.7169419052,
+      "ocupacao": 119.46,
+      "media_entregas": 4.0,
+      "media_peso": 597.3
+    },
+    {
+      "DIA": "2026-05-26",
+      "peso": 3365.725,
+      "capac": 4000,
+      "frete": 2702.947,
+      "veiculos": 6,
+      "entregas": 32,
+      "real_kg": 0.8030801685,
+      "ocupacao": 84.143125,
+      "media_entregas": 5.3333333333,
+      "media_peso": 560.9541666667
+    },
+    {
+      "DIA": "2026-05-27",
+      "peso": 2057.286,
+      "capac": 3000,
+      "frete": 2569.3764,
+      "veiculos": 6,
+      "entregas": 35,
+      "real_kg": 1.248915513,
+      "ocupacao": 68.5762,
+      "media_entregas": 5.8333333333,
+      "media_peso": 342.881
+    },
+    {
+      "DIA": "2026-05-28",
+      "peso": 2051.5,
+      "capac": 2500,
+      "frete": 1418.2588,
+      "veiculos": 3,
+      "entregas": 12,
+      "real_kg": 0.6913277114,
+      "ocupacao": 82.06,
+      "media_entregas": 4.0,
+      "media_peso": 683.8333333333
+    },
+    {
+      "DIA": "2026-05-29",
+      "peso": 2387.176,
+      "capac": 3500,
+      "frete": 2274.7176,
+      "veiculos": 5,
+      "entregas": 37,
+      "real_kg": 0.9528906122,
+      "ocupacao": 68.2050285714,
+      "media_entregas": 7.4,
+      "media_peso": 477.4352
     }
   ],
   "vesp_tl_por_mes": [
@@ -39197,38 +41278,309 @@
     },
     {
       "MES_KEY": "2026-05",
-      "peso": 27846.929,
-      "capac": 36500,
-      "frete": 22058.1656,
-      "veiculos": 47,
-      "entregas": 209,
-      "real_kg": 0.7921220182,
-      "ocupacao": 76.2929561644,
-      "media_entregas": 4.4468085106,
-      "media_peso": 592.4878510638
+      "peso": 38305.916,
+      "capac": 50000,
+      "frete": 31451.6948,
+      "veiculos": 68,
+      "entregas": 329,
+      "real_kg": 0.8210662499,
+      "ocupacao": 76.611832,
+      "media_entregas": 4.8382352941,
+      "media_peso": 563.3222941176
+    }
+  ],
+  "fresc_kpis": {
+    "peso_total": 10690.23,
+    "capac_total": 12000.0,
+    "frete_total": 5162.78,
+    "real_kg_total": 0.4829,
+    "ocupacao_total": 89.09,
+    "qtd_veiculos": 10,
+    "qtd_entregas": 31,
+    "meta_ocupacao": 80,
+    "meta_real_kg": 0.67
+  },
+  "fresc_por_dia": [
+    {
+      "DIA": "2026-05-27",
+      "peso": 4667.839,
+      "capac": 5500,
+      "frete": 1791.718,
+      "veiculos": 3,
+      "entregas": 9,
+      "real_kg": 0.3838431445,
+      "ocupacao": 84.8698,
+      "media_entregas": 3.0,
+      "media_peso": 1555.9463333333
+    },
+    {
+      "DIA": "2026-05-28",
+      "peso": 905.3,
+      "capac": 1000,
+      "frete": 856.4588,
+      "veiculos": 2,
+      "entregas": 8,
+      "real_kg": 0.9460497073,
+      "ocupacao": 90.53,
+      "media_entregas": 4.0,
+      "media_peso": 452.65
+    },
+    {
+      "DIA": "2026-05-29",
+      "peso": 3484.69,
+      "capac": 4000,
+      "frete": 1229.918,
+      "veiculos": 2,
+      "entregas": 5,
+      "real_kg": 0.3529490428,
+      "ocupacao": 87.11725,
+      "media_entregas": 2.5,
+      "media_peso": 1742.345
+    },
+    {
+      "DIA": "2026-06-01",
+      "peso": 1632.4,
+      "capac": 1500,
+      "frete": 1284.6882,
+      "veiculos": 3,
+      "entregas": 9,
+      "real_kg": 0.7869935065,
+      "ocupacao": 108.8266666667,
+      "media_entregas": 3.0,
+      "media_peso": 544.1333333333
+    }
+  ],
+  "fresc_por_mes": [
+    {
+      "MES_KEY": "2026-05",
+      "peso": 9057.829,
+      "capac": 10500,
+      "frete": 3878.0948,
+      "veiculos": 7,
+      "entregas": 22,
+      "real_kg": 0.4281483786,
+      "ocupacao": 86.2650380952,
+      "media_entregas": 3.1428571429,
+      "media_peso": 1293.9755714286
+    },
+    {
+      "MES_KEY": "2026-06",
+      "peso": 1632.4,
+      "capac": 1500,
+      "frete": 1284.6882,
+      "veiculos": 3,
+      "entregas": 9,
+      "real_kg": 0.7869935065,
+      "ocupacao": 108.8266666667,
+      "media_entregas": 3.0,
+      "media_peso": 544.1333333333
+    }
+  ],
+  "fresc_por_veiculo": [
+    {
+      "VEICULO": "FIORINO",
+      "peso": 2537.7,
+      "capac": 2500,
+      "frete": 2141.147,
+      "veiculos": 5,
+      "entregas": 17,
+      "real_kg": 0.8437352721,
+      "ocupacao": 101.508,
+      "media_entregas": 3.4,
+      "media_peso": 507.54
+    },
+    {
+      "VEICULO": "VAN",
+      "peso": 3495.459,
+      "capac": 4500,
+      "frete": 1685.4,
+      "veiculos": 3,
+      "entregas": 9,
+      "real_kg": 0.4821684362,
+      "ocupacao": 77.6768666667,
+      "media_entregas": 3.0,
+      "media_peso": 1165.153
+    },
+    {
+      "VEICULO": "VUC",
+      "peso": 4657.07,
+      "capac": 5000,
+      "frete": 1336.236,
+      "veiculos": 2,
+      "entregas": 5,
+      "real_kg": 0.2869263292,
+      "ocupacao": 93.1414,
+      "media_entregas": 2.5,
+      "media_peso": 2328.535
+    }
+  ],
+  "fresc_por_veiculo_dia": [
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "VAN",
+      "peso": 2426.259,
+      "capac": 3000,
+      "frete": 1123.6,
+      "veiculos": 2,
+      "entregas": 7,
+      "real_kg": 0.4630997762,
+      "ocupacao": 80.8753,
+      "media_entregas": 3.5,
+      "media_peso": 1213.1295
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "VUC",
+      "peso": 2241.58,
+      "capac": 2500,
+      "frete": 668.118,
+      "veiculos": 1,
+      "entregas": 2,
+      "real_kg": 0.2980567278,
+      "ocupacao": 89.6632,
+      "media_entregas": 2.0,
+      "media_peso": 2241.58
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "FIORINO",
+      "peso": 905.3,
+      "capac": 1000,
+      "frete": 856.4588,
+      "veiculos": 2,
+      "entregas": 8,
+      "real_kg": 0.9460497073,
+      "ocupacao": 90.53,
+      "media_entregas": 4.0,
+      "media_peso": 452.65
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "VAN",
+      "peso": 1069.2,
+      "capac": 1500,
+      "frete": 561.8,
+      "veiculos": 1,
+      "entregas": 2,
+      "real_kg": 0.525439581,
+      "ocupacao": 71.28,
+      "media_entregas": 2.0,
+      "media_peso": 1069.2
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "VUC",
+      "peso": 2415.49,
+      "capac": 2500,
+      "frete": 668.118,
+      "veiculos": 1,
+      "entregas": 3,
+      "real_kg": 0.276597295,
+      "ocupacao": 96.6196,
+      "media_entregas": 3.0,
+      "media_peso": 2415.49
+    },
+    {
+      "DIA": "2026-06-01",
+      "VEICULO": "FIORINO",
+      "peso": 1632.4,
+      "capac": 1500,
+      "frete": 1284.6882,
+      "veiculos": 3,
+      "entregas": 9,
+      "real_kg": 0.7869935065,
+      "ocupacao": 108.8266666667,
+      "media_entregas": 3.0,
+      "media_peso": 544.1333333333
+    }
+  ],
+  "fresc_por_veiculo_mes": [
+    {
+      "MES_KEY": "2026-05",
+      "VEICULO": "FIORINO",
+      "peso": 905.3,
+      "capac": 1000,
+      "frete": 856.4588,
+      "veiculos": 2,
+      "entregas": 8,
+      "real_kg": 0.9460497073,
+      "ocupacao": 90.53,
+      "media_entregas": 4.0,
+      "media_peso": 452.65
+    },
+    {
+      "MES_KEY": "2026-05",
+      "VEICULO": "VAN",
+      "peso": 3495.459,
+      "capac": 4500,
+      "frete": 1685.4,
+      "veiculos": 3,
+      "entregas": 9,
+      "real_kg": 0.4821684362,
+      "ocupacao": 77.6768666667,
+      "media_entregas": 3.0,
+      "media_peso": 1165.153
+    },
+    {
+      "MES_KEY": "2026-05",
+      "VEICULO": "VUC",
+      "peso": 4657.07,
+      "capac": 5000,
+      "frete": 1336.236,
+      "veiculos": 2,
+      "entregas": 5,
+      "real_kg": 0.2869263292,
+      "ocupacao": 93.1414,
+      "media_entregas": 2.5,
+      "media_peso": 2328.535
+    },
+    {
+      "MES_KEY": "2026-06",
+      "VEICULO": "FIORINO",
+      "peso": 1632.4,
+      "capac": 1500,
+      "frete": 1284.6882,
+      "veiculos": 3,
+      "entregas": 9,
+      "real_kg": 0.7869935065,
+      "ocupacao": 108.8266666667,
+      "media_entregas": 3.0,
+      "media_peso": 544.1333333333
     }
   ],
   "levi_reent_kpis": {
-    "reentregas": 56,
-    "qtd_entregas_nf": 1502,
-    "pct_reentregas": 3.73
+    "reentregas": 103,
+    "qtd_entregas_nf": 2122,
+    "pct_reentregas": 4.85
   },
   "levi_reentregas_transportadora": [
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "reentregas": 20,
+      "reentregas": 25,
       "entregas": 0,
       "pct": 0.0
     },
     {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "reentregas": 8,
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "reentregas": 21,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "reentregas": 12,
       "entregas": 0,
       "pct": 0.0
     },
     {
       "NOME TRANSPORTADORA": "TRANSDALLA RIO",
-      "reentregas": 8,
+      "reentregas": 12,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 10,
       "entregas": 0,
       "pct": 0.0
     },
@@ -39239,19 +41591,31 @@
       "pct": 0.0
     },
     {
-      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
       "reentregas": 4,
       "entregas": 0,
       "pct": 0.0
     },
     {
-      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
-      "reentregas": 2,
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "reentregas": 4,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "FOCO TRANSPORTE",
+      "reentregas": 3,
       "entregas": 0,
       "pct": 0.0
     },
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "reentregas": 2,
+      "entregas": 0,
+      "pct": 0.0
+    },
+    {
+      "NOME TRANSPORTADORA": "CARGOFRIO MARIL",
       "reentregas": 2,
       "entregas": 0,
       "pct": 0.0
@@ -39275,31 +41639,13 @@
       "pct": 0.0
     },
     {
-      "NOME TRANSPORTADORA": "FOCO TRANSPORTE",
-      "reentregas": 1,
-      "entregas": 0,
-      "pct": 0.0
-    },
-    {
       "NOME TRANSPORTADORA": "STECK TRANSPORT",
       "reentregas": 1,
       "entregas": 0,
       "pct": 0.0
     },
     {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "reentregas": 1,
-      "entregas": 0,
-      "pct": 0.0
-    },
-    {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
-      "reentregas": 1,
-      "entregas": 0,
-      "pct": 0.0
-    },
-    {
-      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
       "reentregas": 1,
       "entregas": 0,
       "pct": 0.0
@@ -39308,45 +41654,65 @@
   "levi_reentregas_justificativa": [
     {
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 49,
-      "pct": 87.5
+      "reentregas": 93,
+      "pct": 91.18
     },
     {
       "DESC JUST OC": "CADASTRO CLIENTE",
       "reentregas": 2,
-      "pct": 3.57
+      "pct": 1.96
+    },
+    {
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "reentregas": 2,
+      "pct": 1.96
     },
     {
       "DESC JUST OC": "RECUSA BALANCO_LOJA",
       "reentregas": 2,
-      "pct": 3.57
+      "pct": 1.96
     },
     {
       "DESC JUST OC": "DEMORA RECEBIMENTO",
       "reentregas": 1,
-      "pct": 1.79
+      "pct": 0.98
     },
     {
       "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
       "reentregas": 1,
-      "pct": 1.79
+      "pct": 0.98
     },
     {
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
       "reentregas": 1,
-      "pct": 1.79
+      "pct": 0.98
     }
   ],
   "levi_reentregas_transp_just": [
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 17
+      "reentregas": 22
+    },
+    {
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 21
     },
     {
       "NOME TRANSPORTADORA": "TRANSDALLA RIO",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 8
+      "reentregas": 12
+    },
+    {
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 11
+    },
+    {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 6
     },
     {
       "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
@@ -39354,14 +41720,34 @@
       "reentregas": 6
     },
     {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 5
-    },
-    {
-      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 4
+    },
+    {
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "TRANSMASSA LOGI",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "FOCO TRANSPORTE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "CARGOFRIO MARIL",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
     },
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
@@ -39370,27 +41756,7 @@
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "RECUSA BALANCO_LOJA",
-      "reentregas": 2
-    },
-    {
-      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 2
-    },
-    {
-      "NOME TRANSPORTADORA": "TRANSMASSA LOGI",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 2
-    },
-    {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "FOCO TRANSPORTE",
-      "DESC JUST OC": "CADASTRO CLIENTE",
       "reentregas": 1
     },
     {
@@ -39399,8 +41765,18 @@
       "reentregas": 1
     },
     {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "NOME TRANSPORTADORA": "FOCO TRANSPORTE",
+      "DESC JUST OC": "CADASTRO CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "STECK TRANSPORT",
       "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
       "reentregas": 1
     },
     {
@@ -39414,8 +41790,8 @@
       "reentregas": 1
     },
     {
-      "NOME TRANSPORTADORA": "STECK TRANSPORT",
-      "DESC JUST OC": "FORA DE HORARIO",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
       "reentregas": 1
     },
     {
@@ -39431,11 +41807,6 @@
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
-      "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 1
     }
   ],
@@ -39609,6 +41980,101 @@
       "DIA": "2026-05-21",
       "NOME TRANSPORTADORA": "TRANSDALLA RIO",
       "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "reentregas": 12
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "CARGOFRIO MARIL",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "reentregas": 6
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "FOCO TRANSPORTE",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "CARGOFRIO MARIL",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
+      "reentregas": 2
     }
   ],
   "levi_nf_transp_dia": [],
@@ -39697,9 +42163,50 @@
       "DIA": "2026-05-21",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 9
+    },
+    {
+      "DIA": "2026-05-25",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 27
+    },
+    {
+      "DIA": "2026-05-26",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-27",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 9
+    },
+    {
+      "DIA": "2026-05-27",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-29",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 5
     }
   ],
   "levi_reentregas_transp_just_dia": [
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 12
+    },
     {
       "DIA": "2026-05-19",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
@@ -39707,8 +42214,32 @@
       "reentregas": 10
     },
     {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 5
+    },
+    {
       "DIA": "2026-05-12",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 4
     },
@@ -39725,25 +42256,7 @@
       "reentregas": 3
     },
     {
-      "DIA": "2026-05-15",
-      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 2
-    },
-    {
       "DIA": "2026-05-21",
-      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 2
-    },
-    {
-      "DIA": "2026-05-21",
-      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 2
-    },
-    {
-      "DIA": "2026-05-06",
       "NOME TRANSPORTADORA": "TRANSDALLA RIO",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 2
@@ -39755,62 +42268,62 @@
       "reentregas": 2
     },
     {
+      "DIA": "2026-05-06",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-15",
+      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "FOCO TRANSPORTE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-21",
+      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
       "DIA": "2026-05-05",
       "NOME TRANSPORTADORA": "TRANSMASSA LOGI",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 2
     },
     {
-      "DIA": "2026-05-05",
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DIA": "2026-05-06",
+      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 1
     },
     {
       "DIA": "2026-05-05",
-      "NOME TRANSPORTADORA": "O PROPRIO",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-05-05",
-      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-05-05",
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-05-05",
-      "NOME TRANSPORTADORA": "STECK TRANSPORT",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-05-12",
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-05-07",
-      "NOME TRANSPORTADORA": "CARGOFRIO LOGIS",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-05-07",
       "NOME TRANSPORTADORA": "TRANSDALLA RIO",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 1
     },
     {
-      "DIA": "2026-05-06",
-      "NOME TRANSPORTADORA": "CARGOFRIO CAMPI",
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 1
     },
@@ -39822,37 +42335,19 @@
     },
     {
       "DIA": "2026-05-05",
-      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-05-14",
-      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-05-14",
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-05-13",
-      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-05-13",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 1
     },
     {
-      "DIA": "2026-05-12",
-      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "STECK TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 1
     },
@@ -39875,9 +42370,69 @@
       "reentregas": 1
     },
     {
-      "DIA": "2026-05-19",
+      "DIA": "2026-05-14",
       "NOME TRANSPORTADORA": "TRANSDALLA RIO",
       "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-13",
+      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-14",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-12",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-13",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-07",
+      "NOME TRANSPORTADORA": "CARGOFRIO LOGIS",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-07",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-12",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-05",
+      "NOME TRANSPORTADORA": "O PROPRIO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-21",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-19",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "CADASTRO CLIENTE",
       "reentregas": 1
     },
     {
@@ -39888,8 +42443,32 @@
     },
     {
       "DIA": "2026-05-19",
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "CADASTRO CLIENTE",
+      "NOME TRANSPORTADORA": "TRANSDALLA RIO",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "CARGOFRIO MARIL",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-25",
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-21",
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 1
     },
     {
@@ -39899,8 +42478,8 @@
       "reentregas": 1
     },
     {
-      "DIA": "2026-05-21",
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DIA": "2026-05-20",
+      "NOME TRANSPORTADORA": "BORA TRANSPORTE",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 1
     },
@@ -39911,14 +42490,56 @@
       "reentregas": 1
     },
     {
-      "DIA": "2026-05-20",
+      "DIA": "2026-05-26",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-27",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-28",
       "NOME TRANSPORTADORA": "BORA TRANSPORTE",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 1
     },
     {
-      "DIA": "2026-05-21",
+      "DIA": "2026-05-28",
+      "NOME TRANSPORTADORA": "TRANSFRIOS SP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
       "NOME TRANSPORTADORA": "BORA TRANSPORTE",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "CARGOFRIO MARIL",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-29",
+      "NOME TRANSPORTADORA": "CARGOFRIO R.PRE",
       "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 1
     }
@@ -39967,12 +42588,32 @@
     {
       "DIA": "2026-05-21",
       "reentregas": 9
+    },
+    {
+      "DIA": "2026-05-25",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-05-26",
+      "reentregas": 29
+    },
+    {
+      "DIA": "2026-05-27",
+      "reentregas": 10
+    },
+    {
+      "DIA": "2026-05-28",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-05-29",
+      "reentregas": 5
     }
   ],
   "levi_reentregas_mes": [
     {
       "MES_KEY": "2026-05",
-      "reentregas": 56
+      "reentregas": 103
     }
   ],
   "levi_nf_entregas_dia": [
@@ -40031,22 +42672,46 @@
     {
       "DIA": "2026-05-25",
       "qtd_entregas": 30
+    },
+    {
+      "DIA": "2026-05-26",
+      "qtd_entregas": 192
+    },
+    {
+      "DIA": "2026-05-27",
+      "qtd_entregas": 147
+    },
+    {
+      "DIA": "2026-05-28",
+      "qtd_entregas": 106
+    },
+    {
+      "DIA": "2026-05-29",
+      "qtd_entregas": 84
+    },
+    {
+      "DIA": "2026-06-01",
+      "qtd_entregas": 91
     }
   ],
   "levi_nf_entregas_mes": [
     {
       "MES_KEY": "2026-05",
-      "qtd_entregas": 1502
+      "qtd_entregas": 2031
+    },
+    {
+      "MES_KEY": "2026-06",
+      "qtd_entregas": 91
     }
   ],
   "levitare_kpis": {
-    "peso_total": 54673.39,
-    "capac_total": 215000.0,
-    "frete_total": 86809.0,
-    "real_kg_total": 1.5878,
+    "peso_total": 74877.61,
+    "capac_total": 294500.0,
+    "frete_total": 118044.0,
+    "real_kg_total": 1.5765,
     "ocupacao_total": 25.43,
-    "qtd_veiculos": 144,
-    "qtd_entregas": 1502,
+    "qtd_veiculos": 195,
+    "qtd_entregas": 2122,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67
   },
@@ -40218,58 +42883,130 @@
       "ocupacao": 15.2570322581,
       "media_entregas": 3.3333333333,
       "media_peso": 262.76
+    },
+    {
+      "DIA": "2026-05-26",
+      "peso": 5695.41,
+      "capac": 14500,
+      "frete": 5579,
+      "veiculos": 9,
+      "entregas": 192,
+      "real_kg": 0.979560734,
+      "ocupacao": 39.2786896552,
+      "media_entregas": 21.3333333333,
+      "media_peso": 632.8233333333
+    },
+    {
+      "DIA": "2026-05-27",
+      "peso": 4629.98,
+      "capac": 17500,
+      "frete": 6779,
+      "veiculos": 11,
+      "entregas": 147,
+      "real_kg": 1.4641531929,
+      "ocupacao": 26.4570285714,
+      "media_entregas": 13.3636363636,
+      "media_peso": 420.9072727273
+    },
+    {
+      "DIA": "2026-05-28",
+      "peso": 3338.5,
+      "capac": 15000,
+      "frete": 6049,
+      "veiculos": 10,
+      "entregas": 106,
+      "real_kg": 1.8118915681,
+      "ocupacao": 22.2566666667,
+      "media_entregas": 10.6,
+      "media_peso": 333.85
+    },
+    {
+      "DIA": "2026-05-29",
+      "peso": 2248.55,
+      "capac": 16000,
+      "frete": 6179,
+      "veiculos": 10,
+      "entregas": 84,
+      "real_kg": 2.7479931511,
+      "ocupacao": 14.0534375,
+      "media_entregas": 8.4,
+      "media_peso": 224.855
+    },
+    {
+      "DIA": "2026-06-01",
+      "peso": 4291.78,
+      "capac": 16500,
+      "frete": 6649,
+      "veiculos": 11,
+      "entregas": 91,
+      "real_kg": 1.5492406414,
+      "ocupacao": 26.0107878788,
+      "media_entregas": 8.2727272727,
+      "media_peso": 390.1618181818
     }
   ],
   "levitare_por_mes": [
     {
       "MES_KEY": "2026-05",
-      "peso": 54673.39,
-      "capac": 215000,
-      "frete": 86809,
-      "veiculos": 144,
-      "entregas": 1502,
-      "real_kg": 1.5877742353,
-      "ocupacao": 25.4294837209,
-      "media_entregas": 10.4305555556,
-      "media_peso": 379.6763194444
+      "peso": 70585.83,
+      "capac": 278000,
+      "frete": 111395,
+      "veiculos": 184,
+      "entregas": 2031,
+      "real_kg": 1.5781496088,
+      "ocupacao": 25.3905863309,
+      "media_entregas": 11.0380434783,
+      "media_peso": 383.6186413043
+    },
+    {
+      "MES_KEY": "2026-06",
+      "peso": 4291.78,
+      "capac": 16500,
+      "frete": 6649,
+      "veiculos": 11,
+      "entregas": 91,
+      "real_kg": 1.5492406414,
+      "ocupacao": 26.0107878788,
+      "media_entregas": 8.2727272727,
+      "media_peso": 390.1618181818
     }
   ],
   "levitare_por_veiculo": [
     {
       "VEICULO": "3/4",
-      "peso": 8626.8,
-      "capac": 38500,
-      "frete": 9999,
-      "veiculos": 11,
-      "entregas": 64,
-      "real_kg": 1.1590624565,
-      "ocupacao": 22.4072727273,
-      "media_entregas": 5.8181818182,
-      "media_peso": 784.2545454545
+      "peso": 10791.75,
+      "capac": 56000,
+      "frete": 14544,
+      "veiculos": 16,
+      "entregas": 120,
+      "real_kg": 1.3476961568,
+      "ocupacao": 19.2709821429,
+      "media_entregas": 7.5,
+      "media_peso": 674.484375
     },
     {
       "VEICULO": "FIORINO",
-      "peso": 5116.28,
-      "capac": 11500,
-      "frete": 10810,
-      "veiculos": 23,
-      "entregas": 182,
-      "real_kg": 2.1128632522,
-      "ocupacao": 44.4893913043,
-      "media_entregas": 7.9130434783,
-      "media_peso": 222.4469565217
+      "peso": 7228.56,
+      "capac": 15000,
+      "frete": 14100,
+      "veiculos": 30,
+      "entregas": 242,
+      "real_kg": 1.9505959693,
+      "ocupacao": 48.1904,
+      "media_entregas": 8.0666666667,
+      "media_peso": 240.952
     },
     {
       "VEICULO": "VAN",
-      "peso": 40930.31,
-      "capac": 165000,
-      "frete": 66000,
-      "veiculos": 110,
-      "entregas": 1256,
-      "real_kg": 1.6124969491,
-      "ocupacao": 24.8062484848,
-      "media_entregas": 11.4181818182,
-      "media_peso": 372.0937272727
+      "peso": 56857.3,
+      "capac": 223500,
+      "frete": 89400,
+      "veiculos": 149,
+      "entregas": 1760,
+      "real_kg": 1.5723574633,
+      "ocupacao": 25.43950783,
+      "media_entregas": 11.8120805369,
+      "media_peso": 381.5926174497
     }
   ],
   "levitare_por_veiculo_dia": [
@@ -40740,47 +43477,281 @@
       "ocupacao": 11.107,
       "media_entregas": 3.625,
       "media_peso": 166.605
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "3/4",
+      "peso": 913.78,
+      "capac": 3500,
+      "frete": 909,
+      "veiculos": 1,
+      "entregas": 29,
+      "real_kg": 0.9947689816,
+      "ocupacao": 26.108,
+      "media_entregas": 29.0,
+      "media_peso": 913.78
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "FIORINO",
+      "peso": 430.64,
+      "capac": 500,
+      "frete": 470,
+      "veiculos": 1,
+      "entregas": 14,
+      "real_kg": 1.0913988482,
+      "ocupacao": 86.128,
+      "media_entregas": 14.0,
+      "media_peso": 430.64
+    },
+    {
+      "DIA": "2026-05-26",
+      "VEICULO": "VAN",
+      "peso": 4350.99,
+      "capac": 10500,
+      "frete": 4200,
+      "veiculos": 7,
+      "entregas": 149,
+      "real_kg": 0.965297553,
+      "ocupacao": 41.438,
+      "media_entregas": 21.2857142857,
+      "media_peso": 621.57
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "3/4",
+      "peso": 661.69,
+      "capac": 3500,
+      "frete": 909,
+      "veiculos": 1,
+      "entregas": 10,
+      "real_kg": 1.3737550817,
+      "ocupacao": 18.9054285714,
+      "media_entregas": 10.0,
+      "media_peso": 661.69
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "FIORINO",
+      "peso": 307.22,
+      "capac": 500,
+      "frete": 470,
+      "veiculos": 1,
+      "entregas": 16,
+      "real_kg": 1.5298483172,
+      "ocupacao": 61.444,
+      "media_entregas": 16.0,
+      "media_peso": 307.22
+    },
+    {
+      "DIA": "2026-05-27",
+      "VEICULO": "VAN",
+      "peso": 3661.07,
+      "capac": 13500,
+      "frete": 5400,
+      "veiculos": 9,
+      "entregas": 121,
+      "real_kg": 1.4749786265,
+      "ocupacao": 27.119037037,
+      "media_entregas": 13.4444444444,
+      "media_peso": 406.7855555556
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "3/4",
+      "peso": 189.52,
+      "capac": 3500,
+      "frete": 909,
+      "veiculos": 1,
+      "entregas": 11,
+      "real_kg": 4.7963275644,
+      "ocupacao": 5.4148571429,
+      "media_entregas": 11.0,
+      "media_peso": 189.52
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "FIORINO",
+      "peso": 597.78,
+      "capac": 1000,
+      "frete": 940,
+      "veiculos": 2,
+      "entregas": 17,
+      "real_kg": 1.5724848607,
+      "ocupacao": 59.778,
+      "media_entregas": 8.5,
+      "media_peso": 298.89
+    },
+    {
+      "DIA": "2026-05-28",
+      "VEICULO": "VAN",
+      "peso": 2551.2,
+      "capac": 10500,
+      "frete": 4200,
+      "veiculos": 7,
+      "entregas": 78,
+      "real_kg": 1.6462841016,
+      "ocupacao": 24.2971428571,
+      "media_entregas": 11.1428571429,
+      "media_peso": 364.4571428571
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "3/4",
+      "peso": 76.11,
+      "capac": 3500,
+      "frete": 909,
+      "veiculos": 1,
+      "entregas": 5,
+      "real_kg": 11.9432400473,
+      "ocupacao": 2.1745714286,
+      "media_entregas": 5.0,
+      "media_peso": 76.11
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "FIORINO",
+      "peso": 466.16,
+      "capac": 500,
+      "frete": 470,
+      "veiculos": 1,
+      "entregas": 2,
+      "real_kg": 1.008237515,
+      "ocupacao": 93.232,
+      "media_entregas": 2.0,
+      "media_peso": 466.16
+    },
+    {
+      "DIA": "2026-05-29",
+      "VEICULO": "VAN",
+      "peso": 1706.28,
+      "capac": 12000,
+      "frete": 4800,
+      "veiculos": 8,
+      "entregas": 77,
+      "real_kg": 2.8131373514,
+      "ocupacao": 14.219,
+      "media_entregas": 9.625,
+      "media_peso": 213.285
+    },
+    {
+      "DIA": "2026-06-01",
+      "VEICULO": "3/4",
+      "peso": 323.85,
+      "capac": 3500,
+      "frete": 909,
+      "veiculos": 1,
+      "entregas": 1,
+      "real_kg": 2.8068550255,
+      "ocupacao": 9.2528571429,
+      "media_entregas": 1.0,
+      "media_peso": 323.85
+    },
+    {
+      "DIA": "2026-06-01",
+      "VEICULO": "FIORINO",
+      "peso": 310.48,
+      "capac": 1000,
+      "frete": 940,
+      "veiculos": 2,
+      "entregas": 11,
+      "real_kg": 3.0275702139,
+      "ocupacao": 31.048,
+      "media_entregas": 5.5,
+      "media_peso": 155.24
+    },
+    {
+      "DIA": "2026-06-01",
+      "VEICULO": "VAN",
+      "peso": 3657.45,
+      "capac": 12000,
+      "frete": 4800,
+      "veiculos": 8,
+      "entregas": 79,
+      "real_kg": 1.3123897798,
+      "ocupacao": 30.47875,
+      "media_entregas": 9.875,
+      "media_peso": 457.18125
     }
   ],
   "levitare_por_veiculo_mes": [
     {
       "MES_KEY": "2026-05",
       "VEICULO": "3/4",
-      "peso": 8626.8,
-      "capac": 38500,
-      "frete": 9999,
-      "veiculos": 11,
-      "entregas": 64,
-      "real_kg": 1.1590624565,
-      "ocupacao": 22.4072727273,
-      "media_entregas": 5.8181818182,
-      "media_peso": 784.2545454545
+      "peso": 10467.9,
+      "capac": 52500,
+      "frete": 13635,
+      "veiculos": 15,
+      "entregas": 119,
+      "real_kg": 1.3025535208,
+      "ocupacao": 19.9388571429,
+      "media_entregas": 7.9333333333,
+      "media_peso": 697.86
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "FIORINO",
-      "peso": 5116.28,
-      "capac": 11500,
-      "frete": 10810,
-      "veiculos": 23,
-      "entregas": 182,
-      "real_kg": 2.1128632522,
-      "ocupacao": 44.4893913043,
-      "media_entregas": 7.9130434783,
-      "media_peso": 222.4469565217
+      "peso": 6918.08,
+      "capac": 14000,
+      "frete": 13160,
+      "veiculos": 28,
+      "entregas": 231,
+      "real_kg": 1.9022618993,
+      "ocupacao": 49.4148571429,
+      "media_entregas": 8.25,
+      "media_peso": 247.0742857143
     },
     {
       "MES_KEY": "2026-05",
       "VEICULO": "VAN",
-      "peso": 40930.31,
-      "capac": 165000,
-      "frete": 66000,
-      "veiculos": 110,
-      "entregas": 1256,
-      "real_kg": 1.6124969491,
-      "ocupacao": 24.8062484848,
-      "media_entregas": 11.4181818182,
-      "media_peso": 372.0937272727
+      "peso": 53199.85,
+      "capac": 211500,
+      "frete": 84600,
+      "veiculos": 141,
+      "entregas": 1681,
+      "real_kg": 1.5902300476,
+      "ocupacao": 25.1535933806,
+      "media_entregas": 11.9219858156,
+      "media_peso": 377.3039007092
+    },
+    {
+      "MES_KEY": "2026-06",
+      "VEICULO": "3/4",
+      "peso": 323.85,
+      "capac": 3500,
+      "frete": 909,
+      "veiculos": 1,
+      "entregas": 1,
+      "real_kg": 2.8068550255,
+      "ocupacao": 9.2528571429,
+      "media_entregas": 1.0,
+      "media_peso": 323.85
+    },
+    {
+      "MES_KEY": "2026-06",
+      "VEICULO": "FIORINO",
+      "peso": 310.48,
+      "capac": 1000,
+      "frete": 940,
+      "veiculos": 2,
+      "entregas": 11,
+      "real_kg": 3.0275702139,
+      "ocupacao": 31.048,
+      "media_entregas": 5.5,
+      "media_peso": 155.24
+    },
+    {
+      "MES_KEY": "2026-06",
+      "VEICULO": "VAN",
+      "peso": 3657.45,
+      "capac": 12000,
+      "frete": 4800,
+      "veiculos": 8,
+      "entregas": 79,
+      "real_kg": 1.3123897798,
+      "ocupacao": 30.47875,
+      "media_entregas": 9.875,
+      "media_peso": 457.18125
     }
   ]
 }

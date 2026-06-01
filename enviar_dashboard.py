@@ -49,6 +49,7 @@ def capture_screenshots():
         ("reentregas",  "Reentregas",  "filterMesReent", "filterDiaReent"),
         ("frota",       "Frota",       "filterMesFrota", "filterDiaFrota"),
         ("vespertina",  "Vespertina",  "filterMesVesp",  "filterDiaVesp"),
+        ("frescal",     "Frescal",     "filterMesFresc", "filterDiaFresc"),
     ]
 
     screenshots = []
@@ -182,10 +183,13 @@ def send_email(screenshots):
 
 
 def send_whatsapp(screenshots):
-    """Envia screenshots via WhatsApp Desktop (automação de interface)."""
+    """Envia screenshots via WhatsApp Desktop já aberto.
+
+    Usa apenas atalhos de teclado e clipboard — sem coordenadas de tela.
+    Requer o WhatsApp Desktop aberto antes de executar.
+    """
     try:
         import pyautogui
-        import pyperclip
         import win32clipboard
         import win32gui
         import win32con
@@ -193,13 +197,19 @@ def send_whatsapp(screenshots):
         import io
     except ImportError as e:
         print(f"   [ERRO] Dependência ausente: {e}")
-        print("   Execute: pip install pyautogui pyperclip pillow")
+        print("   Execute: pip install pyautogui pillow pywin32")
         return False
 
     pyautogui.FAILSAFE = True
-    pyautogui.PAUSE = 0.25
+    pyautogui.PAUSE = 0.2
 
-    def _copy_image_clipboard(path):
+    def _set_clipboard_text(text):
+        win32clipboard.OpenClipboard()
+        win32clipboard.EmptyClipboard()
+        win32clipboard.SetClipboardData(win32clipboard.CF_UNICODETEXT, text)
+        win32clipboard.CloseClipboard()
+
+    def _set_clipboard_image(path):
         img = Image.open(path).convert("RGB")
         buf = io.BytesIO()
         img.save(buf, "BMP")
@@ -211,21 +221,20 @@ def send_whatsapp(screenshots):
 
     def _focus_whatsapp():
         hwnd = win32gui.FindWindow(None, "WhatsApp")
-        if hwnd:
-            if win32gui.IsIconic(hwnd):
-                win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
-            win32gui.SetForegroundWindow(hwnd)
-            time.sleep(2)
-            return True
-        # Tenta abrir via URI scheme
-        subprocess.run("start whatsapp:", shell=True)
-        time.sleep(7)
-        hwnd = win32gui.FindWindow(None, "WhatsApp")
-        if hwnd:
-            win32gui.SetForegroundWindow(hwnd)
-            time.sleep(2)
-            return True
-        return False
+        if not hwnd:
+            subprocess.run("start whatsapp:", shell=True)
+            for _ in range(14):   # aguarda até 7 s o app abrir
+                time.sleep(0.5)
+                hwnd = win32gui.FindWindow(None, "WhatsApp")
+                if hwnd:
+                    break
+        if not hwnd:
+            return False
+        if win32gui.IsIconic(hwnd):
+            win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+        win32gui.SetForegroundWindow(hwnd)
+        time.sleep(1.5)
+        return True
 
     if not _focus_whatsapp():
         print("   [ERRO] WhatsApp Desktop não encontrado. Abra o app e tente novamente.")
@@ -234,22 +243,22 @@ def send_whatsapp(screenshots):
     for contato in DEST_WHATSAPP:
         print(f"   -> '{contato}'...", end=" ", flush=True)
 
-        # Abre a busca e navega até o contato/grupo
+        # Abre busca (Ctrl+F), limpa campo e cola o nome do contato via clipboard
         pyautogui.hotkey("ctrl", "f")
         time.sleep(0.8)
         pyautogui.hotkey("ctrl", "a")
-        pyperclip.copy(contato)
+        _set_clipboard_text(contato)
         pyautogui.hotkey("ctrl", "v")
-        time.sleep(2)
+        time.sleep(2)          # aguarda a lista de resultados aparecer
         pyautogui.press("enter")
-        time.sleep(1.5)
+        time.sleep(1.5)        # aguarda a conversa abrir
 
-        # Envia cada screenshot colando via clipboard
-        for name, path, date_label in screenshots:
-            _copy_image_clipboard(path)
-            time.sleep(0.4)
+        # Envia cada screenshot: copia como imagem e cola com Ctrl+V
+        for name, path, _ in screenshots:
+            _set_clipboard_image(path)
+            time.sleep(0.3)
             pyautogui.hotkey("ctrl", "v")
-            time.sleep(2.5)   # aguarda o preview da imagem aparecer
+            time.sleep(3)      # aguarda o preview da imagem carregar
             pyautogui.press("enter")
             time.sleep(2)
 

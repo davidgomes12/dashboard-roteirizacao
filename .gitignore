@@ -11,3 +11,6 @@ apresentacao.html
 # Cache parquet gerado pelo pipeline (recriado automaticamente)
 .cache_*.parquet
 .cache_*.parquet.meta
+
+# Sessão do WhatsApp Web (contém cookies — não commitar)
+.whatsapp_session/

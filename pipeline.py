@@ -26,9 +26,13 @@ _cfg_path = os.path.join(ETL_DIR, "config.json")
 with open(_cfg_path, encoding="utf-8") as _f:
     _cfg = json.load(_f)
 
-ESCALA_PATH   = _cfg["caminhos"]["escala"]
-FROTA_PATH    = _cfg["caminhos"]["frota"]
-LEVITARE_PATH = _cfg["caminhos"]["levitare"]
+def _resolve_path(p):
+    """Expande variáveis de ambiente (%USERPROFILE%, etc.) e torna o caminho absoluto."""
+    return os.path.abspath(os.path.expandvars(os.path.expanduser(p)))
+
+ESCALA_PATH   = _resolve_path(_cfg["caminhos"]["escala"])
+FROTA_PATH    = _resolve_path(_cfg["caminhos"]["frota"])
+LEVITARE_PATH = _resolve_path(_cfg["caminhos"]["levitare"])
 NF_PATH       = os.path.join(DADOS_DIR, "NF.xlsx")
 OCORRENCIAS_PATH = os.path.join(DADOS_DIR, "Ocorrencias.xlsx")
 OUTPUT_JSON   = os.path.join(ETL_DIR, "dashboard_data.json")
@@ -555,6 +559,31 @@ def main():
     data["vesp_tl_por_dia"]         = r(tl_dia)
     data["vesp_tl_por_mes"]         = r(tl_mes)
 
+    # === FRESCAL ===
+    fresc = escala[escala["ROTA"] == "FRESCAL"].copy()
+    print(f"   -> Frescal: {len(fresc)} registros")
+    if len(fresc) == 0:
+        rotas = sorted(escala["ROTA"].dropna().unique().tolist())
+        print(f"   [AVISO] Nenhuma linha ROTA='FRESCAL'. Valores encontrados: {rotas}")
+
+    if len(fresc) > 0:
+        f_kpis, f_dia, f_mes, f_veic, f_veic_dia, f_veic_mes, f_meses, f_dias = \
+            build_escala_aggregations(fresc)
+    else:
+        f_kpis  = _empty_kpis
+        f_dia   = f_mes = f_veic = f_veic_dia = f_veic_mes = _empty_df
+        f_meses = []
+        f_dias  = []
+
+    data["fresc_kpis"]            = f_kpis
+    data["fresc_por_dia"]         = r(f_dia)
+    data["fresc_por_mes"]         = r(f_mes)
+    data["fresc_por_veiculo"]     = r(f_veic)
+    data["fresc_por_veiculo_dia"] = r(f_veic_dia)
+    data["fresc_por_veiculo_mes"] = r(f_veic_mes)
+    data["filtros"]["meses_fresc"] = f_meses
+    data["filtros"]["dias_fresc"]  = f_dias
+
     # === LEVITARE REENTREGAS ===
     levi_nf_dia = (df_levitare.groupby("DIA")["ENTREGAS"].sum()
                    .reset_index().rename(columns={"ENTREGAS": "qtd_entregas"})
@@ -608,7 +637,9 @@ def main():
     print(f"     Peso ajustado={k['peso_total']:,.0f} kg (+{int((FATOR_PESO-1)*100)}%) | Veículos={k['qtd_veiculos']}")
     print(f"     Reentregas={k['reentregas']} ({k['pct_reentregas']}%) [distinct CHAVE]")
     print(f"     Entregas NF={k['qtd_entregas_nf']}")
+    fk = data["fresc_kpis"]
     print(f"     Vespertina: {vk['qtd_veiculos']} veículos | Ocupação={vk['ocupacao_total']}%")
+    print(f"     Frescal: {fk['qtd_veiculos']} veículos | Ocupação={fk['ocupacao_total']}%")
     print("=" * 60)
 
 
