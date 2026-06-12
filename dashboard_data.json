@@ -1,13 +1,13 @@
 {
-  "gerado_em": "12/06/2026 11:25",
+  "gerado_em": "12/06/2026 12:46",
   "kpis": {
-    "peso_total": 6078732.75,
-    "capac_total": 7202500.0,
-    "frete_total": 3923747.28,
-    "real_kg_total": 0.6455,
-    "ocupacao_total": 84.4,
-    "qtd_veiculos": 7529,
-    "qtd_entregas": 35631,
+    "peso_total": 6079907.43,
+    "capac_total": 7204500.0,
+    "frete_total": 3925460.2,
+    "real_kg_total": 0.6456,
+    "ocupacao_total": 84.39,
+    "qtd_veiculos": 7533,
+    "qtd_entregas": 35650,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67,
     "reentregas": 1569,
@@ -467,7 +467,8 @@
       "2026-06-08",
       "2026-06-09",
       "2026-06-10",
-      "2026-06-11"
+      "2026-06-11",
+      "2026-06-12"
     ],
     "meses_fresc": [
       "2026-05",
@@ -1862,15 +1863,15 @@
     },
     {
       "DIA": "2026-06-12",
-      "peso": 58724.083,
-      "capac": 70500,
-      "frete": 35452.403634,
-      "veiculos": 67,
-      "entregas": 253,
-      "real_kg": 0.6037114898,
-      "ocupacao": 83.2965716312,
-      "media_entregas": 3.776119403,
-      "media_peso": 876.4788507463
+      "peso": 59898.762,
+      "capac": 72500,
+      "frete": 37165.321234,
+      "veiculos": 71,
+      "entregas": 272,
+      "real_kg": 0.6204689378,
+      "ocupacao": 82.618982069,
+      "media_entregas": 3.8309859155,
+      "media_peso": 843.6445352113
     }
   ],
   "por_mes": [
@@ -1936,29 +1937,29 @@
     },
     {
       "MES_KEY": "2026-06",
-      "peso": 548141.88,
-      "capac": 641500,
-      "frete": 350470.70646,
-      "veiculos": 683,
-      "entregas": 2981,
-      "real_kg": 0.6393795461,
-      "ocupacao": 85.4469025721,
-      "media_entregas": 4.364568082,
-      "media_peso": 802.5503367496
+      "peso": 549316.559,
+      "capac": 643500,
+      "frete": 352183.62406,
+      "veiculos": 687,
+      "entregas": 3000,
+      "real_kg": 0.6411305436,
+      "ocupacao": 85.3638786325,
+      "media_entregas": 4.3668122271,
+      "media_peso": 799.5874221252
     }
   ],
   "por_veiculo": [
     {
       "VEICULO": "FIORINO",
-      "peso": 2047021.7460000003,
-      "capac": 2249500,
-      "frete": 2105930.693878,
-      "veiculos": 4499,
-      "entregas": 20861,
-      "real_kg": 1.0287778808,
-      "ocupacao": 90.9989662592,
-      "media_entregas": 4.6368081796,
-      "media_peso": 454.9948312958
+      "peso": 2048196.4250000003,
+      "capac": 2251500,
+      "frete": 2107643.6114780004,
+      "veiculos": 4503,
+      "entregas": 20880,
+      "real_kg": 1.0290241628,
+      "ocupacao": 90.970305352,
+      "media_entregas": 4.6369087275,
+      "media_peso": 454.8515267599
     },
     {
       "VEICULO": "VAN",
@@ -6227,15 +6228,15 @@
     {
       "DIA": "2026-06-12",
       "VEICULO": "FIORINO",
-      "peso": 14507.394,
-      "capac": 17000,
-      "frete": 15436.075634,
-      "veiculos": 34,
-      "entregas": 131,
-      "real_kg": 1.0640143663,
-      "ocupacao": 85.3376117647,
-      "media_entregas": 3.8529411765,
-      "media_peso": 426.6880588235
+      "peso": 15682.073,
+      "capac": 19000,
+      "frete": 17148.993234,
+      "veiculos": 38,
+      "entregas": 150,
+      "real_kg": 1.0935412196,
+      "ocupacao": 82.5372263158,
+      "media_entregas": 3.9473684211,
+      "media_peso": 412.6861315789
     },
     {
       "DIA": "2026-06-12",
@@ -6463,15 +6464,15 @@
     {
       "MES_KEY": "2026-06",
       "VEICULO": "FIORINO",
-      "peso": 184953.89,
-      "capac": 208500,
-      "frete": 192070.800144,
-      "veiculos": 417,
-      "entregas": 1842,
-      "real_kg": 1.0384793753,
-      "ocupacao": 88.7069016787,
-      "media_entregas": 4.4172661871,
-      "media_peso": 443.5345083933
+      "peso": 186128.569,
+      "capac": 210500,
+      "frete": 193783.717744,
+      "veiculos": 421,
+      "entregas": 1861,
+      "real_kg": 1.0411282845,
+      "ocupacao": 88.4221230404,
+      "media_entregas": 4.4204275534,
+      "media_peso": 442.1106152019
     },
     {
       "MES_KEY": "2026-06",
@@ -6503,15 +6504,15 @@
   "dist_0_100_veic": [
     {
       "VEICULO": "FIORINO",
-      "peso": 1903436.9090000002,
-      "capac": 2086000,
-      "frete": 1861258.0657940002,
-      "veiculos": 4172,
-      "entregas": 19408,
-      "real_kg": 0.9778406928,
-      "ocupacao": 91.2481739693,
-      "media_entregas": 4.6519654842,
-      "media_peso": 456.2408698466
+      "peso": 1904611.5880000002,
+      "capac": 2088000,
+      "frete": 1862970.9833940002,
+      "veiculos": 4176,
+      "entregas": 19427,
+      "real_kg": 0.9781369572,
+      "ocupacao": 91.2170300766,
+      "media_entregas": 4.652059387,
+      "media_peso": 456.0851503831
     },
     {
       "VEICULO": "VAN",
@@ -10780,15 +10781,15 @@
     {
       "DIA": "2026-06-12",
       "VEICULO": "FIORINO",
-      "peso": 13900.194,
-      "capac": 16500,
-      "frete": 14689.623634,
-      "veiculos": 33,
-      "entregas": 130,
-      "real_kg": 1.0567927062,
-      "ocupacao": 84.2436,
-      "media_entregas": 3.9393939394,
-      "media_peso": 421.218
+      "peso": 15074.873,
+      "capac": 18500,
+      "frete": 16402.541234,
+      "veiculos": 37,
+      "entregas": 149,
+      "real_kg": 1.0880716033,
+      "ocupacao": 81.4858,
+      "media_entregas": 4.027027027,
+      "media_peso": 407.429
     },
     {
       "DIA": "2026-06-12",
@@ -11016,15 +11017,15 @@
     {
       "MES_KEY": "2026-06",
       "VEICULO": "FIORINO",
-      "peso": 175761.575,
-      "capac": 197500,
-      "frete": 176177.511386,
-      "veiculos": 395,
-      "entregas": 1760,
-      "real_kg": 1.0023664808,
-      "ocupacao": 88.9932025316,
-      "media_entregas": 4.4556962025,
-      "media_peso": 444.9660126582
+      "peso": 176936.254,
+      "capac": 199500,
+      "frete": 177890.428986,
+      "veiculos": 399,
+      "entregas": 1779,
+      "real_kg": 1.0053927613,
+      "ocupacao": 88.6898516291,
+      "media_entregas": 4.4586466165,
+      "media_peso": 443.4492581454
     },
     {
       "MES_KEY": "2026-06",
@@ -39813,13 +39814,13 @@
     }
   ],
   "vesp_kpis": {
-    "peso_total": 184577.78,
-    "capac_total": 228500.0,
-    "frete_total": 125616.37,
-    "real_kg_total": 0.6806,
-    "ocupacao_total": 80.78,
-    "qtd_veiculos": 263,
-    "qtd_entregas": 984,
+    "peso_total": 185752.46,
+    "capac_total": 230500.0,
+    "frete_total": 127329.29,
+    "real_kg_total": 0.6855,
+    "ocupacao_total": 80.59,
+    "qtd_veiculos": 267,
+    "qtd_entregas": 1003,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67
   },
@@ -40831,6 +40832,18 @@
       "ocupacao": 77.16236,
       "media_entregas": 6.2,
       "media_peso": 385.8118
+    },
+    {
+      "DIA": "2026-06-12",
+      "peso": 1174.679,
+      "capac": 2000,
+      "frete": 1712.9176,
+      "veiculos": 4,
+      "entregas": 19,
+      "real_kg": 1.4582005808,
+      "ocupacao": 58.73395,
+      "media_entregas": 4.75,
+      "media_peso": 293.66975
     }
   ],
   "vesp_por_mes": [
@@ -40896,29 +40909,29 @@
     },
     {
       "MES_KEY": "2026-06",
-      "peso": 19761.445,
-      "capac": 25000,
-      "frete": 15586.706082,
-      "veiculos": 34,
-      "entregas": 178,
-      "real_kg": 0.7887432362,
-      "ocupacao": 79.04578,
-      "media_entregas": 5.2352941176,
-      "media_peso": 581.2189705882
+      "peso": 20936.124,
+      "capac": 27000,
+      "frete": 17299.623682,
+      "veiculos": 38,
+      "entregas": 197,
+      "real_kg": 0.8263049876,
+      "ocupacao": 77.5412,
+      "media_entregas": 5.1842105263,
+      "media_peso": 550.9506315789
     }
   ],
   "vesp_por_veiculo": [
     {
       "VEICULO": "FIORINO",
-      "peso": 74013.335,
-      "capac": 93000,
-      "frete": 79907.229564,
-      "veiculos": 186,
-      "entregas": 776,
-      "real_kg": 1.0796328738,
-      "ocupacao": 79.5842311828,
-      "media_entregas": 4.1720430108,
-      "media_peso": 397.921155914
+      "peso": 75188.014,
+      "capac": 95000,
+      "frete": 81620.147164,
+      "veiculos": 190,
+      "entregas": 795,
+      "real_kg": 1.0855473209,
+      "ocupacao": 79.1452778947,
+      "media_entregas": 4.1842105263,
+      "media_peso": 395.7263894737
     },
     {
       "VEICULO": "VAN",
@@ -42687,6 +42700,19 @@
       "ocupacao": 77.16236,
       "media_entregas": 6.2,
       "media_peso": 385.8118
+    },
+    {
+      "DIA": "2026-06-12",
+      "VEICULO": "FIORINO",
+      "peso": 1174.679,
+      "capac": 2000,
+      "frete": 1712.9176,
+      "veiculos": 4,
+      "entregas": 19,
+      "real_kg": 1.4582005808,
+      "ocupacao": 58.73395,
+      "media_entregas": 4.75,
+      "media_peso": 293.66975
     }
   ],
   "vesp_por_veiculo_mes": [
@@ -42888,15 +42914,15 @@
     {
       "MES_KEY": "2026-06",
       "VEICULO": "FIORINO",
-      "peso": 10044.023,
-      "capac": 14000,
-      "frete": 12003.270082,
-      "veiculos": 28,
-      "entregas": 160,
-      "real_kg": 1.1950659693,
-      "ocupacao": 71.7430214286,
-      "media_entregas": 5.7142857143,
-      "media_peso": 358.7151071429
+      "peso": 11218.702,
+      "capac": 16000,
+      "frete": 13716.187682,
+      "veiculos": 32,
+      "entregas": 179,
+      "real_kg": 1.2226180606,
+      "ocupacao": 70.1168875,
+      "media_entregas": 5.59375,
+      "media_peso": 350.5844375
     },
     {
       "MES_KEY": "2026-06",
@@ -42926,28 +42952,28 @@
     }
   ],
   "vesp_tl_kpis": {
-    "peso_total": 86904.96,
-    "capac_total": 111000.0,
-    "frete_total": 66264.21,
-    "real_kg_total": 0.7625,
-    "ocupacao_total": 78.29,
-    "qtd_veiculos": 142,
-    "qtd_entregas": 678,
+    "peso_total": 88079.64,
+    "capac_total": 113000.0,
+    "frete_total": 67977.13,
+    "real_kg_total": 0.7718,
+    "ocupacao_total": 77.95,
+    "qtd_veiculos": 146,
+    "qtd_entregas": 697,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67
   },
   "vesp_tl_por_veiculo": [
     {
       "VEICULO": "FIORINO",
-      "peso": 41145.005,
-      "capac": 55000,
-      "frete": 47349.3308,
-      "veiculos": 110,
-      "entregas": 561,
-      "real_kg": 1.1507917134,
-      "ocupacao": 74.8091,
-      "media_entregas": 5.1,
-      "media_peso": 374.0455
+      "peso": 42319.684,
+      "capac": 57000,
+      "frete": 49062.2484,
+      "veiculos": 114,
+      "entregas": 580,
+      "real_kg": 1.1593245451,
+      "ocupacao": 74.2450596491,
+      "media_entregas": 5.0877192982,
+      "media_peso": 371.2252982456
     },
     {
       "VEICULO": "VAN",
@@ -43884,6 +43910,19 @@
       "ocupacao": 77.16236,
       "media_entregas": 6.2,
       "media_peso": 385.8118
+    },
+    {
+      "DIA": "2026-06-12",
+      "VEICULO": "FIORINO",
+      "peso": 1174.679,
+      "capac": 2000,
+      "frete": 1712.9176,
+      "veiculos": 4,
+      "entregas": 19,
+      "real_kg": 1.4582005808,
+      "ocupacao": 58.73395,
+      "media_entregas": 4.75,
+      "media_peso": 293.66975
     }
   ],
   "vesp_tl_por_veiculo_mes": [
@@ -44007,15 +44046,15 @@
     {
       "MES_KEY": "2026-06",
       "VEICULO": "FIORINO",
-      "peso": 8509.523,
-      "capac": 12500,
-      "frete": 10705.735,
-      "veiculos": 25,
-      "entregas": 153,
-      "real_kg": 1.2580887319,
-      "ocupacao": 68.076184,
-      "media_entregas": 6.12,
-      "media_peso": 340.38092
+      "peso": 9684.202,
+      "capac": 14500,
+      "frete": 12418.6526,
+      "veiculos": 29,
+      "entregas": 172,
+      "real_kg": 1.2823619953,
+      "ocupacao": 66.7876,
+      "media_entregas": 5.9310344828,
+      "media_peso": 333.938
     },
     {
       "MES_KEY": "2026-06",
@@ -44572,6 +44611,18 @@
       "ocupacao": 77.16236,
       "media_entregas": 6.2,
       "media_peso": 385.8118
+    },
+    {
+      "DIA": "2026-06-12",
+      "peso": 1174.679,
+      "capac": 2000,
+      "frete": 1712.9176,
+      "veiculos": 4,
+      "entregas": 19,
+      "real_kg": 1.4582005808,
+      "ocupacao": 58.73395,
+      "media_entregas": 4.75,
+      "media_peso": 293.66975
     }
   ],
   "vesp_tl_por_mes": [
@@ -44613,15 +44664,15 @@
     },
     {
       "MES_KEY": "2026-06",
-      "peso": 18226.945,
-      "capac": 23500,
-      "frete": 14289.171,
-      "veiculos": 31,
-      "entregas": 171,
-      "real_kg": 0.7839586393,
-      "ocupacao": 77.5614680851,
-      "media_entregas": 5.5161290323,
-      "media_peso": 587.9659677419
+      "peso": 19401.624,
+      "capac": 25500,
+      "frete": 16002.0886,
+      "veiculos": 35,
+      "entregas": 190,
+      "real_kg": 0.8247808843,
+      "ocupacao": 76.0848,
+      "media_entregas": 5.4285714286,
+      "media_peso": 554.3321142857
     }
   ],
   "fresc_kpis": {
