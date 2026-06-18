@@ -219,6 +219,45 @@ def send_whatsapp(screenshots):
         win32clipboard.SetClipboardData(win32clipboard.CF_DIB, data)
         win32clipboard.CloseClipboard()
 
+    def _force_foreground(hwnd):
+        """Traz a janela para frente contornando o bloqueio de foreground do Windows.
+
+        O Windows recusa SetForegroundWindow quando o processo não detém o
+        "foreground lock" (ex.: logo após o Outlook roubar o foco). Um input
+        de teclado simulado (ALT) libera esse lock; AttachThreadInput é o
+        fallback final.
+        """
+        import ctypes
+
+        if win32gui.IsIconic(hwnd):
+            win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+        else:
+            win32gui.ShowWindow(hwnd, win32con.SW_SHOW)
+
+        # Truque 1: pressionar ALT desbloqueia a troca de janela em primeiro plano
+        ctypes.windll.user32.keybd_event(0x12, 0, 0, 0)        # ALT down
+        ctypes.windll.user32.keybd_event(0x12, 0, 0x0002, 0)   # ALT up
+        try:
+            win32gui.SetForegroundWindow(hwnd)
+        except Exception:
+            # Truque 2: anexa a fila de input da thread em foco à nossa thread
+            try:
+                import win32process, win32api
+                fg = win32gui.GetForegroundWindow()
+                fg_thread = win32process.GetWindowThreadProcessId(fg)[0]
+                cur_thread = win32api.GetCurrentThreadId()
+                win32process.AttachThreadInput(fg_thread, cur_thread, True)
+                try:
+                    win32gui.BringWindowToTop(hwnd)
+                    win32gui.SetForegroundWindow(hwnd)
+                finally:
+                    win32process.AttachThreadInput(fg_thread, cur_thread, False)
+            except Exception:
+                pass  # segue mesmo assim; a verificação abaixo decide
+
+        time.sleep(1.5)
+        return win32gui.GetForegroundWindow() == hwnd
+
     def _focus_whatsapp():
         hwnd = win32gui.FindWindow(None, "WhatsApp")
         if not hwnd:
@@ -230,14 +269,17 @@ def send_whatsapp(screenshots):
                     break
         if not hwnd:
             return False
-        if win32gui.IsIconic(hwnd):
-            win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
-        win32gui.SetForegroundWindow(hwnd)
-        time.sleep(1.5)
-        return True
+        # Tenta focar até 3 vezes (o lock de foreground pode demorar a liberar)
+        for _ in range(3):
+            if _force_foreground(hwnd):
+                return True
+            time.sleep(0.8)
+        return False
 
     if not _focus_whatsapp():
-        print("   [ERRO] WhatsApp Desktop não encontrado. Abra o app e tente novamente.")
+        print("   [ERRO] Não consegui trazer o WhatsApp Desktop para frente.")
+        print("   Deixe a janela do WhatsApp aberta e visível e rode novamente,")
+        print("   sem clicar em outras janelas enquanto o envio acontece.")
         return False
 
     for contato in DEST_WHATSAPP:
