@@ -38,6 +38,8 @@ OCORRENCIAS_PATH = os.path.join(DADOS_DIR, "Ocorrencias.xlsx")
 OUTPUT_JSON   = os.path.join(ETL_DIR, "dashboard_data.json")
 
 TRANSPORTADORAS_FILTRO = _cfg["filtros"]["transportadoras"]
+# Códigos de transportadora a desconsiderar nas reentregas (fora da operação monitorada)
+EXCLUIR_REENTREGA      = _cfg["filtros"].get("transportadoras_excluir_reentrega", [])
 MOTIVO_REENTREGA       = _cfg["filtros"]["motivo_reentrega"]
 UF_FILTRO              = _cfg["filtros"]["uf"]
 FATOR_PESO             = _cfg["filtros"]["fator_peso"]
@@ -45,6 +47,12 @@ EMPRESA_REENTREGA          = str(_cfg["filtros"]["empresa_reentrega"]).strip()
 EMPRESA_REENTREGA_LEVITARE = str(_cfg["filtros"]["empresa_reentrega_levitare"]).strip()
 META_OCUPACAO          = _cfg["metas"]["ocupacao"]
 META_REAL_KG           = _cfg["metas"]["real_kg"]
+
+# Justificativa de reentrega analisada por faixa de peso (grafia exata da base)
+JUST_FORA_HORARIO      = "FORA DE HORARIO"
+# Limites das faixas de peso (kg) e seus rótulos de exibição
+FAIXAS_PESO_LIMITES    = [20, 50, 100]
+FAIXAS_PESO_LABELS     = ["0 a 20 kg", "21 a 50 kg", "51 a 100 kg", "+ 101 kg"]
 
 
 # ============================================================
@@ -208,14 +216,23 @@ def _ocorrencias_por_empresa(df_ocorr, nf_raw, empresa, label):
     df = df[df["UF"] == UF_FILTRO].copy()
     df = df[df["MOTIVO OCORRÊNCIA"] == MOTIVO_REENTREGA].copy()
 
-    nf_lookup = nf_raw.drop_duplicates(subset=["NFF"])[["NFF", "NOME TRANSPORTADORA"]].copy()
+    nf_lookup = nf_raw.drop_duplicates(subset=["NFF"])[["NFF", "NOME TRANSPORTADORA", "TRANSPORTADORA"]].copy()
     nf_lookup["NFF"] = pd.to_numeric(nf_lookup["NFF"], errors="coerce")
+    nf_lookup["TRANSPORTADORA"] = pd.to_numeric(nf_lookup["TRANSPORTADORA"], errors="coerce")
     df["DOCUMENTO"]  = pd.to_numeric(df["DOCUMENTO"], errors="coerce")
     df = df.merge(nf_lookup, left_on="DOCUMENTO", right_on="NFF", how="left")
 
     sem_match = df["NOME TRANSPORTADORA"].isna().sum()
     if sem_match > 0:
         print(f"   [AVISO] {label}: {sem_match} ocorrências sem transportadora na NF")
+
+    # Desconsidera transportadoras fora da operação monitorada (config.json)
+    if EXCLUIR_REENTREGA:
+        antes = len(df)
+        df = df[~df["TRANSPORTADORA"].isin(EXCLUIR_REENTREGA)].copy()
+        removidas = antes - len(df)
+        if removidas > 0:
+            print(f"   [FILTRO] {label}: {removidas} ocorrências removidas (transportadoras excluídas)")
 
     df["DATA INCLUSÃO"] = pd.to_datetime(df["DATA INCLUSÃO"], errors="coerce")
     df["COD. CLIENTE"]  = df["COD. CLIENTE"].astype(str)
@@ -334,6 +351,38 @@ def build_reentregas_aggrs(reentregas, nf_total, nf_dia_df, nf_mes_df,
     }
 
 
+def _faixa_peso_label(p):
+    """Classifica um peso (kg) em uma das faixas configuradas."""
+    for limite, label in zip(FAIXAS_PESO_LIMITES, FAIXAS_PESO_LABELS):
+        if p <= limite:
+            return label
+    return FAIXAS_PESO_LABELS[-1]
+
+
+def _reent_faixa_peso_dia(reentregas, justificativa):
+    """Reentregas de uma justificativa, por faixa de peso e por DIA.
+
+    Nível de REENTREGA (CHAVE_ENTREGA = data+cliente): soma o PESO LIQUIDO de
+    todos os documentos da mesma reentrega e a classifica numa única faixa pelo
+    peso total. Assim a contagem (qtd) bate com 'reentregas_justificativa'
+    (distinct CHAVE_ENTREGA) em vez de contar documentos/linhas. Granular por
+    DIA para o filtro de mês.
+    """
+    fh = reentregas[reentregas["DESC JUST OC"] == justificativa].copy()
+    fh["PESO LIQUIDO"] = pd.to_numeric(fh["PESO LIQUIDO"], errors="coerce").fillna(0)
+
+    # Consolida documentos da mesma reentrega antes de classificar a faixa
+    por_reent = (fh.groupby(["DIA", "CHAVE_ENTREGA"])
+                   .agg(peso=("PESO LIQUIDO", "sum"))
+                   .reset_index())
+    por_reent["FAIXA_PESO"] = por_reent["peso"].apply(_faixa_peso_label)
+
+    return (por_reent.groupby(["DIA", "FAIXA_PESO"])
+              .agg(qtd=("CHAVE_ENTREGA", "nunique"), peso=("peso", "sum"))
+              .reset_index()
+              .sort_values(["DIA", "FAIXA_PESO"]))
+
+
 # ============================================================
 # KPIs PRINCIPAIS
 # ============================================================
@@ -405,6 +454,12 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util):
     nf_dia    = nf.groupby("DIA").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("DIA")
     nf_mes    = nf.groupby("MES_KEY").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("MES_KEY")
 
+    # === FORA DE HORÁRIO: peso das reentregas por faixa (granular por DIA) ===
+    # Analisa o peso líquido das reentregas cuja justificativa é "FORA DE HORARIO",
+    # distribuído em três faixas de peso. Nível de linha/ocorrência (cada documento
+    # tem seu PESO LIQUIDO), granular por DIA para o filtro de mês do dashboard.
+    reent_fh_peso_dia = _reent_faixa_peso_dia(reentregas, JUST_FORA_HORARIO)
+
     # === FROTA ===
     total_disp    = len(frota_disp)
     total_util    = len(frota_util)
@@ -465,6 +520,7 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util):
         "reentregas_mes":             r(reent_mes),
         "nf_entregas_dia":            r(nf_dia),
         "nf_entregas_mes":            r(nf_mes),
+        "reent_fh_peso_dia":          r(reent_fh_peso_dia),
         "frota_kpis":          {"total_disp": total_disp, "total_util": total_util, "pct_util": pct_util_geral},
         "frota_transportadora": r(frota_transp),
         "frota_veiculo":        r(frota_veic),

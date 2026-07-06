@@ -1,18 +1,18 @@
 {
-  "gerado_em": "05/07/2026 13:53",
+  "gerado_em": "06/07/2026 20:08",
   "kpis": {
-    "peso_total": 7029032.45,
-    "capac_total": 8335500.0,
-    "frete_total": 4544948.72,
-    "real_kg_total": 0.6466,
-    "ocupacao_total": 84.33,
-    "qtd_veiculos": 8743,
-    "qtd_entregas": 40825,
+    "peso_total": 7084995.38,
+    "capac_total": 8404000.0,
+    "frete_total": 4584611.49,
+    "real_kg_total": 0.6471,
+    "ocupacao_total": 84.31,
+    "qtd_veiculos": 8820,
+    "qtd_entregas": 41253,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67,
-    "reentregas": 1812,
-    "qtd_entregas_nf": 40820,
-    "pct_reentregas": 4.44
+    "reentregas": 1820,
+    "qtd_entregas_nf": 41286,
+    "pct_reentregas": 4.41
   },
   "filtros": {
     "meses": [
@@ -150,7 +150,8 @@
       "2026-07-01",
       "2026-07-02",
       "2026-07-03",
-      "2026-07-06"
+      "2026-07-06",
+      "2026-07-07"
     ],
     "meses_reent": [
       "2026-01",
@@ -286,7 +287,8 @@
       "2026-06-29",
       "2026-06-30",
       "2026-07-02",
-      "2026-07-03"
+      "2026-07-03",
+      "2026-07-06"
     ],
     "meses_frota": [
       "2026-01",
@@ -567,7 +569,8 @@
       "2026-06-30",
       "2026-07-02",
       "2026-07-03",
-      "2026-07-06"
+      "2026-07-06",
+      "2026-07-07"
     ],
     "meses_levi_reent": [
       "2026-05",
@@ -659,7 +662,8 @@
       "2026-06-30",
       "2026-07-01",
       "2026-07-02",
-      "2026-07-06"
+      "2026-07-06",
+      "2026-07-07"
     ]
   },
   "por_dia": [
@@ -2174,6 +2178,18 @@
       "ocupacao": 77.8229808219,
       "media_entregas": 4.1395348837,
       "media_peso": 660.5904186047
+    },
+    {
+      "DIA": "2026-07-07",
+      "peso": 55962.929,
+      "capac": 68500,
+      "frete": 39662.770442,
+      "veiculos": 77,
+      "entregas": 428,
+      "real_kg": 0.7087329264,
+      "ocupacao": 81.6977065693,
+      "media_entregas": 5.5584415584,
+      "media_peso": 726.7912857143
     }
   ],
   "por_mes": [
@@ -2251,53 +2267,53 @@
     },
     {
       "MES_KEY": "2026-07",
-      "peso": 197589.59,
-      "capac": 238000,
-      "frete": 130739.333868,
-      "veiculos": 258,
-      "entregas": 1124,
-      "real_kg": 0.6616711633,
-      "ocupacao": 83.0208361345,
-      "media_entregas": 4.3565891473,
-      "media_peso": 765.851124031
+      "peso": 253552.519,
+      "capac": 306500,
+      "frete": 170402.10431,
+      "veiculos": 335,
+      "entregas": 1552,
+      "real_kg": 0.6720584161,
+      "ocupacao": 82.7251285481,
+      "media_entregas": 4.6328358209,
+      "media_peso": 756.8731910448
     }
   ],
   "por_veiculo": [
     {
       "VEICULO": "FIORINO",
-      "peso": 2376332.035,
-      "capac": 2625500,
-      "frete": 2454655.416472,
-      "veiculos": 5251,
-      "entregas": 24168,
-      "real_kg": 1.0329597802,
-      "ocupacao": 90.5096947248,
-      "media_entregas": 4.6025518949,
-      "media_peso": 452.5484736241
+      "peso": 2396844.571,
+      "capac": 2650500,
+      "frete": 2478778.436914,
+      "veiculos": 5301,
+      "entregas": 24399,
+      "real_kg": 1.0341840547,
+      "ocupacao": 90.4299026976,
+      "media_entregas": 4.6027164686,
+      "media_peso": 452.149513488
     },
     {
       "VEICULO": "VAN",
-      "peso": 3603685.745,
-      "capac": 4530000,
-      "frete": 1769329.083982,
-      "veiculos": 3020,
-      "entregas": 15010,
-      "real_kg": 0.4909776293,
-      "ocupacao": 79.5515616998,
-      "media_entregas": 4.9701986755,
-      "media_peso": 1193.2734254967
+      "peso": 3632383.3150000004,
+      "capac": 4566000,
+      "frete": 1782864.479982,
+      "veiculos": 3044,
+      "entregas": 15194,
+      "real_kg": 0.4908249833,
+      "ocupacao": 79.5528540298,
+      "media_entregas": 4.9914586071,
+      "media_peso": 1193.2928104468
     },
     {
       "VEICULO": "VUC",
-      "peso": 1049014.6700000002,
-      "capac": 1180000,
-      "frete": 320964.217106,
-      "veiculos": 472,
-      "entregas": 1647,
-      "real_kg": 0.3059673294,
-      "ocupacao": 88.8995483051,
-      "media_entregas": 3.4894067797,
-      "media_peso": 2222.4887076271
+      "peso": 1055767.493,
+      "capac": 1187500,
+      "frete": 322968.571106,
+      "veiculos": 475,
+      "entregas": 1660,
+      "real_kg": 0.305908804,
+      "ocupacao": 88.9067362526,
+      "media_entregas": 3.4947368421,
+      "media_peso": 2222.6684063158
     }
   ],
   "por_veiculo_dia": [
@@ -7201,6 +7217,45 @@
       "ocupacao": 88.6149,
       "media_entregas": 3.0,
       "media_peso": 2215.3725
+    },
+    {
+      "DIA": "2026-07-07",
+      "VEICULO": "FIORINO",
+      "peso": 20512.536,
+      "capac": 25000,
+      "frete": 24123.020442,
+      "veiculos": 50,
+      "entregas": 231,
+      "real_kg": 1.1760135579,
+      "ocupacao": 82.050144,
+      "media_entregas": 4.62,
+      "media_peso": 410.25072
+    },
+    {
+      "DIA": "2026-07-07",
+      "VEICULO": "VAN",
+      "peso": 28697.57,
+      "capac": 36000,
+      "frete": 13535.396,
+      "veiculos": 24,
+      "entregas": 184,
+      "real_kg": 0.47165652,
+      "ocupacao": 79.7154722222,
+      "media_entregas": 7.6666666667,
+      "media_peso": 1195.7320833333
+    },
+    {
+      "DIA": "2026-07-07",
+      "VEICULO": "VUC",
+      "peso": 6752.823,
+      "capac": 7500,
+      "frete": 2004.354,
+      "veiculos": 3,
+      "entregas": 13,
+      "real_kg": 0.2968171978,
+      "ocupacao": 90.03764,
+      "media_entregas": 4.3333333333,
+      "media_peso": 2250.941
     }
   ],
   "por_veiculo_mes": [
@@ -7441,79 +7496,79 @@
     {
       "MES_KEY": "2026-07",
       "VEICULO": "FIORINO",
-      "peso": 66380.402,
-      "capac": 80500,
-      "frete": 73522.85428,
-      "veiculos": 161,
-      "entregas": 756,
-      "real_kg": 1.1075988103,
-      "ocupacao": 82.4601267081,
-      "media_entregas": 4.6956521739,
-      "media_peso": 412.3006335404
+      "peso": 86892.938,
+      "capac": 105500,
+      "frete": 97645.874722,
+      "veiculos": 211,
+      "entregas": 987,
+      "real_kg": 1.1237492594,
+      "ocupacao": 82.3629744076,
+      "media_entregas": 4.6777251185,
+      "media_peso": 411.8148720379
     },
     {
       "MES_KEY": "2026-07",
       "VEICULO": "VAN",
-      "peso": 103383.071,
-      "capac": 127500,
-      "frete": 49143.217988,
-      "veiculos": 85,
-      "entregas": 336,
-      "real_kg": 0.4753507273,
-      "ocupacao": 81.0847615686,
-      "media_entregas": 3.9529411765,
-      "media_peso": 1216.2714235294
+      "peso": 132080.641,
+      "capac": 163500,
+      "frete": 62678.613988,
+      "veiculos": 109,
+      "entregas": 520,
+      "real_kg": 0.4745480754,
+      "ocupacao": 80.7832666667,
+      "media_entregas": 4.7706422018,
+      "media_peso": 1211.749
     },
     {
       "MES_KEY": "2026-07",
       "VEICULO": "VUC",
-      "peso": 27826.117,
-      "capac": 30000,
-      "frete": 8073.2616,
-      "veiculos": 12,
-      "entregas": 32,
-      "real_kg": 0.2901325255,
-      "ocupacao": 92.7537233333,
-      "media_entregas": 2.6666666667,
-      "media_peso": 2318.8430833333
+      "peso": 34578.94,
+      "capac": 37500,
+      "frete": 10077.6156,
+      "veiculos": 15,
+      "entregas": 45,
+      "real_kg": 0.2914379562,
+      "ocupacao": 92.2105066667,
+      "media_entregas": 3.0,
+      "media_peso": 2305.2626666667
     }
   ],
   "dist_0_100_veic": [
     {
       "VEICULO": "FIORINO",
-      "peso": 2212803.7580000004,
-      "capac": 2439000,
-      "frete": 2176716.6645540004,
-      "veiculos": 4878,
-      "entregas": 22538,
-      "real_kg": 0.9836916883,
-      "ocupacao": 90.7258613366,
-      "media_entregas": 4.6203362034,
-      "media_peso": 453.6293066831
+      "peso": 2231765.4480000003,
+      "capac": 2462000,
+      "frete": 2198023.9895980004,
+      "veiculos": 4924,
+      "entregas": 22747,
+      "real_kg": 0.9848812704,
+      "ocupacao": 90.648474736,
+      "media_entregas": 4.6196181966,
+      "media_peso": 453.2423736799
     },
     {
       "VEICULO": "VAN",
-      "peso": 3415907.561,
-      "capac": 4281000,
-      "frete": 1632168.605742,
-      "veiculos": 2854,
-      "entregas": 14502,
-      "real_kg": 0.477814044,
-      "ocupacao": 79.7922812661,
-      "media_entregas": 5.0812894184,
-      "media_peso": 1196.8842189909
+      "peso": 3444605.131,
+      "capac": 4317000,
+      "frete": 1645704.001742,
+      "veiculos": 2878,
+      "entregas": 14686,
+      "real_kg": 0.4777627447,
+      "ocupacao": 79.7916407459,
+      "media_entregas": 5.1028492008,
+      "media_peso": 1196.8746111883
     },
     {
       "VEICULO": "VUC",
-      "peso": 1025463.0430000001,
-      "capac": 1157500,
-      "frete": 312848.715496,
-      "veiculos": 463,
-      "entregas": 1574,
-      "real_kg": 0.3050804392,
-      "ocupacao": 88.5929194816,
-      "media_entregas": 3.3995680346,
-      "media_peso": 2214.822987041
+      "peso": 1032215.866,
+      "capac": 1165000,
+      "frete": 314853.069496,
+      "veiculos": 466,
+      "entregas": 1587,
+      "real_kg": 0.3050263805,
+      "ocupacao": 88.6022202575,
+      "media_entregas": 3.4055793991,
+      "media_peso": 2215.0555064378
     }
   ],
   "dist_0_100_dia": [
@@ -12417,6 +12472,45 @@
       "ocupacao": 88.6149,
       "media_entregas": 3.0,
       "media_peso": 2215.3725
+    },
+    {
+      "DIA": "2026-07-07",
+      "VEICULO": "FIORINO",
+      "peso": 18961.69,
+      "capac": 23000,
+      "frete": 21307.325044,
+      "veiculos": 46,
+      "entregas": 209,
+      "real_kg": 1.1237039021,
+      "ocupacao": 82.4421304348,
+      "media_entregas": 4.5434782609,
+      "media_peso": 412.2106521739
+    },
+    {
+      "DIA": "2026-07-07",
+      "VEICULO": "VAN",
+      "peso": 28697.57,
+      "capac": 36000,
+      "frete": 13535.396,
+      "veiculos": 24,
+      "entregas": 184,
+      "real_kg": 0.47165652,
+      "ocupacao": 79.7154722222,
+      "media_entregas": 7.6666666667,
+      "media_peso": 1195.7320833333
+    },
+    {
+      "DIA": "2026-07-07",
+      "VEICULO": "VUC",
+      "peso": 6752.823,
+      "capac": 7500,
+      "frete": 2004.354,
+      "veiculos": 3,
+      "entregas": 13,
+      "real_kg": 0.2968171978,
+      "ocupacao": 90.03764,
+      "media_entregas": 4.3333333333,
+      "media_peso": 2250.941
     }
   ],
   "dist_0_100_mes": [
@@ -12657,55 +12751,55 @@
     {
       "MES_KEY": "2026-07",
       "VEICULO": "FIORINO",
-      "peso": 63521.744,
-      "capac": 77000,
-      "frete": 68230.5096,
-      "veiculos": 154,
-      "entregas": 727,
-      "real_kg": 1.0741284055,
-      "ocupacao": 82.4957714286,
-      "media_entregas": 4.7207792208,
-      "media_peso": 412.4788571429
+      "peso": 82483.434,
+      "capac": 100000,
+      "frete": 89537.834644,
+      "veiculos": 200,
+      "entregas": 936,
+      "real_kg": 1.08552506,
+      "ocupacao": 82.483434,
+      "media_entregas": 4.68,
+      "media_peso": 412.41717
     },
     {
       "MES_KEY": "2026-07",
       "VEICULO": "VAN",
-      "peso": 100198.802,
-      "capac": 123000,
-      "frete": 46739.927988,
-      "veiculos": 82,
-      "entregas": 331,
-      "real_kg": 0.4664719244,
-      "ocupacao": 81.4624406504,
-      "media_entregas": 4.0365853659,
-      "media_peso": 1221.9366097561
+      "peso": 128896.372,
+      "capac": 159000,
+      "frete": 60275.323988,
+      "veiculos": 106,
+      "entregas": 515,
+      "real_kg": 0.467626226,
+      "ocupacao": 81.0669006289,
+      "media_entregas": 4.858490566,
+      "media_peso": 1216.003509434
     },
     {
       "MES_KEY": "2026-07",
       "VEICULO": "VUC",
-      "peso": 27826.117,
-      "capac": 30000,
-      "frete": 8073.2616,
-      "veiculos": 12,
-      "entregas": 32,
-      "real_kg": 0.2901325255,
-      "ocupacao": 92.7537233333,
-      "media_entregas": 2.6666666667,
-      "media_peso": 2318.8430833333
+      "peso": 34578.94,
+      "capac": 37500,
+      "frete": 10077.6156,
+      "veiculos": 15,
+      "entregas": 45,
+      "real_kg": 0.2914379562,
+      "ocupacao": 92.2105066667,
+      "media_entregas": 3.0,
+      "media_peso": 2305.2626666667
     }
   ],
   "dist_100p_veic": [
     {
       "VEICULO": "FIORINO",
-      "peso": 163528.277,
-      "capac": 186500,
-      "frete": 277938.7519180001,
-      "veiculos": 373,
-      "entregas": 1630,
-      "real_kg": 1.6996372555,
-      "ocupacao": 87.682722252,
-      "media_entregas": 4.3699731903,
-      "media_peso": 438.4136112601
+      "peso": 165079.123,
+      "capac": 188500,
+      "frete": 280754.447316,
+      "veiculos": 377,
+      "entregas": 1652,
+      "real_kg": 1.7007265499,
+      "ocupacao": 87.575131565,
+      "media_entregas": 4.3819628647,
+      "media_peso": 437.8756578249
     },
     {
       "VEICULO": "VAN",
@@ -15228,6 +15322,19 @@
       "ocupacao": 57.8996,
       "media_entregas": 4.0,
       "media_peso": 289.498
+    },
+    {
+      "DIA": "2026-07-07",
+      "VEICULO": "FIORINO",
+      "peso": 1550.846,
+      "capac": 2000,
+      "frete": 2815.695398,
+      "veiculos": 4,
+      "entregas": 22,
+      "real_kg": 1.8155867172,
+      "ocupacao": 77.5423,
+      "media_entregas": 5.5,
+      "media_peso": 387.7115
     }
   ],
   "dist_100p_mes": [
@@ -15455,15 +15562,15 @@
     {
       "MES_KEY": "2026-07",
       "VEICULO": "FIORINO",
-      "peso": 2858.658,
-      "capac": 3500,
-      "frete": 5292.34468,
-      "veiculos": 7,
-      "entregas": 29,
-      "real_kg": 1.851338873,
-      "ocupacao": 81.6759428571,
-      "media_entregas": 4.1428571429,
-      "media_peso": 408.3797142857
+      "peso": 4409.504,
+      "capac": 5500,
+      "frete": 8108.040078,
+      "veiculos": 11,
+      "entregas": 51,
+      "real_kg": 1.8387646497,
+      "ocupacao": 80.1728,
+      "media_entregas": 4.6363636364,
+      "media_peso": 400.864
     },
     {
       "MES_KEY": "2026-07",
@@ -15482,32 +15589,32 @@
   "reentregas_transportadora": [
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "reentregas": 639,
-      "entregas": 10446,
-      "pct": 6.12
+      "reentregas": 644,
+      "entregas": 10494,
+      "pct": 6.14
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "reentregas": 495,
-      "entregas": 11111,
-      "pct": 4.46
+      "reentregas": 499,
+      "entregas": 11157,
+      "pct": 4.47
     },
     {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
-      "reentregas": 269,
-      "entregas": 7795,
+      "reentregas": 270,
+      "entregas": 7830,
       "pct": 3.45
     },
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
       "reentregas": 150,
-      "entregas": 4762,
-      "pct": 3.15
+      "entregas": 4772,
+      "pct": 3.14
     },
     {
       "NOME TRANSPORTADORA": "SPEEDY LOG",
       "reentregas": 118,
-      "entregas": 3188,
+      "entregas": 3190,
       "pct": 3.7
     },
     {
@@ -15517,22 +15624,22 @@
       "pct": 4.06
     },
     {
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "reentregas": 19,
+      "entregas": 312,
+      "pct": 6.09
+    },
+    {
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "reentregas": 19,
-      "entregas": 297,
-      "pct": 6.4
+      "entregas": 300,
+      "pct": 6.33
     },
     {
       "NOME TRANSPORTADORA": "LINDON JOHSON",
       "reentregas": 19,
-      "entregas": 682,
-      "pct": 2.79
-    },
-    {
-      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
-      "reentregas": 18,
-      "entregas": 0,
-      "pct": 0.0
+      "entregas": 686,
+      "pct": 2.77
     },
     {
       "NOME TRANSPORTADORA": "CARLOS ALBERTO",
@@ -15543,88 +15650,76 @@
     {
       "NOME TRANSPORTADORA": "TRANS FARIAS",
       "reentregas": 17,
-      "entregas": 568,
-      "pct": 2.99
+      "entregas": 573,
+      "pct": 2.97
     },
     {
       "NOME TRANSPORTADORA": "VANDERLEI",
       "reentregas": 6,
-      "entregas": 333,
-      "pct": 1.8
-    },
-    {
-      "NOME TRANSPORTADORA": "TRANSPORTES FRA",
-      "reentregas": 3,
-      "entregas": 0,
-      "pct": 0.0
-    },
-    {
-      "NOME TRANSPORTADORA": "LIMA CARGO EXPR",
-      "reentregas": 1,
-      "entregas": 0,
-      "pct": 0.0
+      "entregas": 335,
+      "pct": 1.79
     }
   ],
   "reentregas_justificativa": [
     {
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 891,
+      "reentregas": 895,
       "pct": 49.01
     },
     {
       "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 239,
-      "pct": 13.15
+      "reentregas": 240,
+      "pct": 13.14
     },
     {
       "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
       "reentregas": 162,
-      "pct": 8.91
+      "pct": 8.87
     },
     {
       "DESC JUST OC": "RECUSA CLIENTE",
-      "reentregas": 113,
-      "pct": 6.22
+      "reentregas": 112,
+      "pct": 6.13
     },
     {
       "DESC JUST OC": "LOCAL FECHADO",
-      "reentregas": 77,
-      "pct": 4.24
+      "reentregas": 79,
+      "pct": 4.33
     },
     {
       "DESC JUST OC": "RECUSA BALANCO_LOJA",
       "reentregas": 76,
-      "pct": 4.18
+      "pct": 4.16
     },
     {
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 69,
-      "pct": 3.8
+      "reentregas": 70,
+      "pct": 3.83
     },
     {
       "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 67,
-      "pct": 3.69
+      "reentregas": 66,
+      "pct": 3.61
     },
     {
       "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
-      "reentregas": 45,
-      "pct": 2.48
+      "reentregas": 47,
+      "pct": 2.57
     },
     {
       "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
       "reentregas": 25,
-      "pct": 1.38
+      "pct": 1.37
     },
     {
       "DESC JUST OC": "DIVERGENCIA DE PRECO",
       "reentregas": 11,
-      "pct": 0.61
+      "pct": 0.6
     },
     {
       "DESC JUST OC": "DESACORDO COM O PEDIDO",
       "reentregas": 9,
-      "pct": 0.5
+      "pct": 0.49
     },
     {
       "DESC JUST OC": "DUPLICIDADE PEDIDO",
@@ -15644,39 +15739,39 @@
     {
       "DESC JUST OC": "BOLETO PRORROGACAO",
       "reentregas": 5,
-      "pct": 0.28
+      "pct": 0.27
     },
     {
       "DESC JUST OC": "FERIADO MUNICIPAL",
       "reentregas": 3,
-      "pct": 0.17
+      "pct": 0.16
     },
     {
       "DESC JUST OC": "OPERACAO EXPEDICAO",
       "reentregas": 3,
-      "pct": 0.17
+      "pct": 0.16
     },
     {
       "DESC JUST OC": "CADASTRO CLIENTE",
       "reentregas": 1,
-      "pct": 0.06
+      "pct": 0.05
     }
   ],
   "reentregas_transp_just": [
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 353
+      "reentregas": 356
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 224
+      "reentregas": 226
     },
     {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 123
+      "reentregas": 124
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
@@ -15691,7 +15786,7 @@
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 64
+      "reentregas": 65
     },
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
@@ -15734,19 +15829,19 @@
       "reentregas": 29
     },
     {
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 27
+    },
+    {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "RECUSA BALANCO_LOJA",
       "reentregas": 27
     },
     {
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
-      "reentregas": 27
-    },
-    {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "DESC JUST OC": "LOCAL FECHADO",
-      "reentregas": 25
+      "reentregas": 27
     },
     {
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
@@ -15784,13 +15879,13 @@
       "reentregas": 17
     },
     {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "RECUSA CLIENTE",
       "reentregas": 15
     },
     {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "DESC JUST OC": "RECUSA CLIENTE",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
       "reentregas": 15
     },
     {
@@ -15839,8 +15934,8 @@
       "reentregas": 9
     },
     {
-      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
-      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
+      "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 9
     },
     {
@@ -15849,8 +15944,8 @@
       "reentregas": 9
     },
     {
-      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
-      "DESC JUST OC": "FORA DE HORARIO",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
       "reentregas": 9
     },
     {
@@ -15860,17 +15955,27 @@
     },
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
-      "DESC JUST OC": "RECUSA BALANCO_LOJA",
-      "reentregas": 7
-    },
-    {
-      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
       "reentregas": 7
     },
     {
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 7
+    },
+    {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "reentregas": 6
+    },
+    {
       "NOME TRANSPORTADORA": "SMART LOG TRANS",
       "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 6
+    },
+    {
+      "NOME TRANSPORTADORA": "LINDON JOHSON",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
       "reentregas": 6
     },
     {
@@ -15880,12 +15985,7 @@
     },
     {
       "NOME TRANSPORTADORA": "LINDON JOHSON",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 6
-    },
-    {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "DIVERGENCIA DE PRECO",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
       "reentregas": 5
     },
     {
@@ -15894,18 +15994,13 @@
       "reentregas": 5
     },
     {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DIVERGENCIA DE PRECO",
+      "reentregas": 5
+    },
+    {
       "NOME TRANSPORTADORA": "LINDON JOHSON",
       "DESC JUST OC": "RECUSA CLIENTE",
-      "reentregas": 5
-    },
-    {
-      "NOME TRANSPORTADORA": "LINDON JOHSON",
-      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 5
-    },
-    {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
       "reentregas": 5
     },
     {
@@ -15914,13 +16009,18 @@
       "reentregas": 5
     },
     {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
       "reentregas": 5
     },
     {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
       "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "reentregas": 4
+    },
+    {
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "RECUSA_SEM PEDIDO",
       "reentregas": 4
     },
     {
@@ -15934,23 +16034,8 @@
       "reentregas": 4
     },
     {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "DESACORDO COM O PEDIDO",
-      "reentregas": 4
-    },
-    {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "RECUSA_SEM PEDIDO",
-      "reentregas": 4
-    },
-    {
       "NOME TRANSPORTADORA": "CARLOS ALBERTO",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 4
-    },
-    {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "PROBLEMAS FORÇA MAIOR (CLIMÁTICOS)",
       "reentregas": 4
     },
     {
@@ -15959,8 +16044,73 @@
       "reentregas": 4
     },
     {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DESACORDO COM O PEDIDO",
+      "reentregas": 4
+    },
+    {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "PROBLEMAS FORÇA MAIOR (CLIMÁTICOS)",
+      "reentregas": 4
+    },
+    {
+      "NOME TRANSPORTADORA": "TRANS FARIAS",
+      "DESC JUST OC": "LOCAL FECHADO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "RECUSA_SEM PEDIDO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "SMART LOG TRANS",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 3
+    },
+    {
       "NOME TRANSPORTADORA": "SPEEDY LOG",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "DESC JUST OC": "RECUSA CLIENTE",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "BOLETO PRORROGACAO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "reentregas": 3
+    },
+    {
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "DESC JUST OC": "LOCAL FECHADO",
       "reentregas": 3
     },
     {
@@ -15969,59 +16119,9 @@
       "reentregas": 3
     },
     {
-      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
-      "DESC JUST OC": "BOLETO PRORROGACAO",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
-      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "TRANS FARIAS",
-      "DESC JUST OC": "LOCAL FECHADO",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
-      "DESC JUST OC": "RECUSA_SEM PEDIDO",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
-      "DESC JUST OC": "LOCAL FECHADO",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "ARIOVALDO",
-      "DESC JUST OC": "RECUSA CLIENTE",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
       "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "SMART LOG TRANS",
-      "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
-      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
-      "reentregas": 3
-    },
-    {
-      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
-      "DESC JUST OC": "DEMORA RECEBIMENTO",
-      "reentregas": 3
+      "reentregas": 2
     },
     {
       "NOME TRANSPORTADORA": "ARIOVALDO",
@@ -16029,13 +16129,23 @@
       "reentregas": 2
     },
     {
-      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
-      "DESC JUST OC": "PROBL. ROTA / MOTORISTA",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
       "reentregas": 2
     },
     {
       "NOME TRANSPORTADORA": "TRANS FARIAS",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "DIVERGENCIA DE PRECO",
+      "reentregas": 2
+    },
+    {
+      "NOME TRANSPORTADORA": "SMART LOG TRANS",
+      "DESC JUST OC": "LOCAL FECHADO",
       "reentregas": 2
     },
     {
@@ -16045,27 +16155,12 @@
     },
     {
       "NOME TRANSPORTADORA": "TRANS FARIAS",
-      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
       "reentregas": 2
     },
     {
       "NOME TRANSPORTADORA": "TRANS FARIAS",
-      "DESC JUST OC": "RECUSA BALANCO_LOJA",
-      "reentregas": 2
-    },
-    {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "DESC JUST OC": "DIVERGENCIA DE PRECO",
-      "reentregas": 2
-    },
-    {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "DESC JUST OC": "RECUSA BALANCO_LOJA",
-      "reentregas": 2
-    },
-    {
-      "NOME TRANSPORTADORA": "SMART LOG TRANS",
-      "DESC JUST OC": "LOCAL FECHADO",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
       "reentregas": 2
     },
     {
@@ -16079,21 +16174,6 @@
       "reentregas": 1
     },
     {
-      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
-      "DESC JUST OC": "OPERACAO EXPEDICAO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
-      "DESC JUST OC": "RECUSA BALANCO_LOJA",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "ARIOVALDO",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 1
-    },
-    {
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
       "DESC JUST OC": "OPERACAO EXPEDICAO",
       "reentregas": 1
@@ -16104,33 +16184,13 @@
       "reentregas": 1
     },
     {
-      "NOME TRANSPORTADORA": "ARIOVALDO",
-      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
-      "DESC JUST OC": "LOCAL FECHADO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
-      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "LIMA CARGO EXPR",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
       "NOME TRANSPORTADORA": "LINDON JOHSON",
       "DESC JUST OC": "BOLETO PRORROGACAO",
       "reentregas": 1
     },
     {
-      "NOME TRANSPORTADORA": "ARIOVALDO",
-      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "NOME TRANSPORTADORA": "LINDON JOHSON",
+      "DESC JUST OC": "FORA DE HORARIO",
       "reentregas": 1
     },
     {
@@ -16144,8 +16204,43 @@
       "reentregas": 1
     },
     {
-      "NOME TRANSPORTADORA": "LINDON JOHSON",
-      "DESC JUST OC": "FORA DE HORARIO",
+      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
+      "DESC JUST OC": "LOCAL FECHADO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "DESC JUST OC": "OPERACAO EXPEDICAO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "CARLOS ALBERTO",
+      "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
       "reentregas": 1
     },
     {
@@ -16155,7 +16250,32 @@
     },
     {
       "NOME TRANSPORTADORA": "SMART LOG TRANS",
+      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "DESC JUST OC": "BOLETO PRORROGACAO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "SMART LOG TRANS",
+      "DESC JUST OC": "RECUSA CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "SMART LOG TRANS",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "SMART LOG TRANS",
       "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "NOME TRANSPORTADORA": "SMART LOG TRANS",
+      "DESC JUST OC": "RECUSA BALANCO_LOJA",
       "reentregas": 1
     },
     {
@@ -16166,31 +16286,6 @@
     {
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
       "DESC JUST OC": "RECUSA_SEM PEDIDO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "SMART LOG TRANS",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "SMART LOG TRANS",
-      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "SMART LOG TRANS",
-      "DESC JUST OC": "RECUSA CLIENTE",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "SPEEDY LOG",
-      "DESC JUST OC": "BOLETO PRORROGACAO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "SMART LOG TRANS",
-      "DESC JUST OC": "RECUSA BALANCO_LOJA",
       "reentregas": 1
     },
     {
@@ -16210,21 +16305,6 @@
     },
     {
       "NOME TRANSPORTADORA": "TRANS FARIAS",
-      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "TRANSPORTES FRA",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "TRANSPORTES FRA",
-      "DESC JUST OC": "RECUSA CLIENTE",
-      "reentregas": 1
-    },
-    {
-      "NOME TRANSPORTADORA": "TRANSPORTES FRA",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
       "reentregas": 1
     },
@@ -16792,11 +16872,6 @@
     },
     {
       "DIA": "2026-02-04",
-      "NOME TRANSPORTADORA": "LIMA CARGO EXPR",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-02-04",
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
       "reentregas": 1
     },
@@ -16853,11 +16928,6 @@
     {
       "DIA": "2026-02-06",
       "NOME TRANSPORTADORA": "TRANS FARIAS",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-02-06",
-      "NOME TRANSPORTADORA": "TRANSPORTES FRA",
       "reentregas": 1
     },
     {
@@ -18286,11 +18356,6 @@
       "reentregas": 2
     },
     {
-      "DIA": "2026-05-07",
-      "NOME TRANSPORTADORA": "TRANSPORTES FRA",
-      "reentregas": 1
-    },
-    {
       "DIA": "2026-05-08",
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
       "reentregas": 1
@@ -18976,11 +19041,6 @@
       "reentregas": 4
     },
     {
-      "DIA": "2026-06-26",
-      "NOME TRANSPORTADORA": "TRANSPORTES FRA",
-      "reentregas": 1
-    },
-    {
       "DIA": "2026-06-29",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "reentregas": 6
@@ -19074,6 +19134,26 @@
       "DIA": "2026-07-03",
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "reentregas": 7
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "reentregas": 4
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "reentregas": 5
     }
   ],
   "nf_transp_dia": [
@@ -24654,6 +24734,11 @@
     },
     {
       "DIA": "2026-06-10",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 11
+    },
+    {
+      "DIA": "2026-06-10",
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "entregas": 2
     },
@@ -24701,6 +24786,11 @@
       "DIA": "2026-06-11",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "entregas": 93
+    },
+    {
+      "DIA": "2026-06-11",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 12
     },
     {
       "DIA": "2026-06-11",
@@ -24754,6 +24844,11 @@
     },
     {
       "DIA": "2026-06-12",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 8
+    },
+    {
+      "DIA": "2026-06-12",
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "entregas": 1
     },
@@ -24804,6 +24899,11 @@
     },
     {
       "DIA": "2026-06-15",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 11
+    },
+    {
+      "DIA": "2026-06-15",
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "entregas": 1
     },
@@ -24841,6 +24941,11 @@
       "DIA": "2026-06-16",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "entregas": 115
+    },
+    {
+      "DIA": "2026-06-16",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 10
     },
     {
       "DIA": "2026-06-16",
@@ -24894,6 +24999,11 @@
     },
     {
       "DIA": "2026-06-17",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 12
+    },
+    {
+      "DIA": "2026-06-17",
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "entregas": 3
     },
@@ -24944,6 +25054,11 @@
     },
     {
       "DIA": "2026-06-18",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 9
+    },
+    {
+      "DIA": "2026-06-18",
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "entregas": 3
     },
@@ -24986,6 +25101,11 @@
       "DIA": "2026-06-19",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "entregas": 92
+    },
+    {
+      "DIA": "2026-06-19",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 9
     },
     {
       "DIA": "2026-06-19",
@@ -25039,6 +25159,11 @@
     },
     {
       "DIA": "2026-06-22",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 18
+    },
+    {
+      "DIA": "2026-06-22",
       "NOME TRANSPORTADORA": "LINDON JOHSON",
       "entregas": 5
     },
@@ -25076,6 +25201,11 @@
       "DIA": "2026-06-23",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "entregas": 141
+    },
+    {
+      "DIA": "2026-06-23",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 36
     },
     {
       "DIA": "2026-06-23",
@@ -25121,6 +25251,11 @@
       "DIA": "2026-06-24",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "entregas": 68
+    },
+    {
+      "DIA": "2026-06-24",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 26
     },
     {
       "DIA": "2026-06-24",
@@ -25174,6 +25309,11 @@
     },
     {
       "DIA": "2026-06-25",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 21
+    },
+    {
+      "DIA": "2026-06-25",
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "entregas": 2
     },
@@ -25221,6 +25361,11 @@
       "DIA": "2026-06-26",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "entregas": 75
+    },
+    {
+      "DIA": "2026-06-26",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 21
     },
     {
       "DIA": "2026-06-26",
@@ -25274,6 +25419,11 @@
     },
     {
       "DIA": "2026-06-29",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 19
+    },
+    {
+      "DIA": "2026-06-29",
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "entregas": 1
     },
@@ -25324,6 +25474,11 @@
     },
     {
       "DIA": "2026-06-30",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 24
+    },
+    {
+      "DIA": "2026-06-30",
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "entregas": 4
     },
@@ -25366,6 +25521,11 @@
       "DIA": "2026-07-02",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "entregas": 106
+    },
+    {
+      "DIA": "2026-07-02",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 25
     },
     {
       "DIA": "2026-07-02",
@@ -25414,6 +25574,11 @@
     },
     {
       "DIA": "2026-07-03",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 20
+    },
+    {
+      "DIA": "2026-07-03",
       "NOME TRANSPORTADORA": "ARIOVALDO",
       "entregas": 3
     },
@@ -25456,6 +25621,56 @@
       "DIA": "2026-07-03",
       "NOME TRANSPORTADORA": "VANDERLEI",
       "entregas": 1
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "entregas": 46
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "entregas": 20
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "ARIOVALDO",
+      "entregas": 3
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "LINDON JOHSON",
+      "entregas": 4
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
+      "entregas": 10
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "entregas": 35
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "SPEEDY LOG",
+      "entregas": 2
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "entregas": 48
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "TRANS FARIAS",
+      "entregas": 5
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "VANDERLEI",
+      "entregas": 2
     }
   ],
   "reentregas_just_dia": [
@@ -25997,7 +26212,7 @@
     {
       "DIA": "2026-02-04",
       "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 5
+      "reentregas": 4
     },
     {
       "DIA": "2026-02-04",
@@ -27506,11 +27721,6 @@
     },
     {
       "DIA": "2026-05-07",
-      "DESC JUST OC": "RECUSA CLIENTE",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-05-07",
       "DESC JUST OC": "RESTRICAO JANELA DE RECEBIMENTO",
       "reentregas": 1
     },
@@ -28337,7 +28547,7 @@
     {
       "DIA": "2026-06-26",
       "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 2
+      "reentregas": 1
     },
     {
       "DIA": "2026-06-26",
@@ -28483,6 +28693,31 @@
       "DIA": "2026-07-03",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
       "reentregas": 2
+    },
+    {
+      "DIA": "2026-07-06",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-07-06",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 5
+    },
+    {
+      "DIA": "2026-07-06",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-07-06",
+      "DESC JUST OC": "LOCAL FECHADO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-07-06",
+      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
+      "reentregas": 1
     }
   ],
   "reentregas_transp_just_dia": [
@@ -29664,12 +29899,6 @@
     },
     {
       "DIA": "2026-02-04",
-      "NOME TRANSPORTADORA": "LIMA CARGO EXPR",
-      "DESC JUST OC": "FORA DE HORARIO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-02-04",
       "NOME TRANSPORTADORA": "PHOENIX LOGISTI",
       "DESC JUST OC": "DEMORA RECEBIMENTO",
       "reentregas": 1
@@ -29822,12 +30051,6 @@
       "DIA": "2026-02-06",
       "NOME TRANSPORTADORA": "TRANS FARIAS",
       "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 1
-    },
-    {
-      "DIA": "2026-02-06",
-      "NOME TRANSPORTADORA": "TRANSPORTES FRA",
-      "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
       "reentregas": 1
     },
     {
@@ -32897,12 +33120,6 @@
       "reentregas": 2
     },
     {
-      "DIA": "2026-05-07",
-      "NOME TRANSPORTADORA": "TRANSPORTES FRA",
-      "DESC JUST OC": "RECUSA CLIENTE",
-      "reentregas": 1
-    },
-    {
       "DIA": "2026-05-08",
       "NOME TRANSPORTADORA": "RBT LOGISTICA E",
       "DESC JUST OC": "FORA DE HORARIO",
@@ -34595,12 +34812,6 @@
       "reentregas": 1
     },
     {
-      "DIA": "2026-06-26",
-      "NOME TRANSPORTADORA": "TRANSPORTES FRA",
-      "DESC JUST OC": "C.S. - SEM AGENDAMENTO/ERRO PROGRAMAÇAO",
-      "reentregas": 1
-    },
-    {
       "DIA": "2026-06-29",
       "NOME TRANSPORTADORA": "ADLER TRANSPORT",
       "DESC JUST OC": "DEMORA RECEBIMENTO",
@@ -34863,6 +35074,48 @@
       "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
       "DESC JUST OC": "RECUSA ESTOQUE_CHEIO",
       "reentregas": 1
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "ADLER TRANSPORT",
+      "DESC JUST OC": "LOCAL FECHADO",
+      "reentregas": 2
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "AG GESTAO EM TR",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "RBT LOGISTICA E",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "DEMORA RECEBIMENTO",
+      "reentregas": 1
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "FORA DE HORARIO",
+      "reentregas": 3
+    },
+    {
+      "DIA": "2026-07-06",
+      "NOME TRANSPORTADORA": "STYNGRAY TRANSP",
+      "DESC JUST OC": "INFRAESTRUTURA CLIENTE",
+      "reentregas": 1
     }
   ],
   "reentregas_dia": [
@@ -34960,7 +35213,7 @@
     },
     {
       "DIA": "2026-02-04",
-      "reentregas": 12
+      "reentregas": 11
     },
     {
       "DIA": "2026-02-05",
@@ -35208,7 +35461,7 @@
     },
     {
       "DIA": "2026-05-07",
-      "reentregas": 19
+      "reentregas": 18
     },
     {
       "DIA": "2026-05-08",
@@ -35348,7 +35601,7 @@
     },
     {
       "DIA": "2026-06-26",
-      "reentregas": 12
+      "reentregas": 11
     },
     {
       "DIA": "2026-06-29",
@@ -35365,6 +35618,10 @@
     {
       "DIA": "2026-07-03",
       "reentregas": 18
+    },
+    {
+      "DIA": "2026-07-06",
+      "reentregas": 11
     }
   ],
   "reentregas_mes": [
@@ -35374,7 +35631,7 @@
     },
     {
       "MES_KEY": "2026-02",
-      "reentregas": 294
+      "reentregas": 293
     },
     {
       "MES_KEY": "2026-03",
@@ -35386,15 +35643,15 @@
     },
     {
       "MES_KEY": "2026-05",
-      "reentregas": 257
+      "reentregas": 256
     },
     {
       "MES_KEY": "2026-06",
-      "reentregas": 310
+      "reentregas": 309
     },
     {
       "MES_KEY": "2026-07",
-      "reentregas": 42
+      "reentregas": 53
     }
   ],
   "nf_entregas_dia": [
@@ -35888,71 +36145,75 @@
     },
     {
       "DIA": "2026-06-10",
-      "qtd_entregas": 357
+      "qtd_entregas": 368
     },
     {
       "DIA": "2026-06-11",
-      "qtd_entregas": 308
+      "qtd_entregas": 320
     },
     {
       "DIA": "2026-06-12",
-      "qtd_entregas": 272
+      "qtd_entregas": 280
     },
     {
       "DIA": "2026-06-15",
-      "qtd_entregas": 160
+      "qtd_entregas": 171
     },
     {
       "DIA": "2026-06-16",
-      "qtd_entregas": 432
-    },
-    {
-      "DIA": "2026-06-17",
-      "qtd_entregas": 376
-    },
-    {
-      "DIA": "2026-06-18",
-      "qtd_entregas": 385
-    },
-    {
-      "DIA": "2026-06-19",
-      "qtd_entregas": 346
-    },
-    {
-      "DIA": "2026-06-22",
-      "qtd_entregas": 124
-    },
-    {
-      "DIA": "2026-06-23",
-      "qtd_entregas": 433
-    },
-    {
-      "DIA": "2026-06-24",
-      "qtd_entregas": 344
-    },
-    {
-      "DIA": "2026-06-25",
-      "qtd_entregas": 331
-    },
-    {
-      "DIA": "2026-06-26",
-      "qtd_entregas": 262
-    },
-    {
-      "DIA": "2026-06-29",
-      "qtd_entregas": 248
-    },
-    {
-      "DIA": "2026-06-30",
       "qtd_entregas": 442
     },
     {
+      "DIA": "2026-06-17",
+      "qtd_entregas": 388
+    },
+    {
+      "DIA": "2026-06-18",
+      "qtd_entregas": 394
+    },
+    {
+      "DIA": "2026-06-19",
+      "qtd_entregas": 355
+    },
+    {
+      "DIA": "2026-06-22",
+      "qtd_entregas": 142
+    },
+    {
+      "DIA": "2026-06-23",
+      "qtd_entregas": 469
+    },
+    {
+      "DIA": "2026-06-24",
+      "qtd_entregas": 370
+    },
+    {
+      "DIA": "2026-06-25",
+      "qtd_entregas": 352
+    },
+    {
+      "DIA": "2026-06-26",
+      "qtd_entregas": 283
+    },
+    {
+      "DIA": "2026-06-29",
+      "qtd_entregas": 267
+    },
+    {
+      "DIA": "2026-06-30",
+      "qtd_entregas": 466
+    },
+    {
       "DIA": "2026-07-02",
-      "qtd_entregas": 324
+      "qtd_entregas": 349
     },
     {
       "DIA": "2026-07-03",
-      "qtd_entregas": 273
+      "qtd_entregas": 293
+    },
+    {
+      "DIA": "2026-07-06",
+      "qtd_entregas": 174
     }
   ],
   "nf_entregas_mes": [
@@ -35978,11 +36239,2317 @@
     },
     {
       "MES_KEY": "2026-06",
-      "qtd_entregas": 6958
+      "qtd_entregas": 7205
     },
     {
       "MES_KEY": "2026-07",
-      "qtd_entregas": 597
+      "qtd_entregas": 816
+    }
+  ],
+  "reent_fh_peso_dia": [
+    {
+      "DIA": "2026-01-02",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 696.315
+    },
+    {
+      "DIA": "2026-01-02",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 13.557
+    },
+    {
+      "DIA": "2026-01-02",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 107.293
+    },
+    {
+      "DIA": "2026-01-02",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 128.574
+    },
+    {
+      "DIA": "2026-01-05",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 4,
+      "peso": 594.438
+    },
+    {
+      "DIA": "2026-01-05",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 5,
+      "peso": 55.052
+    },
+    {
+      "DIA": "2026-01-05",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 9,
+      "peso": 282.724
+    },
+    {
+      "DIA": "2026-01-05",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 122.4
+    },
+    {
+      "DIA": "2026-01-06",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 7,
+      "peso": 223.551
+    },
+    {
+      "DIA": "2026-01-06",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 7,
+      "peso": 469.567
+    },
+    {
+      "DIA": "2026-01-07",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 134.014
+    },
+    {
+      "DIA": "2026-01-07",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 15.12
+    },
+    {
+      "DIA": "2026-01-07",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 27.028
+    },
+    {
+      "DIA": "2026-01-07",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 50.4
+    },
+    {
+      "DIA": "2026-01-08",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 4,
+      "peso": 1039.978
+    },
+    {
+      "DIA": "2026-01-08",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 26.163
+    },
+    {
+      "DIA": "2026-01-08",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 5,
+      "peso": 156.286
+    },
+    {
+      "DIA": "2026-01-08",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 221.268
+    },
+    {
+      "DIA": "2026-01-09",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 9.6
+    },
+    {
+      "DIA": "2026-01-09",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 82.85
+    },
+    {
+      "DIA": "2026-01-12",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 6,
+      "peso": 72.866
+    },
+    {
+      "DIA": "2026-01-12",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 6,
+      "peso": 203.864
+    },
+    {
+      "DIA": "2026-01-12",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 148.837
+    },
+    {
+      "DIA": "2026-01-13",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 607.455
+    },
+    {
+      "DIA": "2026-01-13",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 34.385
+    },
+    {
+      "DIA": "2026-01-13",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 4,
+      "peso": 117.523
+    },
+    {
+      "DIA": "2026-01-13",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 178.641
+    },
+    {
+      "DIA": "2026-01-14",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 230.826
+    },
+    {
+      "DIA": "2026-01-14",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 18.298
+    },
+    {
+      "DIA": "2026-01-14",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 154.095
+    },
+    {
+      "DIA": "2026-01-15",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 384.724
+    },
+    {
+      "DIA": "2026-01-15",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 36.416
+    },
+    {
+      "DIA": "2026-01-15",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 80.426
+    },
+    {
+      "DIA": "2026-01-16",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 34.0
+    },
+    {
+      "DIA": "2026-01-16",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 95.513
+    },
+    {
+      "DIA": "2026-01-16",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 133.906
+    },
+    {
+      "DIA": "2026-01-19",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 200.0
+    },
+    {
+      "DIA": "2026-01-19",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 5.025
+    },
+    {
+      "DIA": "2026-01-19",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 61.667
+    },
+    {
+      "DIA": "2026-01-20",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 549.833
+    },
+    {
+      "DIA": "2026-01-20",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 28.681
+    },
+    {
+      "DIA": "2026-01-20",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 132.428
+    },
+    {
+      "DIA": "2026-01-21",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 24.387
+    },
+    {
+      "DIA": "2026-01-21",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 79.986
+    },
+    {
+      "DIA": "2026-01-21",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 140.636
+    },
+    {
+      "DIA": "2026-01-22",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 117.596
+    },
+    {
+      "DIA": "2026-01-22",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 27.714
+    },
+    {
+      "DIA": "2026-01-22",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 62.977
+    },
+    {
+      "DIA": "2026-01-22",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 164.131
+    },
+    {
+      "DIA": "2026-01-23",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 413.958
+    },
+    {
+      "DIA": "2026-01-23",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 7.754
+    },
+    {
+      "DIA": "2026-01-26",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 120.0
+    },
+    {
+      "DIA": "2026-01-26",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 24.434
+    },
+    {
+      "DIA": "2026-01-26",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 88.821
+    },
+    {
+      "DIA": "2026-01-27",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 68.155
+    },
+    {
+      "DIA": "2026-01-27",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 62.326
+    },
+    {
+      "DIA": "2026-01-28",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 186.038
+    },
+    {
+      "DIA": "2026-01-28",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 18.429
+    },
+    {
+      "DIA": "2026-01-28",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 59.124
+    },
+    {
+      "DIA": "2026-01-29",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 289.039
+    },
+    {
+      "DIA": "2026-01-29",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 6,
+      "peso": 41.211
+    },
+    {
+      "DIA": "2026-01-29",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 99.765
+    },
+    {
+      "DIA": "2026-01-29",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 137.502
+    },
+    {
+      "DIA": "2026-01-30",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 107.087
+    },
+    {
+      "DIA": "2026-01-30",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 33.52
+    },
+    {
+      "DIA": "2026-01-30",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 22.271
+    },
+    {
+      "DIA": "2026-01-30",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 83.22
+    },
+    {
+      "DIA": "2026-02-02",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 5,
+      "peso": 748.931
+    },
+    {
+      "DIA": "2026-02-02",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 14.6
+    },
+    {
+      "DIA": "2026-02-02",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 4,
+      "peso": 154.273
+    },
+    {
+      "DIA": "2026-02-02",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 4,
+      "peso": 279.834
+    },
+    {
+      "DIA": "2026-02-03",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 321.025
+    },
+    {
+      "DIA": "2026-02-03",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 32.162
+    },
+    {
+      "DIA": "2026-02-03",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 167.985
+    },
+    {
+      "DIA": "2026-02-04",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 295.236
+    },
+    {
+      "DIA": "2026-02-04",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 15.9
+    },
+    {
+      "DIA": "2026-02-04",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 81.77
+    },
+    {
+      "DIA": "2026-02-05",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 361.756
+    },
+    {
+      "DIA": "2026-02-05",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 4,
+      "peso": 50.508
+    },
+    {
+      "DIA": "2026-02-05",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 112.577
+    },
+    {
+      "DIA": "2026-02-05",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 50.735
+    },
+    {
+      "DIA": "2026-02-06",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 4,
+      "peso": 59.278
+    },
+    {
+      "DIA": "2026-02-06",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 40.81
+    },
+    {
+      "DIA": "2026-02-09",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 167.329
+    },
+    {
+      "DIA": "2026-02-09",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 80.748
+    },
+    {
+      "DIA": "2026-02-09",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 177.119
+    },
+    {
+      "DIA": "2026-02-10",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 633.015
+    },
+    {
+      "DIA": "2026-02-10",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 28.49
+    },
+    {
+      "DIA": "2026-02-10",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 113.259
+    },
+    {
+      "DIA": "2026-02-10",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 236.844
+    },
+    {
+      "DIA": "2026-02-11",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 6,
+      "peso": 73.856
+    },
+    {
+      "DIA": "2026-02-11",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 115.648
+    },
+    {
+      "DIA": "2026-02-11",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 208.363
+    },
+    {
+      "DIA": "2026-02-12",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 100.517
+    },
+    {
+      "DIA": "2026-02-12",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 4,
+      "peso": 46.773
+    },
+    {
+      "DIA": "2026-02-12",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 4,
+      "peso": 151.333
+    },
+    {
+      "DIA": "2026-02-12",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 172.342
+    },
+    {
+      "DIA": "2026-02-13",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 100.517
+    },
+    {
+      "DIA": "2026-02-13",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 7,
+      "peso": 94.185
+    },
+    {
+      "DIA": "2026-02-13",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 77.32
+    },
+    {
+      "DIA": "2026-02-13",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 4,
+      "peso": 278.19
+    },
+    {
+      "DIA": "2026-02-16",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 23.507
+    },
+    {
+      "DIA": "2026-02-16",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 157.306
+    },
+    {
+      "DIA": "2026-02-18",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 14.4
+    },
+    {
+      "DIA": "2026-02-18",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 110.607
+    },
+    {
+      "DIA": "2026-02-18",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 191.907
+    },
+    {
+      "DIA": "2026-02-19",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 115.525
+    },
+    {
+      "DIA": "2026-02-19",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 5,
+      "peso": 67.56
+    },
+    {
+      "DIA": "2026-02-19",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 23.754
+    },
+    {
+      "DIA": "2026-02-19",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 51.665
+    },
+    {
+      "DIA": "2026-02-23",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 15.2
+    },
+    {
+      "DIA": "2026-02-24",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 177.45
+    },
+    {
+      "DIA": "2026-02-24",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 30.43
+    },
+    {
+      "DIA": "2026-02-24",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 87.176
+    },
+    {
+      "DIA": "2026-02-24",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 51.757
+    },
+    {
+      "DIA": "2026-02-25",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 409.201
+    },
+    {
+      "DIA": "2026-02-25",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 9.6
+    },
+    {
+      "DIA": "2026-02-25",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 112.902
+    },
+    {
+      "DIA": "2026-02-25",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 174.736
+    },
+    {
+      "DIA": "2026-02-26",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 233.173
+    },
+    {
+      "DIA": "2026-02-26",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 47.788
+    },
+    {
+      "DIA": "2026-02-27",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 132.286
+    },
+    {
+      "DIA": "2026-02-27",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 18.0
+    },
+    {
+      "DIA": "2026-02-27",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 76.916
+    },
+    {
+      "DIA": "2026-02-27",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 174.746
+    },
+    {
+      "DIA": "2026-03-02",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 6.989
+    },
+    {
+      "DIA": "2026-03-02",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 24.022
+    },
+    {
+      "DIA": "2026-03-03",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 314.075
+    },
+    {
+      "DIA": "2026-03-03",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 80.184
+    },
+    {
+      "DIA": "2026-03-04",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 13.42
+    },
+    {
+      "DIA": "2026-03-04",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 5,
+      "peso": 365.324
+    },
+    {
+      "DIA": "2026-03-05",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 5,
+      "peso": 611.439
+    },
+    {
+      "DIA": "2026-03-05",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 7,
+      "peso": 73.697
+    },
+    {
+      "DIA": "2026-03-05",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 4,
+      "peso": 140.479
+    },
+    {
+      "DIA": "2026-03-05",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 4,
+      "peso": 307.146
+    },
+    {
+      "DIA": "2026-03-06",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 6,
+      "peso": 65.856
+    },
+    {
+      "DIA": "2026-03-06",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 77.192
+    },
+    {
+      "DIA": "2026-03-06",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 204.123
+    },
+    {
+      "DIA": "2026-03-09",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 102.785
+    },
+    {
+      "DIA": "2026-03-09",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 4,
+      "peso": 43.64
+    },
+    {
+      "DIA": "2026-03-09",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 59.975
+    },
+    {
+      "DIA": "2026-03-09",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 159.928
+    },
+    {
+      "DIA": "2026-03-10",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 6,
+      "peso": 1116.422
+    },
+    {
+      "DIA": "2026-03-10",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 6,
+      "peso": 78.734
+    },
+    {
+      "DIA": "2026-03-10",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 6,
+      "peso": 207.236
+    },
+    {
+      "DIA": "2026-03-10",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 6,
+      "peso": 503.696
+    },
+    {
+      "DIA": "2026-03-11",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 432.642
+    },
+    {
+      "DIA": "2026-03-11",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 3.2
+    },
+    {
+      "DIA": "2026-03-11",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 58.548
+    },
+    {
+      "DIA": "2026-03-12",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 141.04
+    },
+    {
+      "DIA": "2026-03-12",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 4,
+      "peso": 42.139
+    },
+    {
+      "DIA": "2026-03-12",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 7,
+      "peso": 242.471
+    },
+    {
+      "DIA": "2026-03-12",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 5,
+      "peso": 339.789
+    },
+    {
+      "DIA": "2026-03-13",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 101.0
+    },
+    {
+      "DIA": "2026-03-16",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 363.732
+    },
+    {
+      "DIA": "2026-03-16",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 32.363
+    },
+    {
+      "DIA": "2026-03-17",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 535.976
+    },
+    {
+      "DIA": "2026-03-17",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 30.829
+    },
+    {
+      "DIA": "2026-03-17",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 21.737
+    },
+    {
+      "DIA": "2026-03-17",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 222.293
+    },
+    {
+      "DIA": "2026-03-18",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 6.15
+    },
+    {
+      "DIA": "2026-03-18",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 96.09
+    },
+    {
+      "DIA": "2026-03-18",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 166.69
+    },
+    {
+      "DIA": "2026-03-19",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 184.439
+    },
+    {
+      "DIA": "2026-03-19",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 18.388
+    },
+    {
+      "DIA": "2026-03-19",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 106.15
+    },
+    {
+      "DIA": "2026-03-19",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 4,
+      "peso": 261.002
+    },
+    {
+      "DIA": "2026-03-20",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 359.113
+    },
+    {
+      "DIA": "2026-03-20",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 22.384
+    },
+    {
+      "DIA": "2026-03-20",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 72.342
+    },
+    {
+      "DIA": "2026-03-20",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 228.652
+    },
+    {
+      "DIA": "2026-03-23",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 163.826
+    },
+    {
+      "DIA": "2026-03-23",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 23.579
+    },
+    {
+      "DIA": "2026-03-23",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 82.692
+    },
+    {
+      "DIA": "2026-03-24",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 797.383
+    },
+    {
+      "DIA": "2026-03-24",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 6.6
+    },
+    {
+      "DIA": "2026-03-24",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 58.202
+    },
+    {
+      "DIA": "2026-03-24",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 53.802
+    },
+    {
+      "DIA": "2026-03-25",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 9.6
+    },
+    {
+      "DIA": "2026-03-25",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 52.039
+    },
+    {
+      "DIA": "2026-03-25",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 211.24
+    },
+    {
+      "DIA": "2026-03-26",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 4,
+      "peso": 1086.366
+    },
+    {
+      "DIA": "2026-03-26",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 38.239
+    },
+    {
+      "DIA": "2026-03-26",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 6,
+      "peso": 179.94
+    },
+    {
+      "DIA": "2026-03-26",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 220.444
+    },
+    {
+      "DIA": "2026-03-27",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 106.457
+    },
+    {
+      "DIA": "2026-03-27",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 59.251
+    },
+    {
+      "DIA": "2026-03-30",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 38.951
+    },
+    {
+      "DIA": "2026-03-30",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 7,
+      "peso": 234.046
+    },
+    {
+      "DIA": "2026-03-30",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 222.957
+    },
+    {
+      "DIA": "2026-03-31",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 374.806
+    },
+    {
+      "DIA": "2026-03-31",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 10.314
+    },
+    {
+      "DIA": "2026-03-31",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 159.513
+    },
+    {
+      "DIA": "2026-04-01",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 236.244
+    },
+    {
+      "DIA": "2026-04-01",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 28.964
+    },
+    {
+      "DIA": "2026-04-01",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 24.0
+    },
+    {
+      "DIA": "2026-04-01",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 67.989
+    },
+    {
+      "DIA": "2026-04-02",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 119.187
+    },
+    {
+      "DIA": "2026-04-02",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 5,
+      "peso": 192.5
+    },
+    {
+      "DIA": "2026-04-02",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 219.533
+    },
+    {
+      "DIA": "2026-04-06",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 210.438
+    },
+    {
+      "DIA": "2026-04-06",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 9,
+      "peso": 86.823
+    },
+    {
+      "DIA": "2026-04-06",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 5,
+      "peso": 138.215
+    },
+    {
+      "DIA": "2026-04-06",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 215.65
+    },
+    {
+      "DIA": "2026-04-07",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 521.536
+    },
+    {
+      "DIA": "2026-04-07",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 18.786
+    },
+    {
+      "DIA": "2026-04-07",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 23.82
+    },
+    {
+      "DIA": "2026-04-07",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 155.754
+    },
+    {
+      "DIA": "2026-04-08",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 139.777
+    },
+    {
+      "DIA": "2026-04-08",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 9.6
+    },
+    {
+      "DIA": "2026-04-08",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 33.036
+    },
+    {
+      "DIA": "2026-04-09",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 116.102
+    },
+    {
+      "DIA": "2026-04-09",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 14.075
+    },
+    {
+      "DIA": "2026-04-09",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 5,
+      "peso": 143.799
+    },
+    {
+      "DIA": "2026-04-10",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 116.102
+    },
+    {
+      "DIA": "2026-04-10",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 34.673
+    },
+    {
+      "DIA": "2026-04-10",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 63.551
+    },
+    {
+      "DIA": "2026-04-13",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 155.587
+    },
+    {
+      "DIA": "2026-04-14",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 138.928
+    },
+    {
+      "DIA": "2026-04-14",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 12.805
+    },
+    {
+      "DIA": "2026-04-14",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 72.106
+    },
+    {
+      "DIA": "2026-04-15",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 203.851
+    },
+    {
+      "DIA": "2026-04-15",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 62.2
+    },
+    {
+      "DIA": "2026-04-15",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 57.6
+    },
+    {
+      "DIA": "2026-04-16",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 566.878
+    },
+    {
+      "DIA": "2026-04-16",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 37.29
+    },
+    {
+      "DIA": "2026-04-16",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 31.089
+    },
+    {
+      "DIA": "2026-04-16",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 214.411
+    },
+    {
+      "DIA": "2026-04-17",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 180.0
+    },
+    {
+      "DIA": "2026-04-17",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 28.405
+    },
+    {
+      "DIA": "2026-04-20",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 275.613
+    },
+    {
+      "DIA": "2026-04-20",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 22.91
+    },
+    {
+      "DIA": "2026-04-20",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 34.342
+    },
+    {
+      "DIA": "2026-04-22",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 12.621
+    },
+    {
+      "DIA": "2026-04-22",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 163.637
+    },
+    {
+      "DIA": "2026-04-23",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 141.929
+    },
+    {
+      "DIA": "2026-04-23",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 34.2
+    },
+    {
+      "DIA": "2026-04-23",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 80.363
+    },
+    {
+      "DIA": "2026-04-23",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 197.537
+    },
+    {
+      "DIA": "2026-04-24",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 94.4
+    },
+    {
+      "DIA": "2026-04-27",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 4,
+      "peso": 116.028
+    },
+    {
+      "DIA": "2026-04-27",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 4,
+      "peso": 266.592
+    },
+    {
+      "DIA": "2026-04-28",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 619.956
+    },
+    {
+      "DIA": "2026-04-28",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 50.015
+    },
+    {
+      "DIA": "2026-04-28",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 65.492
+    },
+    {
+      "DIA": "2026-04-28",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 171.528
+    },
+    {
+      "DIA": "2026-04-29",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 48.842
+    },
+    {
+      "DIA": "2026-04-30",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 226.507
+    },
+    {
+      "DIA": "2026-04-30",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 33.0
+    },
+    {
+      "DIA": "2026-04-30",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 48.633
+    },
+    {
+      "DIA": "2026-04-30",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 50.43
+    },
+    {
+      "DIA": "2026-05-04",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 86.57
+    },
+    {
+      "DIA": "2026-05-05",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 108.221
+    },
+    {
+      "DIA": "2026-05-05",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 12.0
+    },
+    {
+      "DIA": "2026-05-05",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 24.889
+    },
+    {
+      "DIA": "2026-05-06",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 334.817
+    },
+    {
+      "DIA": "2026-05-06",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 44.334
+    },
+    {
+      "DIA": "2026-05-06",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 160.863
+    },
+    {
+      "DIA": "2026-05-07",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 340.631
+    },
+    {
+      "DIA": "2026-05-07",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 4,
+      "peso": 64.846
+    },
+    {
+      "DIA": "2026-05-07",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 7,
+      "peso": 188.067
+    },
+    {
+      "DIA": "2026-05-08",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 384.674
+    },
+    {
+      "DIA": "2026-05-08",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 24.035
+    },
+    {
+      "DIA": "2026-05-08",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 99.661
+    },
+    {
+      "DIA": "2026-05-11",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 276.274
+    },
+    {
+      "DIA": "2026-05-11",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 32.269
+    },
+    {
+      "DIA": "2026-05-11",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 106.646
+    },
+    {
+      "DIA": "2026-05-11",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 164.657
+    },
+    {
+      "DIA": "2026-05-12",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 733.747
+    },
+    {
+      "DIA": "2026-05-12",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 14.4
+    },
+    {
+      "DIA": "2026-05-12",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 22.22
+    },
+    {
+      "DIA": "2026-05-12",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 92.213
+    },
+    {
+      "DIA": "2026-05-13",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 4,
+      "peso": 137.052
+    },
+    {
+      "DIA": "2026-05-13",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 69.42
+    },
+    {
+      "DIA": "2026-05-14",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 281.395
+    },
+    {
+      "DIA": "2026-05-14",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 5,
+      "peso": 44.635
+    },
+    {
+      "DIA": "2026-05-14",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 38.548
+    },
+    {
+      "DIA": "2026-05-14",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 56.891
+    },
+    {
+      "DIA": "2026-05-15",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 414.488
+    },
+    {
+      "DIA": "2026-05-15",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 48.427
+    },
+    {
+      "DIA": "2026-05-15",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 55.368
+    },
+    {
+      "DIA": "2026-05-18",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 117.2
+    },
+    {
+      "DIA": "2026-05-18",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 15.2
+    },
+    {
+      "DIA": "2026-05-18",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 88.0
+    },
+    {
+      "DIA": "2026-05-18",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 200.8
+    },
+    {
+      "DIA": "2026-05-19",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 161.452
+    },
+    {
+      "DIA": "2026-05-20",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 34.4
+    },
+    {
+      "DIA": "2026-05-20",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 34.7
+    },
+    {
+      "DIA": "2026-05-20",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 92.197
+    },
+    {
+      "DIA": "2026-05-21",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 125.102
+    },
+    {
+      "DIA": "2026-05-21",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 4,
+      "peso": 35.19
+    },
+    {
+      "DIA": "2026-05-21",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 102.879
+    },
+    {
+      "DIA": "2026-05-21",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 117.222
+    },
+    {
+      "DIA": "2026-05-22",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 604.668
+    },
+    {
+      "DIA": "2026-05-22",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 133.367
+    },
+    {
+      "DIA": "2026-05-25",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 10.701
+    },
+    {
+      "DIA": "2026-05-26",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 4,
+      "peso": 855.989
+    },
+    {
+      "DIA": "2026-05-26",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 39.332
+    },
+    {
+      "DIA": "2026-05-27",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 636.785
+    },
+    {
+      "DIA": "2026-05-27",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 12.12
+    },
+    {
+      "DIA": "2026-05-27",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 34.017
+    },
+    {
+      "DIA": "2026-05-27",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 116.632
+    },
+    {
+      "DIA": "2026-05-28",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 135.916
+    },
+    {
+      "DIA": "2026-05-28",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 12.0
+    },
+    {
+      "DIA": "2026-05-28",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 5,
+      "peso": 186.803
+    },
+    {
+      "DIA": "2026-05-28",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 50.628
+    },
+    {
+      "DIA": "2026-05-29",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 15.12
+    },
+    {
+      "DIA": "2026-05-29",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 54.48
+    },
+    {
+      "DIA": "2026-06-01",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 159.997
+    },
+    {
+      "DIA": "2026-06-01",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 30.54
+    },
+    {
+      "DIA": "2026-06-01",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 80.569
+    },
+    {
+      "DIA": "2026-06-02",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 17.6
+    },
+    {
+      "DIA": "2026-06-02",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 25.168
+    },
+    {
+      "DIA": "2026-06-02",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 121.69
+    },
+    {
+      "DIA": "2026-06-03",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 211.08
+    },
+    {
+      "DIA": "2026-06-03",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 11.0
+    },
+    {
+      "DIA": "2026-06-03",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 110.381
+    },
+    {
+      "DIA": "2026-06-03",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 58.742
+    },
+    {
+      "DIA": "2026-06-05",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 412.035
+    },
+    {
+      "DIA": "2026-06-05",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 8,
+      "peso": 125.703
+    },
+    {
+      "DIA": "2026-06-05",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 124.565
+    },
+    {
+      "DIA": "2026-06-05",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 5,
+      "peso": 362.712
+    },
+    {
+      "DIA": "2026-06-08",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 349.124
+    },
+    {
+      "DIA": "2026-06-08",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 4,
+      "peso": 32.539
+    },
+    {
+      "DIA": "2026-06-08",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 4,
+      "peso": 128.748
+    },
+    {
+      "DIA": "2026-06-08",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 224.438
+    },
+    {
+      "DIA": "2026-06-09",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 462.046
+    },
+    {
+      "DIA": "2026-06-09",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 14.0
+    },
+    {
+      "DIA": "2026-06-09",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 67.471
+    },
+    {
+      "DIA": "2026-06-10",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 11.694
+    },
+    {
+      "DIA": "2026-06-10",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 27.72
+    },
+    {
+      "DIA": "2026-06-10",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 205.402
+    },
+    {
+      "DIA": "2026-06-11",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 322.369
+    },
+    {
+      "DIA": "2026-06-11",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 17.934
+    },
+    {
+      "DIA": "2026-06-11",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 68.338
+    },
+    {
+      "DIA": "2026-06-12",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 139.238
+    },
+    {
+      "DIA": "2026-06-12",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 117.498
+    },
+    {
+      "DIA": "2026-06-15",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 33.714
+    },
+    {
+      "DIA": "2026-06-16",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 205.065
+    },
+    {
+      "DIA": "2026-06-16",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 51.6
+    },
+    {
+      "DIA": "2026-06-16",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 48.48
+    },
+    {
+      "DIA": "2026-06-17",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 400.334
+    },
+    {
+      "DIA": "2026-06-17",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 28.785
+    },
+    {
+      "DIA": "2026-06-17",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 48.718
+    },
+    {
+      "DIA": "2026-06-18",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 2,
+      "peso": 289.378
+    },
+    {
+      "DIA": "2026-06-18",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 3.84
+    },
+    {
+      "DIA": "2026-06-18",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 3,
+      "peso": 80.063
+    },
+    {
+      "DIA": "2026-06-19",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 1572.951
+    },
+    {
+      "DIA": "2026-06-19",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 41.0
+    },
+    {
+      "DIA": "2026-06-19",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 23.49
+    },
+    {
+      "DIA": "2026-06-19",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 92.577
+    },
+    {
+      "DIA": "2026-06-22",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 32.64
+    },
+    {
+      "DIA": "2026-06-22",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 84.145
+    },
+    {
+      "DIA": "2026-06-22",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 58.114
+    },
+    {
+      "DIA": "2026-06-23",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 5,
+      "peso": 858.321
+    },
+    {
+      "DIA": "2026-06-23",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 7,
+      "peso": 85.087
+    },
+    {
+      "DIA": "2026-06-23",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 5,
+      "peso": 159.58
+    },
+    {
+      "DIA": "2026-06-23",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 3,
+      "peso": 222.036
+    },
+    {
+      "DIA": "2026-06-24",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 20.0
+    },
+    {
+      "DIA": "2026-06-24",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 21.0
+    },
+    {
+      "DIA": "2026-06-25",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 3,
+      "peso": 1007.979
+    },
+    {
+      "DIA": "2026-06-25",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 4.8
+    },
+    {
+      "DIA": "2026-06-25",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 67.419
+    },
+    {
+      "DIA": "2026-06-25",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 160.334
+    },
+    {
+      "DIA": "2026-06-26",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 298.34
+    },
+    {
+      "DIA": "2026-06-26",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 1,
+      "peso": 12.0
+    },
+    {
+      "DIA": "2026-06-26",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 42.0
+    },
+    {
+      "DIA": "2026-06-26",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 1,
+      "peso": 83.97
+    },
+    {
+      "DIA": "2026-06-29",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 204.6
+    },
+    {
+      "DIA": "2026-06-29",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 3,
+      "peso": 25.783
+    },
+    {
+      "DIA": "2026-06-29",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 47.28
+    },
+    {
+      "DIA": "2026-06-29",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 136.26
+    },
+    {
+      "DIA": "2026-06-30",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 113.6
+    },
+    {
+      "DIA": "2026-06-30",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 2,
+      "peso": 67.149
+    },
+    {
+      "DIA": "2026-06-30",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 177.746
+    },
+    {
+      "DIA": "2026-07-02",
+      "FAIXA_PESO": "+ 101 kg",
+      "qtd": 1,
+      "peso": 256.345
+    },
+    {
+      "DIA": "2026-07-02",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 10,
+      "peso": 69.122
+    },
+    {
+      "DIA": "2026-07-02",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 145.7
+    },
+    {
+      "DIA": "2026-07-03",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 27.4
+    },
+    {
+      "DIA": "2026-07-03",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 44.035
+    },
+    {
+      "DIA": "2026-07-03",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 160.444
+    },
+    {
+      "DIA": "2026-07-06",
+      "FAIXA_PESO": "0 a 20 kg",
+      "qtd": 2,
+      "peso": 21.719
+    },
+    {
+      "DIA": "2026-07-06",
+      "FAIXA_PESO": "21 a 50 kg",
+      "qtd": 1,
+      "peso": 30.213
+    },
+    {
+      "DIA": "2026-07-06",
+      "FAIXA_PESO": "51 a 100 kg",
+      "qtd": 2,
+      "peso": 132.456
     }
   ],
   "frota_kpis": {
@@ -51092,13 +53659,13 @@
     }
   ],
   "fresc_kpis": {
-    "peso_total": 56684.38,
-    "capac_total": 63000.0,
-    "frete_total": 30704.49,
-    "real_kg_total": 0.5417,
-    "ocupacao_total": 89.98,
-    "qtd_veiculos": 62,
-    "qtd_entregas": 251,
+    "peso_total": 59935.63,
+    "capac_total": 67000.0,
+    "frete_total": 32697.39,
+    "real_kg_total": 0.5455,
+    "ocupacao_total": 89.46,
+    "qtd_veiculos": 66,
+    "qtd_entregas": 271,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67
   },
@@ -51426,6 +53993,18 @@
       "ocupacao": 93.2899,
       "media_entregas": 3.0,
       "media_peso": 699.67425
+    },
+    {
+      "DIA": "2026-07-07",
+      "peso": 3251.259,
+      "capac": 4000,
+      "frete": 1992.905682,
+      "veiculos": 4,
+      "entregas": 20,
+      "real_kg": 0.6129642954,
+      "ocupacao": 81.281475,
+      "media_entregas": 5.0,
+      "media_peso": 812.81475
     }
   ],
   "fresc_por_mes": [
@@ -51455,41 +54034,41 @@
     },
     {
       "MES_KEY": "2026-07",
-      "peso": 5065.973,
-      "capac": 5500,
-      "frete": 3234.101964,
-      "veiculos": 7,
-      "entregas": 23,
-      "real_kg": 0.6383969997,
-      "ocupacao": 92.1086,
-      "media_entregas": 3.2857142857,
-      "media_peso": 723.7104285714
+      "peso": 8317.232,
+      "capac": 9500,
+      "frete": 5227.007646,
+      "veiculos": 11,
+      "entregas": 43,
+      "real_kg": 0.6284551935,
+      "ocupacao": 87.5498105263,
+      "media_entregas": 3.9090909091,
+      "media_peso": 756.112
     }
   ],
   "fresc_por_veiculo": [
     {
       "VEICULO": "FIORINO",
-      "peso": 17536.882,
-      "capac": 17000,
-      "frete": 14558.652046,
-      "veiculos": 34,
-      "entregas": 139,
-      "real_kg": 0.8301733481,
-      "ocupacao": 103.1581294118,
-      "media_entregas": 4.0882352941,
-      "media_peso": 515.7906470588
+      "peso": 18554.25,
+      "capac": 18000,
+      "frete": 15427.957728,
+      "veiculos": 36,
+      "entregas": 150,
+      "real_kg": 0.8315053278,
+      "ocupacao": 103.0791666667,
+      "media_entregas": 4.1666666667,
+      "media_peso": 515.3958333333
     },
     {
       "VEICULO": "VAN",
-      "peso": 29740.337,
-      "capac": 36000,
-      "frete": 13453.32,
-      "veiculos": 24,
-      "entregas": 103,
-      "real_kg": 0.4523593663,
-      "ocupacao": 82.6120472222,
-      "media_entregas": 4.2916666667,
-      "media_peso": 1239.1807083333
+      "peso": 31974.228,
+      "capac": 39000,
+      "frete": 14576.92,
+      "veiculos": 26,
+      "entregas": 112,
+      "real_kg": 0.4558959172,
+      "ocupacao": 81.9852,
+      "media_entregas": 4.3076923077,
+      "media_peso": 1229.778
     },
     {
       "VEICULO": "VUC",
@@ -52063,6 +54642,32 @@
       "ocupacao": 81.7696,
       "media_entregas": 2.0,
       "media_peso": 1226.544
+    },
+    {
+      "DIA": "2026-07-07",
+      "VEICULO": "FIORINO",
+      "peso": 1017.368,
+      "capac": 1000,
+      "frete": 869.305682,
+      "veiculos": 2,
+      "entregas": 11,
+      "real_kg": 0.8544653282,
+      "ocupacao": 101.7368,
+      "media_entregas": 5.5,
+      "media_peso": 508.684
+    },
+    {
+      "DIA": "2026-07-07",
+      "VEICULO": "VAN",
+      "peso": 2233.891,
+      "capac": 3000,
+      "frete": 1123.6,
+      "veiculos": 2,
+      "entregas": 9,
+      "real_kg": 0.502978883,
+      "ocupacao": 74.4630333333,
+      "media_entregas": 4.5,
+      "media_peso": 1116.9455
     }
   ],
   "fresc_por_veiculo_mes": [
@@ -52147,34 +54752,34 @@
     {
       "MES_KEY": "2026-07",
       "VEICULO": "FIORINO",
-      "peso": 2391.961,
-      "capac": 2500,
-      "frete": 2140.381964,
-      "veiculos": 5,
-      "entregas": 18,
-      "real_kg": 0.8948231029,
-      "ocupacao": 95.67844,
-      "media_entregas": 3.6,
-      "media_peso": 478.3922
+      "peso": 3409.329,
+      "capac": 3500,
+      "frete": 3009.687646,
+      "veiculos": 7,
+      "entregas": 29,
+      "real_kg": 0.8827800561,
+      "ocupacao": 97.4094,
+      "media_entregas": 4.1428571429,
+      "media_peso": 487.047
     },
     {
       "MES_KEY": "2026-07",
       "VEICULO": "VAN",
-      "peso": 2674.012,
-      "capac": 3000,
-      "frete": 1093.72,
-      "veiculos": 2,
-      "entregas": 5,
-      "real_kg": 0.4090183589,
-      "ocupacao": 89.1337333333,
-      "media_entregas": 2.5,
-      "media_peso": 1337.006
+      "peso": 4907.903,
+      "capac": 6000,
+      "frete": 2217.32,
+      "veiculos": 4,
+      "entregas": 14,
+      "real_kg": 0.45178562,
+      "ocupacao": 81.7983833333,
+      "media_entregas": 3.5,
+      "media_peso": 1226.97575
     }
   ],
   "levi_reent_kpis": {
     "reentregas": 239,
-    "qtd_entregas_nf": 3634,
-    "pct_reentregas": 6.58
+    "qtd_entregas_nf": 3693,
+    "pct_reentregas": 6.47
   },
   "levi_reentregas_transportadora": [
     {
@@ -54973,6 +57578,10 @@
     {
       "DIA": "2026-07-06",
       "qtd_entregas": 19
+    },
+    {
+      "DIA": "2026-07-07",
+      "qtd_entregas": 59
     }
   ],
   "levi_nf_entregas_mes": [
@@ -54986,17 +57595,17 @@
     },
     {
       "MES_KEY": "2026-07",
-      "qtd_entregas": 191
+      "qtd_entregas": 250
     }
   ],
   "levitare_kpis": {
-    "peso_total": 121055.05,
-    "capac_total": 573000.0,
-    "frete_total": 222766.0,
-    "real_kg_total": 1.8402,
-    "ocupacao_total": 21.13,
-    "qtd_veiculos": 362,
-    "qtd_entregas": 3634,
+    "peso_total": 122473.94,
+    "capac_total": 584000.0,
+    "frete_total": 226675.0,
+    "real_kg_total": 1.8508,
+    "ocupacao_total": 20.97,
+    "qtd_veiculos": 368,
+    "qtd_entregas": 3693,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67
   },
@@ -55504,6 +58113,18 @@
       "ocupacao": 15.2237777778,
       "media_entregas": 6.3333333333,
       "media_peso": 228.3566666667
+    },
+    {
+      "DIA": "2026-07-07",
+      "peso": 1418.89,
+      "capac": 11000,
+      "frete": 3909,
+      "veiculos": 6,
+      "entregas": 59,
+      "real_kg": 2.7549704346,
+      "ocupacao": 12.899,
+      "media_entregas": 9.8333333333,
+      "media_peso": 236.4816666667
     }
   ],
   "levitare_por_mes": [
@@ -55533,29 +58154,29 @@
     },
     {
       "MES_KEY": "2026-07",
-      "peso": 5760.77,
-      "capac": 37000,
-      "frete": 13818,
-      "veiculos": 22,
-      "entregas": 191,
-      "real_kg": 2.3986376821,
-      "ocupacao": 15.5696486486,
-      "media_entregas": 8.6818181818,
-      "media_peso": 261.8531818182
+      "peso": 7179.66,
+      "capac": 48000,
+      "frete": 17727,
+      "veiculos": 28,
+      "entregas": 250,
+      "real_kg": 2.4690584234,
+      "ocupacao": 14.957625,
+      "media_entregas": 8.9285714286,
+      "media_peso": 256.4164285714
     }
   ],
   "levitare_por_veiculo": [
     {
       "VEICULO": "3/4",
-      "peso": 21225.38,
-      "capac": 119000,
-      "frete": 30906,
-      "veiculos": 34,
-      "entregas": 181,
-      "real_kg": 1.4560870053,
-      "ocupacao": 17.8364537815,
-      "media_entregas": 5.3235294118,
-      "media_peso": 624.2758823529
+      "peso": 21405.25,
+      "capac": 122500,
+      "frete": 31815,
+      "veiculos": 35,
+      "entregas": 182,
+      "real_kg": 1.486317609,
+      "ocupacao": 17.4736734694,
+      "media_entregas": 5.2,
+      "media_peso": 611.5785714286
     },
     {
       "VEICULO": "FIORINO",
@@ -55571,15 +58192,15 @@
     },
     {
       "VEICULO": "VAN",
-      "peso": 90969.05,
-      "capac": 435000,
-      "frete": 174000,
-      "veiculos": 290,
-      "entregas": 3146,
-      "real_kg": 1.9127384534,
-      "ocupacao": 20.9124252874,
-      "media_entregas": 10.8482758621,
-      "media_peso": 313.6863793103
+      "peso": 92208.07,
+      "capac": 442500,
+      "frete": 177000,
+      "veiculos": 295,
+      "entregas": 3204,
+      "real_kg": 1.9195716817,
+      "ocupacao": 20.8379819209,
+      "media_entregas": 10.8610169492,
+      "media_peso": 312.5697288136
     }
   ],
   "levitare_por_veiculo_dia": [
@@ -56830,6 +59451,32 @@
       "ocupacao": 15.2237777778,
       "media_entregas": 6.3333333333,
       "media_peso": 228.3566666667
+    },
+    {
+      "DIA": "2026-07-07",
+      "VEICULO": "3/4",
+      "peso": 179.87,
+      "capac": 3500,
+      "frete": 909,
+      "veiculos": 1,
+      "entregas": 1,
+      "real_kg": 5.0536498582,
+      "ocupacao": 5.1391428571,
+      "media_entregas": 1.0,
+      "media_peso": 179.87
+    },
+    {
+      "DIA": "2026-07-07",
+      "VEICULO": "VAN",
+      "peso": 1239.02,
+      "capac": 7500,
+      "frete": 3000,
+      "veiculos": 5,
+      "entregas": 58,
+      "real_kg": 2.4212684218,
+      "ocupacao": 16.5202666667,
+      "media_entregas": 11.6,
+      "media_peso": 247.804
     }
   ],
   "levitare_por_veiculo_mes": [
@@ -56914,28 +59561,28 @@
     {
       "MES_KEY": "2026-07",
       "VEICULO": "3/4",
-      "peso": 770.73,
-      "capac": 7000,
-      "frete": 1818,
-      "veiculos": 2,
-      "entregas": 8,
-      "real_kg": 2.3588026936,
-      "ocupacao": 11.0104285714,
-      "media_entregas": 4.0,
-      "media_peso": 385.365
+      "peso": 950.6,
+      "capac": 10500,
+      "frete": 2727,
+      "veiculos": 3,
+      "entregas": 9,
+      "real_kg": 2.8687144961,
+      "ocupacao": 9.0533333333,
+      "media_entregas": 3.0,
+      "media_peso": 316.8666666667
     },
     {
       "MES_KEY": "2026-07",
       "VEICULO": "VAN",
-      "peso": 4990.04,
-      "capac": 30000,
-      "frete": 12000,
-      "veiculos": 20,
-      "entregas": 183,
-      "real_kg": 2.4047903424,
-      "ocupacao": 16.6334666667,
-      "media_entregas": 9.15,
-      "media_peso": 249.502
+      "peso": 6229.06,
+      "capac": 37500,
+      "frete": 15000,
+      "veiculos": 25,
+      "entregas": 241,
+      "real_kg": 2.408067991,
+      "ocupacao": 16.6108266667,
+      "media_entregas": 9.64,
+      "media_peso": 249.1624
     }
   ]
 }
