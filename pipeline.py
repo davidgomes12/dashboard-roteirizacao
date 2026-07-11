@@ -35,6 +35,7 @@ FROTA_PATH    = _resolve_path(_cfg["caminhos"]["frota"])
 LEVITARE_PATH = _resolve_path(_cfg["caminhos"]["levitare"])
 NF_PATH       = os.path.join(DADOS_DIR, "NF.xlsx")
 OCORRENCIAS_PATH = os.path.join(DADOS_DIR, "Ocorrencias.xlsx")
+CLIENTES_PATH = os.path.join(DADOS_DIR, "Clientes.xlsx")
 OUTPUT_JSON   = os.path.join(ETL_DIR, "dashboard_data.json")
 
 TRANSPORTADORAS_FILTRO = _cfg["filtros"]["transportadoras"]
@@ -253,6 +254,36 @@ def load_ocorrencias(nf_raw, nf_filtrado):
     return tirolez, levitare
 
 
+def _norm_cod_cliente(serie):
+    """COD. CLIENTE vem como int na Ocorrência e float (ex.: 123.0) em Clientes.
+    Normaliza ambos para inteiro-string ('123') para casar no merge."""
+    return pd.to_numeric(serie, errors="coerce").astype("Int64").astype(str)
+
+
+def load_clientes_canal():
+    """Lê Clientes.xlsx e devolve o lookup COD. CLIENTE -> NOME CANAL."""
+    print("[3b/5] Carregando Clientes (canal de vendas)...")
+    df = _read_excel_cached(CLIENTES_PATH)
+    if "COD. CLIENTE" not in df.columns or "NOME CANAL" not in df.columns:
+        print("   [AVISO] Clientes.xlsx sem 'COD. CLIENTE'/'NOME CANAL' — canal ignorado")
+        return None
+    df["COD. CLIENTE"] = _norm_cod_cliente(df["COD. CLIENTE"])
+    lookup = df.drop_duplicates(subset=["COD. CLIENTE"])[["COD. CLIENTE", "NOME CANAL"]]
+    print(f"   -> {len(lookup)} clientes com canal")
+    return lookup
+
+
+def add_canal(reentregas, canal_lookup):
+    """Adiciona a coluna NOME CANAL às reentregas (merge por COD. CLIENTE)."""
+    if canal_lookup is None or "COD. CLIENTE" not in reentregas.columns:
+        return reentregas
+    df = reentregas.copy()
+    df["COD. CLIENTE"] = _norm_cod_cliente(df["COD. CLIENTE"])
+    df = df.merge(canal_lookup, on="COD. CLIENTE", how="left")
+    df["NOME CANAL"] = df["NOME CANAL"].fillna("(sem cadastro)")
+    return df
+
+
 def load_frota():
     print("[4/5] Carregando Disponibilidade de Frota...")
     disp = _read_excel_cached(FROTA_PATH, sheet_name="DISPONIBILIZADO")
@@ -460,6 +491,39 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util):
     # tem seu PESO LIQUIDO), granular por DIA para o filtro de mês do dashboard.
     reent_fh_peso_dia = _reent_faixa_peso_dia(reentregas, JUST_FORA_HORARIO)
 
+    # === REENTREGAS POR CANAL DE VENDAS (granular por DIA) ===
+    # reentregas = CHAVE_ENTREGA distinta (data+cliente); peso = soma do PESO LIQUIDO
+    # de todos os documentos da reentrega. Peso médio é recalculado no dashboard
+    # após o filtro de mês (peso_total / reentregas), para não distorcer médias.
+    if "NOME CANAL" in reentregas.columns:
+        _rc = reentregas.copy()
+        _rc["peso"] = pd.to_numeric(_rc.get("PESO LIQUIDO", 0), errors="coerce").fillna(0)
+        reent_canal_dia = _rc.groupby(["DIA", "NOME CANAL"]).agg(
+            reentregas=("CHAVE_ENTREGA", "nunique"),
+            peso=("peso", "sum"),
+        ).reset_index()
+    else:
+        reent_canal_dia = pd.DataFrame(columns=["DIA", "NOME CANAL", "reentregas", "peso"])
+
+    # Reentregas FORA DE HORARIO por canal e dia (reentregas distintas + peso)
+    if "NOME CANAL" in reentregas.columns:
+        _fh = reentregas[reentregas["DESC JUST OC"] == JUST_FORA_HORARIO].copy()
+        _fh["peso"] = pd.to_numeric(_fh.get("PESO LIQUIDO", 0), errors="coerce").fillna(0)
+        reent_canal_fh_dia = _fh.groupby(["DIA", "NOME CANAL"]).agg(
+            reentregas=("CHAVE_ENTREGA", "nunique"),
+            peso=("peso", "sum"),
+        ).reset_index()
+    else:
+        reent_canal_fh_dia = pd.DataFrame(columns=["DIA", "NOME CANAL", "reentregas", "peso"])
+
+    # Entregas (NF) por canal e dia — base para o % de reentrega por canal
+    if "NOME CANAL" in nf.columns:
+        nf_canal_dia = nf.groupby(["DIA", "NOME CANAL"]).agg(
+            entregas=("CHAVE_ENTREGA", "nunique"),
+        ).reset_index()
+    else:
+        nf_canal_dia = pd.DataFrame(columns=["DIA", "NOME CANAL", "entregas"])
+
     # === FROTA ===
     total_disp    = len(frota_disp)
     total_util    = len(frota_util)
@@ -521,6 +585,9 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util):
         "nf_entregas_dia":            r(nf_dia),
         "nf_entregas_mes":            r(nf_mes),
         "reent_fh_peso_dia":          r(reent_fh_peso_dia),
+        "reentregas_canal_dia":       r(reent_canal_dia),
+        "reent_canal_fh_dia":         r(reent_canal_fh_dia),
+        "nf_canal_dia":               r(nf_canal_dia),
         "frota_kpis":          {"total_disp": total_disp, "total_util": total_util, "pct_util": pct_util_geral},
         "frota_transportadora": r(frota_transp),
         "frota_veiculo":        r(frota_veic),
@@ -540,7 +607,8 @@ def _validar_caminhos():
         erros.append(f"Pasta 'Dados/' não encontrada: {DADOS_DIR}\n"
                      "  → Crie a pasta e coloque NF.xlsx e Ocorrencias.xlsx nela.")
     else:
-        for path, nome in [(NF_PATH, "NF.xlsx"), (OCORRENCIAS_PATH, "Ocorrencias.xlsx")]:
+        for path, nome in [(NF_PATH, "NF.xlsx"), (OCORRENCIAS_PATH, "Ocorrencias.xlsx"),
+                           (CLIENTES_PATH, "Clientes.xlsx")]:
             if not os.path.exists(path):
                 erros.append(f"Arquivo não encontrado: {path}")
     for path, nome in [
@@ -568,6 +636,10 @@ def main():
     nf_raw      = load_nf_raw()          # lido uma única vez
     nf          = load_nf(nf_raw)
     reentregas, reentregas_levi = load_ocorrencias(nf_raw, nf)
+    canal_lookup = load_clientes_canal()
+    nf              = add_canal(nf, canal_lookup)
+    reentregas      = add_canal(reentregas, canal_lookup)
+    reentregas_levi = add_canal(reentregas_levi, canal_lookup)
     frota_disp, frota_util = load_frota()
     df_levitare = load_levitare()
 
