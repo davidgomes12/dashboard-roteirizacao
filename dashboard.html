@@ -54,14 +54,17 @@
                     <span class="filter-label">Dia</span>
                     <select class="filter-select" id="filterDia" aria-label="Filtrar por dia" onchange="applyFilters()"><option value="all">Todos os Dias</option></select>
                 </div>
+                <div class="filter-group">
+                    <span class="filter-label">Operação</span>
+                    <select class="filter-select" id="filterOperador" aria-label="Filtrar por operação" onchange="applyFilters()">
+                        <option value="ambos">Ambos</option>
+                        <option value="tirolez">Tirolez</option>
+                        <option value="levitare">Levitare</option>
+                    </select>
+                </div>
                 <button class="filter-btn" aria-label="Limpar filtros de Roteiro" onclick="resetFilters()">
                     <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
                 </button>
-            </div>
-
-            <!-- ── TIROLEZ ── -->
-            <div class="operator-title">
-                <img src="logo_tirolez.png" alt="Tirolez"> TIROLEZ
             </div>
 
             <!-- KPIs -->
@@ -88,7 +91,7 @@
                     <div class="kpi-icon"><span class="material-icons-round">donut_large</span></div>
                     <div class="kpi-label">Ocupação</div>
                     <div class="kpi-value" id="kpiOcupacao">--</div>
-                    <div class="kpi-sub">meta: 80%</div>
+                    <div class="kpi-sub">meta: 84%</div>
                     <div class="kpi-delta" id="kpiOcupacaoDelta">--</div>
                 </div>
                 <div class="kpi-card animate-in stagger-4">
@@ -117,7 +120,7 @@
                                 <div class="perf-ring-unit">OCUPAÇÃO</div>
                             </div>
                             <div class="perf-ring-label">Ocupação</div>
-                            <div class="perf-ring-meta">Meta: 80%</div>
+                            <div class="perf-ring-meta">Meta: 84%</div>
                             <div class="perf-status" id="ringOcupacaoStatus">--</div>
                         </div>
                         <!-- Real Kg Ring -->
@@ -200,103 +203,6 @@
                     </div>
                 </div>
             </div>
-            <!-- ── LEVITARE ── -->
-            <div class="operator-title levitare">
-                <img src="logo_vaca.png" alt="Levitare"> LEVITARE
-            </div>
-
-            <!-- KPIs LEVITARE -->
-            <div class="kpi-grid">
-                <div class="kpi-card animate-in stagger-1">
-                    <div class="kpi-icon"><span class="material-icons-round">local_shipping</span></div>
-                    <div class="kpi-label">Qtd. Veículos</div>
-                    <div class="kpi-value" id="leviKpiVeiculos">--</div>
-                    <div class="kpi-sub">veículos no período</div>
-                </div>
-                <div class="kpi-card animate-in stagger-2">
-                    <div class="kpi-icon"><span class="material-icons-round">inventory_2</span></div>
-                    <div class="kpi-label">Qtd. Entregas</div>
-                    <div class="kpi-value" id="leviKpiEntregas">--</div>
-                    <div class="kpi-sub">paradas realizadas</div>
-                </div>
-                <div class="kpi-card animate-in stagger-3">
-                    <div class="kpi-icon"><span class="material-icons-round">scale</span></div>
-                    <div class="kpi-label">Peso Total</div>
-                    <div class="kpi-value highlight" id="leviKpiPeso">--</div>
-                    <div class="kpi-sub">tons transportadas</div>
-                </div>
-                <div class="kpi-card animate-in stagger-4">
-                    <div class="kpi-icon"><span class="material-icons-round">donut_large</span></div>
-                    <div class="kpi-label">Ocupação</div>
-                    <div class="kpi-value" id="leviKpiOcupacao">--</div>
-                    <div class="kpi-sub">taxa de ocupação</div>
-                </div>
-                <div class="kpi-card animate-in stagger-4">
-                    <div class="kpi-icon"><span class="material-icons-round">speed</span></div>
-                    <div class="kpi-label">R$ / Kg</div>
-                    <div class="kpi-value" id="leviKpiRealKg">--</div>
-                    <div class="kpi-sub">custo por kg</div>
-                </div>
-            </div>
-
-            <!-- Performance Rings + Chart LEVITARE -->
-            <div class="charts-row">
-                <div class="chart-card animate-in stagger-1">
-                    <div class="chart-title"><span class="dot"></span>Performance</div>
-                    <div class="perf-container">
-                        <div class="perf-ring">
-                            <svg width="160" height="160" viewBox="0 0 160 160">
-                                <circle class="perf-ring-bg" cx="80" cy="80" r="68" stroke-width="12"/>
-                                <circle class="perf-ring-fill" id="ringLeviOcupacao" cx="80" cy="80" r="68" stroke-width="12"
-                                    stroke-dasharray="427.26" stroke-dashoffset="427.26"/>
-                            </svg>
-                            <div class="perf-ring-center">
-                                <div class="perf-ring-value" id="ringLeviOcupacaoVal">--</div>
-                                <div class="perf-ring-unit">OCUPAÇÃO</div>
-                            </div>
-                            <div class="perf-ring-label">Ocupação</div>
-                        </div>
-                        <div class="perf-ring">
-                            <svg width="160" height="160" viewBox="0 0 160 160">
-                                <circle class="perf-ring-bg" cx="80" cy="80" r="68" stroke-width="12"/>
-                                <circle class="perf-ring-fill" id="ringLeviRealKg" cx="80" cy="80" r="68" stroke-width="12"
-                                    stroke-dasharray="427.26" stroke-dashoffset="427.26"/>
-                            </svg>
-                            <div class="perf-ring-center">
-                                <div class="perf-ring-value" id="ringLeviRealKgVal">--</div>
-                                <div class="perf-ring-unit">R$ / KG</div>
-                            </div>
-                            <div class="perf-ring-label">Real Kg</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="chart-card animate-in stagger-2">
-                    <div class="chart-title"><span class="dot"></span>Real Kg por Dia</div>
-                    <div style="position:relative;width:100%;"><canvas id="chartLeviRealKgDia" height="220"></canvas></div>
-                </div>
-            </div>
-
-            <!-- Tables LEVITARE (dia e mês — sem faixas de KM) -->
-            <div class="charts-row">
-                <div class="chart-card animate-in stagger-3">
-                    <div class="chart-title"><span class="dot"></span>Distribuição do Dia</div>
-                    <div class="table-wrapper">
-                        <table class="data-table" id="tableLeviDia"><thead><tr>
-                            <th>Veículo</th><th class="num">Qtd. Veículos</th><th class="num">Méd. Entregas</th>
-                            <th class="num">Méd. Peso</th><th class="num">Méd. Ocupação</th><th class="num">Real Kg</th>
-                        </tr></thead><tbody></tbody></table>
-                    </div>
-                </div>
-                <div class="chart-card animate-in stagger-4">
-                    <div class="chart-title"><span class="dot"></span>Distribuição do Mês</div>
-                    <div class="table-wrapper">
-                        <table class="data-table" id="tableLeviMes"><thead><tr>
-                            <th>Veículo</th><th class="num">Qtd. Veículos</th><th class="num">Méd. Entregas</th>
-                            <th class="num">Méd. Peso</th><th class="num">Méd. Ocupação</th><th class="num">Real Kg</th>
-                        </tr></thead><tbody></tbody></table>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- ========== REENTREGAS ========== -->
@@ -310,14 +216,17 @@
                     <span class="filter-label">Dia</span>
                     <select class="filter-select" id="filterDiaReent" aria-label="Filtrar reentregas por dia" onchange="applyFiltersReent()"><option value="all">Todos os Dias</option></select>
                 </div>
+                <div class="filter-group">
+                    <span class="filter-label">Operação</span>
+                    <select class="filter-select" id="filterOperadorReent" aria-label="Filtrar reentregas por operação" onchange="applyFiltersReent()">
+                        <option value="ambos">Ambos</option>
+                        <option value="tirolez">Tirolez</option>
+                        <option value="levitare">Levitare</option>
+                    </select>
+                </div>
                 <button class="filter-btn" aria-label="Limpar filtros de Reentregas" onclick="resetFiltersReent()">
                     <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
                 </button>
-            </div>
-
-            <!-- ── TIROLEZ ── -->
-            <div class="operator-title">
-                <img src="logo_tirolez.png" alt="Tirolez"> TIROLEZ
             </div>
 
             <div class="kpi-grid">
@@ -409,61 +318,6 @@
                 </div>
             </div>
 
-            <!-- ── LEVITARE REENTREGAS ── -->
-            <div class="operator-title levitare">
-                <img src="logo_vaca.png" alt="Levitare"> LEVITARE
-            </div>
-
-            <div class="kpi-grid">
-                <div class="kpi-card animate-in stagger-1">
-                    <div class="kpi-icon"><span class="material-icons-round">replay</span></div>
-                    <div class="kpi-label">Reentregas</div>
-                    <div class="kpi-value highlight" id="kpiLeviReentregas">--</div>
-                    <div class="kpi-sub">contagem distinta (chave)</div>
-                </div>
-                <div class="kpi-card animate-in stagger-2">
-                    <div class="kpi-icon"><span class="material-icons-round">assignment_turned_in</span></div>
-                    <div class="kpi-label">Qtd. Entregas</div>
-                    <div class="kpi-value" id="kpiLeviEntregasNF">--</div>
-                    <div class="kpi-sub">paradas realizadas</div>
-                </div>
-                <div class="kpi-card animate-in stagger-3">
-                    <div class="kpi-icon"><span class="material-icons-round">percent</span></div>
-                    <div class="kpi-label">% Reentregas</div>
-                    <div class="kpi-value highlight" id="kpiLeviPctReent">--</div>
-                    <div class="kpi-sub">reentregas / entregas</div>
-                </div>
-                <div class="kpi-card animate-in stagger-4">
-                    <div class="kpi-icon"><span class="material-icons-round">calendar_month</span></div>
-                    <div class="kpi-label">Reentregas Mês</div>
-                    <div class="kpi-value highlight" id="kpiLeviReentMes">--</div>
-                    <div class="kpi-sub" id="kpiLeviReentMesSub">mês selecionado</div>
-                </div>
-                <div class="kpi-card animate-in stagger-5">
-                    <div class="kpi-icon"><span class="material-icons-round">percent</span></div>
-                    <div class="kpi-label">% Reentregas Mês</div>
-                    <div class="kpi-value highlight" id="kpiLeviPctReentMes">--</div>
-                    <div class="kpi-sub" id="kpiLeviPctReentMesSub">mês selecionado</div>
-                </div>
-            </div>
-
-            <div class="charts-row full">
-                <div class="chart-card animate-in stagger-1">
-                    <div class="chart-title"><span class="dot"></span>Reentregas por Dia</div>
-                    <div style="position:relative;width:100%;height:280px;"><canvas id="chartLeviReentDia"></canvas></div>
-                </div>
-            </div>
-
-            <div class="charts-row">
-                <div class="chart-card animate-in stagger-1">
-                    <div class="chart-title"><span class="dot"></span>Reentregas por Justificativa — <span id="labelLeviJustDia">Dia</span></div>
-                    <div style="position:relative;width:100%;"><canvas id="chartLeviReentJustDia" height="280"></canvas></div>
-                </div>
-                <div class="chart-card animate-in stagger-2">
-                    <div class="chart-title"><span class="dot"></span>Reentregas por Justificativa — <span id="labelLeviJustMes">Mês</span></div>
-                    <div style="position:relative;width:100%;"><canvas id="chartLeviReentJustMes" height="280"></canvas></div>
-                </div>
-            </div>
         </section>
 
         <!-- ========== FROTA ========== -->
@@ -595,7 +449,7 @@
                     <div class="kpi-icon"><span class="material-icons-round">donut_large</span></div>
                     <div class="kpi-label">Ocupação</div>
                     <div class="kpi-value" id="kpiVespOcupacao">--</div>
-                    <div class="kpi-sub">meta: 80%</div>
+                    <div class="kpi-sub">meta: 84%</div>
                     <div class="kpi-delta" id="kpiVespOcupacaoDelta">--</div>
                 </div>
                 <div class="kpi-card animate-in stagger-4">
@@ -623,7 +477,7 @@
                                 <div class="perf-ring-unit">OCUPAÇÃO</div>
                             </div>
                             <div class="perf-ring-label">Ocupação</div>
-                            <div class="perf-ring-meta">Meta: 80%</div>
+                            <div class="perf-ring-meta">Meta: 84%</div>
                             <div class="perf-status" id="ringVespOcupacaoStatus">--</div>
                         </div>
                         <div class="perf-ring">

@@ -44,12 +44,14 @@ def wait_port(port, timeout=10):
 def capture_screenshots():
     from playwright.sync_api import sync_playwright
 
+    # op_id/op_value: seletor de operação (Tirolez/Levitare/Ambos) e valor forçado
+    # no envio para os slides que têm esse filtro; None nos que não têm.
     pages_config = [
-        ("roteiro",     "Roteiro",     "filterMes",      "filterDia"),
-        ("reentregas",  "Reentregas",  "filterMesReent", "filterDiaReent"),
-        ("frota",       "Frota",       "filterMesFrota", "filterDiaFrota"),
-        ("vespertina",  "Vespertina",  "filterMesVesp",  "filterDiaVesp"),
-        ("frescal",     "Frescal",     "filterMesFresc", "filterDiaFresc"),
+        ("roteiro",     "Roteiro",     "filterMes",      "filterDia",      "filterOperador",      "tirolez"),
+        ("reentregas",  "Reentregas",  "filterMesReent", "filterDiaReent", "filterOperadorReent", "ambos"),
+        ("frota",       "Frota",       "filterMesFrota", "filterDiaFrota", None,                  None),
+        ("vespertina",  "Vespertina",  "filterMesVesp",  "filterDiaVesp",  None,                  None),
+        ("frescal",     "Frescal",     "filterMesFresc", "filterDiaFresc", None,                  None),
     ]
 
     screenshots = []
@@ -62,7 +64,7 @@ def capture_screenshots():
         )
         page = context.new_page()
 
-        for page_id, page_name, mes_id, dia_id in pages_config:
+        for page_id, page_name, mes_id, dia_id, op_id, op_value in pages_config:
             print(f"   -> {page_name}...", end=" ", flush=True)
             page.goto("http://localhost:8080/dashboard.html")
             page.wait_for_load_state("networkidle")
@@ -75,6 +77,16 @@ def capture_screenshots():
                 }});
             """)
             time.sleep(0.5)
+
+            # Forçar operação (Roteiro = Tirolez, Reentregas = Ambos)
+            if op_id:
+                page.evaluate(f"""
+                    (() => {{
+                        const s = document.getElementById('{op_id}');
+                        if (s) {{ s.value = '{op_value}'; s.dispatchEvent(new Event('change')); }}
+                    }})()
+                """)
+                time.sleep(0.5)
 
             # Selecionar último mês disponível
             month_label = page.evaluate(f"""

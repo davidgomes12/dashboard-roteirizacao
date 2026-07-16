@@ -324,64 +324,6 @@ def load_levitare():
     return df
 
 
-def build_reentregas_aggrs(reentregas, nf_total, nf_dia_df, nf_mes_df,
-                            nf_transp_totals, nf_transp_dia_df):
-    """Gera todos os agregados de reentregas para um operador (TIROLEZ ou LEVITARE)."""
-    def r(df):
-        return json.loads(df.to_json(orient="records", date_format="iso"))
-
-    total_reent   = int(reentregas["CHAVE_ENTREGA"].nunique())
-    qtd_nf        = int(nf_total)
-    pct_reent     = round(total_reent / qtd_nf * 100, 2) if qtd_nf > 0 else 0
-
-    reent_transp = reentregas.groupby("NOME TRANSPORTADORA").agg(
-        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
-    reent_transp = reent_transp.merge(nf_transp_totals, on="NOME TRANSPORTADORA", how="left").fillna(0)
-    reent_transp["entregas"] = reent_transp["entregas"].astype(int)
-    reent_transp["pct"] = np.where(
-        reent_transp["entregas"] > 0,
-        round(reent_transp["reentregas"] / reent_transp["entregas"] * 100, 2), 0)
-
-    reent_just = reentregas.groupby("DESC JUST OC").agg(
-        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
-    tj = reent_just["reentregas"].sum()
-    reent_just["pct"] = round(reent_just["reentregas"] / tj * 100, 2) if tj > 0 else 0
-
-    reent_transp_just = reentregas.groupby(["NOME TRANSPORTADORA", "DESC JUST OC"]).agg(
-        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
-
-    reent_transp_dia = reentregas.groupby(["DIA", "NOME TRANSPORTADORA"]).agg(
-        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
-    reent_just_dia   = reentregas.groupby(["DIA", "DESC JUST OC"]).agg(
-        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
-    reent_tj_dia     = reentregas.groupby(["DIA", "NOME TRANSPORTADORA", "DESC JUST OC"]).agg(
-        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
-    reent_dia = reentregas.groupby("DIA").agg(
-        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("DIA")
-    reent_mes = reentregas.groupby("MES_KEY").agg(
-        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("MES_KEY")
-
-    meses = sorted(reentregas["MES_KEY"].dropna().unique().tolist())
-    dias  = sorted(reentregas["DIA"].dropna().unique().tolist())
-
-    return {
-        "kpis": {"reentregas": total_reent, "qtd_entregas_nf": qtd_nf, "pct_reentregas": pct_reent},
-        "reentregas_transportadora":  r(reent_transp),
-        "reentregas_justificativa":   r(reent_just),
-        "reentregas_transp_just":     r(reent_transp_just),
-        "reentregas_transp_dia":      r(reent_transp_dia),
-        "nf_transp_dia":              r(nf_transp_dia_df),
-        "reentregas_just_dia":        r(reent_just_dia),
-        "reentregas_transp_just_dia": r(reent_tj_dia),
-        "reentregas_dia":             r(reent_dia),
-        "reentregas_mes":             r(reent_mes),
-        "nf_entregas_dia":            r(nf_dia_df),
-        "nf_entregas_mes":            r(nf_mes_df),
-        "filtros_meses": meses,
-        "filtros_dias":  dias,
-    }
-
-
 def _faixa_peso_label(p):
     """Classifica um peso (kg) em uma das faixas configuradas."""
     for limite, label in zip(FAIXAS_PESO_LIMITES, FAIXAS_PESO_LABELS):
@@ -417,13 +359,15 @@ def _reent_faixa_peso_dia(reentregas, justificativa):
 # ============================================================
 # KPIs PRINCIPAIS
 # ============================================================
-def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util):
+def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util, df_levitare=None, reentregas_levi=None):
     print("\n[ETL] Calculando KPIs...")
 
     kpis = _escala_kpis(escala)
 
     total_reentregas  = int(reentregas["CHAVE_ENTREGA"].nunique())
     qtd_entregas_nf   = int(nf["CHAVE_ENTREGA"].nunique())
+    if df_levitare is not None:
+        qtd_entregas_nf += int(df_levitare["ENTREGAS"].sum())
     pct_reentregas    = (total_reentregas / qtd_entregas_nf * 100) if qtd_entregas_nf > 0 else 0
 
     kpis["reentregas"]      = total_reentregas
@@ -453,6 +397,18 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util):
         entregas=("CHAVE_ENTREGA", "nunique"),
     ).reset_index()
 
+    if df_levitare is not None and reentregas_levi is not None and len(reentregas_levi) > 0:
+        # LEVITARE não tem entregas por transportadora (só total agregado).
+        # Se as ocorrências do Levitare apontarem para uma única transportadora,
+        # atribui o total de entregas do Levitare a ela para fechar o denominador.
+        levi_carriers = reentregas_levi["NOME TRANSPORTADORA"].dropna().unique()
+        if len(levi_carriers) == 1:
+            levi_total_entregas = int(df_levitare["ENTREGAS"].sum())
+            nf_transp = pd.concat([
+                nf_transp,
+                pd.DataFrame({"NOME TRANSPORTADORA": [levi_carriers[0]], "entregas": [levi_total_entregas]}),
+            ], ignore_index=True)
+
     reent_transp = reentregas.groupby("NOME TRANSPORTADORA").agg(
         reentregas=("CHAVE_ENTREGA", "nunique"),
     ).reset_index().sort_values("reentregas", ascending=False)
@@ -477,6 +433,14 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util):
     # Granular por DIA
     reent_transp_dia_g    = reentregas.groupby(["DIA", "NOME TRANSPORTADORA"]).agg(reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
     nf_transp_dia_g       = nf.groupby(["DIA", "NOME TRANSPORTADORA"]).agg(entregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+
+    if df_levitare is not None and reentregas_levi is not None and len(reentregas_levi) > 0:
+        levi_carriers = reentregas_levi["NOME TRANSPORTADORA"].dropna().unique()
+        if len(levi_carriers) == 1:
+            levi_transp_dia = (df_levitare.groupby("DIA")["ENTREGAS"].sum().reset_index()
+                                .rename(columns={"ENTREGAS": "entregas"}))
+            levi_transp_dia["NOME TRANSPORTADORA"] = levi_carriers[0]
+            nf_transp_dia_g = pd.concat([nf_transp_dia_g, levi_transp_dia], ignore_index=True)
     reent_just_dia_g      = reentregas.groupby(["DIA", "DESC JUST OC"]).agg(reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
     reent_transp_just_dia_g = reentregas.groupby(["DIA", "NOME TRANSPORTADORA", "DESC JUST OC"]).agg(reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
 
@@ -484,6 +448,12 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util):
     reent_mes = reentregas.groupby("MES_KEY").agg(reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("MES_KEY")
     nf_dia    = nf.groupby("DIA").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("DIA")
     nf_mes    = nf.groupby("MES_KEY").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("MES_KEY")
+
+    if df_levitare is not None:
+        levi_nf_dia = df_levitare.groupby("DIA")["ENTREGAS"].sum().reset_index().rename(columns={"ENTREGAS": "qtd_entregas"})
+        levi_nf_mes = df_levitare.groupby("MES_KEY")["ENTREGAS"].sum().reset_index().rename(columns={"ENTREGAS": "qtd_entregas"})
+        nf_dia = pd.concat([nf_dia, levi_nf_dia]).groupby("DIA", as_index=False)["qtd_entregas"].sum().sort_values("DIA")
+        nf_mes = pd.concat([nf_mes, levi_nf_mes]).groupby("MES_KEY", as_index=False)["qtd_entregas"].sum().sort_values("MES_KEY")
 
     # === FORA DE HORÁRIO: peso das reentregas por faixa (granular por DIA) ===
     # Analisa o peso líquido das reentregas cuja justificativa é "FORA DE HORARIO",
@@ -625,6 +595,135 @@ def _validar_caminhos():
         raise SystemExit(1)
 
 
+def _roteiro_bundle(escala_df):
+    """Agregados de Roteiro (escala) de um único operador, no formato que o
+    dashboard consome (mesmas chaves que as do topo em build_kpis)."""
+    def r(df):
+        return json.loads(df.to_json(orient="records", date_format="iso"))
+
+    kpis, dia_g, mes_g, veic_g, veic_dia, veic_mes, _meses, _dias = build_escala_aggregations(escala_df)
+
+    if "FAIXA" in escala_df.columns:
+        d0100 = escala_df[escala_df["FAIXA"].isin([1, 2])]
+        d100p = escala_df[escala_df["FAIXA"] >= 3]
+        dist_0_100_veic, dist_0_100_dia, dist_0_100_mes = (
+            kpi_grain(d0100, "VEICULO"), kpi_grain(d0100, ["DIA", "VEICULO"]), kpi_grain(d0100, ["MES_KEY", "VEICULO"]))
+        dist_100p_veic, dist_100p_dia, dist_100p_mes = (
+            kpi_grain(d100p, "VEICULO"), kpi_grain(d100p, ["DIA", "VEICULO"]), kpi_grain(d100p, ["MES_KEY", "VEICULO"]))
+    else:
+        _empty = pd.DataFrame()
+        dist_0_100_veic = dist_0_100_dia = dist_0_100_mes = _empty
+        dist_100p_veic = dist_100p_dia = dist_100p_mes = _empty
+
+    return {
+        "kpis":             kpis,
+        "por_dia":          r(dia_g),
+        "por_mes":          r(mes_g),
+        "por_veiculo":      r(veic_g),
+        "por_veiculo_dia":  r(veic_dia),
+        "por_veiculo_mes":  r(veic_mes),
+        "dist_0_100_veic":  r(dist_0_100_veic),
+        "dist_0_100_dia":   r(dist_0_100_dia),
+        "dist_0_100_mes":   r(dist_0_100_mes),
+        "dist_100p_veic":   r(dist_100p_veic),
+        "dist_100p_dia":    r(dist_100p_dia),
+        "dist_100p_mes":    r(dist_100p_mes),
+    }
+
+
+def _reent_bundle(reent, nf_dia_df, nf_mes_df, nf_transp_df, nf_transp_dia_df, total_entregas):
+    """Agregados de Reentregas de um único operador, com os denominadores de
+    entregas (NF ou paradas Levitare) fornecidos externamente."""
+    def r(df):
+        return json.loads(df.to_json(orient="records", date_format="iso"))
+
+    total_reent = int(reent["CHAVE_ENTREGA"].nunique())
+
+    reent_transp = reent.groupby("NOME TRANSPORTADORA").agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
+    reent_transp = reent_transp.merge(nf_transp_df, on="NOME TRANSPORTADORA", how="left").fillna(0)
+    reent_transp["entregas"] = reent_transp["entregas"].astype(int)
+    reent_transp["pct"] = np.where(
+        reent_transp["entregas"] > 0,
+        round(reent_transp["reentregas"] / reent_transp["entregas"] * 100, 2), 0)
+
+    reent_just = reent.groupby("DESC JUST OC").agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
+    tj = reent_just["reentregas"].sum()
+    reent_just["pct"] = round(reent_just["reentregas"] / tj * 100, 2) if tj > 0 else 0
+
+    reent_transp_just = reent.groupby(["NOME TRANSPORTADORA", "DESC JUST OC"]).agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
+    reent_transp_dia = reent.groupby(["DIA", "NOME TRANSPORTADORA"]).agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+    reent_just_dia = reent.groupby(["DIA", "DESC JUST OC"]).agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+    reent_tj_dia = reent.groupby(["DIA", "NOME TRANSPORTADORA", "DESC JUST OC"]).agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("reentregas", ascending=False)
+    reent_dia = reent.groupby("DIA").agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("DIA")
+    reent_mes = reent.groupby("MES_KEY").agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("MES_KEY")
+
+    # Séries por canal / Fora de Horário (usadas pelas tabelas extras do metas.html)
+    if "NOME CANAL" in reent.columns:
+        _rc = reent.copy()
+        _rc["peso"] = pd.to_numeric(_rc.get("PESO LIQUIDO", 0), errors="coerce").fillna(0)
+        reent_canal_dia = _rc.groupby(["DIA", "NOME CANAL"]).agg(
+            reentregas=("CHAVE_ENTREGA", "nunique"), peso=("peso", "sum")).reset_index()
+        _fh = _rc[_rc["DESC JUST OC"] == JUST_FORA_HORARIO]
+        reent_canal_fh_dia = _fh.groupby(["DIA", "NOME CANAL"]).agg(
+            reentregas=("CHAVE_ENTREGA", "nunique"), peso=("peso", "sum")).reset_index()
+    else:
+        reent_canal_dia    = pd.DataFrame(columns=["DIA", "NOME CANAL", "reentregas", "peso"])
+        reent_canal_fh_dia = pd.DataFrame(columns=["DIA", "NOME CANAL", "reentregas", "peso"])
+    reent_fh_peso_dia = _reent_faixa_peso_dia(reent, JUST_FORA_HORARIO)
+
+    return {
+        "reent_kpis": {"reentregas": total_reent, "qtd_entregas_nf": int(total_entregas)},
+        "reentregas_transportadora":  r(reent_transp),
+        "reentregas_justificativa":   r(reent_just),
+        "reentregas_transp_just":     r(reent_transp_just),
+        "reentregas_transp_dia":      r(reent_transp_dia),
+        "nf_transp_dia":              r(nf_transp_dia_df),
+        "reentregas_just_dia":        r(reent_just_dia),
+        "reentregas_transp_just_dia": r(reent_tj_dia),
+        "reentregas_dia":             r(reent_dia),
+        "reentregas_mes":             r(reent_mes),
+        "nf_entregas_dia":            r(nf_dia_df),
+        "nf_entregas_mes":            r(nf_mes_df),
+        "reentregas_canal_dia":       r(reent_canal_dia),
+        "reent_canal_fh_dia":         r(reent_canal_fh_dia),
+        "reent_fh_peso_dia":          r(reent_fh_peso_dia),
+    }
+
+
+def build_segmentos(escala, df_levitare, reentregas, reentregas_levi, nf):
+    """Monta os bundles por operador (TIROLEZ e LEVITARE) para o seletor de
+    operação nos slides Roteiro e Reentregas. AMBOS já está no topo do JSON."""
+    # --- Denominadores de entregas TIROLEZ (a partir da NF) ---
+    nf_transp_t     = nf.groupby("NOME TRANSPORTADORA").agg(entregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+    nf_transp_dia_t = nf.groupby(["DIA", "NOME TRANSPORTADORA"]).agg(entregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+    nf_dia_t        = nf.groupby("DIA").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("DIA")
+    nf_mes_t        = nf.groupby("MES_KEY").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("MES_KEY")
+    total_t         = int(nf["CHAVE_ENTREGA"].nunique())
+
+    tirolez = _roteiro_bundle(escala)
+    tirolez.update(_reent_bundle(reentregas, nf_dia_t, nf_mes_t, nf_transp_t, nf_transp_dia_t, total_t))
+
+    # --- Denominadores de entregas LEVITARE (paradas; sem quebra por transportadora) ---
+    levi_dia   = df_levitare.groupby("DIA")["ENTREGAS"].sum().reset_index().rename(columns={"ENTREGAS": "qtd_entregas"}).sort_values("DIA")
+    levi_mes   = df_levitare.groupby("MES_KEY")["ENTREGAS"].sum().reset_index().rename(columns={"ENTREGAS": "qtd_entregas"}).sort_values("MES_KEY")
+    total_l    = int(df_levitare["ENTREGAS"].sum())
+    _empty_transp     = pd.DataFrame(columns=["NOME TRANSPORTADORA", "entregas"])
+    _empty_transp_dia = pd.DataFrame(columns=["DIA", "NOME TRANSPORTADORA", "entregas"])
+
+    levitare = _roteiro_bundle(df_levitare)
+    levitare.update(_reent_bundle(reentregas_levi, levi_dia, levi_mes, _empty_transp, _empty_transp_dia, total_l))
+
+    return {"tirolez": tirolez, "levitare": levitare}
+
+
 def main():
     print("=" * 60)
     print("  PIPELINE ETL - INDICADOR ROTEIRO 2026")
@@ -643,7 +742,13 @@ def main():
     frota_disp, frota_util = load_frota()
     df_levitare = load_levitare()
 
-    data = build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util)
+    # Unifica TIROLEZ + LEVITARE para os slides de Roteiro e Reentregas
+    # (Vespertina/Frescal continuam só com a escala TIROLEZ — Levitare não tem essa distinção de ROTA)
+    escala_unificada      = pd.concat([escala, df_levitare], ignore_index=True, sort=False)
+    reentregas_unificada  = pd.concat([reentregas, reentregas_levi], ignore_index=True, sort=False)
+
+    data = build_kpis(escala_unificada, nf, nf_raw, reentregas_unificada, frota_disp, frota_util,
+                       df_levitare=df_levitare, reentregas_levi=reentregas_levi)
 
     # === VESPERTINA ===
     print("[6/6] Processando Vespertina...")
@@ -712,48 +817,8 @@ def main():
     data["filtros"]["meses_fresc"] = f_meses
     data["filtros"]["dias_fresc"]  = f_dias
 
-    # === LEVITARE REENTREGAS ===
-    levi_nf_dia = (df_levitare.groupby("DIA")["ENTREGAS"].sum()
-                   .reset_index().rename(columns={"ENTREGAS": "qtd_entregas"})
-                   .sort_values("DIA"))
-    levi_nf_mes = (df_levitare.groupby("MES_KEY")["ENTREGAS"].sum()
-                   .reset_index().rename(columns={"ENTREGAS": "qtd_entregas"})
-                   .sort_values("MES_KEY"))
-    levi_nf_total = int(df_levitare["ENTREGAS"].sum())
-    _empty_transp = pd.DataFrame(columns=["NOME TRANSPORTADORA", "entregas"])
-    _empty_transp_dia = pd.DataFrame(columns=["DIA", "NOME TRANSPORTADORA", "entregas"])
-
-    levi_reent_block = build_reentregas_aggrs(
-        reentregas_levi, levi_nf_total,
-        levi_nf_dia, levi_nf_mes,
-        _empty_transp, _empty_transp_dia,
-    )
-    data["levi_reent_kpis"]                  = levi_reent_block["kpis"]
-    data["levi_reentregas_transportadora"]   = levi_reent_block["reentregas_transportadora"]
-    data["levi_reentregas_justificativa"]    = levi_reent_block["reentregas_justificativa"]
-    data["levi_reentregas_transp_just"]      = levi_reent_block["reentregas_transp_just"]
-    data["levi_reentregas_transp_dia"]       = levi_reent_block["reentregas_transp_dia"]
-    data["levi_nf_transp_dia"]               = levi_reent_block["nf_transp_dia"]
-    data["levi_reentregas_just_dia"]         = levi_reent_block["reentregas_just_dia"]
-    data["levi_reentregas_transp_just_dia"]  = levi_reent_block["reentregas_transp_just_dia"]
-    data["levi_reentregas_dia"]              = levi_reent_block["reentregas_dia"]
-    data["levi_reentregas_mes"]              = levi_reent_block["reentregas_mes"]
-    data["levi_nf_entregas_dia"]             = levi_reent_block["nf_entregas_dia"]
-    data["levi_nf_entregas_mes"]             = levi_reent_block["nf_entregas_mes"]
-    data["filtros"]["meses_levi_reent"]      = levi_reent_block["filtros_meses"]
-    data["filtros"]["dias_levi_reent"]       = levi_reent_block["filtros_dias"]
-
-    # === LEVITARE ROTEIRO ===
-    lv_kpis, lv_dia, lv_mes, lv_veic, lv_veic_dia, lv_veic_mes, lv_meses, lv_dias = \
-        build_escala_aggregations(df_levitare)
-    data["levitare_kpis"]            = lv_kpis
-    data["levitare_por_dia"]         = r(lv_dia)
-    data["levitare_por_mes"]         = r(lv_mes)
-    data["levitare_por_veiculo"]     = r(lv_veic)
-    data["levitare_por_veiculo_dia"] = r(lv_veic_dia)
-    data["levitare_por_veiculo_mes"] = r(lv_veic_mes)
-    data["filtros"]["meses_levitare"] = lv_meses
-    data["filtros"]["dias_levitare"]  = lv_dias
+    # === SEGMENTOS POR OPERADOR (seletor TIROLEZ / LEVITARE; AMBOS = topo do JSON) ===
+    data["seg"] = build_segmentos(escala, df_levitare, reentregas, reentregas_levi, nf)
 
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
