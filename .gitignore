@@ -25,6 +25,7 @@ index.html
 metas.html
 frescal.html
 volume_distribuicao_BR.html
+fracionado_x_dedicado.html
 
 # Configuracao real: contem e-mails internos e caminhos de rede da empresa.
 # O repositorio e publico. Use config.exemplo.json como modelo.

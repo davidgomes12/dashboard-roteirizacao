@@ -34,8 +34,10 @@ ETL/
 ├── logo_*.png         logos usados pelos HTMLs (precisam ficar na raiz)
 ├── config.json        caminhos das fontes de dados e parametros
 ├── scripts/           pipeline.py, gerar_index.py, gerar_volume_distribuicao_BR.py,
-│                      enviar_dashboard.py, servidor_apresentacao.py, watcher.py
-├── templates/         templates puros de HTML (volume_distribuicao_BR_template.html)
+│                      gerar_fracionado_x_dedicado.py, enviar_dashboard.py,
+│                      servidor_apresentacao.py, watcher.py
+├── templates/         templates puros de HTML (volume_distribuicao_BR_template.html,
+│                      fracionado_x_dedicado_template.html)
 ├── bin/               cloudflared.exe (tunel da apresentacao)
 ├── docs/              README.md, INSTRUCOES_GitHub.txt
 └── arquivo/           material antigo/auxiliar (_backup_paleta, _check.js, Receita.xlsx, Vaca Branca.png)
