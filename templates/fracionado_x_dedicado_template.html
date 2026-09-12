@@ -222,6 +222,12 @@ body::after{
 .gbar{transition:opacity .18s;cursor:pointer}
 .gbar:hover{opacity:.78}
 .gcol.off{opacity:.48}
+.gdash{stroke:rgba(139,38,53,.34);stroke-width:1;stroke-dasharray:2.5 2.5}
+.gvao{stroke:var(--gold-dark);stroke-width:1.4}
+.gtag{fill:var(--gold);stroke:var(--gold-dark);stroke-width:.8}
+.gtag.neg{fill:var(--primary);stroke:var(--primary-dark)}
+.gtagtx{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:700;fill:#5a182a;pointer-events:none}
+.gtagtx.neg{fill:#fff}
 
 /* ranking de cidades */
 .ranks{display:flex;flex-direction:column;gap:9px}
@@ -381,11 +387,12 @@ tfoot td:last-child{color:var(--gold)}
   <section class="panel rv d4">
     <div class="panel-hd">
       <h3>Evolução mensal</h3>
-      <span class="sub">clique numa coluna para ir direto ao mês</span>
+      <span class="sub">o valor entre as barras é o saving do mês · clique numa coluna para filtrar</span>
       <span class="sp"></span>
       <div class="lgd">
         <span><i style="background:linear-gradient(180deg,var(--wine),#a8303f)"></i>Fracionado</span>
         <span><i style="background:linear-gradient(180deg,var(--primary),var(--primary-dark))"></i>Dedicado</span>
+        <span><i style="background:var(--gold);border:1px solid var(--gold-dark)"></i>Saving (o vão entre as duas)</span>
       </div>
     </div>
     <div class="chart" id="chart"></div>
@@ -519,7 +526,8 @@ function renderChart(){
   max = passoY * 4;
 
   var passo = iw / comps.length;
-  var bw = Math.min(30, passo * 0.26);
+  var bw = Math.min(23, passo * 0.19);   // largura da barra
+  var sep = Math.min(56, passo * 0.44);  // vao entre o par, onde entra o saving
   var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet">';
   s += '<defs>' +
        '<linearGradient id="gf" x1="0" y1="0" x2="0" y2="1">' +
@@ -539,19 +547,47 @@ function renderChart(){
     var cx = mL + passo*idx + passo/2;
     var hf = Math.max(1, c.fracionado/max*ih);
     var hd = Math.max(1, c.dedicado/max*ih);
+    var base = mT + ih;
+    var xf = cx - sep/2 - bw, xd = cx + sep/2;
+    var yf = base - hf, yd = base - hd;
     var off = S.mes && S.mes !== c.id;
+
     s += '<g class="gcol' + (off ? ' off' : '') + '">';
-    s += '<rect class="gbar" data-m="' + c.id + '" x="' + (cx-bw-2).toFixed(1) + '" y="' + (mT+ih-hf).toFixed(1) +
-         '" width="' + bw + '" height="' + hf.toFixed(1) + '" rx="3" fill="url(#gf)">' +
+    s += '<rect class="gbar" data-m="' + c.id + '" x="' + xf.toFixed(1) + '" y="' + yf.toFixed(1) +
+         '" width="' + bw.toFixed(1) + '" height="' + hf.toFixed(1) + '" rx="3" fill="url(#gf)">' +
          '<title>' + c.rotulo + ' · fracionado ' + brl(c.fracionado) + '</title></rect>';
-    s += '<rect class="gbar" data-m="' + c.id + '" x="' + (cx+2).toFixed(1) + '" y="' + (mT+ih-hd).toFixed(1) +
-         '" width="' + bw + '" height="' + hd.toFixed(1) + '" rx="3" fill="url(#gd)">' +
+    s += '<rect class="gbar" data-m="' + c.id + '" x="' + xd.toFixed(1) + '" y="' + yd.toFixed(1) +
+         '" width="' + bw.toFixed(1) + '" height="' + hd.toFixed(1) + '" rx="3" fill="url(#gd)">' +
          '<title>' + c.rotulo + ' · dedicado ' + brl(c.dedicado) + '</title></rect>';
-    s += '<text class="gtxt v" x="' + cx.toFixed(1) + '" y="' + (mT+ih-Math.max(hf,hd)-8).toFixed(1) +
-         '" text-anchor="middle">' + compacto(c.evitado) + '</text>';
-    s += '<text class="gtxt m" x="' + cx.toFixed(1) + '" y="' + (mT+ih+18) + '" text-anchor="middle">' +
+
+    // conector entre os topos das duas barras: o vao e o proprio saving
+    var yTopo = Math.min(yf, yd), yBase = Math.max(yf, yd);
+    var vao = yBase - yTopo;
+    s += '<g class="gcon">';
+    s += '<line class="gdash" x1="' + (xf + bw).toFixed(1) + '" y1="' + yf.toFixed(1) +
+         '" x2="' + cx.toFixed(1) + '" y2="' + yf.toFixed(1) + '"/>';
+    s += '<line class="gdash" x1="' + cx.toFixed(1) + '" y1="' + yd.toFixed(1) +
+         '" x2="' + xd.toFixed(1) + '" y2="' + yd.toFixed(1) + '"/>';
+    if (vao > 6){
+      s += '<line class="gvao" x1="' + cx.toFixed(1) + '" y1="' + yTopo.toFixed(1) +
+           '" x2="' + cx.toFixed(1) + '" y2="' + yBase.toFixed(1) + '"/>';
+    }
+
+    // etiqueta do saving: dentro do vao quando cabe, senao logo acima do par
+    var txt = compacto(c.evitado);
+    var lw = txt.length * 6.1 + 15, lh = 17;
+    var cy = (vao >= 26) ? (yTopo + yBase)/2 : (yTopo - 13);
+    var negativo = c.evitado < 0;
+    s += '<rect class="gtag' + (negativo ? ' neg' : '') + '" x="' + (cx - lw/2).toFixed(1) +
+         '" y="' + (cy - lh/2).toFixed(1) + '" width="' + lw.toFixed(1) + '" height="' + lh +
+         '" rx="8.5"><title>' + c.rotulo + ' · saving ' + brl(c.evitado) + '</title></rect>';
+    s += '<text class="gtagtx' + (negativo ? ' neg' : '') + '" x="' + cx.toFixed(1) +
+         '" y="' + (cy + 3.4).toFixed(1) + '" text-anchor="middle">' + txt + '</text>';
+    s += '</g>';
+
+    s += '<text class="gtxt m" x="' + cx.toFixed(1) + '" y="' + (base+18) + '" text-anchor="middle">' +
          c.rotulo + '</text>';
-    s += '<text class="gtxt" x="' + cx.toFixed(1) + '" y="' + (mT+ih+31) + '" text-anchor="middle">' +
+    s += '<text class="gtxt" x="' + cx.toFixed(1) + '" y="' + (base+31) + '" text-anchor="middle">' +
          c.veiculos + ' veíc.</text>';
     s += '</g>';
   });
