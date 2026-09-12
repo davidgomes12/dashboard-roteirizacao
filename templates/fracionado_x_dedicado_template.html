@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dedicado × Fracionado · Tirolez</title>
+<title>Saving de Frete — Custo Evitado com Conversão Fracionado → Dedicado · Tirolez</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -61,22 +61,21 @@ body::after{
   border-bottom:2px solid var(--primary);
   box-shadow:0 6px 22px rgba(139,38,53,.09);
 }
-.hdr-in{display:flex;align-items:center;gap:22px;height:72px}
-@media(max-width:620px){
-  .hdr-in{height:auto;padding:12px 0;flex-wrap:wrap;gap:10px}
-  .brand img{height:34px}
-  .brand-txt h1{font-size:1.1rem}
-  .hdr-spacer{display:none}
-  .srch input{width:100%}
-  .srch{flex:1}
-}
-.brand{display:flex;align-items:center;gap:14px;flex-shrink:0}
-.brand img{height:42px;width:auto;filter:drop-shadow(0 2px 6px rgba(226,10,24,.18))}
+.hdr-in{display:flex;align-items:center;gap:22px;min-height:78px;padding:10px 0}
+.brand{display:flex;align-items:center;gap:14px;flex-shrink:0;min-width:0}
+.brand img{height:44px;width:auto;filter:drop-shadow(0 2px 6px rgba(226,10,24,.18))}
+.brand-txt{min-width:0}
 .brand-txt h1{
-  font-family:var(--display);font-size:1.36rem;font-weight:900;letter-spacing:-.5px;line-height:1.06;
-  font-optical-sizing:auto;text-wrap:balance;
+  font-family:var(--display);font-size:1.34rem;font-weight:900;letter-spacing:-.5px;line-height:1.04;
+  font-optical-sizing:auto;
 }
 .brand-txt h1 em{font-style:normal;color:var(--primary)}
+.brand-txt .sub{
+  font-family:var(--sans);font-size:.7rem;font-weight:600;color:var(--ink-soft);
+  letter-spacing:.01em;margin-top:3px;line-height:1.25;
+}
+.brand-txt .sub b{color:var(--wine);font-weight:700}
+.brand-txt .sub .ar{color:var(--primary);font-weight:800}
 .hdr-spacer{flex:1}
 .hdr-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 .hmeta{
@@ -85,87 +84,81 @@ body::after{
   padding:6px 12px;border-radius:20px;white-space:nowrap;
 }
 .hmeta b{color:var(--wine);font-weight:700}
-
-/* ===== BOTOES ===== */
-.btn{
-  font-family:var(--sans);font-size:.72rem;font-weight:700;letter-spacing:.02em;
-  color:var(--wine);background:var(--bg-card);border:1px solid var(--border-strong);
-  padding:8px 15px;border-radius:22px;cursor:pointer;transition:.16s;
-  display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+@media(max-width:680px){
+  .hdr-in{min-height:0;flex-wrap:wrap;gap:10px}
+  .brand img{height:34px}
+  .brand-txt h1{font-size:1.06rem}
+  .brand-txt .sub{font-size:.64rem}
+  .hdr-spacer{display:none}
 }
-.btn:hover{background:var(--primary);color:#fff;border-color:var(--primary);transform:translateY(-1px);box-shadow:var(--shadow-sm)}
-.btn svg{width:13px;height:13px;stroke-width:2.4;fill:none;stroke:currentColor}
 
 /* ===== REVEAL ===== */
 .rv{opacity:0;transform:translateY(16px);animation:rise .62s cubic-bezier(.22,1,.36,1) forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 .d1{animation-delay:.04s}.d2{animation-delay:.10s}.d3{animation-delay:.16s}
-.d4{animation-delay:.22s}.d5{animation-delay:.28s}.d6{animation-delay:.34s}
+.d4{animation-delay:.22s}.d5{animation-delay:.28s}
 
-/* ===== TIMELINE DE MESES (filtro principal) ===== */
+/* ===== COMPETENCIA (dropdown de mes) ===== */
 .deck{
   background:linear-gradient(165deg,var(--bg-card),var(--cream-lt));
   border:1px solid var(--border);border-radius:var(--r);
-  box-shadow:var(--shadow-md);padding:20px 22px;margin:26px 0 18px;
-  position:relative;overflow:hidden;
+  box-shadow:var(--shadow-md);padding:18px 22px;margin:26px 0 18px;
+  position:relative; z-index:40;  /* acima dos KPIs: o menu suspenso abre por cima deles */
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
 }
 .deck::before{
   content:'';position:absolute;left:0;top:0;bottom:0;width:4px;
   background:linear-gradient(180deg,var(--primary),var(--gold));
+  border-radius:var(--r) 0 0 var(--r);
 }
-.deck-hd{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;flex-wrap:wrap}
-.deck-hd h2{
-  font-family:var(--display);font-size:1.02rem;font-weight:800;letter-spacing:-.2px;
+.deck h2{font-family:var(--display);font-size:1.02rem;font-weight:800;letter-spacing:-.2px}
+.deck .hint{font-size:.68rem;color:var(--ink-mute)}
+.deck .hint b{color:var(--wine);font-weight:700}
+.deck .sp{flex:1}
+.deck .resumo{
+  font-family:var(--mono);font-size:.66rem;color:var(--ink-soft);
+  background:var(--primary-subtle);border:1px solid var(--border);
+  padding:7px 14px;border-radius:20px;white-space:nowrap;
 }
-.deck-hd .hint{font-size:.68rem;color:var(--ink-mute);letter-spacing:.01em}
-.deck-hd .hint b{color:var(--wine);font-weight:700}
-.deck-hd .sp{flex:1}
+.deck .resumo b{color:var(--wine);font-weight:700}
 
-.tl{display:flex;gap:9px;overflow-x:auto;padding:4px 2px 10px}
-.mo{
-  flex:1 0 112px;min-width:112px;cursor:pointer;text-align:left;
-  background:var(--bg-card);border:1px solid var(--border);border-radius:var(--r-sm);
-  padding:11px 12px 9px;transition:.18s;position:relative;overflow:hidden;
-  font-family:var(--sans);
+.dd{position:relative;min-width:216px}
+.dd-btn{
+  width:100%;display:flex;align-items:center;gap:10px;cursor:pointer;
+  font-family:var(--sans);font-size:.86rem;font-weight:700;color:var(--cream-lt);
+  background:linear-gradient(150deg,var(--primary),var(--wine));
+  border:1px solid var(--primary-dark);border-radius:var(--r-sm);
+  padding:10px 14px;transition:.16s;box-shadow:0 6px 16px var(--primary-glow);
+  text-align:left;
 }
-.mo:hover{border-color:var(--border-strong);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
-.mo .mo-lb{
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-mute);font-weight:700;
+.dd-btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.dd-btn .cur{flex:1;min-width:0}
+.dd-btn .cap{
+  font-family:var(--mono);font-size:.55rem;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,248,232,.66);display:block;font-weight:700;margin-bottom:2px;
 }
-.mo .mo-vl{
-  font-family:var(--display);font-size:1.02rem;font-weight:800;color:var(--wine);
-  margin:3px 0 7px;letter-spacing:-.4px;font-variant-numeric:tabular-nums;
+.dd-btn .val{display:block;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dd-btn svg{width:13px;height:13px;stroke:currentColor;stroke-width:2.6;fill:none;transition:transform .2s;flex-shrink:0}
+.dd.open .dd-btn svg{transform:rotate(180deg)}
+.dd-menu{
+  position:absolute;top:calc(100% + 7px);left:0;right:0;z-index:70;
+  background:var(--bg-card);border:1px solid var(--border-strong);border-radius:var(--r-sm);
+  box-shadow:var(--shadow-lg);padding:6px;max-height:340px;overflow-y:auto;
+  opacity:0;visibility:hidden;transform:translateY(-6px);transition:.16s;
 }
-.mo .mo-bar{height:4px;border-radius:3px;background:rgba(139,38,53,.12);overflow:hidden}
-.mo .mo-bar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--primary),var(--gold));transition:width .5s cubic-bezier(.22,1,.36,1)}
-.mo.sel{background:linear-gradient(160deg,var(--primary),var(--wine));border-color:var(--primary-dark);box-shadow:0 8px 20px var(--primary-glow)}
-.mo.sel .mo-lb{color:rgba(255,248,232,.78)}
-.mo.sel .mo-vl{color:#fff}
-.mo.sel .mo-bar{background:rgba(255,255,255,.25)}
-.mo.sel .mo-bar i{background:var(--gold)}
-.mo.neg .mo-vl{color:var(--primary)}
-
-.fltrow{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding-top:14px;border-top:1px dashed var(--border);min-width:0}
-.fl-lb{
-  font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-mute);font-weight:700;margin-right:2px;
+.dd.open .dd-menu{opacity:1;visibility:visible;transform:none}
+.dd-opt{
+  width:100%;display:flex;align-items:center;gap:10px;cursor:pointer;
+  font-family:var(--sans);font-size:.76rem;font-weight:600;color:var(--ink);
+  background:transparent;border:none;border-radius:var(--r-xs);
+  padding:9px 11px;transition:.12s;text-align:left;
 }
-.chip{
-  font-family:var(--sans);font-size:.7rem;font-weight:600;color:var(--ink-soft);
-  background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
-  padding:6px 13px;cursor:pointer;transition:.15s;
-}
-.chip:hover{border-color:var(--border-strong);color:var(--wine)}
-.chip.sel{background:var(--wine);color:var(--cream-lt);border-color:var(--wine-dark);font-weight:700}
-.srch{position:relative;display:inline-flex;align-items:center}
-.srch svg{position:absolute;left:11px;width:12px;height:12px;stroke:var(--ink-mute);stroke-width:2.2;fill:none;pointer-events:none}
-.srch input{
-  font-family:var(--sans);font-size:.72rem;color:var(--ink);
-  background:var(--bg-card);border:1px solid var(--border);border-radius:20px;
-  padding:7px 13px 7px 29px;width:190px;outline:none;transition:.15s;
-}
-.srch input:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-subtle);width:220px}
+.dd-opt:hover{background:var(--primary-subtle);color:var(--wine)}
+.dd-opt.sel{background:var(--wine);color:var(--cream-lt);font-weight:700}
+.dd-opt .v{margin-left:auto;font-family:var(--mono);font-size:.68rem;font-weight:700;color:var(--wine)}
+.dd-opt.sel .v{color:var(--gold)}
+.dd-opt.neg .v{color:var(--primary)}
+.dd-opt.sep{border-top:1px dashed var(--border);border-radius:0 0 var(--r-xs) var(--r-xs);margin-top:5px;padding-top:11px}
 
 /* ===== KPIs ===== */
 .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(190px,100%),1fr));gap:14px;margin-bottom:18px}
@@ -200,7 +193,7 @@ body::after{
 .kpi.hero .kd b{color:var(--gold)}
 @media(max-width:720px){.kpi.hero{grid-column:span 1}.kpi .kv{font-size:1.42rem}.kpi.hero .kv{font-size:1.9rem}}
 
-/* ===== CONFRONTO ===== */
+/* ===== PAINEIS ===== */
 .panel{
   background:linear-gradient(165deg,var(--bg-card),var(--cream-lt));
   border:1px solid var(--border);border-radius:var(--r);
@@ -223,22 +216,24 @@ body::after{
   font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
   font-weight:700;color:var(--ink-soft);text-align:right;
 }
-.vs-track{height:38px;background:rgba(139,38,53,.07);border-radius:var(--r-xs);overflow:hidden;position:relative}
+.vs-track{height:38px;background:rgba(139,38,53,.07);border-radius:var(--r-xs);overflow:hidden}
 .vs-fill{
   height:100%;border-radius:var(--r-xs);transition:width .7s cubic-bezier(.22,1,.36,1);
   box-shadow:inset 0 -12px 22px rgba(0,0,0,.10);
 }
 .vs-fill.frac{background:linear-gradient(90deg,var(--wine),#a8303f)}
 .vs-fill.ded{background:linear-gradient(90deg,var(--primary-dark),var(--primary))}
-.vs-fill.gap{background:linear-gradient(90deg,var(--gold-dark),var(--gold));color:var(--wine-dark)}
+.vs-fill.gap{background:linear-gradient(90deg,var(--gold-dark),var(--gold))}
 .vs-val{
   font-family:var(--display);font-size:.94rem;font-weight:800;color:var(--ink);
   min-width:104px;text-align:right;font-variant-numeric:tabular-nums;
 }
 .vs-row.gaprow .vs-lb{color:var(--gold-dark)}
 .vs-row.gaprow .vs-val{color:var(--wine)}
+.lgd{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.lgd span{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;color:var(--ink-soft);font-weight:600}
+.lgd i{width:11px;height:11px;border-radius:3px;display:inline-block}
 
-/* ===== GRAFICO EVOLUCAO ===== */
 .chart{width:100%;overflow-x:auto}
 .chart svg{display:block;min-width:660px;width:100%;height:290px}
 .gl{stroke:rgba(139,38,53,.10);stroke-width:1}
@@ -248,24 +243,36 @@ body::after{
 .gbar{transition:opacity .18s;cursor:pointer}
 .gbar:hover{opacity:.78}
 .gcol.off{opacity:.48}
-.lgd{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
-.lgd span{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;color:var(--ink-soft);font-weight:600}
-.lgd i{width:11px;height:11px;border-radius:3px;display:inline-block}
 
-/* ===== TABELAS ===== */
+/* ranking de cidades */
+.ranks{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));
+  gap:9px 26px;max-height:none;
+}
+.rk{display:grid;grid-template-columns:22px minmax(0,1fr) 96px;align-items:center;gap:11px}
+.rk-n{font-family:var(--mono);font-size:.62rem;color:var(--ink-mute);font-weight:700}
+.rk-b{position:relative;background:rgba(139,38,53,.07);border-radius:var(--r-xs);height:27px;overflow:hidden}
+.rk-f{
+  height:100%;background:linear-gradient(90deg,rgba(139,38,53,.38),rgba(176,64,79,.20));
+  border-right:2px solid var(--wine);border-radius:var(--r-xs);
+  transition:width .6s cubic-bezier(.22,1,.36,1);
+}
+.rk-t{
+  position:absolute;left:10px;right:8px;top:0;height:100%;display:flex;align-items:center;
+  font-size:.7rem;font-weight:600;color:var(--ink);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;
+}
+.rk-v{font-family:var(--mono);font-size:.7rem;font-weight:700;color:var(--wine);text-align:right}
+
 .tblwrap{overflow-x:auto;border-radius:var(--r-sm);border:1px solid var(--border)}
 table{width:100%;border-collapse:collapse;font-size:.74rem;background:var(--bg-card)}
 thead th{
   background:linear-gradient(160deg,var(--primary),var(--primary-dark));
   color:#fff;font-family:var(--sans);font-size:.6rem;font-weight:700;
   letter-spacing:.07em;text-transform:uppercase;padding:10px 12px;text-align:right;
-  white-space:nowrap;position:sticky;top:0;
+  white-space:nowrap;
 }
 thead th:first-child{text-align:left}
-thead th.srt{cursor:pointer;user-select:none}
-thead th.srt:hover{background:linear-gradient(160deg,var(--primary-light),var(--primary))}
-thead th .ar{opacity:.45;font-size:.7em;margin-left:3px}
-thead th.on .ar{opacity:1}
 tbody td{padding:9px 12px;text-align:right;border-bottom:1px solid rgba(139,38,53,.07);font-variant-numeric:tabular-nums}
 tbody td:first-child{text-align:left;font-weight:700;color:var(--wine)}
 tbody tr:hover{background:var(--bg-card-hover)}
@@ -274,40 +281,12 @@ tfoot td{
   padding:10px 12px;text-align:right;font-weight:800;color:var(--cream-lt);
   background:var(--wine);font-variant-numeric:tabular-nums;
 }
-tfoot td:last-child{color:var(--gold)}
 tfoot td:first-child{text-align:left}
+tfoot td:last-child{color:var(--gold)}
 .mono{font-family:var(--mono);font-size:.92em}
-.pos{color:var(--success);font-weight:700}
 .neg{color:var(--primary);font-weight:700}
 .minibar{display:block;height:4px;border-radius:3px;background:linear-gradient(90deg,var(--gold),var(--primary));margin:4px 0 0 auto}
-
-/* ===== RANKING ===== */
-.ranks{display:flex;flex-direction:column;gap:9px;max-height:352px;overflow-y:auto;padding-right:4px}
-.rk{display:grid;grid-template-columns:22px minmax(0,1fr) 96px;align-items:center;gap:11px}
-.rk-n{font-family:var(--mono);font-size:.62rem;color:var(--ink-mute);font-weight:700}
-.rk-b{position:relative;background:rgba(139,38,53,.07);border-radius:var(--r-xs);height:27px;overflow:hidden}
-.rk-f{height:100%;background:linear-gradient(90deg,rgba(139,38,53,.38),rgba(176,64,79,.20));border-right:2px solid var(--wine);border-radius:var(--r-xs);transition:width .6s cubic-bezier(.22,1,.36,1)}
-.rk-t{
-  position:absolute;left:10px;right:8px;top:0;height:100%;display:flex;align-items:center;
-  font-size:.7rem;font-weight:600;color:var(--ink);white-space:nowrap;
-  overflow:hidden;text-overflow:ellipsis;
-}
-.rk-v{font-family:var(--mono);font-size:.7rem;font-weight:700;color:var(--wine);text-align:right}
-
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
-@media(max-width:980px){.grid2{grid-template-columns:1fr}}
-
 .empty{padding:38px 10px;text-align:center;color:var(--ink-mute);font-size:.78rem}
-.tblfoot{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}
-.tblfoot .info{font-family:var(--mono);font-size:.64rem;color:var(--ink-mute)}
-.tblfoot .sp{flex:1}
-
-.note{
-  font-size:.66rem;color:var(--ink-soft);line-height:1.5;margin-top:12px;
-  padding:11px 14px;background:var(--primary-subtle);border-left:3px solid var(--primary);
-  border-radius:var(--r-xs);
-}
-.note b{color:var(--wine)}
 
 .foot{
   text-align:center;font-family:var(--mono);font-size:.62rem;color:var(--ink-mute);
@@ -316,7 +295,7 @@ tfoot td:first-child{text-align:left}
 .foot b{color:var(--wine)}
 
 @media print{
-  .hdr{position:static}.btn,.srch{display:none}
+  .hdr{position:static}.dd-btn{box-shadow:none}
   body{background:#fff}body::before,body::after{display:none}
 }
 </style>
@@ -328,41 +307,36 @@ tfoot td:first-child{text-align:left}
     <div class="brand">
       <img id="logo" alt="Tirolez">
       <div class="brand-txt">
-        <h1>Dedicado <em>×</em> Fracionado</h1>
+        <h1>Saving de <em>Frete</em></h1>
+        <div class="sub">Custo evitado com conversão <b>fracionado</b> <span class="ar">→</span> <b>dedicado</b></div>
       </div>
     </div>
     <div class="hdr-spacer"></div>
     <div class="hdr-meta">
       <span class="hmeta">Base: <b id="mPeriodo">—</b></span>
       <span class="hmeta">Atualizado <b id="mGerado">—</b></span>
-      <button class="btn" id="btnCsv">
-        <svg viewBox="0 0 16 16"><path d="M8 2v8M4.6 6.8L8 10.2l3.4-3.4M2.6 13h10.8"/></svg>
-        CSV
-      </button>
     </div>
   </div>
 </header>
 
 <div class="wrap">
 
-  <!-- FILTRO PRINCIPAL: meses da DATA SAIDA -->
+  <!-- COMPETENCIA: dropdown de mes (DATA SAIDA) -->
   <section class="deck rv d1">
-    <div class="deck-hd">
-      <h2>Competência</h2>
-      <span class="hint">pela <b>data de saída</b> · clique para filtrar, clique de novo para soltar</span>
-      <span class="sp"></span>
-      <button class="btn" id="btnTudo">Período completo</button>
+    <h2>Competência</h2>
+    <div class="dd" id="dd">
+      <button class="dd-btn" id="ddBtn" type="button" aria-haspopup="listbox" aria-expanded="false">
+        <span class="cur">
+          <span class="cap">Mês · data de saída</span>
+          <span class="val" id="ddCur">—</span>
+        </span>
+        <svg viewBox="0 0 16 16"><path d="M3.5 6l4.5 4.5L12.5 6"/></svg>
+      </button>
+      <div class="dd-menu" id="ddMenu" role="listbox"></div>
     </div>
-    <div class="tl" id="tl"></div>
-    <div class="fltrow">
-      <span class="fl-lb">Tipo veicular</span>
-      <div id="flModelos" style="display:flex;gap:8px;flex-wrap:wrap"></div>
-      <span class="sp" style="flex:1"></span>
-      <label class="srch">
-        <svg viewBox="0 0 16 16"><circle cx="7" cy="7" r="4.2"/><path d="M10.2 10.2L14 14"/></svg>
-        <input id="qCidade" type="search" placeholder="filtrar cidade…" autocomplete="off">
-      </label>
-    </div>
+    <span class="hint">meses pela <b>data de saída</b></span>
+    <span class="sp"></span>
+    <span class="resumo" id="resumo">—</span>
   </section>
 
   <!-- KPIs -->
@@ -429,7 +403,7 @@ tfoot td:first-child{text-align:left}
   <section class="panel rv d4">
     <div class="panel-hd">
       <h3>Evolução mensal</h3>
-      <span class="sub">clique numa coluna para filtrar o mês</span>
+      <span class="sub">clique numa coluna para ir direto ao mês</span>
       <span class="sp"></span>
       <div class="lgd">
         <span><i style="background:linear-gradient(180deg,var(--wine),#a8303f)"></i>Fracionado</span>
@@ -446,7 +420,7 @@ tfoot td:first-child{text-align:left}
       <span class="sub" id="tvSub">—</span>
     </div>
     <div class="tblwrap">
-      <table id="tblTv">
+      <table>
         <thead><tr>
           <th>Tipo veicular</th>
           <th>Qtd veículos</th>
@@ -461,53 +435,17 @@ tfoot td:first-child{text-align:left}
     </div>
   </section>
 
-  <div class="grid2 rv d6">
-    <!-- CIDADES -->
-    <section class="panel" style="margin-bottom:0">
-      <div class="panel-hd">
-        <h3>Cidades que mais evitam custo</h3>
-        <span class="sp"></span>
-        <span class="sub" id="cidSub">—</span>
-      </div>
-      <div class="ranks" id="rkCidade"></div>
-    </section>
-
-    <!-- ATENCAO -->
-    <section class="panel" style="margin-bottom:0">
-      <div class="panel-hd">
-        <h3>Atenção · dedicado saiu mais caro</h3>
-        <span class="sp"></span>
-        <span class="sub" id="negSub">—</span>
-      </div>
-      <div class="ranks" id="rkNeg"></div>
-      <div class="note">
-        Romaneios em que o frete dedicado custou <b>mais</b> que a cotação fracionada.
-        São candidatos naturais a revisão de modal ou de rota.
-      </div>
-    </section>
-  </div>
-
-  <!-- DETALHE -->
-  <section class="panel rv d6">
+  <!-- CIDADES -->
+  <section class="panel rv d5">
     <div class="panel-hd">
-      <h3>Romaneios</h3>
-      <span class="sub">clique no cabeçalho para ordenar</span>
+      <h3>Cidades que mais evitam custo</h3>
+      <span class="sub" id="cidSub">—</span>
     </div>
-    <div class="tblwrap">
-      <table id="tblDet">
-        <thead><tr id="detHead"></tr></thead>
-        <tbody id="detBody"></tbody>
-      </table>
-    </div>
-    <div class="tblfoot">
-      <span class="info" id="detInfo">—</span>
-      <span class="sp"></span>
-      <button class="btn" id="btnMais">Ver mais 40</button>
-    </div>
+    <div class="ranks" id="rkCidade"></div>
   </section>
 
   <div class="foot">
-    Tirolez &nbsp;·&nbsp; Indicador de Roteiro &nbsp;·&nbsp; Dedicado × Fracionado
+    Tirolez &nbsp;·&nbsp; Indicador de Roteiro &nbsp;·&nbsp; Saving de Frete
     &nbsp;·&nbsp; gerado em <b id="fGerado">—</b>
   </div>
 </div>
@@ -519,11 +457,9 @@ tfoot td:first-child{text-align:left}
 
 var D = JSON.parse(document.getElementById('dados').textContent);
 
-/* ---------- indices das colunas ---------- */
 var C = {};
 D.colunas.forEach(function(n,i){ C[n] = i; });
 
-/* ---------- formatadores ---------- */
 var nf0 = new Intl.NumberFormat('pt-BR',{maximumFractionDigits:0});
 var nf2 = new Intl.NumberFormat('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});
 function brl(v){ return 'R$ ' + nf0.format(Math.round(v)); }
@@ -536,23 +472,16 @@ function compacto(v){
   return nf0.format(Math.round(v));
 }
 
-/* ---------- estado ---------- */
-var S = { meses: [], modelos: [], cidade: '', detN: 40, detOrd: 'evitado', detDir: -1 };
-
-function linhaEvitado(r){ return r[C.fracionado] - r[C.dedicado]; }
+/* mes selecionado ('' = periodo completo) */
+var S = { mes: '' };
 
 function filtrar(){
-  var q = S.cidade;
-  return D.linhas.filter(function(r){
-    if (S.meses.length && S.meses.indexOf(r[C.comp]) < 0) return false;
-    if (S.modelos.length && S.modelos.indexOf(r[C.modelo]) < 0) return false;
-    if (q && r[C.cidade].indexOf(q) < 0) return false;
-    return true;
-  });
+  if (!S.mes) return D.linhas;
+  return D.linhas.filter(function(r){ return r[C.comp] === S.mes; });
 }
 
 function somar(rows){
-  var t = {ded:0, frac:0, peso:0, veic:0, nff:0, rom:rows.length, valor:0};
+  var t = {ded:0, frac:0, peso:0, veic:0, nff:0, rom:rows.length};
   for (var i=0;i<rows.length;i++){
     var r = rows[i];
     t.ded  += r[C.dedicado];
@@ -560,7 +489,6 @@ function somar(rows){
     t.peso += r[C.peso];
     t.veic += r[C.veiculos];
     t.nff  += r[C.nff];
-    t.valor+= r[C.valor];
   }
   t.evitado = t.frac - t.ded;
   return t;
@@ -570,10 +498,10 @@ function agrupar(rows, campo){
   var m = {};
   for (var i=0;i<rows.length;i++){
     var r = rows[i], k = r[campo];
-    if (!m[k]) m[k] = {k:k, ded:0, frac:0, peso:0, veic:0, nff:0, rom:0};
+    if (!m[k]) m[k] = {k:k, ded:0, frac:0, peso:0, veic:0, rom:0};
     var o = m[k];
-    o.ded += r[C.dedicado]; o.frac += r[C.fracionado]; o.peso += r[C.peso];
-    o.veic += r[C.veiculos]; o.nff += r[C.nff]; o.rom++;
+    o.ded += r[C.dedicado]; o.frac += r[C.fracionado];
+    o.peso += r[C.peso]; o.veic += r[C.veiculos]; o.rom++;
   }
   return Object.keys(m).map(function(k){
     m[k].evitado = m[k].frac - m[k].ded;
@@ -581,28 +509,30 @@ function agrupar(rows, campo){
   }).sort(function(a,b){ return b.evitado - a.evitado; });
 }
 
-/* ---------- timeline de meses ---------- */
-function renderTimeline(){
-  var max = 0;
-  D.competencias.forEach(function(c){ max = Math.max(max, Math.abs(c.evitado)); });
-  var html = D.competencias.map(function(c){
-    var sel = S.meses.indexOf(c.id) >= 0;
-    var pct = max ? Math.max(3, Math.abs(c.evitado)/max*100) : 0;
-    return '<button class="mo' + (sel ? ' sel' : '') + (c.evitado < 0 ? ' neg' : '') +
-      '" data-m="' + c.id + '" title="' + c.rotulo + ' · ' + brl(c.evitado) + ' evitados">' +
-      '<span class="mo-lb">' + c.rotulo + '</span>' +
-      '<div class="mo-vl">' + compacto(c.evitado) + '</div>' +
-      '<div class="mo-bar"><i style="width:' + pct.toFixed(1) + '%"></i></div>' +
-      '</button>';
-  }).join('');
-  document.getElementById('tl').innerHTML = html;
+function rotuloMes(){
+  if (!S.mes) return 'Período completo';
+  var c = D.competencias.filter(function(x){ return x.id === S.mes; })[0];
+  return c ? c.rotulo : S.mes;
 }
 
-function renderFiltroModelos(){
-  document.getElementById('flModelos').innerHTML = D.modelos.map(function(m){
-    var sel = S.modelos.indexOf(m) >= 0;
-    return '<button class="chip' + (sel ? ' sel' : '') + '" data-mod="' + m + '">' + m + '</button>';
+/* ---------- dropdown ---------- */
+function renderDropdown(){
+  var html = D.competencias.slice().reverse().map(function(c){
+    return '<button class="dd-opt' + (S.mes === c.id ? ' sel' : '') + (c.evitado < 0 ? ' neg' : '') +
+      '" role="option" data-m="' + c.id + '">' + c.rotulo +
+      '<span class="v">' + compacto(c.evitado) + '</span></button>';
   }).join('');
+  var total = D.competencias.reduce(function(s,c){ return s + c.evitado; }, 0);
+  html += '<button class="dd-opt sep' + (S.mes === '' ? ' sel' : '') +
+    '" role="option" data-m="">Período completo' +
+    '<span class="v">' + compacto(total) + '</span></button>';
+  document.getElementById('ddMenu').innerHTML = html;
+  document.getElementById('ddCur').textContent = rotuloMes();
+}
+
+function fecharMenu(){
+  document.getElementById('dd').classList.remove('open');
+  document.getElementById('ddBtn').setAttribute('aria-expanded','false');
 }
 
 /* ---------- KPIs + confronto ---------- */
@@ -620,7 +550,7 @@ function renderTopo(rows){
   var reducao = t.frac ? (t.evitado/t.frac*100) : 0;
   document.getElementById('kEvitadoSub').innerHTML =
     '<b>' + nf2.format(reducao) + '%</b> abaixo do que o fracionado custaria · ' +
-    'período: <b>' + rotuloPeriodo() + '</b>';
+    '<b>' + rotuloMes() + '</b>';
 
   var max = Math.max(t.frac, t.ded, 1);
   function setBar(el, valor){
@@ -634,19 +564,13 @@ function renderTopo(rows){
   document.getElementById('vsGapV').textContent  = brl(t.evitado);
   document.getElementById('vsSub').textContent =
     t.rom ? nf0.format(t.rom) + ' romaneios · ' + nf0.format(t.veic) + ' veículos · ' + kg(t.peso) + ' kg'
-          : 'sem dados no filtro atual';
+          : 'sem dados no mês selecionado';
+
+  document.getElementById('resumo').innerHTML =
+    '<b>' + rotuloMes() + '</b> · ' + brl(t.evitado) + ' evitados';
 }
 
-function rotuloPeriodo(){
-  if (!S.meses.length) return D.competencias.length
-    ? D.competencias[0].rotulo + ' a ' + D.competencias[D.competencias.length-1].rotulo
-    : '—';
-  var sel = D.competencias.filter(function(c){ return S.meses.indexOf(c.id) >= 0; });
-  if (sel.length === 1) return sel[0].rotulo;
-  return sel.map(function(c){ return c.rotulo; }).join(', ');
-}
-
-/* ---------- grafico de evolucao ---------- */
+/* ---------- grafico ---------- */
 function renderChart(){
   var comps = D.competencias;
   if (!comps.length){ document.getElementById('chart').innerHTML = ''; return; }
@@ -657,7 +581,6 @@ function renderChart(){
   var max = 0;
   comps.forEach(function(c){ max = Math.max(max, c.fracionado, c.dedicado); });
   max = max || 1;
-  // arredonda o topo para um valor "redondo" e divisivel por 4 (eixo legivel)
   var mag = Math.pow(10, Math.floor(Math.log(max/4) / Math.LN10));
   var passoY = Math.ceil((max/4) / mag) * mag;
   max = passoY * 4;
@@ -665,7 +588,6 @@ function renderChart(){
   var passo = iw / comps.length;
   var bw = Math.min(30, passo * 0.26);
   var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" preserveAspectRatio="xMidYMid meet">';
-
   s += '<defs>' +
        '<linearGradient id="gf" x1="0" y1="0" x2="0" y2="1">' +
        '<stop offset="0%" stop-color="#8B2635"/><stop offset="100%" stop-color="#a8303f"/></linearGradient>' +
@@ -684,8 +606,8 @@ function renderChart(){
     var cx = mL + passo*idx + passo/2;
     var hf = Math.max(1, c.fracionado/max*ih);
     var hd = Math.max(1, c.dedicado/max*ih);
-    var sel = S.meses.length && S.meses.indexOf(c.id) < 0;
-    s += '<g class="gcol' + (sel ? ' off' : '') + '">';
+    var off = S.mes && S.mes !== c.id;
+    s += '<g class="gcol' + (off ? ' off' : '') + '">';
     s += '<rect class="gbar" data-m="' + c.id + '" x="' + (cx-bw-2).toFixed(1) + '" y="' + (mT+ih-hf).toFixed(1) +
          '" width="' + bw + '" height="' + hf.toFixed(1) + '" rx="3" fill="url(#gf)">' +
          '<title>' + c.rotulo + ' · fracionado ' + brl(c.fracionado) + '</title></rect>';
@@ -701,12 +623,12 @@ function renderChart(){
     s += '</g>';
   });
 
-  s += '<line class="gl" x1="' + mL + '" y1="' + (mT+ih) + '" x2="' + (W-mR) + '" y2="' + (mT+ih) + '" stroke="rgba(139,38,53,.28)"/>';
-  s += '</svg>';
+  s += '<line class="gl" x1="' + mL + '" y1="' + (mT+ih) + '" x2="' + (W-mR) + '" y2="' + (mT+ih) +
+       '" stroke="rgba(139,38,53,.28)"/></svg>';
   document.getElementById('chart').innerHTML = s;
 }
 
-/* ---------- tabela por tipo veicular ---------- */
+/* ---------- tabela ---------- */
 function renderTipoVeicular(rows){
   var g = agrupar(rows, C.modelo), t = somar(rows);
   var max = 0;
@@ -723,7 +645,7 @@ function renderTipoVeicular(rows){
       '<td class="mono ' + (o.evitado < 0 ? 'neg' : '') + '">' + nf0.format(Math.round(o.evitado)) +
       '<i class="minibar" style="width:' + pct.toFixed(1) + '%"></i></td>' +
       '</tr>';
-  }).join('') : '<tr><td colspan="6" class="empty">Nenhum romaneio no filtro atual.</td></tr>';
+  }).join('') : '<tr><td colspan="6" class="empty">Sem romaneios no mês selecionado.</td></tr>';
 
   document.getElementById('tvFoot').innerHTML =
     '<td>TT</td>' +
@@ -734,12 +656,11 @@ function renderTipoVeicular(rows){
     '<td class="mono">' + nf0.format(Math.round(t.evitado)) + '</td>';
 
   document.getElementById('tvSub').textContent =
-    g.length + (g.length === 1 ? ' tipo' : ' tipos') + ' · ' + rotuloPeriodo();
+    g.length + (g.length === 1 ? ' tipo' : ' tipos') + ' · ' + rotuloMes();
 }
 
-/* ---------- rankings ---------- */
 function renderCidades(rows){
-  var g = agrupar(rows, C.cidade).filter(function(o){ return o.evitado > 0; }).slice(0, 14);
+  var g = agrupar(rows, C.cidade).filter(function(o){ return o.evitado > 0; }).slice(0, 12);
   var max = g.length ? g[0].evitado : 1;
   document.getElementById('rkCidade').innerHTML = g.length ? g.map(function(o, i){
     return '<div class="rk">' +
@@ -747,163 +668,47 @@ function renderCidades(rows){
       '<div class="rk-b"><div class="rk-f" style="width:' + (o.evitado/max*100).toFixed(1) + '%"></div>' +
       '<span class="rk-t">' + o.k + '</span></div>' +
       '<span class="rk-v">' + brl(o.evitado) + '</span></div>';
-  }).join('') : '<div class="empty">Sem cidades no filtro atual.</div>';
-  document.getElementById('cidSub').textContent = g.length ? 'top ' + g.length : '—';
+  }).join('') : '<div class="empty">Sem cidades no mês selecionado.</div>';
+  document.getElementById('cidSub').textContent =
+    g.length ? 'top ' + g.length + ' · ' + rotuloMes() : rotuloMes();
 }
 
-function renderNegativos(rows){
-  var neg = rows.filter(function(r){ return linhaEvitado(r) < 0; })
-                .sort(function(a,b){ return linhaEvitado(a) - linhaEvitado(b); });
-  var top = neg.slice(0, 12);
-  var max = top.length ? Math.abs(linhaEvitado(top[0])) : 1;
-  document.getElementById('rkNeg').innerHTML = top.length ? top.map(function(r, i){
-    var v = linhaEvitado(r);
-    return '<div class="rk">' +
-      '<span class="rk-n">' + (i+1) + '</span>' +
-      '<div class="rk-b"><div class="rk-f" style="width:' + (Math.abs(v)/max*100).toFixed(1) +
-      '%;background:linear-gradient(90deg,rgba(226,10,24,.30),rgba(255,61,71,.13));border-right-color:var(--primary)"></div>' +
-      '<span class="rk-t">' + r[C.romaneio] + ' · ' + r[C.modelo] + ' · ' + r[C.cidade] + '</span></div>' +
-      '<span class="rk-v neg">' + brl(v) + '</span></div>';
-  }).join('') : '<div class="empty">Nenhum romaneio negativo no filtro atual. 👏</div>';
-
-  var totalNeg = neg.reduce(function(s, r){ return s + linhaEvitado(r); }, 0);
-  document.getElementById('negSub').textContent = neg.length
-    ? nf0.format(neg.length) + ' romaneios · ' + brl(totalNeg)
-    : '—';
-}
-
-/* ---------- detalhe ---------- */
-var DET_COLS = [
-  {k:'data',     t:'Data',        tipo:'txt'},
-  {k:'romaneio', t:'Romaneio',    tipo:'txt'},
-  {k:'modelo',   t:'Veículo',     tipo:'txt'},
-  {k:'cidade',   t:'Cidade',      tipo:'txt'},
-  {k:'nff',      t:'NFs',         tipo:'num'},
-  {k:'peso',     t:'Peso (kg)',   tipo:'num'},
-  {k:'dedicado', t:'Dedicado',    tipo:'num'},
-  {k:'fracionado',t:'Fracionado', tipo:'num'},
-  {k:'evitado',  t:'Evitado',     tipo:'num'}
-];
-
-function valorCol(r, k){
-  if (k === 'evitado') return linhaEvitado(r);
-  return r[C[k]];
-}
-
-function renderDetalhe(rows){
-  document.getElementById('detHead').innerHTML = DET_COLS.map(function(c){
-    var on = S.detOrd === c.k;
-    return '<th class="srt' + (on ? ' on' : '') + '" data-k="' + c.k + '">' + c.t +
-      '<span class="ar">' + (on ? (S.detDir < 0 ? '▼' : '▲') : '↕') + '</span></th>';
-  }).join('');
-
-  var ord = DET_COLS.filter(function(c){ return c.k === S.detOrd; })[0] || DET_COLS[0];
-  var sorted = rows.slice().sort(function(a,b){
-    var va = valorCol(a, ord.k), vb = valorCol(b, ord.k);
-    if (ord.tipo === 'num') return (va - vb) * S.detDir;
-    return String(va).localeCompare(String(vb), 'pt-BR') * S.detDir;
-  });
-
-  var vis = sorted.slice(0, S.detN);
-  document.getElementById('detBody').innerHTML = vis.length ? vis.map(function(r){
-    var ev = linhaEvitado(r);
-    return '<tr>' +
-      '<td class="mono" style="color:var(--ink-soft);font-weight:500">' + r[C.data] + '</td>' +
-      '<td class="mono">' + r[C.romaneio] + '</td>' +
-      '<td style="text-align:right;font-weight:600">' + r[C.modelo] + '</td>' +
-      '<td style="text-align:right">' + r[C.cidade] + '</td>' +
-      '<td class="mono">' + r[C.nff] + '</td>' +
-      '<td class="mono">' + kg(r[C.peso]) + '</td>' +
-      '<td class="mono">' + nf0.format(Math.round(r[C.dedicado])) + '</td>' +
-      '<td class="mono">' + nf0.format(Math.round(r[C.fracionado])) + '</td>' +
-      '<td class="mono ' + (ev < 0 ? 'neg' : 'pos') + '">' + nf0.format(Math.round(ev)) + '</td>' +
-      '</tr>';
-  }).join('') : '<tr><td colspan="9" class="empty">Nenhum romaneio no filtro atual.</td></tr>';
-
-  document.getElementById('detInfo').textContent =
-    'mostrando ' + nf0.format(vis.length) + ' de ' + nf0.format(sorted.length) + ' romaneios';
-  document.getElementById('btnMais').style.display = vis.length < sorted.length ? '' : 'none';
-}
-
-/* ---------- render geral ---------- */
 function render(){
   var rows = filtrar();
-  renderTimeline();
-  renderFiltroModelos();
+  renderDropdown();
   renderTopo(rows);
   renderChart();
   renderTipoVeicular(rows);
   renderCidades(rows);
-  renderNegativos(rows);
-  renderDetalhe(rows);
 }
 
 /* ---------- eventos ---------- */
-function alterna(lista, v){
-  var i = lista.indexOf(v);
-  if (i < 0) lista.push(v); else lista.splice(i, 1);
-}
+document.getElementById('ddBtn').addEventListener('click', function(e){
+  e.stopPropagation();
+  var dd = document.getElementById('dd');
+  var abriu = !dd.classList.contains('open');
+  dd.classList.toggle('open', abriu);
+  this.setAttribute('aria-expanded', abriu ? 'true' : 'false');
+});
 
-document.getElementById('tl').addEventListener('click', function(e){
-  var b = e.target.closest('.mo'); if (!b) return;
-  alterna(S.meses, b.dataset.m); S.detN = 40; render();
+document.getElementById('ddMenu').addEventListener('click', function(e){
+  var b = e.target.closest('.dd-opt'); if (!b) return;
+  S.mes = b.dataset.m;
+  fecharMenu();
+  render();
+});
+
+document.addEventListener('click', function(e){
+  if (!e.target.closest('#dd')) fecharMenu();
+});
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') fecharMenu();
 });
 
 document.getElementById('chart').addEventListener('click', function(e){
   var r = e.target.closest('.gbar'); if (!r) return;
-  alterna(S.meses, r.dataset.m); S.detN = 40; render();
-});
-
-document.getElementById('flModelos').addEventListener('click', function(e){
-  var b = e.target.closest('.chip'); if (!b) return;
-  alterna(S.modelos, b.dataset.mod); S.detN = 40; render();
-});
-
-document.getElementById('btnTudo').addEventListener('click', function(){
-  S.meses = []; S.modelos = []; S.cidade = '';
-  document.getElementById('qCidade').value = '';
-  S.detN = 40; render();
-});
-
-var tmr;
-document.getElementById('qCidade').addEventListener('input', function(e){
-  clearTimeout(tmr);
-  var v = e.target.value.trim().toUpperCase();
-  tmr = setTimeout(function(){ S.cidade = v; S.detN = 40; render(); }, 180);
-});
-
-document.getElementById('detHead').addEventListener('click', function(e){
-  var th = e.target.closest('th'); if (!th) return;
-  var k = th.dataset.k;
-  if (S.detOrd === k) S.detDir = -S.detDir; else { S.detOrd = k; S.detDir = -1; }
-  renderDetalhe(filtrar());
-});
-
-document.getElementById('btnMais').addEventListener('click', function(){
-  S.detN += 40; renderDetalhe(filtrar());
-});
-
-document.getElementById('btnCsv').addEventListener('click', function(){
-  var rows = filtrar();
-  var head = ['DATA SAIDA','ROMANEIO','TIPO VEICULAR','CIDADE','QTD NF','PESO KG',
-              'QTD VEICULOS','FRETE DEDICADO','FRETE FRACIONADO','CUSTO EVITADO'];
-  var linhas = [head.join(';')];
-  rows.forEach(function(r){
-    linhas.push([
-      r[C.data], r[C.romaneio], r[C.modelo], r[C.cidade], r[C.nff],
-      String(r[C.peso]).replace('.', ','),
-      r[C.veiculos],
-      String(r[C.dedicado].toFixed(2)).replace('.', ','),
-      String(r[C.fracionado].toFixed(2)).replace('.', ','),
-      String(linhaEvitado(r).toFixed(2)).replace('.', ',')
-    ].join(';'));
-  });
-  var blob = new Blob(['﻿' + linhas.join('\r\n')], {type:'text/csv;charset=utf-8'});
-  var a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'dedicado_x_fracionado.csv';
-  document.body.appendChild(a); a.click();
-  setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); }, 400);
+  S.mes = (S.mes === r.dataset.m) ? '' : r.dataset.m;
+  render();
 });
 
 /* ---------- boot ---------- */
@@ -913,8 +718,7 @@ document.getElementById('mPeriodo').textContent = D.periodo;
 document.getElementById('mGerado').textContent = D.gerado;
 document.getElementById('fGerado').textContent = D.gerado;
 
-// abre no mes mais recente
-if (D.competencias.length) S.meses = [D.competencias[D.competencias.length-1].id];
+if (D.competencias.length) S.mes = D.competencias[D.competencias.length-1].id;
 render();
 
 })();
