@@ -6,7 +6,6 @@ _conectar.html
 _conectar_tunel.html
 _screenshot_*.png
 cloudflared.exe
-apresentacao.html
 
 # Cache parquet gerado pelo pipeline (recriado automaticamente)
 .cache_*.parquet
@@ -16,3 +15,21 @@ apresentacao.html
 
 # Sessão do WhatsApp Web (contém cookies — não commitar)
 .whatsapp_session/
+
+# HTMLs standalone gerados por scripts/gerar_index.py e
+# scripts/gerar_volume_distribuicao_BR.py (3-5 MB cada, recriados a cada
+# atualizacao). As FONTES ficam versionadas: dashboard.html/.css/.js,
+# check_metas.html, frescal_diretoria.html e templates/.
+apresentacao.html
+index.html
+metas.html
+frescal.html
+volume_distribuicao_BR.html
+
+# Configuracao real: contem e-mails internos e caminhos de rede da empresa.
+# O repositorio e publico. Use config.exemplo.json como modelo.
+config.json
+
+# Material antigo/auxiliar, so local
+arquivo/_backup_paleta/
+arquivo/_check.js

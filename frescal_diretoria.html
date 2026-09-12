@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frescal — Relatório Executivo · Tirolez 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+<style>
+:root{
+    --primary:#E20A18; --primary-dark:#a8050f; --primary-light:#FF3D47;
+    --primary-glow:rgba(226,10,24,0.18); --primary-subtle:rgba(226,10,24,0.06);
+    --wine:#8B2635; --wine-dark:#5a182a; --gold:#EECB02; --gold-deep:#c9a900;
+    --bg-card:#fffaf0; --surface:#f2eadf; --cream-lt:#fff8e8; --cream-dk:#e8d8c0;
+    --border:rgba(139,38,53,0.14); --border-strong:rgba(139,38,53,0.30);
+    --text:#2a2620; --text-2:#5a4f44; --text-muted:#998877;
+    --success:#2db37e; --warning:#b57a3c; --danger:#E20A18;
+    --r:20px; --r-sm:12px;
+    --shadow:0 16px 40px rgba(139,38,53,0.14), 0 4px 16px -8px rgba(139,38,53,0.10);
+    --shadow-sm:0 8px 24px rgba(139,38,53,0.10);
+    --serif:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+    font-family:var(--sans); color:var(--text);
+    background:linear-gradient(140deg,#f2eadf 0%,#fff8e8 48%,#fff8e8 100%);
+    min-height:100vh; overflow-x:hidden; position:relative;
+    -webkit-font-smoothing:antialiased;
+}
+/* glow de fundo da marca + textura */
+body::before{
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:0;
+    background:
+        radial-gradient(ellipse at 0% 0%, rgba(226,10,24,0.16) 0%, transparent 50%),
+        radial-gradient(ellipse at 100% 8%, rgba(238,203,2,0.18) 0%, transparent 46%),
+        radial-gradient(ellipse at 100% 100%, rgba(226,10,24,0.14) 0%, transparent 52%),
+        radial-gradient(ellipse at 0% 100%, rgba(139,38,53,0.07) 0%, transparent 48%);
+}
+body::after{
+    content:''; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.5;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.035'/></svg>");
+}
+.wrap{position:relative; z-index:1; max-width:1320px; margin:0 auto; padding:0 28px 80px}
+
+/* ===== HEADER ===== */
+.topbar{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:blur(20px); background:rgba(255,248,232,0.82);
+    border-bottom:1px solid var(--border);
+    margin:0 -28px 0; padding:0 28px;
+}
+.topbar-inner{max-width:1320px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:74px; gap:20px}
+.brand{display:flex; align-items:center; gap:14px}
+.brand img{height:42px; width:auto; filter:drop-shadow(0 4px 10px rgba(226,10,24,0.18))}
+.brand-txt h1{font-family:var(--serif); font-weight:600; font-size:1.15rem; letter-spacing:-.01em; line-height:1}
+.brand-txt span{font-size:.66rem; letter-spacing:.16em; text-transform:uppercase; color:var(--primary); font-weight:700}
+.topbar-right{display:flex; align-items:center; gap:14px}
+.stamp{
+    font-size:.7rem; color:var(--text-2); background:var(--surface);
+    border:1px solid var(--border); border-radius:999px; padding:7px 14px;
+    display:flex; align-items:center; gap:7px; white-space:nowrap;
+}
+.stamp .material-icons-round{font-size:15px; color:var(--primary)}
+.btn-print{
+    border:none; cursor:pointer; font-family:var(--sans); font-weight:600; font-size:.74rem;
+    color:#fff; background:linear-gradient(135deg,var(--primary-light),var(--primary) 55%,var(--primary-dark));
+    border-radius:999px; padding:9px 18px; display:flex; align-items:center; gap:7px;
+    box-shadow:0 8px 20px -8px var(--primary-glow); transition:transform .25s, box-shadow .25s;
+}
+.btn-print:hover{transform:translateY(-2px); box-shadow:0 12px 26px -8px rgba(226,10,24,0.4)}
+.btn-print .material-icons-round{font-size:16px}
+
+/* ===== HERO ===== */
+.hero{padding:46px 0 14px; display:flex; align-items:flex-end; justify-content:space-between; gap:30px; flex-wrap:wrap}
+.hero-eyebrow{font-size:.7rem; letter-spacing:.32em; text-transform:uppercase; color:var(--primary); font-weight:700; margin-bottom:14px; display:flex; align-items:center; gap:10px}
+.hero-eyebrow::before{content:''; width:34px; height:2px; background:linear-gradient(90deg,var(--primary),transparent)}
+.hero h2{font-family:var(--serif); font-weight:900; font-size:clamp(2.6rem,6vw,4.6rem); line-height:.92; letter-spacing:-.02em}
+.hero h2 .ital{font-style:italic; font-weight:500; color:var(--primary)}
+.hero p{margin-top:14px; max-width:520px; color:var(--text-2); font-size:.92rem; line-height:1.55}
+.hero-side{text-align:right}
+.hero-period-label{font-size:.66rem; letter-spacing:.2em; text-transform:uppercase; color:var(--text-muted); font-weight:700}
+.hero-period{font-family:var(--serif); font-weight:600; font-size:1.5rem; color:var(--text); margin-top:4px; line-height:1.1}
+.hero-period small{display:block; font-family:var(--sans); font-size:.74rem; color:var(--text-2); font-weight:500; margin-top:4px}
+
+.rule{height:1px; background:linear-gradient(90deg,var(--border-strong),transparent); margin:8px 0 30px}
+
+/* ===== FILTROS (dois dropdowns multi-seleção) ===== */
+.filter-bar{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:30px; position:relative; z-index:20}
+.ms{position:relative; display:flex; align-items:center; gap:11px}
+.ms-tag{font-size:.66rem; letter-spacing:.18em; text-transform:uppercase; color:var(--text-2); font-weight:700}
+.ms-trigger{
+    cursor:pointer; font-family:var(--sans); min-width:220px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    background:#fff; border:1px solid var(--border); border-radius:999px;
+    padding:11px 17px; box-shadow:var(--shadow-sm); transition:border-color .2s, box-shadow .2s;
+}
+.ms-trigger:hover{border-color:var(--border-strong)}
+.ms.open .ms-trigger{border-color:var(--primary); box-shadow:0 0 0 3px var(--primary-subtle)}
+.ms-value{font-weight:600; font-size:.88rem; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.ms-caret{font-size:20px; color:var(--text-2); transition:transform .3s; flex-shrink:0}
+.ms.open .ms-caret{transform:rotate(180deg); color:var(--primary)}
+.ms-clear{
+    cursor:pointer; font-family:var(--sans); font-weight:600; font-size:.78rem; color:var(--text-2);
+    display:flex; align-items:center; gap:7px; background:#fff; border:1px solid var(--border);
+    border-radius:999px; padding:11px 18px; transition:all .2s;
+}
+.ms-clear:hover{border-color:var(--primary); color:var(--primary); background:var(--primary-subtle)}
+.ms-clear .material-icons-round{font-size:16px}
+
+.ms-panel{
+    position:absolute; top:calc(100% + 9px); left:0; min-width:100%; width:max-content; max-width:340px; z-index:40;
+    background:#fff; border:1px solid var(--border); border-radius:14px;
+    box-shadow:0 24px 60px -20px rgba(42,38,32,0.32), 0 8px 24px -16px rgba(226,10,24,0.18);
+    padding:8px; max-height:48vh; overflow-y:auto;
+    opacity:0; visibility:hidden; transform:translateY(-8px) scale(.98); transform-origin:top left;
+    transition:opacity .2s, transform .2s cubic-bezier(.34,1.3,.5,1), visibility .2s;
+}
+.ms.open .ms-panel{opacity:1; visibility:visible; transform:translateY(0) scale(1)}
+.ms-panel::-webkit-scrollbar{width:8px}
+.ms-panel::-webkit-scrollbar-thumb{background:var(--border-strong); border-radius:8px}
+.ms-group{font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--text-muted); font-weight:700; padding:11px 12px 5px}
+.ms-opt{
+    display:flex; align-items:center; gap:11px; padding:9px 12px; border-radius:9px;
+    cursor:pointer; user-select:none; font-size:.85rem; transition:background .15s;
+}
+.ms-opt:hover{background:var(--primary-subtle)}
+.ms-opt.on{background:var(--primary-subtle)}
+.ms-opt-label{font-weight:600; color:var(--text)}
+.ms-opt-sub{margin-left:auto; font-size:.66rem; color:var(--text-muted); font-weight:600; text-transform:uppercase; letter-spacing:.04em; padding-left:14px}
+.ms-opt.all{border-bottom:1px solid var(--border); border-radius:9px; margin-bottom:4px; padding-bottom:11px}
+.ms-opt.all .ms-opt-label{color:var(--primary); font-weight:700}
+
+/* checkbox custom */
+.cbox{width:19px; height:19px; border-radius:6px; border:2px solid var(--border-strong); position:relative; flex-shrink:0; transition:all .2s; background:#fff}
+.cbox.checked{background:var(--primary); border-color:var(--primary)}
+.cbox.checked::after{content:''; position:absolute; left:5.5px; top:2px; width:5px; height:9px; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg)}
+
+/* ===== KPI GRID ===== */
+.section-label{font-size:.68rem; letter-spacing:.24em; text-transform:uppercase; color:var(--text-muted); font-weight:700; margin:36px 0 16px; display:flex; align-items:center; gap:12px}
+.section-label::after{content:''; flex:1; height:1px; background:var(--border)}
+
+.kpi-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+.kpi{
+    position:relative; background:var(--bg-card); border:1px solid var(--border);
+    border-radius:var(--r); padding:24px 22px; box-shadow:var(--shadow); overflow:hidden;
+    transition:transform .3s cubic-bezier(.34,1.45,.64,1), box-shadow .3s;
+}
+.kpi:hover{transform:translateY(-5px); box-shadow:0 26px 56px -24px rgba(226,10,24,0.4)}
+.kpi::before{content:''; position:absolute; top:0; left:0; width:100%; height:3px; background:linear-gradient(90deg,var(--primary),var(--primary-light))}
+.kpi.feat::before{background:linear-gradient(90deg,var(--gold),var(--gold-deep))}
+.kpi-top{display:flex; align-items:center; justify-content:space-between; margin-bottom:18px}
+.kpi-ico{width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; background:var(--primary-subtle); color:var(--primary)}
+.kpi.feat .kpi-ico{background:rgba(238,203,2,0.16); color:var(--gold-deep)}
+.kpi-ico .material-icons-round{font-size:22px}
+.kpi-label{font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--text-2); font-weight:600}
+.kpi-val{font-family:var(--serif); font-weight:700; font-size:2.5rem; line-height:1; letter-spacing:-.02em; margin-top:4px; font-variant-numeric:tabular-nums}
+.kpi-val.sm{font-size:2rem}
+.kpi-sub{font-size:.72rem; color:var(--text-muted); margin-top:8px}
+.kpi-delta{display:inline-flex; align-items:center; gap:5px; font-size:.72rem; font-weight:700; margin-top:10px; padding:4px 10px; border-radius:999px}
+.kpi-delta.good{color:var(--success); background:rgba(45,179,126,0.10)}
+.kpi-delta.bad{color:var(--danger); background:rgba(226,10,24,0.09)}
+.kpi-delta .material-icons-round{font-size:14px}
+
+/* ===== PERFORMANCE + CHART ===== */
+.dual{display:grid; grid-template-columns:1fr 1.55fr; gap:20px; align-items:stretch}
+.card{background:var(--bg-card); border:1px solid var(--border); border-radius:var(--r); box-shadow:var(--shadow); padding:24px 26px}
+.card-title{display:flex; align-items:center; gap:9px; font-weight:700; font-size:.84rem; margin-bottom:22px; letter-spacing:.02em}
+.card-title .dot{width:8px; height:8px; border-radius:50%; background:var(--primary); box-shadow:0 0 0 4px var(--primary-subtle)}
+.rings{display:flex; gap:18px; justify-content:space-around; flex-wrap:wrap}
+.ring{position:relative; display:flex; flex-direction:column; align-items:center; gap:6px}
+.ring svg{transform:rotate(-90deg)}
+.ring-bg{fill:none; stroke:var(--surface); }
+.ring-fill{fill:none; stroke-linecap:round; transition:stroke-dashoffset 1.1s cubic-bezier(.34,1.2,.5,1)}
+.ring-center{position:absolute; top:0; left:0; width:140px; height:140px; display:flex; flex-direction:column; align-items:center; justify-content:center}
+.ring-num{font-family:var(--serif); font-weight:700; font-size:1.85rem; line-height:1; font-variant-numeric:tabular-nums}
+.ring-unit{font-size:.56rem; letter-spacing:.14em; color:var(--text-muted); font-weight:700; text-transform:uppercase; margin-top:3px}
+.ring-cap{font-weight:700; font-size:.82rem; margin-top:4px}
+.ring-meta{font-size:.66rem; color:var(--text-muted)}
+.ring-status{font-size:.66rem; font-weight:700; padding:3px 10px; border-radius:999px; margin-top:5px}
+.ring-status.good{color:var(--success); background:rgba(45,179,126,0.10)}
+.ring-status.bad{color:var(--danger); background:rgba(226,10,24,0.09)}
+
+/* bar chart */
+.chartbox{display:flex; flex-direction:column; height:100%}
+.bars{flex:1; display:flex; align-items:flex-end; gap:10px; padding-top:10px; min-height:210px; position:relative; border-bottom:1px solid var(--border)}
+.meta-line{position:absolute; left:0; right:0; border-top:1.5px dashed var(--primary-light); pointer-events:none}
+.meta-line span{position:absolute; right:0; top:-9px; font-size:.6rem; font-weight:700; color:var(--primary); background:#fff; padding:0 5px}
+.bar-col{flex:1; display:flex; flex-direction:column; align-items:center; gap:7px; min-width:0}
+.bar-track{width:100%; max-width:46px; display:flex; align-items:flex-end; justify-content:center; flex:1}
+.bar{width:100%; border-radius:8px 8px 3px 3px; background:linear-gradient(180deg,var(--primary-light),var(--primary)); position:relative; transition:height 1s cubic-bezier(.34,1.2,.5,1); min-height:3px; box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
+.bar.under{background:linear-gradient(180deg,#FFD24D,var(--gold-deep))}
+.bar-val{position:absolute; top:-19px; left:50%; transform:translateX(-50%); font-size:.66rem; font-weight:700; color:var(--text); white-space:nowrap}
+.bar-x{font-size:.64rem; color:var(--text-2); font-weight:600; white-space:nowrap}
+.bar-x small{display:block; color:var(--text-muted); font-weight:500; font-size:.92em}
+
+/* ===== TABELAS ===== */
+.tables{display:grid; grid-template-columns:1fr; gap:20px; margin-top:20px}
+table{width:100%; border-collapse:collapse; font-size:.82rem}
+thead th{
+    text-align:left; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--text-2); font-weight:700; padding:0 14px 12px; border-bottom:2px solid var(--border);
+}
+thead th.num{text-align:right}
+tbody td{padding:13px 14px; border-bottom:1px solid var(--border)}
+tbody td.num{text-align:right; font-variant-numeric:tabular-nums; font-weight:500}
+tbody tr{transition:background .15s}
+tbody tr:hover{background:var(--primary-subtle)}
+tbody tr.total-row{background:linear-gradient(90deg,var(--primary-subtle),transparent)}
+tbody tr.total-row td{font-weight:800; border-bottom:none; border-top:2px solid var(--border-strong)}
+.badge{display:inline-block; font-weight:700; font-size:.72rem; padding:4px 11px; border-radius:999px}
+.badge.g{color:var(--success); background:rgba(45,179,126,0.12)}
+.badge.y{color:var(--gold-deep); background:rgba(238,203,2,0.18)}
+.badge.r{color:var(--danger); background:rgba(226,10,24,0.10)}
+.empty{text-align:center; color:var(--text-muted); padding:36px 0; font-size:.84rem}
+
+.footer{margin-top:46px; padding-top:22px; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; font-size:.7rem; color:var(--text-muted)}
+.footer img{height:30px; opacity:.7}
+
+/* animação de entrada */
+@keyframes rise{from{opacity:0; transform:translateY(18px)} to{opacity:1; transform:none}}
+.anim{animation:rise .7s cubic-bezier(.22,1,.36,1) both}
+.d1{animation-delay:.05s}.d2{animation-delay:.12s}.d3{animation-delay:.19s}.d4{animation-delay:.26s}.d5{animation-delay:.33s}.d6{animation-delay:.4s}
+
+@media (max-width:1100px){
+    .kpi-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:880px){
+    .dual{grid-template-columns:1fr}
+    .hero{align-items:flex-start}
+    .hero-side{text-align:left}
+}
+@media (max-width:560px){
+    .kpi-grid{grid-template-columns:1fr}
+}
+/* impressão / PDF para diretoria */
+@media print{
+    body{background:#fff}
+    body::before,body::after{display:none}
+    .topbar,.filter-panel,.btn-print{display:none !important}
+    .kpi,.card{box-shadow:none; border:1px solid #ddd; break-inside:avoid}
+    .hero{padding-top:10px}
+    .anim{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+    <div class="topbar-inner">
+        <div class="brand">
+            <img src="logo_tirolez.png" alt="Tirolez" onerror="this.style.display='none'">
+            <div class="brand-txt">
+                <span>Logística · Distribuição SP</span>
+                <h1>Indicador Frescal</h1>
+            </div>
+        </div>
+        <div class="topbar-right">
+            <span class="stamp"><span class="material-icons-round">update</span><span id="stampDate">Atualizado em --</span></span>
+            <button class="btn-print" onclick="window.print()"><span class="material-icons-round">picture_as_pdf</span> Exportar PDF</button>
+        </div>
+    </div>
+</div>
+
+<div class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+        <div>
+            <div class="hero-eyebrow anim">Relatório</div>
+            <h2 class="anim d1"><span class="ital">Frescal</span><br>em números</h2>
+            <p class="anim d2">Desempenho da operação Frescal — ocupação, custo por quilo e produtividade da frota.</p>
+        </div>
+        <div class="hero-side anim d3">
+            <div class="hero-period-label">Período analisado</div>
+            <div class="hero-period" id="heroPeriod">—<small id="heroPeriodSub">—</small></div>
+        </div>
+    </div>
+    <div class="rule"></div>
+
+    <!-- FILTROS: Mês e Dia (multi-seleção) -->
+    <div class="filter-bar anim d2">
+        <div class="ms" id="msMes">
+            <span class="ms-tag">Mês</span>
+            <button class="ms-trigger" onclick="toggleMs('Mes', event)" aria-haspopup="listbox" aria-expanded="false">
+                <span class="ms-value" id="msMesValue">Todos os Meses</span>
+                <span class="material-icons-round ms-caret">expand_more</span>
+            </button>
+            <div class="ms-panel" id="msMesPanel" role="listbox" aria-multiselectable="true"></div>
+        </div>
+        <div class="ms" id="msDia">
+            <span class="ms-tag">Dia</span>
+            <button class="ms-trigger" onclick="toggleMs('Dia', event)" aria-haspopup="listbox" aria-expanded="false">
+                <span class="ms-value" id="msDiaValue">Todos os Dias</span>
+                <span class="material-icons-round ms-caret">expand_more</span>
+            </button>
+            <div class="ms-panel" id="msDiaPanel" role="listbox" aria-multiselectable="true"></div>
+        </div>
+        <button class="ms-clear" onclick="clearFilters()"><span class="material-icons-round">refresh</span> Limpar</button>
+    </div>
+
+    <!-- KPIs PRINCIPAIS -->
+    <div class="section-label">Indicadores do período</div>
+    <div class="kpi-grid">
+        <div class="kpi anim d1">
+            <div class="kpi-top"><div class="kpi-label">Qtd. Veículos</div><div class="kpi-ico"><span class="material-icons-round">local_shipping</span></div></div>
+            <div class="kpi-val" id="kVeic">--</div>
+            <div class="kpi-sub">veículos roteirizados</div>
+        </div>
+        <div class="kpi anim d2">
+            <div class="kpi-top"><div class="kpi-label">Qtd. Entregas</div><div class="kpi-ico"><span class="material-icons-round">inventory_2</span></div></div>
+            <div class="kpi-val" id="kEnt">--</div>
+            <div class="kpi-sub">entregas realizadas</div>
+        </div>
+        <div class="kpi feat anim d3">
+            <div class="kpi-top"><div class="kpi-label">Peso Total</div><div class="kpi-ico"><span class="material-icons-round">scale</span></div></div>
+            <div class="kpi-val sm" id="kPeso">--</div>
+            <div class="kpi-sub">toneladas transportadas</div>
+        </div>
+        <div class="kpi anim d4">
+            <div class="kpi-top"><div class="kpi-label">Ocupação</div><div class="kpi-ico"><span class="material-icons-round">donut_large</span></div></div>
+            <div class="kpi-val" id="kOcup">--</div>
+            <div class="kpi-sub">ocupação média da frota</div>
+        </div>
+        <div class="kpi anim d5">
+            <div class="kpi-top"><div class="kpi-label">R$ / Kg</div><div class="kpi-ico"><span class="material-icons-round">payments</span></div></div>
+            <div class="kpi-val sm" id="kRk">--</div>
+            <div class="kpi-sub">custo médio por quilo</div>
+        </div>
+        <div class="kpi anim d6">
+            <div class="kpi-top"><div class="kpi-label">On Time</div><div class="kpi-ico"><span class="material-icons-round">verified</span></div></div>
+            <div class="kpi-val" style="color:var(--success)">100%</div>
+            <div class="kpi-sub">entregas no prazo</div>
+        </div>
+        <div class="kpi anim d7">
+            <div class="kpi-top"><div class="kpi-label">Reentregas</div><div class="kpi-ico"><span class="material-icons-round">replay</span></div></div>
+            <div class="kpi-val">0</div>
+            <div class="kpi-sub">reentregas no período</div>
+        </div>
+        <div class="kpi anim d8">
+            <div class="kpi-top"><div class="kpi-label">Devolução</div><div class="kpi-ico"><span class="material-icons-round">assignment_return</span></div></div>
+            <div class="kpi-val">0</div>
+            <div class="kpi-sub">devoluções no período</div>
+        </div>
+    </div>
+
+    <!-- TABELA POR VEÍCULO -->
+    <div class="section-label">Distribuição por tipo de veículo</div>
+    <div class="tables">
+        <div class="card anim d1">
+            <div class="card-title"><span class="dot"></span> Resumo por veículo — período selecionado</div>
+            <div style="overflow-x:auto">
+                <table id="tblVeic">
+                    <thead><tr>
+                        <th>Veículo</th><th class="num">Qtd. Veículos</th><th class="num">Méd. Entregas</th>
+                        <th class="num">Méd. Peso</th><th class="num">Ocupação</th><th class="num">R$ / Kg</th>
+                    </tr></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span>Gerado automaticamente pelo sistema de indicadores · <b style="color:var(--primary)">Tirolez</b> — Logística 2026</span>
+        <img src="logo_vaca.png" alt="" onerror="this.style.display='none'">
+    </div>
+</div>
+
+<script>
+// ============ DADOS (embutidos pelo gerar_index.py, ou via fetch em dev) ============
+let DATA = null;
+const META_OCUP = 80, META_RK = 0.67;
+
+const fmt = {
+    num: v => v==null?'--':Number(v).toLocaleString('pt-BR'),
+    dec: (v,d=2) => v==null?'--':Number(v).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d}),
+    brl: v => v==null?'--':'R$ '+Number(v).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2}),
+    tons: v => v==null?'--':fmt.dec(v/1000,1),
+};
+const MESES_PT = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const MESES_ABR = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+const DOW = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+function mesNome(m){const[y,mo]=m.split('-');return MESES_PT[+mo-1]+' '+y;}
+function diaNum(d){const[,m,day]=d.split('-');return day+'/'+m;}
+function diaDow(d){const[y,m,day]=d.split('-');return DOW[new Date(+y,+m-1,+day).getDay()];}
+
+let MESES = [], DIAS = [], diasPorMes = {};
+const selMonths = new Set();   // meses marcados (vazio = todos)
+const selDays   = new Set();   // dias marcados  (vazio = todos os disponíveis)
+
+// ============ DROPDOWNS (Mês e Dia) ============
+function toggleMs(which, e){
+    e.stopPropagation();
+    const box = document.getElementById('ms' + which);
+    const isOpen = box.classList.contains('open');
+    closeAllMs();
+    if (!isOpen){ box.classList.add('open'); box.querySelector('.ms-trigger').setAttribute('aria-expanded','true'); }
+}
+function closeAllMs(){
+    document.querySelectorAll('.ms').forEach(b => {
+        b.classList.remove('open');
+        b.querySelector('.ms-trigger').setAttribute('aria-expanded','false');
+    });
+}
+document.addEventListener('click', e => { if (!e.target.closest('.ms')) closeAllMs(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAllMs(); });
+
+// Dias disponíveis conforme os meses marcados (vazio = todos)
+function availableDays(){
+    return selMonths.size ? DIAS.filter(d => selMonths.has(d.slice(0,7))) : DIAS;
+}
+// Conjunto efetivo p/ os KPIs: dias marcados (se houver), senão todos os disponíveis
+function effectiveDays(){
+    const avail = availableDays();
+    return selDays.size ? avail.filter(d => selDays.has(d)) : avail;
+}
+
+async function boot(){
+    if (typeof __DADOS_EMBUTIDOS__ !== 'undefined') {
+        DATA = __DADOS_EMBUTIDOS__;
+    } else {
+        try { DATA = await (await fetch('dashboard_data.json')).json(); }
+        catch(e){ alert('Erro ao carregar dados. Rode o Atualizar_Dashboard ou acesse via http://localhost:8080/'); return; }
+    }
+    document.getElementById('stampDate').textContent = 'Atualizado em ' + (DATA.gerado_em || '--');
+
+    MESES = (DATA.filtros && DATA.filtros.meses_fresc) || [];
+    DIAS  = ((DATA.filtros && DATA.filtros.dias_fresc) || []).slice().sort();
+    diasPorMes = {};
+    DIAS.forEach(d => { const m = d.slice(0,7); (diasPorMes[m] ||= []).push(d); });
+
+    buildMonthPanel();
+    buildDayPanel();
+    render();   // começa com "Todos os Meses / Todos os Dias"
+}
+
+// ---- painel de MESES ----
+function buildMonthPanel(){
+    const p = document.getElementById('msMesPanel');
+    let html = `<div class="ms-opt all" data-all="1">
+        <span class="cbox"></span><span class="ms-opt-label">Todos os Meses</span></div>`;
+    html += MESES.map(m => `
+        <div class="ms-opt" data-mes="${m}">
+            <span class="cbox"></span>
+            <span class="ms-opt-label">${mesNome(m)}</span>
+            <span class="ms-opt-sub">${(diasPorMes[m]||[]).length} dias</span>
+        </div>`).join('');
+    p.innerHTML = html;
+    p.querySelector('[data-all]').addEventListener('click', () => { selMonths.clear(); onMonthsChange(); });
+    p.querySelectorAll('[data-mes]').forEach(o => o.addEventListener('click', () => {
+        const m = o.dataset.mes;
+        selMonths.has(m) ? selMonths.delete(m) : selMonths.add(m);
+        onMonthsChange();
+    }));
+}
+
+// ---- painel de DIAS (depende dos meses marcados) ----
+function buildDayPanel(){
+    const p = document.getElementById('msDiaPanel');
+    const avail = availableDays();
+    let html = `<div class="ms-opt all" data-all="1">
+        <span class="cbox"></span><span class="ms-opt-label">Todos os Dias</span></div>`;
+    let curMes = null;
+    avail.forEach(d => {
+        const mes = d.slice(0,7);
+        if (mes !== curMes && selMonths.size !== 1){ html += `<div class="ms-group">${mesNome(mes)}</div>`; curMes = mes; }
+        html += `<div class="ms-opt" data-dia="${d}">
+            <span class="cbox"></span>
+            <span class="ms-opt-label">${diaNum(d)}</span>
+            <span class="ms-opt-sub">${diaDow(d)}</span>
+        </div>`;
+    });
+    p.innerHTML = html;
+    p.querySelector('[data-all]').addEventListener('click', () => { selDays.clear(); render(); });
+    p.querySelectorAll('[data-dia]').forEach(o => o.addEventListener('click', () => {
+        const d = o.dataset.dia;
+        selDays.has(d) ? selDays.delete(d) : selDays.add(d);
+        render();
+    }));
+}
+
+function onMonthsChange(){
+    // remove dias marcados que não estão mais disponíveis
+    const avail = new Set(availableDays());
+    [...selDays].forEach(d => { if (!avail.has(d)) selDays.delete(d); });
+    buildDayPanel();
+    render();
+}
+
+function clearFilters(){ selMonths.clear(); selDays.clear(); buildDayPanel(); render(); }
+
+// Atualiza rótulos dos gatilhos + marca os checkboxes
+function syncFilterUI(){
+    // MÊS
+    document.getElementById('msMesValue').textContent =
+        selMonths.size === 0 ? 'Todos os Meses'
+        : selMonths.size === 1 ? mesNome([...selMonths][0])
+        : `${selMonths.size} meses`;
+    const mp = document.getElementById('msMesPanel');
+    mp.querySelector('[data-all]').classList.toggle('on', selMonths.size === 0);
+    mp.querySelector('[data-all] .cbox').className = 'cbox' + (selMonths.size === 0 ? ' checked' : '');
+    mp.querySelectorAll('[data-mes]').forEach(o => {
+        const on = selMonths.has(o.dataset.mes);
+        o.classList.toggle('on', on);
+        o.querySelector('.cbox').className = 'cbox' + (on ? ' checked' : '');
+    });
+    // DIA
+    document.getElementById('msDiaValue').textContent =
+        selDays.size === 0 ? 'Todos os Dias'
+        : selDays.size === 1 ? diaNum([...selDays][0])
+        : `${selDays.size} dias`;
+    const dp = document.getElementById('msDiaPanel');
+    dp.querySelector('[data-all]').classList.toggle('on', selDays.size === 0);
+    dp.querySelector('[data-all] .cbox').className = 'cbox' + (selDays.size === 0 ? ' checked' : '');
+    dp.querySelectorAll('[data-dia]').forEach(o => {
+        const on = selDays.has(o.dataset.dia);
+        o.classList.toggle('on', on);
+        o.querySelector('.cbox').className = 'cbox' + (on ? ' checked' : '');
+    });
+}
+
+// ============ AGREGAÇÃO ============
+function aggregate(rows){
+    const a = {peso:0,capac:0,frete:0,veiculos:0,entregas:0};
+    rows.forEach(r => { a.peso+=r.peso; a.capac+=r.capac; a.frete+=r.frete; a.veiculos+=r.veiculos; a.entregas+=r.entregas; });
+    a.ocupacao = a.capac>0 ? a.peso/a.capac*100 : 0;
+    a.real_kg  = a.peso>0  ? a.frete/a.peso     : 0;
+    return a;
+}
+
+function render(){
+    syncFilterUI();
+    const effSet = new Set(effectiveDays());
+    const days = [...effSet].sort();
+    const porDia = (DATA.fresc_por_dia || []).filter(r => effSet.has(r.DIA));
+    const k = aggregate(porDia);
+
+    setPeriod(days);
+
+    // KPIs
+    document.getElementById('kVeic').textContent = fmt.num(k.veiculos);
+    document.getElementById('kEnt').textContent  = fmt.num(k.entregas);
+    document.getElementById('kPeso').textContent = days.length ? fmt.tons(k.peso) + ' t' : '--';
+    document.getElementById('kOcup').textContent = days.length ? fmt.dec(k.ocupacao,0)+'%' : '--';
+    document.getElementById('kRk').textContent   = days.length ? fmt.brl(k.real_kg) : '--';
+
+    renderTable(days);
+}
+
+function setPeriod(days){
+    const el = document.getElementById('heroPeriod'), sub = document.getElementById('heroPeriodSub');
+    if (!days.length){ el.firstChild.textContent='—'; sub.textContent='nenhum dia'; return; }
+    const a = days[0], b = days[days.length-1];
+    const [ya,ma]=a.split('-'), [yb,mb]=b.split('-');
+    const label = (ma===mb && ya===yb) ? `${MESES_ABR[+ma-1]} ${ya}` : `${MESES_ABR[+ma-1]}–${MESES_ABR[+mb-1]} ${yb}`;
+    el.firstChild.textContent = label + ' ';
+    sub.textContent = `${diaNum(a)} a ${diaNum(b)} · ${days.length} dia${days.length!==1?'s':''}`;
+}
+
+function deltaOcup(v, has){
+    const el = document.getElementById('kOcupDelta');
+    if (!has){ el.textContent='--'; el.className='kpi-delta'; return; }
+    const diff = Math.round(v) - META_OCUP, good = diff>=0;
+    el.innerHTML = `<span class="material-icons-round">${good?'trending_up':'trending_down'}</span> ${good?'+':''}${diff} p.p. ${good?'acima':'abaixo'} da meta`;
+    el.className = 'kpi-delta ' + (good?'good':'bad');
+}
+function deltaRk(v, has){
+    const el = document.getElementById('kRkDelta');
+    if (!has){ el.textContent='--'; el.className='kpi-delta'; return; }
+    const diff = v - META_RK, good = diff<=0;
+    el.innerHTML = `<span class="material-icons-round">${good?'trending_down':'trending_up'}</span> ${good?'-':'+'}R$ ${Math.abs(diff).toFixed(2).replace('.',',')} ${good?'abaixo':'acima'} da meta`;
+    el.className = 'kpi-delta ' + (good?'good':'bad');
+}
+
+// ============ RINGS ============
+const C = 2*Math.PI*60;  // 376.99
+function setRing(id, frac){
+    const c = document.getElementById(id);
+    c.style.strokeDashoffset = C * (1 - Math.max(0, Math.min(1, frac)));
+}
+function drawRings(k, has){
+    const oc = has ? k.ocupacao : 0, rk = has ? k.real_kg : 0;
+    setRing('ringOcup', oc/100);
+    document.getElementById('ringOcupVal').textContent = has ? fmt.dec(oc,0)+'%' : '--';
+    const ocGood = oc >= META_OCUP;
+    document.getElementById('ringOcup').style.stroke = ocGood ? 'var(--success)' : 'var(--gold-deep)';
+    const ocSt = document.getElementById('ringOcupSt');
+    ocSt.textContent = !has ? '—' : ocGood ? 'Na meta' : 'Abaixo da meta';
+    ocSt.className = 'ring-status ' + (ocGood?'good':'bad');
+
+    setRing('ringRk', rk>0 ? Math.min(rk/1.0,1) : 0);
+    document.getElementById('ringRkVal').textContent = has ? fmt.brl(rk) : '--';
+    const rkGood = rk <= META_RK && rk>0;
+    document.getElementById('ringRk').style.stroke = rkGood ? 'var(--success)' : 'var(--primary)';
+    const rkSt = document.getElementById('ringRkSt');
+    rkSt.textContent = !has ? '—' : rkGood ? 'Na meta' : 'Acima da meta';
+    rkSt.className = 'ring-status ' + (rkGood?'good':'bad');
+}
+
+// ============ BAR CHART (ocupação por dia) ============
+function drawBars(rows){
+    const box = document.getElementById('bars');
+    if (!rows.length){ box.innerHTML = '<div class="empty" style="margin:auto">Selecione ao menos um dia</div>'; return; }
+    const max = Math.max(100, ...rows.map(r => r.ocupacao));
+    const metaPct = (META_OCUP / max) * 100;
+    box.innerHTML =
+        `<div class="meta-line" style="bottom:${metaPct}%"><span>meta ${META_OCUP}%</span></div>` +
+        rows.map(r => {
+            const h = (r.ocupacao / max) * 100;
+            const under = r.ocupacao < META_OCUP;
+            return `<div class="bar-col">
+                <div class="bar-track"><div class="bar ${under?'under':''}" style="height:0" data-h="${h}">
+                    <span class="bar-val">${fmt.dec(r.ocupacao,0)}%</span>
+                </div></div>
+                <div class="bar-x">${diaNum(r.DIA)}<small>${diaDow(r.DIA)}</small></div>
+            </div>`;
+        }).join('');
+    requestAnimationFrame(() => box.querySelectorAll('.bar').forEach(b => b.style.height = b.dataset.h + '%'));
+}
+
+// ============ TABELA POR VEÍCULO ============
+function renderTable(days){
+    const tbody = document.querySelector('#tblVeic tbody');
+    const ds = new Set(days);
+    const rows = (DATA.fresc_por_veiculo_dia || []).filter(r => ds.has(r.DIA));
+    if (!rows.length){ tbody.innerHTML = '<tr><td colspan="6" class="empty">Sem dados no período selecionado</td></tr>'; return; }
+
+    const g = {};
+    rows.forEach(r => {
+        (g[r.VEICULO] ||= {peso:0,capac:0,frete:0,veiculos:0,entregas:0});
+        const o = g[r.VEICULO];
+        o.peso+=r.peso; o.capac+=r.capac; o.frete+=r.frete; o.veiculos+=r.veiculos; o.entregas+=r.entregas;
+    });
+
+    const entries = Object.entries(g).sort((a,b)=>b[1].peso-a[1].peso);
+    let html = '';
+    for (const [v,o] of entries){
+        const oc = o.capac>0?o.peso/o.capac*100:0, rk = o.peso>0?o.frete/o.peso:0;
+        const me = o.veiculos>0?o.entregas/o.veiculos:0, mp = o.veiculos>0?o.peso/o.veiculos:0;
+        const bc = oc>=80?'g':oc>=60?'y':'r';
+        html += `<tr>
+            <td><strong>${v}</strong></td>
+            <td class="num">${fmt.num(o.veiculos)}</td>
+            <td class="num">${fmt.dec(me,0)}</td>
+            <td class="num">${fmt.dec(mp,0)} kg</td>
+            <td class="num"><span class="badge ${bc}">${fmt.dec(oc,0)}%</span></td>
+            <td class="num">${fmt.brl(rk)}</td>
+        </tr>`;
+    }
+    const t = aggregate(rows);
+    const tMe = t.veiculos>0?t.entregas/t.veiculos:0, tMp = t.veiculos>0?t.peso/t.veiculos:0;
+    html += `<tr class="total-row">
+        <td>TOTAL</td>
+        <td class="num">${fmt.num(t.veiculos)}</td>
+        <td class="num">${fmt.dec(tMe,0)}</td>
+        <td class="num">${fmt.dec(tMp,0)} kg</td>
+        <td class="num">${fmt.dec(t.ocupacao,0)}%</td>
+        <td class="num">${fmt.brl(t.real_kg)}</td>
+    </tr>`;
+    tbody.innerHTML = html;
+}
+
+boot();
+</script>
+</body>
+</html>

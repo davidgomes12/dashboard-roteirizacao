@@ -1,0 +1,46 @@
+{
+  "_comentario": "MODELO. Copie para config.json e ajuste. O config.json real nao vai para o GitHub.",
+  "caminhos": {
+    "escala": "%USERPROFILE%\\CAMINHO\\PARA\\O\\ARQUIVO.xlsx",
+    "frota": "%USERPROFILE%\\CAMINHO\\PARA\\O\\ARQUIVO.xlsx",
+    "levitare": "%USERPROFILE%\\CAMINHO\\PARA\\O\\ARQUIVO.xlsx"
+  },
+  "filtros": {
+    "transportadoras": [
+      30230,
+      30828,
+      31672,
+      31704,
+      31718,
+      31903,
+      31984,
+      32393,
+      60133,
+      60134,
+      60144,
+      60150
+    ],
+    "transportadoras_excluir_reentrega": [
+      32160,
+      32195
+    ],
+    "motivo_reentrega": 2014,
+    "uf": "SP",
+    "fator_peso": 1.1,
+    "empresa_reentrega": "09",
+    "empresa_reentrega_levitare": "30",
+    "transportadoras_levitare": [
+      32339
+    ]
+  },
+  "metas": {
+    "ocupacao": 80,
+    "real_kg": 0.67
+  },
+  "distribuicao": {
+    "email_destino": "destinatario1@exemplo.com; destinatario2@exemplo.com",
+    "whatsapp_contatos": [
+      "Nome do Grupo"
+    ]
+  }
+}
