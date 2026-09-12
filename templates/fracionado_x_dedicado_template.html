@@ -204,35 +204,14 @@ body::after{
 .panel-hd .sp{flex:1}
 .panel-hd .sub{font-size:.66rem;color:var(--ink-mute)}
 
-.vs{display:grid;gap:13px}
-.vs-row{display:grid;grid-template-columns:118px minmax(0,1fr) auto;align-items:center;gap:14px}
-@media(max-width:620px){
-  .vs-row{grid-template-columns:1fr auto;gap:8px 10px}
-  .vs-lb{grid-column:1;text-align:left}
-  .vs-val{grid-column:2;min-width:0}
-  .vs-track{grid-column:1/-1;height:30px}
-}
-.vs-lb{
-  font-family:var(--mono);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;
-  font-weight:700;color:var(--ink-soft);text-align:right;
-}
-.vs-track{height:38px;background:rgba(139,38,53,.07);border-radius:var(--r-xs);overflow:hidden}
-.vs-fill{
-  height:100%;border-radius:var(--r-xs);transition:width .7s cubic-bezier(.22,1,.36,1);
-  box-shadow:inset 0 -12px 22px rgba(0,0,0,.10);
-}
-.vs-fill.frac{background:linear-gradient(90deg,var(--wine),#a8303f)}
-.vs-fill.ded{background:linear-gradient(90deg,var(--primary-dark),var(--primary))}
-.vs-fill.gap{background:linear-gradient(90deg,var(--gold-dark),var(--gold))}
-.vs-val{
-  font-family:var(--display);font-size:.94rem;font-weight:800;color:var(--ink);
-  min-width:104px;text-align:right;font-variant-numeric:tabular-nums;
-}
-.vs-row.gaprow .vs-lb{color:var(--gold-dark)}
-.vs-row.gaprow .vs-val{color:var(--wine)}
 .lgd{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .lgd span{display:inline-flex;align-items:center;gap:6px;font-size:.66rem;color:var(--ink-soft);font-weight:600}
 .lgd i{width:11px;height:11px;border-radius:3px;display:inline-block}
+
+/* duas colunas: tabela + ranking lado a lado */
+.grid2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;margin-bottom:18px;align-items:start}
+.grid2 > .panel{margin-bottom:0;height:100%;min-width:0}
+@media(max-width:1120px){.grid2{grid-template-columns:1fr}}
 
 .chart{width:100%;overflow-x:auto}
 .chart svg{display:block;min-width:660px;width:100%;height:290px}
@@ -245,10 +224,7 @@ body::after{
 .gcol.off{opacity:.48}
 
 /* ranking de cidades */
-.ranks{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr));
-  gap:9px 26px;max-height:none;
-}
+.ranks{display:flex;flex-direction:column;gap:9px}
 .rk{display:grid;grid-template-columns:22px minmax(0,1fr) 96px;align-items:center;gap:11px}
 .rk-n{font-family:var(--mono);font-size:.62rem;color:var(--ink-mute);font-weight:700}
 .rk-b{position:relative;background:rgba(139,38,53,.07);border-radius:var(--r-xs);height:27px;overflow:hidden}
@@ -368,36 +344,38 @@ tfoot td:last-child{color:var(--gold)}
     </div>
   </section>
 
-  <!-- CONFRONTO -->
-  <section class="panel rv d3">
-    <div class="panel-hd">
-      <h3>O confronto</h3>
-      <span class="sub" id="vsSub">—</span>
-      <span class="sp"></span>
-      <div class="lgd">
-        <span><i style="background:linear-gradient(90deg,var(--wine),#a8303f)"></i>Fracionado</span>
-        <span><i style="background:linear-gradient(90deg,var(--primary-dark),var(--primary))"></i>Dedicado</span>
-        <span><i style="background:linear-gradient(90deg,var(--gold-dark),var(--gold))"></i>Evitado</span>
+  <div class="grid2 rv d3">
+    <!-- POR TIPO VEICULAR -->
+    <section class="panel">
+      <div class="panel-hd">
+        <h3>Por tipo veicular</h3>
+        <span class="sub" id="tvSub">—</span>
       </div>
-    </div>
-    <div class="vs">
-      <div class="vs-row">
-        <span class="vs-lb">Fracionado</span>
-        <div class="vs-track"><div class="vs-fill frac" id="vsFrac"></div></div>
-        <span class="vs-val" id="vsFracV">—</span>
+      <div class="tblwrap">
+        <table>
+          <thead><tr>
+            <th>Tipo veicular</th>
+            <th>Qtd veículos</th>
+            <th>Peso (kg)</th>
+            <th>R$ frete dedicado</th>
+            <th>R$ frete fracionado</th>
+            <th>R$ custo evitado</th>
+          </tr></thead>
+          <tbody id="tvBody"></tbody>
+          <tfoot><tr id="tvFoot"></tr></tfoot>
+        </table>
       </div>
-      <div class="vs-row">
-        <span class="vs-lb">Dedicado</span>
-        <div class="vs-track"><div class="vs-fill ded" id="vsDed"></div></div>
-        <span class="vs-val" id="vsDedV">—</span>
+    </section>
+
+    <!-- CIDADES -->
+    <section class="panel">
+      <div class="panel-hd">
+        <h3>Cidades que mais evitam custo</h3>
+        <span class="sub" id="cidSub">—</span>
       </div>
-      <div class="vs-row gaprow">
-        <span class="vs-lb">Custo evitado</span>
-        <div class="vs-track"><div class="vs-fill gap" id="vsGap"></div></div>
-        <span class="vs-val" id="vsGapV">—</span>
-      </div>
-    </div>
-  </section>
+      <div class="ranks" id="rkCidade"></div>
+    </section>
+  </div>
 
   <!-- EVOLUCAO -->
   <section class="panel rv d4">
@@ -411,37 +389,6 @@ tfoot td:last-child{color:var(--gold)}
       </div>
     </div>
     <div class="chart" id="chart"></div>
-  </section>
-
-  <!-- POR TIPO VEICULAR -->
-  <section class="panel rv d5">
-    <div class="panel-hd">
-      <h3>Por tipo veicular</h3>
-      <span class="sub" id="tvSub">—</span>
-    </div>
-    <div class="tblwrap">
-      <table>
-        <thead><tr>
-          <th>Tipo veicular</th>
-          <th>Qtd veículos</th>
-          <th>Peso (kg)</th>
-          <th>R$ frete dedicado</th>
-          <th>R$ frete fracionado</th>
-          <th>R$ custo evitado</th>
-        </tr></thead>
-        <tbody id="tvBody"></tbody>
-        <tfoot><tr id="tvFoot"></tr></tfoot>
-      </table>
-    </div>
-  </section>
-
-  <!-- CIDADES -->
-  <section class="panel rv d5">
-    <div class="panel-hd">
-      <h3>Cidades que mais evitam custo</h3>
-      <span class="sub" id="cidSub">—</span>
-    </div>
-    <div class="ranks" id="rkCidade"></div>
   </section>
 
   <div class="foot">
@@ -551,20 +498,6 @@ function renderTopo(rows){
   document.getElementById('kEvitadoSub').innerHTML =
     '<b>' + nf2.format(reducao) + '%</b> abaixo do que o fracionado custaria · ' +
     '<b>' + rotuloMes() + '</b>';
-
-  var max = Math.max(t.frac, t.ded, 1);
-  function setBar(el, valor){
-    document.getElementById(el).style.width = Math.max(0, valor/max*100) + '%';
-  }
-  setBar('vsFrac', t.frac);
-  setBar('vsDed',  t.ded);
-  setBar('vsGap',  Math.max(0, t.evitado));
-  document.getElementById('vsFracV').textContent = brl(t.frac);
-  document.getElementById('vsDedV').textContent  = brl(t.ded);
-  document.getElementById('vsGapV').textContent  = brl(t.evitado);
-  document.getElementById('vsSub').textContent =
-    t.rom ? nf0.format(t.rom) + ' romaneios · ' + nf0.format(t.veic) + ' veículos · ' + kg(t.peso) + ' kg'
-          : 'sem dados no mês selecionado';
 
   document.getElementById('resumo').innerHTML =
     '<b>' + rotuloMes() + '</b> · ' + brl(t.evitado) + ' evitados';
