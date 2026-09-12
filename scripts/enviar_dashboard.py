@@ -11,8 +11,9 @@ import socket
 import time
 from datetime import datetime
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-PIPELINE = os.path.join(BASE_DIR, "pipeline.py")
+SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_DIR = os.path.dirname(SCRIPTS_DIR)  # raiz do ETL
+PIPELINE = os.path.join(SCRIPTS_DIR, "pipeline.py")
 
 with open(os.path.join(BASE_DIR, "config.json"), encoding="utf-8") as _f:
     _cfg = json.load(_f)["distribuicao"]

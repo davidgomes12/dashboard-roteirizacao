@@ -18,7 +18,7 @@ warnings.filterwarnings("ignore", category=UserWarning)
 # ============================================================
 # CONFIGURAÇÃO — lida de config.json (caminhos e parâmetros)
 # ============================================================
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))  # raiz do projeto
 ETL_DIR  = os.path.join(BASE_DIR, "ETL")
 DADOS_DIR = os.path.join(BASE_DIR, "Dados")
 
@@ -39,6 +39,9 @@ CLIENTES_PATH = os.path.join(DADOS_DIR, "Clientes.xlsx")
 OUTPUT_JSON   = os.path.join(ETL_DIR, "dashboard_data.json")
 
 TRANSPORTADORAS_FILTRO = _cfg["filtros"]["transportadoras"]
+# Transportadora da operação Levitare na NF (CD OSASCO) — usada só para a
+# quebra geográfica, já que a planilha do Levitare não traz CEP.
+TRANSPORTADORAS_LEVITARE = _cfg["filtros"].get("transportadoras_levitare", [])
 # Códigos de transportadora a desconsiderar nas reentregas (fora da operação monitorada)
 EXCLUIR_REENTREGA      = _cfg["filtros"].get("transportadoras_excluir_reentrega", [])
 MOTIVO_REENTREGA       = _cfg["filtros"]["motivo_reentrega"]
@@ -196,19 +199,37 @@ def load_nf_raw():
     return df
 
 
-def load_nf(df_raw):
-    """Filtra NF por UF e transportadoras."""
+def _filtrar_nf(df_raw, codigos):
+    """Recorta a NF por UF + lista de transportadoras e monta as chaves de data."""
     df = df_raw[df_raw["UF"] == UF_FILTRO].copy()
     df["TRANSPORTADORA"] = pd.to_numeric(df["TRANSPORTADORA"], errors="coerce")
-    df = df[df["TRANSPORTADORA"].isin(TRANSPORTADORAS_FILTRO)].copy()
+    df = df[df["TRANSPORTADORA"].isin(codigos)].copy()
 
     df["DATA  SAÍDA"]  = pd.to_datetime(df["DATA  SAÍDA"], errors="coerce")
     df["COD. CLIENTE"] = df["COD. CLIENTE"].astype(str)
     df["CHAVE_ENTREGA"] = df["DATA  SAÍDA"].dt.strftime("%Y-%m-%d") + "_" + df["COD. CLIENTE"]
     df["MES_KEY"] = df["DATA  SAÍDA"].dt.strftime("%Y-%m")
     df["DIA"]     = df["DATA  SAÍDA"].dt.strftime("%Y-%m-%d")
+    return df
 
+
+def load_nf(df_raw):
+    """Filtra NF por UF e transportadoras (operação Tirolez roteirizada)."""
+    df = _filtrar_nf(df_raw, TRANSPORTADORAS_FILTRO)
     print(f"   -> {len(df)} registros (SP + transportadoras)")
+    return df
+
+
+def load_nf_levitare(df_raw):
+    """Filtra NF pela transportadora do Levitare (CD OSASCO).
+
+    A planilha própria do Levitare registra paradas, sem CEP nem município;
+    é por esta recorte da NF que sai a quebra geográfica da operação.
+    """
+    if not TRANSPORTADORAS_LEVITARE:
+        return None
+    df = _filtrar_nf(df_raw, TRANSPORTADORAS_LEVITARE)
+    print(f"   -> {len(df)} registros LEVITARE (SP + CD OSASCO)")
     return df
 
 
@@ -354,6 +375,134 @@ def _reent_faixa_peso_dia(reentregas, justificativa):
               .agg(qtd=("CHAVE_ENTREGA", "nunique"), peso=("peso", "sum"))
               .reset_index()
               .sort_values(["DIA", "FAIXA_PESO"]))
+
+
+# ============================================================
+# DISTRIBUIÇÃO GEOGRÁFICA DAS ENTREGAS (base NF)
+# ============================================================
+# Zonas da capital pelo prefixo do CEP (2 primeiros dígitos).
+ZONAS_SP_CEP = {
+    "01": "Centro",
+    "02": "Norte",
+    "03": "Leste I",
+    "04": "Sul",
+    "05": "Oeste",
+    "08": "Leste II (extremo)",
+}
+
+# Os 39 municípios da Região Metropolitana de São Paulo (sem a capital).
+RMSP = {
+    "ARUJA", "BARUERI", "BIRITIBA MIRIM", "CAIEIRAS", "CAJAMAR", "CARAPICUIBA",
+    "COTIA", "DIADEMA", "EMBU DAS ARTES", "EMBU-GUACU", "FERRAZ DE VASCONCELOS",
+    "FRANCISCO MORATO", "FRANCO DA ROCHA", "GUARAREMA", "GUARULHOS",
+    "ITAPECERICA DA SERRA", "ITAPEVI", "ITAQUAQUECETUBA", "JANDIRA", "JUQUITIBA",
+    "MAIRIPORA", "MAUA", "MOGI DAS CRUZES", "OSASCO", "PIRAPORA DO BOM JESUS",
+    "POA", "RIBEIRAO PIRES", "RIO GRANDE DA SERRA", "SALESOPOLIS", "SANTA ISABEL",
+    "SANTANA DE PARNAIBA", "SANTO ANDRE", "SAO BERNARDO DO CAMPO",
+    "SAO CAETANO DO SUL", "SAO LOURENCO DA SERRA", "SUZANO", "TABOAO DA SERRA",
+    "VARGEM GRANDE PAULISTA",
+}
+
+# Municípios do litoral, com a sub-região a que pertencem.
+LITORAL = {
+    "SANTOS": "Baixada Santista", "SAO VICENTE": "Baixada Santista",
+    "GUARUJA": "Baixada Santista", "PRAIA GRANDE": "Baixada Santista",
+    "CUBATAO": "Baixada Santista", "MONGAGUA": "Baixada Santista",
+    "ITANHAEM": "Baixada Santista", "PERUIBE": "Baixada Santista",
+    "BERTIOGA": "Baixada Santista",
+    "CARAGUATATUBA": "Litoral Norte", "SAO SEBASTIAO": "Litoral Norte",
+    "ILHABELA": "Litoral Norte", "UBATUBA": "Litoral Norte",
+    "IGUAPE": "Litoral Sul", "CANANEIA": "Litoral Sul",
+    "ILHA COMPRIDA": "Litoral Sul",
+}
+
+CAPITAL = {"SAO PAULO", "SÃO PAULO"}
+
+# A NF grava os municípios sem acento e em caixa alta. Este mapa devolve o nome
+# como ele deve aparecer no slide; o que não estiver aqui cai no fallback
+# _titulo_municipio (Title Case com preposições em minúscula).
+MUNICIPIOS_DISPLAY = {
+    "ARUJA": "Arujá", "CARAPICUIBA": "Carapicuíba", "EMBU-GUACU": "Embu-Guaçu",
+    "GUARAREMA": "Guararema", "ITAPECERICA DA SERRA": "Itapecerica da Serra",
+    "JUQUITIBA": "Juquitiba", "MAIRIPORA": "Mairiporã", "MAUA": "Mauá",
+    "PIRAPORA DO BOM JESUS": "Pirapora do Bom Jesus", "POA": "Poá",
+    "RIBEIRAO PIRES": "Ribeirão Pires", "SALESOPOLIS": "Salesópolis",
+    "SANTA ISABEL": "Santa Isabel", "SANTANA DE PARNAIBA": "Santana de Parnaíba",
+    "SANTO ANDRE": "Santo André", "SAO BERNARDO DO CAMPO": "São Bernardo do Campo",
+    "SAO CAETANO DO SUL": "São Caetano do Sul",
+    "SAO LOURENCO DA SERRA": "São Lourenço da Serra",
+    "TABOAO DA SERRA": "Taboão da Serra",
+    "GUARUJA": "Guarujá", "CUBATAO": "Cubatão", "MONGAGUA": "Mongaguá",
+    "ITANHAEM": "Itanhaém", "PERUIBE": "Peruíbe", "SAO VICENTE": "São Vicente",
+    "SAO SEBASTIAO": "São Sebastião", "CANANEIA": "Cananéia",
+    "CARAGUATATUBA": "Caraguatatuba",
+}
+
+_PREPOSICOES = {"da", "das", "de", "do", "dos", "e"}
+
+
+def _titulo_municipio(nome):
+    """Title Case mantendo preposições em minúscula (Sao Bernardo do Campo)."""
+    if nome in MUNICIPIOS_DISPLAY:
+        return MUNICIPIOS_DISPLAY[nome]
+    partes = [p.capitalize() for p in nome.lower().split()]
+    return " ".join(p if i == 0 or p not in _PREPOSICOES else p
+                    for i, p in enumerate(partes)).replace(" Da ", " da ")              .replace(" Das ", " das ").replace(" De ", " de ")              .replace(" Do ", " do ").replace(" Dos ", " dos ")
+
+
+def _classificar_local(cidade, cep):
+    """Devolve (bloco, area) para uma entrega da NF.
+
+    Capital -> zona pelo prefixo do CEP; RMSP e Litoral -> nome do município;
+    o resto cai em Interior.
+    """
+    if cidade in CAPITAL:
+        pfx = cep[:2] if len(cep) >= 2 else ""
+        return "Capital", ZONAS_SP_CEP.get(pfx, "Sem CEP")
+    if cidade in LITORAL:
+        return "Litoral", _titulo_municipio(cidade)
+    if cidade in RMSP:
+        return "RMSP", _titulo_municipio(cidade)
+    return "Interior", _titulo_municipio(cidade)
+
+
+def build_regioes(nf, nf_levi=None):
+    """Entregas por operação, bloco geográfico e área, granular por DIA.
+
+    A capital é quebrada em zonas pelo prefixo do CEP; RMSP e Litoral, por
+    município. Entregas = CHAVE_ENTREGA distinta, mesma métrica dos demais KPIs.
+    A coluna OP ('tirolez' / 'levitare') alimenta o seletor de operação do slide.
+    """
+    partes = []
+    tir = nf.copy()
+    tir["OP"] = "tirolez"
+    partes.append(tir)
+    if nf_levi is not None and len(nf_levi):
+        levi = nf_levi.copy()
+        levi["OP"] = "levitare"
+        partes.append(levi)
+    df = pd.concat(partes, ignore_index=True)
+    df["CIDADE_N"] = df["CIDADE"].astype(str).str.strip().str.upper()
+    df["CEP_N"]    = (df["COD. CEP"].astype(str)
+                        .str.replace(r"\D", "", regex=True).str.zfill(8))
+    df["PESO BRUTO"] = pd.to_numeric(df["PESO BRUTO"], errors="coerce").fillna(0)
+
+    classes = df.apply(lambda r: _classificar_local(r["CIDADE_N"], r["CEP_N"]), axis=1)
+    df["BLOCO"] = [c[0] for c in classes]
+    df["AREA"]  = [c[1] for c in classes]
+
+    g = (df.groupby(["OP", "DIA", "BLOCO", "AREA"])
+           .agg(entregas=("CHAVE_ENTREGA", "nunique"),
+                notas=("NFF", "nunique"),
+                peso=("PESO BRUTO", "sum"))
+           .reset_index()
+           .sort_values(["OP", "DIA", "BLOCO", "AREA"]))
+    g["peso"] = g["peso"].round(2)
+
+    for op, sub in df.groupby("OP"):
+        print(f"   -> geografia {op}: {sub['CHAVE_ENTREGA'].nunique()} entregas "
+              f"em {sub['AREA'].nunique()} áreas")
+    return g
 
 
 # ============================================================
@@ -552,6 +701,7 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util, df_levita
         "reentregas_transp_just_dia": r(reent_transp_just_dia_g),
         "reentregas_dia":             r(reent_dia),
         "reentregas_mes":             r(reent_mes),
+        "regioes_dia":               r(build_regioes(nf, load_nf_levitare(nf_raw))),
         "nf_entregas_dia":            r(nf_dia),
         "nf_entregas_mes":            r(nf_mes),
         "reent_fh_peso_dia":          r(reent_fh_peso_dia),

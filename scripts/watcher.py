@@ -10,7 +10,7 @@ from datetime import datetime
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-REPO_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # raiz do ETL
 LOG_FILE = os.path.join(REPO_DIR, 'auto_push.log')
 DEBOUNCE_SECONDS = 20
 IGNORE = {'.git', '__pycache__', 'auto_push.log', '.pyc', '.pyo'}
