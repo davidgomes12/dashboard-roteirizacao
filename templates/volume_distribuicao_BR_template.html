@@ -402,7 +402,7 @@ tfoot td:first-child{font-family:var(--sans);letter-spacing:.06em;text-transform
     </button>
     <button class="kpi rv d4" data-metric="peso" style="--accent:#c9a900;--accent-glow:rgba(238,203,2,.20)">
       <div class="kt"><i></i>Peso Bruto</div>
-      <div class="kv" id="kPeso">0 <small>kg</small></div>
+      <div class="kv" id="kPeso">0 <small>Tons</small></div>
     </button>
     <button class="kpi rv d5" data-metric="valor" style="--accent:#2db37e;--accent-glow:rgba(45,179,126,.14)">
       <div class="kt"><i></i>Valor Total Merc.</div>
@@ -530,8 +530,8 @@ const nKg  = v => Math.abs(v) >= 1000 ? nInt(v) : fmt1.format(v);
 const brl  = v => 'R$ ' + (Math.abs(v) >= 1000 ? nInt(v) : fmt2.format(v));
 const brlC = v => Math.abs(v) >= 1e6 ? 'R$ ' + fmt1.format(v/1e6) + ' mi'
                 : Math.abs(v) >= 1e3 ? 'R$ ' + nInt(v/1e3) + ' mil' : brl(v);
-const kgC  = v => Math.abs(v) >= 1e6 ? fmt1.format(v/1e6) + ' mil t'
-                : Math.abs(v) >= 1e3 ? nInt(v/1e3) + ' t' : nKg(v) + ' kg';
+const kgC  = v => fmt1.format(v/1e3) + ' t';   // sempre em toneladas, sem escala "mil t"
+const kgPart = v => fmt1.format(v/1e3);        // so o numero; a unidade fica no <small> do card
 const dataBR = s => s.slice(8,10)+'/'+s.slice(5,7)+'/'+s.slice(0,4);
 
 document.getElementById('mPeriodo').textContent =
@@ -799,7 +799,7 @@ function setTxt(el, txt){
 function renderKpis(){
   contar(document.getElementById('kNff'),   R.nff,   nInt);
   contar(document.getElementById('kEnt'),   R.ent,   nInt);
-  contar(document.getElementById('kPeso'),  R.peso,  nInt);
+  contar(document.getElementById('kPeso'),  R.peso,  kgPart);
   contar(document.getElementById('kValor'), R.valor, brlC);
 }
 /* ============ RANKINGS ============ */
@@ -832,9 +832,9 @@ function rankPara(cfg){
   const agg = cfg.agg(), labels = cfg.labels(), campo = cfg.campo;
   const m = METRICA, q = RQ[cfg.alvo] || '';
   const arr = [];
-  for (let i=0;i<labels.length;i++) if (agg[m][i] > 0) arr.push([i, agg[m][i], agg.ent[i], agg.nff[i]]);
+  for (let i=0;i<labels.length;i++) if (agg[m][i] > 0) arr.push([i, agg[m][i], agg.ent[i], agg.nff[i], 0, agg.peso[i]]);
   arr.sort((a,b)=>b[1]-a[1]);
-  arr.forEach((o,k)=>o.push(k+1));              // [4] = posicao no ranking completo
+  arr.forEach((o,k)=>o[4] = k+1);               // [4] = posicao no ranking completo; [5] = peso
   const max = arr.length ? arr[0][1] : 1;
   const achados = q ? arr.filter(o=>String(labels[o[0]]).toLowerCase().includes(q)) : arr;
   const top = achados.slice(0,25);
@@ -845,14 +845,14 @@ function rankPara(cfg){
       (q ? 'Nada encontrado para “' + esc(q) + '”' : 'Sem dados no filtro atual') + '</div>';
     return;
   }
-  const totalMet = R[m] || 1;
+  const totalPeso = R.peso || 1;
   const set = SEL[campo];
   el.innerHTML = top.map(o=>{
-    const pct = (o[1]/totalMet*100);
+    const pct = (o[5]/totalPeso*100);
     return '<div class="rank'+(set.has(o[0])?' sel':'')+'" data-i="'+o[0]+'" style="--w:'+(o[1]/max*100).toFixed(1)+'%">' +
       '<span class="pos">'+String(o[4]).padStart(2,'0')+'</span>' +
       '<span class="nm">'+esc(String(labels[o[0]]))+'<small>'+nInt(o[3])+' NFF · '+nInt(o[2])+' entregas</small></span>' +
-      '<span class="vl">'+META[m].curto(o[1])+'<small>'+fmt1.format(pct)+'%</small></span>' +
+      '<span class="vl">'+kgC(o[5])+'<small>'+fmt1.format(pct)+'%</small></span>' +
     '</div>';
   }).join('');
   el.querySelectorAll('.rank').forEach(r=>{

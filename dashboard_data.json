@@ -1,13 +1,13 @@
 {
-  "gerado_em": "12/09/2026 17:34",
+  "gerado_em": "14/09/2026 10:59",
   "kpis": {
-    "peso_total": 9933577.33,
-    "capac_total": 12718500.0,
-    "frete_total": 6771770.31,
-    "real_kg_total": 0.6817,
-    "ocupacao_total": 78.1,
-    "qtd_veiculos": 12961,
-    "qtd_entregas": 62783,
+    "peso_total": 9935418.73,
+    "capac_total": 12720000.0,
+    "frete_total": 6772332.11,
+    "real_kg_total": 0.6816,
+    "ocupacao_total": 78.11,
+    "qtd_veiculos": 12962,
+    "qtd_entregas": 62784,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67,
     "reentregas": 2732,
@@ -726,7 +726,8 @@
       "2026-09-08",
       "2026-09-09",
       "2026-09-10",
-      "2026-09-11"
+      "2026-09-11",
+      "2026-09-14"
     ],
     "meses_fresc": [
       "2026-05",
@@ -2889,15 +2890,15 @@
     },
     {
       "DIA": "2026-09-14",
-      "peso": 70168.445,
-      "capac": 89000,
-      "frete": 41501.301578,
-      "veiculos": 76,
-      "entregas": 204,
-      "real_kg": 0.5914524909,
-      "ocupacao": 78.8409494382,
-      "media_entregas": 2.6842105263,
-      "media_peso": 923.2690131579
+      "peso": 72009.845,
+      "capac": 90500,
+      "frete": 42063.101578,
+      "veiculos": 77,
+      "entregas": 205,
+      "real_kg": 0.5841298725,
+      "ocupacao": 79.5688895028,
+      "media_entregas": 2.6623376623,
+      "media_peso": 935.1927922078
     }
   ],
   "por_mes": [
@@ -2999,15 +3000,15 @@
     },
     {
       "MES_KEY": "2026-09",
-      "peso": 522458.916,
-      "capac": 702500,
-      "frete": 367786.59238,
-      "veiculos": 701,
-      "entregas": 3524,
-      "real_kg": 0.7039531361,
-      "ocupacao": 74.3713759431,
-      "media_entregas": 5.0271041369,
-      "media_peso": 745.3051583452
+      "peso": 524300.316,
+      "capac": 704000,
+      "frete": 368348.39238,
+      "veiculos": 702,
+      "entregas": 3525,
+      "real_kg": 0.702552299,
+      "ocupacao": 74.4744767045,
+      "media_entregas": 5.0213675214,
+      "media_peso": 746.8665470085
     }
   ],
   "por_veiculo": [
@@ -3037,15 +3038,15 @@
     },
     {
       "VEICULO": "VAN",
-      "peso": 5123865.7700000005,
-      "capac": 7152000,
-      "frete": 2793452.3681199998,
-      "veiculos": 4768,
-      "entregas": 26056,
-      "real_kg": 0.5451845332,
-      "ocupacao": 71.6424184843,
-      "media_entregas": 5.4647651007,
-      "media_peso": 1074.6362772651
+      "peso": 5125707.170000001,
+      "capac": 7153500,
+      "frete": 2794014.16812,
+      "veiculos": 4769,
+      "entregas": 26057,
+      "real_kg": 0.5450982812,
+      "ocupacao": 71.6531372056,
+      "media_entregas": 5.4638288949,
+      "media_peso": 1074.7970580835
     },
     {
       "VEICULO": "VUC",
@@ -10435,15 +10436,15 @@
     {
       "DIA": "2026-09-14",
       "VEICULO": "VAN",
-      "peso": 41056.108,
-      "capac": 54000,
-      "frete": 21377.165554,
-      "veiculos": 36,
-      "entregas": 91,
-      "real_kg": 0.5206817352,
-      "ocupacao": 76.0298296296,
-      "media_entregas": 2.5277777778,
-      "media_peso": 1140.4474444444
+      "peso": 42897.508,
+      "capac": 55500,
+      "frete": 21938.965554,
+      "veiculos": 37,
+      "entregas": 92,
+      "real_kg": 0.5114275066,
+      "ocupacao": 77.2928072072,
+      "media_entregas": 2.4864864865,
+      "media_peso": 1159.3921081081
     },
     {
       "DIA": "2026-09-14",
@@ -10853,15 +10854,15 @@
     {
       "MES_KEY": "2026-09",
       "VEICULO": "VAN",
-      "peso": 259677.175,
-      "capac": 393000,
-      "frete": 153599.407512,
-      "veiculos": 262,
-      "entregas": 1500,
-      "real_kg": 0.5915013806,
-      "ocupacao": 66.0756170483,
-      "media_entregas": 5.7251908397,
-      "media_peso": 991.1342557252
+      "peso": 261518.575,
+      "capac": 394500,
+      "frete": 154161.207512,
+      "veiculos": 263,
+      "entregas": 1501,
+      "real_kg": 0.5894847336,
+      "ocupacao": 66.2911470215,
+      "media_entregas": 5.7072243346,
+      "media_peso": 994.3672053232
     },
     {
       "MES_KEY": "2026-09",
@@ -10892,15 +10893,15 @@
     },
     {
       "VEICULO": "VAN",
-      "peso": 4725985.264,
-      "capac": 5953500,
-      "frete": 2267377.99164,
-      "veiculos": 3969,
-      "entregas": 19712,
-      "real_kg": 0.479768316,
-      "ocupacao": 79.381628689,
-      "media_entregas": 4.9664902998,
-      "media_peso": 1190.7244303351
+      "peso": 4727826.664000001,
+      "capac": 5955000,
+      "frete": 2267939.79164,
+      "veiculos": 3970,
+      "entregas": 19713,
+      "real_kg": 0.4797002836,
+      "ocupacao": 79.3925552309,
+      "media_entregas": 4.9654911839,
+      "media_peso": 1190.8883284635
     },
     {
       "VEICULO": "VUC",
@@ -17653,15 +17654,15 @@
     {
       "DIA": "2026-09-14",
       "VEICULO": "VAN",
-      "peso": 38352.314,
-      "capac": 43500,
-      "frete": 16975.565994,
-      "veiculos": 29,
-      "entregas": 64,
-      "real_kg": 0.4426216889,
-      "ocupacao": 88.1662390805,
-      "media_entregas": 2.2068965517,
-      "media_peso": 1322.4935862069
+      "peso": 40193.714,
+      "capac": 45000,
+      "frete": 17537.365994,
+      "veiculos": 30,
+      "entregas": 65,
+      "real_kg": 0.4363211122,
+      "ocupacao": 89.3193644444,
+      "media_entregas": 2.1666666667,
+      "media_peso": 1339.7904666667
     },
     {
       "DIA": "2026-09-14",
@@ -18006,15 +18007,15 @@
     {
       "MES_KEY": "2026-09",
       "VEICULO": "VAN",
-      "peso": 233781.075,
-      "capac": 301500,
-      "frete": 114987.937952,
-      "veiculos": 201,
-      "entregas": 983,
-      "real_kg": 0.4918616186,
-      "ocupacao": 77.5393283582,
-      "media_entregas": 4.8905472637,
-      "media_peso": 1163.0899253731
+      "peso": 235622.475,
+      "capac": 303000,
+      "frete": 115549.737952,
+      "veiculos": 202,
+      "entregas": 984,
+      "real_kg": 0.4904020211,
+      "ocupacao": 77.7631930693,
+      "media_entregas": 4.8712871287,
+      "media_peso": 1166.4478960396
     },
     {
       "MES_KEY": "2026-09",
@@ -143483,13 +143484,13 @@
     }
   ],
   "vesp_kpis": {
-    "peso_total": 358606.22,
-    "capac_total": 471000.0,
-    "frete_total": 272369.06,
-    "real_kg_total": 0.7595,
-    "ocupacao_total": 76.14,
-    "qtd_veiculos": 576,
-    "qtd_entregas": 2611,
+    "peso_total": 360447.61,
+    "capac_total": 472500.0,
+    "frete_total": 272930.86,
+    "real_kg_total": 0.7572,
+    "ocupacao_total": 76.29,
+    "qtd_veiculos": 577,
+    "qtd_entregas": 2612,
     "meta_ocupacao": 80,
     "meta_real_kg": 0.67
   },
@@ -145185,6 +145186,18 @@
       "ocupacao": 64.17598,
       "media_entregas": 5.25,
       "media_peso": 401.099875
+    },
+    {
+      "DIA": "2026-09-14",
+      "peso": 1841.4,
+      "capac": 1500,
+      "frete": 561.8,
+      "veiculos": 1,
+      "entregas": 1,
+      "real_kg": 0.3050939503,
+      "ocupacao": 122.76,
+      "media_entregas": 1.0,
+      "media_peso": 1841.4
     }
   ],
   "vesp_por_mes": [
@@ -145286,15 +145299,15 @@
     },
     {
       "MES_KEY": "2026-09",
-      "peso": 20240.187,
-      "capac": 29000,
-      "frete": 19187.84225,
-      "veiculos": 42,
-      "entregas": 246,
-      "real_kg": 0.9480071627,
-      "ocupacao": 69.7937482759,
-      "media_entregas": 5.8571428571,
-      "media_peso": 481.9092142857
+      "peso": 22081.587,
+      "capac": 30500,
+      "frete": 19749.64225,
+      "veiculos": 43,
+      "entregas": 247,
+      "real_kg": 0.8943941507,
+      "ocupacao": 72.3986459016,
+      "media_entregas": 5.7441860465,
+      "media_peso": 513.5252790698
     }
   ],
   "vesp_por_veiculo": [
@@ -145312,15 +145325,15 @@
     },
     {
       "VEICULO": "VAN",
-      "peso": 137464.426,
-      "capac": 184500,
-      "frete": 69535.1,
-      "veiculos": 123,
-      "entregas": 386,
-      "real_kg": 0.5058406893,
-      "ocupacao": 74.5064639566,
-      "media_entregas": 3.1382113821,
-      "media_peso": 1117.5969593496
+      "peso": 139305.826,
+      "capac": 186000,
+      "frete": 70096.9,
+      "veiculos": 124,
+      "entregas": 387,
+      "real_kg": 0.5031871388,
+      "ocupacao": 74.8956053763,
+      "media_entregas": 3.1209677419,
+      "media_peso": 1123.4340806452
     },
     {
       "VEICULO": "VUC",
@@ -148351,6 +148364,19 @@
       "ocupacao": 77.4693333333,
       "media_entregas": 3.0,
       "media_peso": 1162.04
+    },
+    {
+      "DIA": "2026-09-14",
+      "VEICULO": "VAN",
+      "peso": 1841.4,
+      "capac": 1500,
+      "frete": 561.8,
+      "veiculos": 1,
+      "entregas": 1,
+      "real_kg": 0.3050939503,
+      "ocupacao": 122.76,
+      "media_entregas": 1.0,
+      "media_peso": 1841.4
     }
   ],
   "vesp_por_veiculo_mes": [
@@ -148682,15 +148708,15 @@
     {
       "MES_KEY": "2026-09",
       "VEICULO": "VAN",
-      "peso": 9107.846,
-      "capac": 12000,
-      "frete": 4494.4,
-      "veiculos": 8,
-      "entregas": 30,
-      "real_kg": 0.4934646458,
-      "ocupacao": 75.8987166667,
-      "media_entregas": 3.75,
-      "media_peso": 1138.48075
+      "peso": 10949.246,
+      "capac": 13500,
+      "frete": 5056.2,
+      "veiculos": 9,
+      "entregas": 31,
+      "real_kg": 0.4617852225,
+      "ocupacao": 81.1055259259,
+      "media_entregas": 3.4444444444,
+      "media_peso": 1216.5828888889
     }
   ],
   "vesp_tl_kpis": {
@@ -154756,13 +154782,13 @@
   "seg": {
     "tirolez": {
       "kpis": {
-        "peso_total": 9738248.88,
-        "capac_total": 11641000.0,
-        "frete_total": 6355060.31,
-        "real_kg_total": 0.6526,
-        "ocupacao_total": 83.65,
-        "qtd_veiculos": 12284,
-        "qtd_entregas": 56539,
+        "peso_total": 9740090.28,
+        "capac_total": 11642500.0,
+        "frete_total": 6355622.11,
+        "real_kg_total": 0.6525,
+        "ocupacao_total": 83.66,
+        "qtd_veiculos": 12285,
+        "qtd_entregas": 56540,
         "meta_ocupacao": 80,
         "meta_real_kg": 0.67
       },
@@ -156845,15 +156871,15 @@
         },
         {
           "DIA": "2026-09-14",
-          "peso": 69066.305,
-          "capac": 76500,
-          "frete": 36992.301578,
-          "veiculos": 69,
-          "entregas": 177,
-          "real_kg": 0.5356056268,
-          "ocupacao": 90.282751634,
-          "media_entregas": 2.5652173913,
-          "media_peso": 1000.960942029
+          "peso": 70907.705,
+          "capac": 78000,
+          "frete": 37554.101578,
+          "veiculos": 70,
+          "entregas": 178,
+          "real_kg": 0.5296194762,
+          "ocupacao": 90.9073141026,
+          "media_entregas": 2.5428571429,
+          "media_peso": 1012.9672142857
         }
       ],
       "por_mes": [
@@ -156955,15 +156981,15 @@
         },
         {
           "MES_KEY": "2026-09",
-          "peso": 510018.366,
-          "capac": 619000,
-          "frete": 335368.59238,
-          "veiculos": 648,
-          "entregas": 3022,
-          "real_kg": 0.6575617953,
-          "ocupacao": 82.3939201939,
-          "media_entregas": 4.6635802469,
-          "media_peso": 787.0653796296
+          "peso": 511859.7660000001,
+          "capac": 620500,
+          "frete": 335930.39238,
+          "veiculos": 649,
+          "entregas": 3023,
+          "real_kg": 0.6562938029,
+          "ocupacao": 82.4915013699,
+          "media_entregas": 4.6579352851,
+          "media_peso": 788.6899322034
         }
       ],
       "por_veiculo": [
@@ -156981,15 +157007,15 @@
         },
         {
           "VEICULO": "VAN",
-          "peso": 4965011.920000001,
-          "capac": 6268500,
-          "frete": 2440052.3681199998,
-          "veiculos": 4179,
-          "entregas": 20333,
-          "real_kg": 0.4914494481,
-          "ocupacao": 79.2057417245,
-          "media_entregas": 4.8655180665,
-          "media_peso": 1188.0861258674
+          "peso": 4966853.32,
+          "capac": 6270000,
+          "frete": 2440614.16812,
+          "veiculos": 4180,
+          "entregas": 20334,
+          "real_kg": 0.4913803591,
+          "ocupacao": 79.2161614035,
+          "media_entregas": 4.8645933014,
+          "media_peso": 1188.2424210526
         },
         {
           "VEICULO": "VUC",
@@ -163742,15 +163768,15 @@
         {
           "DIA": "2026-09-14",
           "VEICULO": "VAN",
-          "peso": 40061.758,
-          "capac": 45000,
-          "frete": 17777.165554,
-          "veiculos": 30,
-          "entregas": 65,
-          "real_kg": 0.4437440203,
-          "ocupacao": 89.0261288889,
-          "media_entregas": 2.1666666667,
-          "media_peso": 1335.3919333333
+          "peso": 41903.158,
+          "capac": 46500,
+          "frete": 18338.965554,
+          "veiculos": 31,
+          "entregas": 66,
+          "real_kg": 0.4376511564,
+          "ocupacao": 90.1143182796,
+          "media_entregas": 2.1290322581,
+          "media_peso": 1351.7147741935
         },
         {
           "DIA": "2026-09-14",
@@ -164095,15 +164121,15 @@
         {
           "MES_KEY": "2026-09",
           "VEICULO": "VAN",
-          "peso": 248520.415,
-          "capac": 316500,
-          "frete": 122999.407512,
-          "veiculos": 211,
-          "entregas": 1000,
-          "real_kg": 0.494926775,
-          "ocupacao": 78.5214581359,
-          "media_entregas": 4.7393364929,
-          "media_peso": 1177.8218720379
+          "peso": 250361.815,
+          "capac": 318000,
+          "frete": 123561.207512,
+          "veiculos": 212,
+          "entregas": 1001,
+          "real_kg": 0.493530563,
+          "ocupacao": 78.7301305031,
+          "media_entregas": 4.7216981132,
+          "media_peso": 1180.9519575472
         },
         {
           "MES_KEY": "2026-09",
@@ -164134,15 +164160,15 @@
         },
         {
           "VEICULO": "VAN",
-          "peso": 4725985.264,
-          "capac": 5953500,
-          "frete": 2267377.99164,
-          "veiculos": 3969,
-          "entregas": 19712,
-          "real_kg": 0.479768316,
-          "ocupacao": 79.381628689,
-          "media_entregas": 4.9664902998,
-          "media_peso": 1190.7244303351
+          "peso": 4727826.664000001,
+          "capac": 5955000,
+          "frete": 2267939.79164,
+          "veiculos": 3970,
+          "entregas": 19713,
+          "real_kg": 0.4797002836,
+          "ocupacao": 79.3925552309,
+          "media_entregas": 4.9654911839,
+          "media_peso": 1190.8883284635
         },
         {
           "VEICULO": "VUC",
@@ -170895,15 +170921,15 @@
         {
           "DIA": "2026-09-14",
           "VEICULO": "VAN",
-          "peso": 38352.314,
-          "capac": 43500,
-          "frete": 16975.565994,
-          "veiculos": 29,
-          "entregas": 64,
-          "real_kg": 0.4426216889,
-          "ocupacao": 88.1662390805,
-          "media_entregas": 2.2068965517,
-          "media_peso": 1322.4935862069
+          "peso": 40193.714,
+          "capac": 45000,
+          "frete": 17537.365994,
+          "veiculos": 30,
+          "entregas": 65,
+          "real_kg": 0.4363211122,
+          "ocupacao": 89.3193644444,
+          "media_entregas": 2.1666666667,
+          "media_peso": 1339.7904666667
         },
         {
           "DIA": "2026-09-14",
@@ -171248,15 +171274,15 @@
         {
           "MES_KEY": "2026-09",
           "VEICULO": "VAN",
-          "peso": 233781.075,
-          "capac": 301500,
-          "frete": 114987.937952,
-          "veiculos": 201,
-          "entregas": 983,
-          "real_kg": 0.4918616186,
-          "ocupacao": 77.5393283582,
-          "media_entregas": 4.8905472637,
-          "media_peso": 1163.0899253731
+          "peso": 235622.475,
+          "capac": 303000,
+          "frete": 115549.737952,
+          "veiculos": 202,
+          "entregas": 984,
+          "real_kg": 0.4904020211,
+          "ocupacao": 77.7631930693,
+          "media_entregas": 4.8712871287,
+          "media_peso": 1166.4478960396
         },
         {
           "MES_KEY": "2026-09",
