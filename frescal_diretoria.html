@@ -422,8 +422,8 @@ async function boot(){
     if (typeof __DADOS_EMBUTIDOS__ !== 'undefined') {
         DATA = __DADOS_EMBUTIDOS__;
     } else {
-        try { DATA = await (await fetch('dashboard_data.json')).json(); }
-        catch(e){ alert('Erro ao carregar dados. Rode o Atualizar_Dashboard ou acesse via http://localhost:8080/'); return; }
+        try { DATA = await (await fetch('roteiro_data.json')).json(); }
+        catch(e){ alert('Erro ao carregar dados. Rode o Atualizar_Roteiro ou acesse via http://localhost:8080/'); return; }
     }
     document.getElementById('stampDate').textContent = 'Atualizado em ' + (DATA.gerado_em || '--');
 

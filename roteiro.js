@@ -9,7 +9,7 @@ let chartVespRealKgDia = null;
 // ============ LOAD ============
 async function loadData() {
     try {
-        const r = await fetch('dashboard_data.json');
+        const r = await fetch('roteiro_data.json');
         DATA = await r.json();
         document.getElementById('headerDate').textContent = 'Atualizado em: ' + DATA.gerado_em;
         populateFilters();
@@ -24,7 +24,7 @@ async function loadData() {
         applyFiltersFresc();
     } catch (e) {
         console.error(e);
-        alert('Erro ao carregar dados. Execute pipeline.py e acesse via http://localhost:8080/dashboard.html');
+        alert('Erro ao carregar dados. Execute pipeline.py e acesse via http://localhost:8080/roteiro.html');
     } finally {
         document.getElementById('loading').classList.add('hide');
     }
@@ -78,7 +78,7 @@ function populateFilters() { populateMesDia('filterMes', 'filterDia', DATA.filtr
 
 function updateDiaOptions(mes) { updateDiaSelect('filterDia', DATA.filtros.dias, mes); }
 
-function resetFilters() { document.getElementById('filterMes').value='all'; document.getElementById('filterDia').value='all'; document.getElementById('filterOperador').value='ambos'; applyFilters(); }
+function resetFilters() { document.getElementById('filterMes').value='all'; document.getElementById('filterDia').value='all'; document.getElementById('filterOperador').value='ambos'; document.getElementById('filterTurno').value='ambos'; applyFilters(); }
 
 // ============ FILTERS REENTREGAS ============
 function populateFiltersReent() { populateMesDia('filterMesReent', 'filterDiaReent', DATA.filtros.meses_reent||[], DATA.filtros.dias_reent||[]); }
@@ -88,10 +88,37 @@ function updateDiaOptionsReent(mes) { updateDiaSelect('filterDiaReent', DATA.fil
 function resetFiltersReent() { document.getElementById('filterMesReent').value='all'; document.getElementById('filterDiaReent').value='all'; document.getElementById('filterOperadorReent').value='ambos'; applyFiltersReent(); }
 
 // ============ APPLY ROTEIRO ============
+// Peso/capacidade/frete das rotas Vespertinas no recorte de mês/dia. A escala
+// Vespertina é um subconjunto da escala Tirolez, então Diurno = Tirolez − Vespertina.
+function vespRecorte(mes, dia) {
+    let v;
+    if (dia !== 'all')      v = (DATA.vesp_por_dia || []).find(r => r.DIA === dia);
+    else if (mes !== 'all') v = (DATA.vesp_por_mes || []).find(r => r.MES_KEY === mes);
+    else { const k = DATA.vesp_kpis || {}; v = { peso: k.peso_total, capac: k.capac_total, frete: k.frete_total }; }
+    return v ? { peso: v.peso || 0, capac: v.capac || 0, frete: v.frete || 0 } : { peso: 0, capac: 0, frete: 0 };
+}
+
+// Ocupação e R$/Kg do card Performance conforme o turno (só na operação Tirolez).
+// Devolve null nos indicadores quando o recorte não tem rota.
+function perfPorTurno(kpis, turno, mes, dia) {
+    if (turno === 'ambos') return { ocup: kpis.ocupacao_total, rk: kpis.real_kg_total };
+    const v = vespRecorte(mes, dia);
+    const b = turno === 'vespertina' ? v
+            : { peso: kpis.peso_total - v.peso, capac: kpis.capac_total - v.capac, frete: kpis.frete_total - v.frete };
+    return { ocup: b.capac > 0 ? b.peso / b.capac * 100 : null, rk: b.peso > 0 ? b.frete / b.peso : null };
+}
+
 function applyFilters() {
     const mes = document.getElementById('filterMes').value;
     const dia = document.getElementById('filterDia').value;
     const op  = document.getElementById('filterOperador').value;
+
+    // Filtro de turno do card Performance: só existe com a operação Tirolez
+    const turnoSel = document.getElementById('filterTurno');
+    if (op !== 'tirolez') turnoSel.value = 'ambos';
+    document.getElementById('turnoBox').hidden = op !== 'tirolez';
+    const turno = turnoSel.value;
+    syncSeg();
     updateDiaOptions(mes);
 
     // Fonte de dados conforme operador (ambos = topo do JSON; senão o bundle do seg.)
@@ -120,32 +147,48 @@ function applyFilters() {
     document.getElementById('kpiOcupacao').className = 'kpi-value';
     const occDiff = occRounded - 84;
     const occDeltaEl = document.getElementById('kpiOcupacaoDelta');
-    occDeltaEl.textContent = occDiff >= 0 ? `🔺 +${occDiff}% acima da meta` : `🔻 ${occDiff}% abaixo da meta`;
+    occDeltaEl.textContent = occDiff >= 0 ? `▲ +${occDiff} p.p. acima da meta` : `▼ ${occDiff} p.p. abaixo da meta`;
     occDeltaEl.className = 'kpi-delta ' + (occDiff >= 0 ? 'good' : 'bad');
 
     // Real Kg KPI card - valor branco + delta vs meta
     const rkRounded = Math.round(kpis.real_kg_total * 100) / 100;
     document.getElementById('kpiRealKg').className = 'kpi-value';
     const rkDiff = rkRounded - 0.67;
-    const rkDiffAbs = Math.abs(rkDiff).toFixed(2);
+    const rkDiffAbs = Math.abs(rkDiff).toFixed(2).replace('.', ',');
     const rkDeltaEl = document.getElementById('kpiRealKgDelta');
-    rkDeltaEl.textContent = rkDiff > 0 ? `🔺 +R$ ${rkDiffAbs} acima da meta` : `🔻 -R$ ${rkDiffAbs} abaixo da meta`;
+    rkDeltaEl.textContent = rkDiff > 0 ? `▲ +R$ ${rkDiffAbs} acima da meta` : `▼ −R$ ${rkDiffAbs} abaixo da meta`;
     rkDeltaEl.className = 'kpi-delta ' + (rkDiff > 0 ? 'bad' : 'good');
 
-    // Performance Rings
-    drawRing('ringOcupacao', kpis.ocupacao_total, 100, false);
-    document.getElementById('ringOcupacaoVal').textContent = occRounded + '%';
-    const occGood = occRounded >= 84;
+    // Performance Rings (obedecem ao filtro de turno; os KPIs acima, não)
+    const perf = perfPorTurno(kpis, turno, mes, dia);
     const occSt = document.getElementById('ringOcupacaoStatus');
-    occSt.textContent = occGood ? 'Na meta' : 'Abaixo da meta';
-    occSt.className = 'perf-status ' + (occGood ? 'good' : 'bad');
+    if (perf.ocup == null) {
+        document.getElementById('ringOcupacao').style.strokeDashoffset = 427.26;
+        document.getElementById('ringOcupacaoVal').textContent = '--';
+        occSt.textContent = 'Sem rotas no período';
+        occSt.className = 'perf-status';
+    } else {
+        const perfOcc = Math.round(perf.ocup);
+        drawRing('ringOcupacao', perf.ocup, 100, false);
+        document.getElementById('ringOcupacaoVal').textContent = perfOcc + '%';
+        const occGood = perfOcc >= 84;
+        occSt.textContent = occGood ? 'Na meta' : 'Abaixo da meta';
+        occSt.className = 'perf-status ' + (occGood ? 'good' : 'bad');
+    }
 
-    drawRing('ringRealKg', kpis.real_kg_total, 1.5, true);
-    document.getElementById('ringRealKgVal').textContent = fmt.brl(kpis.real_kg_total);
-    const rkGood = rkRounded <= 0.67;
     const rkSt = document.getElementById('ringRealKgStatus');
-    rkSt.textContent = rkGood ? 'Na meta' : 'Acima da meta';
-    rkSt.className = 'perf-status ' + (rkGood ? 'good' : 'bad');
+    if (perf.rk == null) {
+        document.getElementById('ringRealKg').style.strokeDashoffset = 427.26;
+        document.getElementById('ringRealKgVal').textContent = '--';
+        rkSt.textContent = 'Sem rotas no período';
+        rkSt.className = 'perf-status';
+    } else {
+        drawRing('ringRealKg', perf.rk, 1.5, true);
+        document.getElementById('ringRealKgVal').textContent = fmt.brl(perf.rk);
+        const rkGood = Math.round(perf.rk * 100) / 100 <= 0.67;
+        rkSt.textContent = rkGood ? 'Na meta' : 'Acima da meta';
+        rkSt.className = 'perf-status ' + (rkGood ? 'good' : 'bad');
+    }
 
     renderChartRealKgDia(porDia);
     renderTableVeiculo('tableDia', porVeiculoDia);
@@ -172,6 +215,7 @@ function applyFilters() {
 
 // ============ APPLY REENTREGAS ============
 function applyFiltersReent() {
+    syncSeg();
     const mes = document.getElementById('filterMesReent').value;
     const dia = document.getElementById('filterDiaReent').value;
     const op  = document.getElementById('filterOperadorReent').value;
@@ -364,8 +408,8 @@ function renderChartRealKgDia(data) {
     const labels = data.map(r => fmt.diaLabel(r.DIA));
     const values = data.map(r => r.real_kg);
     const grad = ctx.createLinearGradient(0, 0, 0, 300);
-    grad.addColorStop(0, 'rgba(238,203,2,0.18)');
-    grad.addColorStop(1, 'rgba(238,203,2,0.02)');
+    grad.addColorStop(0, 'rgba(14,27,107,0.16)');
+    grad.addColorStop(1, 'rgba(14,27,107,0)');
 
     chartRealKgDia = new Chart(ctx, {
         type: 'line',
@@ -373,15 +417,15 @@ function renderChartRealKgDia(data) {
             labels,
             datasets: [{
                 label: 'R$/Kg', data: values,
-                borderColor: '#EECB02', backgroundColor: grad,
+                borderColor: '#0E1B6B', backgroundColor: grad,
                 borderWidth: 2, fill: true, tension: 0.4,
                 pointRadius: 0, pointHoverRadius: 5,
-                pointHoverBackgroundColor: '#EECB02',
+                pointHoverBackgroundColor: '#0E1B6B',
                 pointHoverBorderColor: '#fff', pointHoverBorderWidth: 2,
             }, {
                 label: 'Meta R$ 0,67',
                 data: Array(labels.length).fill(0.67),
-                borderColor: 'rgba(217,160,102,0.6)', borderWidth: 1.5, borderDash: [6,4],
+                borderColor: '#B8860B', borderWidth: 1.5, borderDash: [6,4],
                 pointRadius: 0, fill: false,
             }]
         },
@@ -389,14 +433,14 @@ function renderChartRealKgDia(data) {
             responsive: true, maintainAspectRatio: false,
             interaction: { mode: 'index', intersect: false },
             plugins: { legend: { display: false },
-                tooltip: { backgroundColor: 'rgba(255,250,240,0.98)', borderColor: 'rgba(139,38,53,0.20)', borderWidth: 1, padding: 12, cornerRadius: 10,
-                    titleColor: '#2a2620', bodyColor: '#5a4f44', titleFont: { weight: '600' },
+                tooltip: { backgroundColor: '#FFFFFF', borderColor: 'rgba(20,24,51,0.18)', borderWidth: 1, padding: 12, cornerRadius: 10,
+                    titleColor: '#141833', bodyColor: '#4A4F6A', titleFont: { weight: '600' },
                     callbacks: { label: c => c.datasetIndex===0 ? 'R$/Kg: '+fmt.dec(c.raw,2) : 'Meta: R$ 0,67' }
                 }
             },
             scales: {
-                x: { grid: { color: 'rgba(139,38,53,0.09)' }, ticks: { color: '#8a7f83', font: { size: 10 }, maxTicksLimit: 15 }, border: { display: false } },
-                y: { grid: { color: 'rgba(139,38,53,0.09)' }, ticks: { color: '#8a7f83', font: { size: 10 }, callback: v => 'R$ '+v.toFixed(2) }, border: { display: false } }
+                x: { grid: { color: 'rgba(20,24,51,0.07)' }, ticks: { color: '#6B7089', font: { size: 10 }, maxTicksLimit: 15 }, border: { display: false } },
+                y: { grid: { color: 'rgba(20,24,51,0.07)' }, ticks: { color: '#6B7089', font: { size: 10 }, callback: v => 'R$ '+v.toFixed(2).replace('.', ',') }, border: { display: false } }
             }
         }
     });
@@ -444,7 +488,7 @@ function renderTableVeiculo(tableId, data) {
     const tMe = tV > 0 ? (tE/tV) : 0;
     const tMp = tV > 0 ? (tP/tV) : 0;
 
-    html += `<tr style="font-weight:700;border-top:2px solid var(--primary);">
+    html += `<tr class="row-total">
         <td>TOTAL</td><td class="num">${fmt.num(tV)}</td><td class="num">${fmt.dec(tMe,0)}</td>
         <td class="num">${fmt.dec(tMp,0)} kg</td><td class="num">${fmt.dec(tOc,0)}%</td><td class="num">${fmt.brl(tRk)}</td>
     </tr>`;
@@ -472,7 +516,7 @@ function renderChartReentJust(canvasId, data, scope) {
     if (scope === 'dia' && chartReentJustDia) chartReentJustDia.destroy();
     if (scope === 'mes' && chartReentJustMes) chartReentJustMes.destroy();
     const top = data.slice(0,8);
-    const colors = ['#EECB02','#FCD34D','#FDE68A','#FEF08A','#EAB308','#CA8A04','#A16207','#854D0E'];
+    const colors = Array(8).fill('#0E1B6B');
 
     // Plugin inline: desenha o % (participação no total) no fim de cada barra.
     const pctLabelPlugin = {
@@ -481,13 +525,13 @@ function renderChartReentJust(canvasId, data, scope) {
             const meta = chart.getDatasetMeta(0);
             if (!meta || !meta.data) return;
             const c = chart.ctx; c.save();
-            c.font = '700 10px Inter, system-ui, sans-serif'; c.textBaseline = 'middle';
+            c.font = '600 11px Barlow, system-ui, sans-serif'; c.textBaseline = 'middle';
             meta.data.forEach((bar, i) => {
                 const pct = top[i] ? (top[i].pct || 0) : 0;
                 const txt = fmt.dec(pct, 1) + '%';
                 const w = c.measureText(txt).width;
-                if ((bar.x + 6 + w) <= chart.chartArea.right) { c.fillStyle = '#7A5A00'; c.textAlign = 'left';  c.fillText(txt, bar.x + 6, bar.y); }
-                else                                          { c.fillStyle = '#3A2A00'; c.textAlign = 'right'; c.fillText(txt, bar.x - 6, bar.y); }
+                if ((bar.x + 6 + w) <= chart.chartArea.right) { c.fillStyle = '#141833'; c.textAlign = 'left';  c.fillText(txt, bar.x + 6, bar.y); }
+                else                                          { c.fillStyle = '#FFFFFF'; c.textAlign = 'right'; c.fillText(txt, bar.x - 6, bar.y); }
             });
             c.restore();
         }
@@ -495,15 +539,15 @@ function renderChartReentJust(canvasId, data, scope) {
 
     const chart = new Chart(ctx, {
         type: 'bar',
-        data: { labels: top.map(r=>r['DESC JUST OC']||'N/A'), datasets: [{ data: top.map(r=>r.reentregas), backgroundColor: colors.slice(0,top.length), borderRadius: 6, borderSkipped: false, barThickness: 28 }] },
+        data: { labels: top.map(r=>r['DESC JUST OC']||'N/A'), datasets: [{ data: top.map(r=>r.reentregas), backgroundColor: colors.slice(0,top.length), borderRadius: 3, borderSkipped: false, barThickness: 22 }] },
         plugins: [pctLabelPlugin],
         options: {
             indexAxis: 'y', responsive: true, maintainAspectRatio: false,
             layout: { padding: { right: 8 } },
-            plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(255,250,240,0.98)', borderColor: 'rgba(139,38,53,0.20)', borderWidth: 1, padding: 12, cornerRadius: 10, titleColor: '#2a2620', bodyColor: '#5a4f44', callbacks: { label: c => 'Reentregas: ' + fmt.num(c.raw) + '  (' + fmt.dec(top[c.dataIndex] ? top[c.dataIndex].pct : 0, 1) + '%)' } } },
+            plugins: { legend: { display: false }, tooltip: { backgroundColor: '#FFFFFF', borderColor: 'rgba(20,24,51,0.18)', borderWidth: 1, padding: 12, cornerRadius: 10, titleColor: '#141833', bodyColor: '#4A4F6A', callbacks: { label: c => 'Reentregas: ' + fmt.num(c.raw) + '  (' + fmt.dec(top[c.dataIndex] ? top[c.dataIndex].pct : 0, 1) + '%)' } } },
             scales: {
-                x: { grace: '12%', grid: { color: 'rgba(139,38,53,0.09)' }, ticks: { color: '#8a7f83', font: { size: 10 } }, border: { display: false } },
-                y: { grid: { display: false }, ticks: { color: '#5a4f44', font: { size: 10 }, callback: function(v){ const l=this.getLabelForValue(v); return l.length>30?l.substr(0,30)+'...':l; } }, border: { display: false } }
+                x: { grace: '12%', grid: { color: 'rgba(20,24,51,0.07)' }, ticks: { color: '#6B7089', font: { size: 10 } }, border: { display: false } },
+                y: { grid: { display: false }, ticks: { color: '#4A4F6A', font: { size: 10 }, callback: function(v){ const l=this.getLabelForValue(v); return l.length>30?l.substr(0,30)+'...':l; } }, border: { display: false } }
             }
         }
     });
@@ -518,8 +562,8 @@ function renderChartReentDia(data) {
     const labels = data.map(r => fmt.diaLabel(r.DIA));
     const values = data.map(r => r.reentregas);
     const grad = ctx.createLinearGradient(0, 0, 0, 280);
-    grad.addColorStop(0, 'rgba(238,203,2,0.18)');
-    grad.addColorStop(1, 'rgba(238,203,2,0.02)');
+    grad.addColorStop(0, 'rgba(14,27,107,0.16)');
+    grad.addColorStop(1, 'rgba(14,27,107,0)');
 
     chartReentDia = new Chart(ctx, {
         type: 'line',
@@ -527,10 +571,10 @@ function renderChartReentDia(data) {
             labels,
             datasets: [{
                 label: 'Reentregas', data: values,
-                borderColor: '#EECB02', backgroundColor: grad,
+                borderColor: '#0E1B6B', backgroundColor: grad,
                 borderWidth: 2, fill: true, tension: 0.4,
                 pointRadius: 0, pointHoverRadius: 5,
-                pointHoverBackgroundColor: '#EECB02',
+                pointHoverBackgroundColor: '#0E1B6B',
                 pointHoverBorderColor: '#fff', pointHoverBorderWidth: 2,
             }]
         },
@@ -538,14 +582,14 @@ function renderChartReentDia(data) {
             responsive: true, maintainAspectRatio: false,
             interaction: { mode: 'index', intersect: false },
             plugins: { legend: { display: false },
-                tooltip: { backgroundColor: 'rgba(255,250,240,0.98)', borderColor: 'rgba(139,38,53,0.20)', borderWidth: 1, padding: 12, cornerRadius: 10,
-                    titleColor: '#2a2620', bodyColor: '#5a4f44', titleFont: { weight: '600' },
+                tooltip: { backgroundColor: '#FFFFFF', borderColor: 'rgba(20,24,51,0.18)', borderWidth: 1, padding: 12, cornerRadius: 10,
+                    titleColor: '#141833', bodyColor: '#4A4F6A', titleFont: { weight: '600' },
                     callbacks: { label: c => 'Reentregas: ' + fmt.num(c.raw) }
                 }
             },
             scales: {
-                x: { grid: { color: 'rgba(139,38,53,0.09)' }, ticks: { color: '#8a7f83', font: { size: 10 }, maxTicksLimit: 15 }, border: { display: false } },
-                y: { grid: { color: 'rgba(139,38,53,0.09)' }, ticks: { color: '#8a7f83', font: { size: 10 } }, border: { display: false }, beginAtZero: true }
+                x: { grid: { color: 'rgba(20,24,51,0.07)' }, ticks: { color: '#6B7089', font: { size: 10 }, maxTicksLimit: 15 }, border: { display: false } },
+                y: { grid: { color: 'rgba(20,24,51,0.07)' }, ticks: { color: '#6B7089', font: { size: 10 } }, border: { display: false }, beginAtZero: true }
             }
         }
     });
@@ -666,20 +710,20 @@ function renderChartFrotaDia(data) {
         data: {
             labels,
             datasets: [
-                { label: 'Disponibilizado', data: dispVals, backgroundColor: 'rgba(138,127,131,0.3)', borderColor: 'rgba(138,127,131,0.6)', borderWidth: 1, borderRadius: 4 },
-                { label: 'Utilizado', data: utilVals, backgroundColor: 'rgba(238,203,2,0.70)', borderColor: '#EECB02', borderWidth: 1, borderRadius: 4 },
+                { label: 'Disponibilizado', data: dispVals, backgroundColor: '#C9CCDA', borderWidth: 0, borderRadius: 4 },
+                { label: 'Utilizado', data: utilVals, backgroundColor: '#0E1B6B', borderWidth: 0, borderRadius: 4 },
             ]
         },
         options: {
             responsive: true, maintainAspectRatio: false,
             interaction: { mode: 'index', intersect: false },
             plugins: {
-                legend: { labels: { color: '#5a4f44', font: { size: 10 } } },
-                tooltip: { backgroundColor: 'rgba(255,250,240,0.98)', borderColor: 'rgba(139,38,53,0.20)', borderWidth: 1, padding: 12, cornerRadius: 10, titleColor: '#2a2620', bodyColor: '#5a4f44' }
+                legend: { labels: { color: '#4A4F6A', font: { size: 10 } } },
+                tooltip: { backgroundColor: '#FFFFFF', borderColor: 'rgba(20,24,51,0.18)', borderWidth: 1, padding: 12, cornerRadius: 10, titleColor: '#141833', bodyColor: '#4A4F6A' }
             },
             scales: {
-                x: { grid: { color: 'rgba(139,38,53,0.09)' }, ticks: { color: '#8a7f83', font: { size: 10 }, maxTicksLimit: 15 }, border: { display: false } },
-                y: { grid: { color: 'rgba(139,38,53,0.09)' }, ticks: { color: '#8a7f83', font: { size: 10 } }, border: { display: false } }
+                x: { grid: { color: 'rgba(20,24,51,0.07)' }, ticks: { color: '#6B7089', font: { size: 10 }, maxTicksLimit: 15 }, border: { display: false } },
+                y: { grid: { color: 'rgba(20,24,51,0.07)' }, ticks: { color: '#6B7089', font: { size: 10 } }, border: { display: false } }
             }
         }
     });
@@ -706,7 +750,7 @@ function renderTableFrota(tableId, data, nameKey) {
         </tr>`;
     });
     const tPct = tDisp > 0 ? (tUtil/tDisp*100) : 0;
-    html += `<tr style="font-weight:700;border-top:2px solid var(--primary);">
+    html += `<tr class="row-total">
         <td>TOTAL</td><td class="num">${fmt.num(tDisp)}</td><td class="num">${fmt.num(tUtil)}</td>
         <td class="num">${fmt.dec(tPct,0)}%</td><td></td>
     </tr>`;
@@ -760,14 +804,14 @@ function applyFiltersVesp() {
 
     const occDiffVesp = Math.round(ocup) - 84;
     const occDeltaVesp = document.getElementById('kpiVespOcupacaoDelta');
-    occDeltaVesp.textContent = occDiffVesp >= 0 ? `🔺 +${occDiffVesp}% acima da meta` : `🔻 ${occDiffVesp}% abaixo da meta`;
+    occDeltaVesp.textContent = occDiffVesp >= 0 ? `▲ +${occDiffVesp} p.p. acima da meta` : `▼ ${occDiffVesp} p.p. abaixo da meta`;
     occDeltaVesp.className = 'kpi-delta ' + (occDiffVesp >= 0 ? 'good' : 'bad');
 
     const rkRoundedVesp = Math.round(rk * 100) / 100;
     const rkDiffVesp = rkRoundedVesp - 0.67;
-    const rkDiffAbsVesp = Math.abs(rkDiffVesp).toFixed(2);
+    const rkDiffAbsVesp = Math.abs(rkDiffVesp).toFixed(2).replace('.', ',');
     const rkDeltaVesp = document.getElementById('kpiVespRealKgDelta');
-    rkDeltaVesp.textContent = rkDiffVesp > 0 ? `🔺 +R$ ${rkDiffAbsVesp} acima da meta` : `🔻 -R$ ${rkDiffAbsVesp} abaixo da meta`;
+    rkDeltaVesp.textContent = rkDiffVesp > 0 ? `▲ +R$ ${rkDiffAbsVesp} acima da meta` : `▼ −R$ ${rkDiffAbsVesp} abaixo da meta`;
     rkDeltaVesp.className = 'kpi-delta ' + (rkDiffVesp > 0 ? 'bad' : 'good');
 
     // Rings
@@ -803,21 +847,21 @@ function renderChartVespRealKgDia(porDia) {
         data: {
             labels,
             datasets: [
-                { label: 'R$/Kg', data: values, borderColor: '#EECB02', backgroundColor: 'rgba(238,203,2,0.10)', tension: 0.4, fill: true, pointRadius: 3, pointHoverRadius: 6, borderWidth: 2 },
-                { label: 'Meta', data: Array(labels.length).fill(0.67), borderColor: 'rgba(217,160,102,0.6)', borderDash: [6,4], borderWidth: 1.5, pointRadius: 0, fill: false },
+                { label: 'R$/Kg', data: values, borderColor: '#0E1B6B', backgroundColor: 'rgba(14,27,107,0.08)', tension: 0.4, fill: true, pointRadius: 3, pointHoverRadius: 6, borderWidth: 2 },
+                { label: 'Meta', data: Array(labels.length).fill(0.67), borderColor: '#B8860B', borderDash: [6,4], borderWidth: 1.5, pointRadius: 0, fill: false },
             ]
         },
         options: {
             responsive: true, maintainAspectRatio: false,
             plugins: {
                 legend: { display: false },
-                tooltip: { backgroundColor: 'rgba(255,250,240,0.98)', borderColor: 'rgba(139,38,53,0.20)', borderWidth: 1, padding: 12, cornerRadius: 10,
-                    titleColor: '#2a2620', bodyColor: '#5a4f44',
+                tooltip: { backgroundColor: '#FFFFFF', borderColor: 'rgba(20,24,51,0.18)', borderWidth: 1, padding: 12, cornerRadius: 10,
+                    titleColor: '#141833', bodyColor: '#4A4F6A',
                     callbacks: { label: c => c.datasetIndex===0 ? 'R$/Kg: '+fmt.dec(c.raw,2) : 'Meta: R$ 0,67' } }
             },
             scales: {
-                x: { grid: { color: 'rgba(139,38,53,0.09)' }, ticks: { color: '#8a7f83', font: { size: 9 }, maxRotation: 45 }, border: { display: false } },
-                y: { grid: { color: 'rgba(139,38,53,0.09)' }, ticks: { color: '#8a7f83', font: { size: 10 }, callback: v => 'R$ '+v.toFixed(2) }, border: { display: false } }
+                x: { grid: { color: 'rgba(20,24,51,0.07)' }, ticks: { color: '#6B7089', font: { size: 9 }, maxRotation: 45 }, border: { display: false } },
+                y: { grid: { color: 'rgba(20,24,51,0.07)' }, ticks: { color: '#6B7089', font: { size: 10 }, callback: v => 'R$ '+v.toFixed(2).replace('.', ',') }, border: { display: false } }
             }
         }
     });
@@ -1102,6 +1146,8 @@ function _formatLikeBR(value, prefix, suffix, decimals) {
 function animateNumber(el, fromText, toText, duration) {
     const from = _parseFormattedNumber(fromText);
     const to   = _parseFormattedNumber(toText);
+    // Cancela contagem em andamento: sem isto ela sobrescreve um valor não numérico ('--')
+    if (el._countRaf) { cancelAnimationFrame(el._countRaf); el._countRaf = null; }
     // Se não der pra interpretar como número, aplica direto sem animar
     if (!from || !to || from.value === to.value) {
         el.textContent = toText;
@@ -1112,8 +1158,6 @@ function animateNumber(el, fromText, toText, duration) {
     const delta = to.value - from.value;
     // easeOutExpo — rápido no início, acomoda macio no fim (sensação de cronômetro)
     const ease = t => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t));
-
-    if (el._countRaf) cancelAnimationFrame(el._countRaf);
 
     const step = now => {
         const t = Math.min(1, (now - start) / dur);
@@ -1161,7 +1205,7 @@ function wrapApplyFn(fnName) {
             tr.classList.remove('row-reveal');
             void tr.offsetWidth;
             tr.classList.add('row-reveal');
-            tr.style.animationDelay = (i * 18) + 'ms';
+            tr.style.animationDelay = (Math.min(tr.sectionRowIndex, 14) * 18) + 'ms';
         });
     };
 }
@@ -1201,9 +1245,37 @@ function flashHeaderDate() {
     setTimeout(() => el.classList.remove('flash-glow'), 1100);
 }
 
+// Controle segmentado de Operação: o <select> oculto continua sendo a fonte de
+// verdade (o envio por e-mail e o modo apresentação leem/alteram o .value dele).
+function syncSeg() {
+    document.querySelectorAll('.seg').forEach(seg => {
+        const sel = document.getElementById(seg.dataset.for);
+        if (!sel) return;
+        seg.querySelectorAll('.seg-btn').forEach(b => {
+            const on = b.dataset.val === sel.value;
+            b.classList.toggle('on', on);
+            b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        });
+    });
+}
+
+function bindSeg() {
+    document.querySelectorAll('.seg').forEach(seg => {
+        const sel = document.getElementById(seg.dataset.for);
+        if (!sel) return;
+        seg.querySelectorAll('.seg-btn').forEach(b => b.addEventListener('click', () => {
+            if (sel.value === b.dataset.val) return;
+            sel.value = b.dataset.val;
+            sel.dispatchEvent(new Event('change'));
+        }));
+    });
+    syncSeg();
+}
+
 // Boot dos efeitos: roda 1 vez após o DOM e depois de DATA carregar
 function bootAnimations() {
     injectCardEffects();
+    bindSeg();
     bindSelectGlow();
     updateTabIndicator();
     document.querySelectorAll('.data-table thead th').forEach(th => { if (!th.hasAttribute('scope')) th.setAttribute('scope', 'col'); });
@@ -1220,6 +1292,7 @@ function bootAnimations() {
 // =========================================================
 // ============ INIT ============
 window.addEventListener('DOMContentLoaded', () => {
+    if (window.Chart) { Chart.defaults.font.family = "Barlow, 'Segoe UI', system-ui, sans-serif"; Chart.defaults.font.size = 11; }
     loadData();
     bootAnimations();
 });

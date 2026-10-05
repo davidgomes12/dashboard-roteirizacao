@@ -22,8 +22,8 @@ git push origin main
 
 if %ERRORLEVEL% EQU 0 (
     echo.
-    echo Sucesso! Dashboard disponivel em:
-    echo https://davidgomes12.github.io/dashboard-roteirizacao/dashboard.html
+    echo Sucesso! Roteiro disponivel em:
+    echo https://davidgomes12.github.io/dashboard-roteirizacao/roteiro.html
 ) else (
     echo.
     echo ERRO no push. Verifique a conexao com a internet ou autenticacao GitHub.

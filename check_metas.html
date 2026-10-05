@@ -2822,16 +2822,16 @@ function renderCMTableRoteiroDiaSemana(porDia, porVeicDia) {
 /* ============================================================
    CARREGAMENTO DE DADOS REAIS
    - Prioridade 1: dados embutidos (__DADOS_EMBUTIDOS__) — injetados pelo gerar_index.py
-   - Prioridade 2: fetch('dashboard_data.json') — funciona quando aberto via HTTP
+   - Prioridade 2: fetch('roteiro_data.json') — funciona quando aberto via HTTP
    ============================================================ */
 async function loadDashboardData() {
     // Via HTTP: SEMPRE busca o JSON do servidor (dados sempre atualizados)
     if (window.location.protocol.startsWith('http')) {
         try {
-            const resp = await fetch('dashboard_data.json?v=' + Date.now());
+            const resp = await fetch('roteiro_data.json?v=' + Date.now());
             if (!resp.ok) throw new Error('HTTP ' + resp.status);
             window.DASH = await resp.json();
-            console.log('[check_metas] ✓ dashboard_data.json carregado via fetch (' + Object.keys(window.DASH).length + ' chaves)');
+            console.log('[check_metas] ✓ roteiro_data.json carregado via fetch (' + Object.keys(window.DASH).length + ' chaves)');
             return window.DASH;
         } catch (e) {
             console.warn('[check_metas] ⚠ Fetch falhou, tentando dados embutidos. Erro:', e.message);

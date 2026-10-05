@@ -196,7 +196,7 @@ def _tunnel_worker(url_rede):
             threading.Thread(target=_drain, args=(_tunnel_proc,), daemon=True).start()
 
         if _public_url:
-            url_tv = _public_url + "/dashboard.html?apresentacao"
+            url_tv = _public_url + "/roteiro.html?apresentacao"
             print(f"\n\n  [TUNEL ATIVO]")
             print(f"  URL publica (TVs / outras redes): {url_tv}")
             print(f"  Abrindo pagina de compartilhamento...\n")
@@ -342,8 +342,8 @@ def get_local_ip():
 # ─────────────────────────────────────────────────────────
 def main():
     ip        = get_local_ip()
-    url_local = f"http://localhost:{PORT}/dashboard.html?apresentacao"
-    url_rede  = f"http://{ip}:{PORT}/dashboard.html?apresentacao"
+    url_local = f"http://localhost:{PORT}/roteiro.html?apresentacao"
+    url_rede  = f"http://{ip}:{PORT}/roteiro.html?apresentacao"
     url_share = f"http://localhost:{PORT}/_conectar.html"
 
     # Servidor HTTP com suporte a múltiplas conexões simultâneas (necessário para o túnel)

@@ -6,11 +6,11 @@
     <title>Indicador de Roteiro 2026 — Tirolez</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"
             onerror="var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.7/chart.umd.min.js';document.head.appendChild(s)"></script>
-    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="roteiro.css">
 </head>
 <body>
     <div class="loading-overlay" id="loading"><div class="spinner"></div></div>
@@ -18,17 +18,28 @@
     <!-- Barra de progresso da apresentação (fundo da tela) -->
     <div class="pres-bar" id="presBar"></div>
 
-    <!-- HEADER -->
-    <header class="header">
-        <div class="header-inner">
-            <div class="logo">
-                <img src="logo_tirolez.png" alt="Tirolez" onerror="this.style.display='none'">
-                <div class="logo-text">
-                    <h1>Dashboard da Roteirização</h1>
-                    <span>Logística 2026 — Distribuição SP</span>
+    <!-- CABEÇALHO DAS MARCAS (rola com a página) -->
+    <header class="masthead">
+        <div class="masthead-inner">
+            <div class="brand">
+                <img class="brand-tirolez" src="logo_marca_tirolez.png" alt="Tirolez" onerror="this.style.display='none'">
+                <div class="brand-title">
+                    <span class="eyebrow">Logística 2026 · Distribuição SP</span>
+                    <h1>Indicador de Roteiro</h1>
                 </div>
             </div>
-            <div class="tabs" role="tablist" aria-label="Seções do dashboard">
+            <div class="brand-rail">
+                <img class="brand-regina" src="logo_marca_regina.png" alt="Regina" onerror="this.style.display='none'">
+                <img class="brand-levitare" src="logo_marca_levitare.png" alt="Levitare" onerror="this.style.display='none'">
+            </div>
+        </div>
+        <div class="road" aria-hidden="true"></div>
+    </header>
+
+    <!-- NAVEGAÇÃO (fixa no topo ao rolar) -->
+    <div class="header">
+        <div class="header-inner">
+            <div class="tabs" role="tablist" aria-label="Seções do Roteiro">
                 <button class="tab active" role="tab" aria-selected="true"  aria-controls="page-roteiro"     id="tab-roteiro"     onclick="switchPage('roteiro',this)">Roteiro</button>
                 <button class="tab"        role="tab" aria-selected="false" aria-controls="page-reentregas" id="tab-reentregas" onclick="switchPage('reentregas',this)">Reentregas</button>
                 <button class="tab"        role="tab" aria-selected="false" aria-controls="page-frota"      id="tab-frota"      onclick="switchPage('frota',this)">Frota</button>
@@ -39,10 +50,9 @@
                 <span class="pres-badge" id="presBadge">&#9679; Apresentação</span>
                 <span class="pres-countdown" id="presCountdown"></span>
                 <span class="header-badge" id="headerDate">Atualizado em: --</span>
-                <img class="logo-vaca" src="logo_vaca.png" alt="" onerror="this.style.display='none'">
             </div>
         </div>
-    </header>
+    </div>
 
     <main class="main">
         <!-- ========== ROTEIRO ========== -->
@@ -58,14 +68,19 @@
                 </div>
                 <div class="filter-group">
                     <span class="filter-label">Operação</span>
-                    <select class="filter-select" id="filterOperador" aria-label="Filtrar por operação" onchange="applyFilters()">
+                    <div class="seg" role="group" aria-label="Filtrar por operação" data-for="filterOperador">
+                        <button type="button" class="seg-btn on" data-val="ambos">Ambos</button>
+                        <button type="button" class="seg-btn" data-val="tirolez">Tirolez</button>
+                        <button type="button" class="seg-btn" data-val="levitare">Levitare</button>
+                    </div>
+                    <select class="filter-select" id="filterOperador" hidden onchange="applyFilters()">
                         <option value="ambos">Ambos</option>
                         <option value="tirolez">Tirolez</option>
                         <option value="levitare">Levitare</option>
                     </select>
                 </div>
                 <button class="filter-btn" aria-label="Limpar filtros de Roteiro" onclick="resetFilters()">
-                    <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
+                    <span class="material-icons-round">refresh</span> Limpar
                 </button>
             </div>
 
@@ -108,7 +123,20 @@
             <!-- Performance Rings -->
             <div class="charts-row">
                 <div class="chart-card animate-in stagger-1">
-                    <div class="chart-title"><span class="dot"></span>Performance</div>
+                    <div class="chart-title"><span class="dot"></span>Performance
+                        <div class="chart-filter" id="turnoBox" hidden>
+                            <div class="seg" role="group" aria-label="Filtrar Performance por turno" data-for="filterTurno">
+                                <button type="button" class="seg-btn on" data-val="ambos">Ambos</button>
+                                <button type="button" class="seg-btn" data-val="diurno">Diurno</button>
+                                <button type="button" class="seg-btn" data-val="vespertina">Vespertina</button>
+                            </div>
+                            <select id="filterTurno" hidden onchange="applyFilters()">
+                                <option value="ambos">Ambos</option>
+                                <option value="diurno">Diurno</option>
+                                <option value="vespertina">Vespertina</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="perf-container">
                         <!-- Ocupação Ring -->
                         <div class="perf-ring">
@@ -220,14 +248,19 @@
                 </div>
                 <div class="filter-group">
                     <span class="filter-label">Operação</span>
-                    <select class="filter-select" id="filterOperadorReent" aria-label="Filtrar reentregas por operação" onchange="applyFiltersReent()">
+                    <div class="seg" role="group" aria-label="Filtrar reentregas por operação" data-for="filterOperadorReent">
+                        <button type="button" class="seg-btn on" data-val="ambos">Ambos</button>
+                        <button type="button" class="seg-btn" data-val="tirolez">Tirolez</button>
+                        <button type="button" class="seg-btn" data-val="levitare">Levitare</button>
+                    </div>
+                    <select class="filter-select" id="filterOperadorReent" hidden onchange="applyFiltersReent()">
                         <option value="ambos">Ambos</option>
                         <option value="tirolez">Tirolez</option>
                         <option value="levitare">Levitare</option>
                     </select>
                 </div>
                 <button class="filter-btn" aria-label="Limpar filtros de Reentregas" onclick="resetFiltersReent()">
-                    <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
+                    <span class="material-icons-round">refresh</span> Limpar
                 </button>
             </div>
 
@@ -334,7 +367,7 @@
                     <select class="filter-select" id="filterDiaFrota" aria-label="Filtrar frota por dia" onchange="applyFiltersFrota()"><option value="all">Todos os Dias</option></select>
                 </div>
                 <button class="filter-btn" aria-label="Limpar filtros de Frota" onclick="resetFiltersFrota()">
-                    <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
+                    <span class="material-icons-round">refresh</span> Limpar
                 </button>
             </div>
 
@@ -423,7 +456,7 @@
                     <select class="filter-select" id="filterDiaVesp" aria-label="Filtrar Vespertina por dia" onchange="applyFiltersVesp()"><option value="all">Todos os Dias</option></select>
                 </div>
                 <button class="filter-btn" aria-label="Limpar filtros de Vespertina" onclick="resetFiltersVesp()">
-                    <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
+                    <span class="material-icons-round">refresh</span> Limpar
                 </button>
             </div>
 
@@ -561,7 +594,7 @@
                     <select class="filter-select" id="filterDiaFresc" aria-label="Filtrar Frescal por dia" onchange="applyFiltersFresc()"><option value="all">Todos os Dias</option></select>
                 </div>
                 <button class="filter-btn" aria-label="Limpar filtros de Frescal" onclick="resetFiltersFresc()">
-                    <span class="material-icons-round" style="font-size:14px;">refresh</span> Limpar
+                    <span class="material-icons-round">refresh</span> Limpar
                 </button>
             </div>
 
@@ -649,11 +682,6 @@
         </section>
     </main>
 
-<script src="dashboard.js"></script>
+<script src="roteiro.js"></script>
 </body>
 </html>
-
-
-
-
-

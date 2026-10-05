@@ -36,7 +36,7 @@ LEVITARE_PATH = _resolve_path(_cfg["caminhos"]["levitare"])
 NF_PATH       = os.path.join(DADOS_DIR, "NF.xlsx")
 OCORRENCIAS_PATH = os.path.join(DADOS_DIR, "Ocorrencias.xlsx")
 CLIENTES_PATH = os.path.join(DADOS_DIR, "Clientes.xlsx")
-OUTPUT_JSON   = os.path.join(ETL_DIR, "dashboard_data.json")
+OUTPUT_JSON   = os.path.join(ETL_DIR, "roteiro_data.json")
 
 TRANSPORTADORAS_FILTRO = _cfg["filtros"]["transportadoras"]
 # Transportadora da operação Levitare na NF (CD OSASCO) — usada só para a

@@ -1,21 +1,22 @@
 """
 Gera tres arquivos HTML standalone — sem servidor, sem Python, sem internet obrigatoria.
-  index.html        — dashboard interativo normal (dados embutidos)
+  index.html        — Roteiro interativo normal (dados embutidos)
   apresentacao.html — apresentacao automatica com transicoes a cada 30s (dados embutidos)
   metas.html        — Check de Metas (apresentacao slide-a-slide com dados embutidos)
 
 Todos funcionam com duplo clique, pen drive, envio por e-mail ou TV.
 """
 
+import base64
 import json
 import os
 import re
 
 BASE_DIR  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # raiz do ETL
-HTML_SRC  = os.path.join(BASE_DIR, "dashboard.html")
-CSS_SRC   = os.path.join(BASE_DIR, "dashboard.css")
-JS_SRC    = os.path.join(BASE_DIR, "dashboard.js")
-JSON_SRC  = os.path.join(BASE_DIR, "dashboard_data.json")
+HTML_SRC  = os.path.join(BASE_DIR, "roteiro.html")
+CSS_SRC   = os.path.join(BASE_DIR, "roteiro.css")
+JS_SRC    = os.path.join(BASE_DIR, "roteiro.js")
+JSON_SRC  = os.path.join(BASE_DIR, "roteiro_data.json")
 CHECK_SRC = os.path.join(BASE_DIR, "check_metas.html")
 FRESC_SRC = os.path.join(BASE_DIR, "frescal_diretoria.html")
 INDEX_OUT = os.path.join(BASE_DIR, "index.html")
@@ -33,7 +34,7 @@ def _inline_assets(html):
         with open(CSS_SRC, encoding="utf-8") as f:
             css = f.read()
         html = html.replace(
-            '    <link rel="stylesheet" href="dashboard.css">',
+            '    <link rel="stylesheet" href="roteiro.css">',
             f"    <style>\n{css}    </style>",
         )
 
@@ -41,29 +42,40 @@ def _inline_assets(html):
         with open(JS_SRC, encoding="utf-8") as f:
             js = f.read()
         html = html.replace(
-            '<script src="dashboard.js"></script>',
+            '<script src="roteiro.js"></script>',
             f"<script>\n{js}</script>",
         )
+
+    # Logos viram data URI: o arquivo standalone vai por e-mail/pen drive sem a pasta.
+    def _logo(m):
+        caminho = os.path.join(BASE_DIR, m.group(1))
+        if not os.path.exists(caminho):
+            return m.group(0)
+        with open(caminho, "rb") as f:
+            b64 = base64.b64encode(f.read()).decode("ascii")
+        return f'src="data:image/png;base64,{b64}"'
+
+    html = re.sub(r'src="(logo_[a-z_]+[.]png)"', _logo, html)
 
     return html
 
 
 def _embed_data(html, data):
-    """Embute o JSON no HTML e substitui o fetch pela variavel embutida (dashboard.html)."""
+    """Embute o JSON no HTML e substitui o fetch pela variavel embutida (roteiro.html)."""
     json_str = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     inject   = f"<script>const __DADOS_EMBUTIDOS__={json_str};</script>"
     html     = html.replace("</head>", f"  {inject}\n</head>", 1)
 
     fetch_pattern = re.compile(
-        r"const r = await fetch\('dashboard_data\.json'\);\s*\n\s*DATA = await r\.json\(\);",
+        r"const r = await fetch\('roteiro_data\.json'\);\s*\n\s*DATA = await r\.json\(\);",
         re.MULTILINE,
     )
     html, n = fetch_pattern.subn("DATA = __DADOS_EMBUTIDOS__;", html)
     if n == 0:
-        print("  [AVISO] Padrao fetch nao encontrado — verifique dashboard.html.")
+        print("  [AVISO] Padrao fetch nao encontrado — verifique roteiro.html.")
 
     html = html.replace(
-        "alert('Erro ao carregar dados. Execute pipeline.py e acesse via http://localhost:8080/dashboard.html')",
+        "alert('Erro ao carregar dados. Execute pipeline.py e acesse via http://localhost:8080/roteiro.html')",
         "alert('Erro ao carregar dados. Regenere o arquivo com Gerar_Index.bat.')",
     )
     return html
@@ -121,7 +133,7 @@ def main():
         data = json.load(f)
     gerado_em = data.get("gerado_em", "?")
 
-    print("[2/5] Lendo dashboard.html + assets...")
+    print("[2/5] Lendo roteiro.html + assets...")
     with open(HTML_SRC, encoding="utf-8") as f:
         base_html = f.read()
     base_html = _inline_assets(base_html)

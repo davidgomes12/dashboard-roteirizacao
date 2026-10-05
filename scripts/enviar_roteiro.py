@@ -1,5 +1,5 @@
 """
-Enviar Dashboard por E-mail e WhatsApp — Indicador da Roteirização 2026
+Enviar Roteiro por E-mail e WhatsApp — Indicador da Roteirização 2026
 Atualiza pipeline, captura screenshots dos dashboards e envia via Outlook e WhatsApp Desktop.
 """
 
@@ -67,7 +67,7 @@ def capture_screenshots():
 
         for page_id, page_name, mes_id, dia_id, op_id, op_value in pages_config:
             print(f"   -> {page_name}...", end=" ", flush=True)
-            page.goto("http://localhost:8080/dashboard.html")
+            page.goto("http://localhost:8080/roteiro.html")
             page.wait_for_load_state("networkidle")
             time.sleep(1)
 
@@ -325,7 +325,7 @@ def send_whatsapp(screenshots):
 def main():
     total = "5" if DEST_WHATSAPP else "4"
     print("=" * 60)
-    print("  ENVIAR DASHBOARD — E-MAIL + WHATSAPP")
+    print("  ENVIAR ROTEIRO — E-MAIL + WHATSAPP")
     print("=" * 60)
 
     # 1. Pipeline
