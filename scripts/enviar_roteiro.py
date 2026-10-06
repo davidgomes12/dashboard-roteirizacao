@@ -14,6 +14,7 @@ from datetime import datetime
 SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(SCRIPTS_DIR)  # raiz do ETL
 PIPELINE = os.path.join(SCRIPTS_DIR, "pipeline.py")
+GERAR_INDEX = os.path.join(SCRIPTS_DIR, "gerar_index.py")
 
 with open(os.path.join(BASE_DIR, "config.json"), encoding="utf-8") as _f:
     _cfg = json.load(_f)["distribuicao"]
@@ -333,6 +334,11 @@ def main():
     result = subprocess.run([sys.executable, PIPELINE], cwd=BASE_DIR)
     if result.returncode != 0:
         print("[ERRO] Pipeline falhou.")
+        return False
+    # roteiro.html traz os dados embutidos: precisa ser regenerado após o pipeline
+    result = subprocess.run([sys.executable, GERAR_INDEX], cwd=BASE_DIR, stdout=subprocess.DEVNULL)
+    if result.returncode != 0:
+        print("[ERRO] Falha ao gerar roteiro.html.")
         return False
 
     # 2. Servidor

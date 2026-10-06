@@ -3,7 +3,7 @@ chcp 65001 >nul
 cd /d "%~dp0"
 echo ============================================================
 echo   GERAR HTML STANDALONE
-echo   index.html        - uso interativo
+echo   roteiro.html      - uso interativo
 echo   apresentacao.html - modo automatico (pen drive / TV)
 echo ============================================================
 echo.

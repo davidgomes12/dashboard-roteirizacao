@@ -42,8 +42,10 @@ TRANSPORTADORAS_FILTRO = _cfg["filtros"]["transportadoras"]
 # Transportadora da operação Levitare na NF (CD OSASCO) — usada só para a
 # quebra geográfica, já que a planilha do Levitare não traz CEP.
 TRANSPORTADORAS_LEVITARE = _cfg["filtros"].get("transportadoras_levitare", [])
-# Códigos de transportadora a desconsiderar nas reentregas (fora da operação monitorada)
-EXCLUIR_REENTREGA      = _cfg["filtros"].get("transportadoras_excluir_reentrega", [])
+# Reentregas só contam para as transportadoras monitoradas (Tirolez + Levitare)
+TRANSPORTADORAS_REENTREGA = TRANSPORTADORAS_FILTRO + TRANSPORTADORAS_LEVITARE
+# A frota própria do Levitare aparece na base como CD OSASCO (mesmo nome do levitare.html)
+TRANSP_RENOMEAR        = {"CD OSASCO": "FROTA LEVITARE"}
 MOTIVO_REENTREGA       = _cfg["filtros"]["motivo_reentrega"]
 UF_FILTRO              = _cfg["filtros"]["uf"]
 FATOR_PESO             = _cfg["filtros"]["fator_peso"]
@@ -95,9 +97,9 @@ def _read_excel_cached(path, **kwargs):
 SCHEMA_ESCALA = {"ID", "DATA", "PESO", "CAPAC.", "CUSTO FRETE", "ENTREGAS",
                  "VEICULO", "FAIXA", "ROTA", "TRANSPORTADORA - MOTORISTA"}
 SCHEMA_NF     = {"UF", "TRANSPORTADORA", "DATA  SAÍDA", "COD. CLIENTE", "NFF",
-                 "NOME TRANSPORTADORA"}
+                 "NOME TRANSPORTADORA", "EMPRESA"}
 SCHEMA_OCORR  = {"UF", "MOTIVO OCORRÊNCIA", "DOCUMENTO", "DATA INCLUSÃO",
-                 "COD. CLIENTE", "DESC JUST OC", "EMPRESA"}
+                 "COD. CLIENTE", "DESC JUST OC", "EMPRESA", "TRANSP"}
 
 def _validar_schema(df, esperadas, nome):
     faltando = esperadas - set(df.columns)
@@ -199,9 +201,17 @@ def load_nf_raw():
     return df
 
 
-def _filtrar_nf(df_raw, codigos):
-    """Recorta a NF por UF + lista de transportadoras e monta as chaves de data."""
+def _empresa_nf(serie):
+    """EMPRESA da NF (int, ex.: 9) no mesmo formato da Ocorrência ('09')."""
+    return serie.astype(str).str.strip().str.replace(r"\.0$", "", regex=True).str.zfill(2)
+
+
+def _filtrar_nf(df_raw, codigos, empresa=None):
+    """Recorta a NF por UF + lista de transportadoras (e empresa, se informada)
+    e monta as chaves de data."""
     df = df_raw[df_raw["UF"] == UF_FILTRO].copy()
+    if empresa is not None:
+        df = df[_empresa_nf(df["EMPRESA"]) == empresa].copy()
     df["TRANSPORTADORA"] = pd.to_numeric(df["TRANSPORTADORA"], errors="coerce")
     df = df[df["TRANSPORTADORA"].isin(codigos)].copy()
 
@@ -214,9 +224,18 @@ def _filtrar_nf(df_raw, codigos):
 
 
 def load_nf(df_raw):
-    """Filtra NF por UF e transportadoras (operação Tirolez roteirizada)."""
-    df = _filtrar_nf(df_raw, TRANSPORTADORAS_FILTRO)
-    print(f"   -> {len(df)} registros (SP + transportadoras)")
+    """Filtra NF por UF, transportadoras e empresa (operação Tirolez roteirizada)."""
+    df = _filtrar_nf(df_raw, TRANSPORTADORAS_FILTRO, EMPRESA_REENTREGA)
+    print(f"   -> {len(df)} registros (SP + transportadoras + empresa {EMPRESA_REENTREGA})")
+    return df
+
+
+def load_nf_entregas_levitare(df_raw):
+    """Notas da empresa Levitare nas transportadoras monitoradas — denominador
+    de entregas por transportadora das reentregas do Levitare."""
+    df = _filtrar_nf(df_raw, TRANSPORTADORAS_REENTREGA, EMPRESA_REENTREGA_LEVITARE)
+    df["NOME TRANSPORTADORA"] = df["NOME TRANSPORTADORA"].replace(TRANSP_RENOMEAR)
+    print(f"   -> {len(df)} registros LEVITARE (SP + transportadoras + empresa {EMPRESA_REENTREGA_LEVITARE})")
     return df
 
 
@@ -233,28 +252,67 @@ def load_nf_levitare(df_raw):
     return df
 
 
-def _ocorrencias_por_empresa(df_ocorr, nf_raw, empresa, label):
+def _lookup_transportadoras(nf_raw):
+    """Base auxiliar código -> nome de transportadora, sem duplicata, tirada da NF."""
+    lk = nf_raw[["TRANSPORTADORA", "NOME TRANSPORTADORA"]].copy()
+    lk["TRANSPORTADORA"] = pd.to_numeric(lk["TRANSPORTADORA"], errors="coerce")
+    return lk.dropna().drop_duplicates(subset=["TRANSPORTADORA"])
+
+
+def _cod_inteiro(serie):
+    """Código numérico como inteiro anulável; valor não inteiro (ex.: 3.188) vira nulo."""
+    v = pd.to_numeric(serie, errors="coerce")
+    return v.where(v == v.round()).astype("Int64")
+
+
+def _lookup_transp_por_nota(nf_raw):
+    """Código da transportadora por EMPRESA + NFF + COD. CLIENTE (chave NF x Ocorrência).
+    NFF sozinho não é chave: o número se repete entre empresas."""
+    lk = pd.DataFrame({
+        "_EMP_NF":    _empresa_nf(nf_raw["EMPRESA"]),
+        "_NFF":       _cod_inteiro(nf_raw["NFF"]),
+        "_CLI_NF":    _cod_inteiro(nf_raw["COD. CLIENTE"]),
+        "_TRANSP_NF": pd.to_numeric(nf_raw["TRANSPORTADORA"], errors="coerce"),
+    })
+    return lk.dropna().drop_duplicates(subset=["_EMP_NF", "_NFF", "_CLI_NF"])
+
+
+def _ocorrencias_por_empresa(df_ocorr, transp_lookup, transp_nota, empresa, label):
     df = df_ocorr[df_ocorr["EMPRESA"] == empresa].copy()
     df = df[df["UF"] == UF_FILTRO].copy()
     df = df[df["MOTIVO OCORRÊNCIA"] == MOTIVO_REENTREGA].copy()
 
-    nf_lookup = nf_raw.drop_duplicates(subset=["NFF"])[["NFF", "NOME TRANSPORTADORA", "TRANSPORTADORA"]].copy()
-    nf_lookup["NFF"] = pd.to_numeric(nf_lookup["NFF"], errors="coerce")
-    nf_lookup["TRANSPORTADORA"] = pd.to_numeric(nf_lookup["TRANSPORTADORA"], errors="coerce")
-    df["DOCUMENTO"]  = pd.to_numeric(df["DOCUMENTO"], errors="coerce")
-    df = df.merge(nf_lookup, left_on="DOCUMENTO", right_on="NFF", how="left")
+    # Transportadora = a da NF, casada por EMPRESA + NFF (DOCUMENTO) + COD. CLIENTE
+    df["DOCUMENTO"] = pd.to_numeric(df["DOCUMENTO"], errors="coerce")
+    df["_NFF"]      = _cod_inteiro(df["DOCUMENTO"])
+    df["_CLI_NF"]   = _cod_inteiro(df["COD. CLIENTE"])
+    df = df.merge(transp_nota, left_on=["EMPRESA", "_NFF", "_CLI_NF"],
+                  right_on=["_EMP_NF", "_NFF", "_CLI_NF"], how="left")
+    df["TRANSPORTADORA"] = df["_TRANSP_NF"]
+    df = df.drop(columns=["_EMP_NF", "_NFF", "_CLI_NF", "_TRANSP_NF"])
 
-    sem_match = df["NOME TRANSPORTADORA"].isna().sum()
-    if sem_match > 0:
-        print(f"   [AVISO] {label}: {sem_match} ocorrências sem transportadora na NF")
+    # Sem nota na NF (ex.: Levitare antes de 27/07): usa o código TRANSP da ocorrência
+    sem_nf = df["TRANSPORTADORA"].isna()
+    if sem_nf.any():
+        df.loc[sem_nf, "TRANSPORTADORA"] = pd.to_numeric(df.loc[sem_nf, "TRANSP"], errors="coerce")
+        restantes = int(df["TRANSPORTADORA"].isna().sum())
+        print(f"   [AVISO] {label}: {int(sem_nf.sum())} ocorrências sem nota na NF "
+              f"({int(sem_nf.sum()) - restantes} preenchidas pelo TRANSP, {restantes} sem transportadora)")
 
-    # Desconsidera transportadoras fora da operação monitorada (config.json)
-    if EXCLUIR_REENTREGA:
-        antes = len(df)
-        df = df[~df["TRANSPORTADORA"].isin(EXCLUIR_REENTREGA)].copy()
-        removidas = antes - len(df)
-        if removidas > 0:
-            print(f"   [FILTRO] {label}: {removidas} ocorrências removidas (transportadoras excluídas)")
+    df = df.merge(transp_lookup, on="TRANSPORTADORA", how="left")
+    sem_nome = df["NOME TRANSPORTADORA"].isna() & df["TRANSPORTADORA"].notna()
+    if sem_nome.any():
+        print(f"   [AVISO] {label}: {int(sem_nome.sum())} ocorrências com código de transportadora fora da NF")
+        df.loc[sem_nome, "NOME TRANSPORTADORA"] = "COD " + df.loc[sem_nome, "TRANSPORTADORA"].astype(int).astype(str)
+    df["NOME TRANSPORTADORA"] = df["NOME TRANSPORTADORA"].fillna("(sem transportadora)")
+
+    # Só contam as transportadoras monitoradas (config.json: transportadoras + transportadoras_levitare)
+    antes = len(df)
+    df = df[df["TRANSPORTADORA"].isin(TRANSPORTADORAS_REENTREGA)].copy()
+    removidas = antes - len(df)
+    if removidas > 0:
+        print(f"   [FILTRO] {label}: {removidas} ocorrências removidas (transportadoras não monitoradas)")
+    df["NOME TRANSPORTADORA"] = df["NOME TRANSPORTADORA"].replace(TRANSP_RENOMEAR)
 
     df["DATA INCLUSÃO"] = pd.to_datetime(df["DATA INCLUSÃO"], errors="coerce")
     df["COD. CLIENTE"]  = df["COD. CLIENTE"].astype(str)
@@ -270,15 +328,18 @@ def load_ocorrencias(nf_raw, nf_filtrado):
     df = _read_excel_cached(OCORRENCIAS_PATH)
     _validar_schema(df, SCHEMA_OCORR, "OCORRENCIAS")
     df["EMPRESA"] = df["EMPRESA"].astype(str).str.strip().str.zfill(2)
-    tirolez  = _ocorrencias_por_empresa(df, nf_raw, EMPRESA_REENTREGA,          "TIROLEZ")
-    levitare = _ocorrencias_por_empresa(df, nf_raw, EMPRESA_REENTREGA_LEVITARE, "LEVITARE")
+    transp_lookup = _lookup_transportadoras(nf_raw)
+    transp_nota   = _lookup_transp_por_nota(nf_raw)
+    print(f"   -> base auxiliar: {len(transp_lookup)} transportadoras (código x nome)")
+    tirolez  = _ocorrencias_por_empresa(df, transp_lookup, transp_nota, EMPRESA_REENTREGA,          "TIROLEZ")
+    levitare = _ocorrencias_por_empresa(df, transp_lookup, transp_nota, EMPRESA_REENTREGA_LEVITARE, "LEVITARE")
     return tirolez, levitare
 
 
 def _norm_cod_cliente(serie):
     """COD. CLIENTE vem como int na Ocorrência e float (ex.: 123.0) em Clientes.
     Normaliza ambos para inteiro-string ('123') para casar no merge."""
-    return pd.to_numeric(serie, errors="coerce").astype("Int64").astype(str)
+    return _cod_inteiro(serie).astype(str)
 
 
 def load_clientes_canal():
@@ -505,18 +566,25 @@ def build_regioes(nf, nf_levi=None):
     return g
 
 
+def _nf_canal_dia(nf):
+    """Entregas (CHAVE_ENTREGA distinta) por dia e canal de vendas."""
+    if "NOME CANAL" not in nf.columns:
+        return pd.DataFrame(columns=["DIA", "NOME CANAL", "entregas"])
+    return nf.groupby(["DIA", "NOME CANAL"]).agg(entregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+
+
 # ============================================================
 # KPIs PRINCIPAIS
 # ============================================================
-def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util, df_levitare=None, reentregas_levi=None):
+def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util, nf_levi=None):
     print("\n[ETL] Calculando KPIs...")
 
     kpis = _escala_kpis(escala)
 
     total_reentregas  = int(reentregas["CHAVE_ENTREGA"].nunique())
     qtd_entregas_nf   = int(nf["CHAVE_ENTREGA"].nunique())
-    if df_levitare is not None:
-        qtd_entregas_nf += int(df_levitare["ENTREGAS"].sum())
+    if nf_levi is not None:
+        qtd_entregas_nf += int(nf_levi["CHAVE_ENTREGA"].nunique())
     pct_reentregas    = (total_reentregas / qtd_entregas_nf * 100) if qtd_entregas_nf > 0 else 0
 
     kpis["reentregas"]      = total_reentregas
@@ -546,17 +614,14 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util, df_levita
         entregas=("CHAVE_ENTREGA", "nunique"),
     ).reset_index()
 
-    if df_levitare is not None and reentregas_levi is not None and len(reentregas_levi) > 0:
-        # LEVITARE não tem entregas por transportadora (só total agregado).
-        # Se as ocorrências do Levitare apontarem para uma única transportadora,
-        # atribui o total de entregas do Levitare a ela para fechar o denominador.
-        levi_carriers = reentregas_levi["NOME TRANSPORTADORA"].dropna().unique()
-        if len(levi_carriers) == 1:
-            levi_total_entregas = int(df_levitare["ENTREGAS"].sum())
-            nf_transp = pd.concat([
-                nf_transp,
-                pd.DataFrame({"NOME TRANSPORTADORA": [levi_carriers[0]], "entregas": [levi_total_entregas]}),
-            ], ignore_index=True)
+    if nf_levi is not None:
+        # Entregas por transportadora do Levitare vêm da NF da empresa Levitare
+        # e se somam às da Tirolez (mesma transportadora atende as duas).
+        levi_transp = nf_levi.groupby("NOME TRANSPORTADORA").agg(
+            entregas=("CHAVE_ENTREGA", "nunique"),
+        ).reset_index()
+        nf_transp = pd.concat([nf_transp, levi_transp]).groupby(
+            "NOME TRANSPORTADORA", as_index=False)["entregas"].sum()
 
     reent_transp = reentregas.groupby("NOME TRANSPORTADORA").agg(
         reentregas=("CHAVE_ENTREGA", "nunique"),
@@ -583,13 +648,10 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util, df_levita
     reent_transp_dia_g    = reentregas.groupby(["DIA", "NOME TRANSPORTADORA"]).agg(reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
     nf_transp_dia_g       = nf.groupby(["DIA", "NOME TRANSPORTADORA"]).agg(entregas=("CHAVE_ENTREGA", "nunique")).reset_index()
 
-    if df_levitare is not None and reentregas_levi is not None and len(reentregas_levi) > 0:
-        levi_carriers = reentregas_levi["NOME TRANSPORTADORA"].dropna().unique()
-        if len(levi_carriers) == 1:
-            levi_transp_dia = (df_levitare.groupby("DIA")["ENTREGAS"].sum().reset_index()
-                                .rename(columns={"ENTREGAS": "entregas"}))
-            levi_transp_dia["NOME TRANSPORTADORA"] = levi_carriers[0]
-            nf_transp_dia_g = pd.concat([nf_transp_dia_g, levi_transp_dia], ignore_index=True)
+    if nf_levi is not None:
+        levi_transp_dia = nf_levi.groupby(["DIA", "NOME TRANSPORTADORA"]).agg(entregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+        nf_transp_dia_g = pd.concat([nf_transp_dia_g, levi_transp_dia]).groupby(
+            ["DIA", "NOME TRANSPORTADORA"], as_index=False)["entregas"].sum()
     reent_just_dia_g      = reentregas.groupby(["DIA", "DESC JUST OC"]).agg(reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
     reent_transp_just_dia_g = reentregas.groupby(["DIA", "NOME TRANSPORTADORA", "DESC JUST OC"]).agg(reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
 
@@ -598,9 +660,9 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util, df_levita
     nf_dia    = nf.groupby("DIA").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("DIA")
     nf_mes    = nf.groupby("MES_KEY").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("MES_KEY")
 
-    if df_levitare is not None:
-        levi_nf_dia = df_levitare.groupby("DIA")["ENTREGAS"].sum().reset_index().rename(columns={"ENTREGAS": "qtd_entregas"})
-        levi_nf_mes = df_levitare.groupby("MES_KEY")["ENTREGAS"].sum().reset_index().rename(columns={"ENTREGAS": "qtd_entregas"})
+    if nf_levi is not None:
+        levi_nf_dia = nf_levi.groupby("DIA").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+        levi_nf_mes = nf_levi.groupby("MES_KEY").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index()
         nf_dia = pd.concat([nf_dia, levi_nf_dia]).groupby("DIA", as_index=False)["qtd_entregas"].sum().sort_values("DIA")
         nf_mes = pd.concat([nf_mes, levi_nf_mes]).groupby("MES_KEY", as_index=False)["qtd_entregas"].sum().sort_values("MES_KEY")
 
@@ -636,12 +698,10 @@ def build_kpis(escala, nf, nf_raw, reentregas, frota_disp, frota_util, df_levita
         reent_canal_fh_dia = pd.DataFrame(columns=["DIA", "NOME CANAL", "reentregas", "peso"])
 
     # Entregas (NF) por canal e dia — base para o % de reentrega por canal
-    if "NOME CANAL" in nf.columns:
-        nf_canal_dia = nf.groupby(["DIA", "NOME CANAL"]).agg(
-            entregas=("CHAVE_ENTREGA", "nunique"),
-        ).reset_index()
-    else:
-        nf_canal_dia = pd.DataFrame(columns=["DIA", "NOME CANAL", "entregas"])
+    nf_canal_dia = _nf_canal_dia(nf)
+    if nf_levi is not None:
+        nf_canal_dia = pd.concat([nf_canal_dia, _nf_canal_dia(nf_levi)]).groupby(
+            ["DIA", "NOME CANAL"], as_index=False)["entregas"].sum()
 
     # === FROTA ===
     total_disp    = len(frota_disp)
@@ -848,7 +908,7 @@ def _reent_bundle(reent, nf_dia_df, nf_mes_df, nf_transp_df, nf_transp_dia_df, t
     }
 
 
-def build_segmentos(escala, df_levitare, reentregas, reentregas_levi, nf):
+def build_segmentos(escala, df_levitare, reentregas, reentregas_levi, nf, nf_levi):
     """Monta os bundles por operador (TIROLEZ e LEVITARE) para o seletor de
     operação nos slides Roteiro e Reentregas. AMBOS já está no topo do JSON."""
     # --- Denominadores de entregas TIROLEZ (a partir da NF) ---
@@ -861,15 +921,20 @@ def build_segmentos(escala, df_levitare, reentregas, reentregas_levi, nf):
     tirolez = _roteiro_bundle(escala)
     tirolez.update(_reent_bundle(reentregas, nf_dia_t, nf_mes_t, nf_transp_t, nf_transp_dia_t, total_t))
 
-    # --- Denominadores de entregas LEVITARE (paradas; sem quebra por transportadora) ---
-    levi_dia   = df_levitare.groupby("DIA")["ENTREGAS"].sum().reset_index().rename(columns={"ENTREGAS": "qtd_entregas"}).sort_values("DIA")
-    levi_mes   = df_levitare.groupby("MES_KEY")["ENTREGAS"].sum().reset_index().rename(columns={"ENTREGAS": "qtd_entregas"}).sort_values("MES_KEY")
-    total_l    = int(df_levitare["ENTREGAS"].sum())
-    _empty_transp     = pd.DataFrame(columns=["NOME TRANSPORTADORA", "entregas"])
-    _empty_transp_dia = pd.DataFrame(columns=["DIA", "NOME TRANSPORTADORA", "entregas"])
+    # --- Denominadores de entregas LEVITARE (a partir da NF da empresa Levitare) ---
+    levi_dia   = nf_levi.groupby("DIA").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("DIA")
+    levi_mes   = nf_levi.groupby("MES_KEY").agg(qtd_entregas=("CHAVE_ENTREGA", "nunique")).reset_index().sort_values("MES_KEY")
+    total_l    = int(nf_levi["CHAVE_ENTREGA"].nunique())
+    nf_transp_l     = nf_levi.groupby("NOME TRANSPORTADORA").agg(entregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+    nf_transp_dia_l = nf_levi.groupby(["DIA", "NOME TRANSPORTADORA"]).agg(entregas=("CHAVE_ENTREGA", "nunique")).reset_index()
 
     levitare = _roteiro_bundle(df_levitare)
-    levitare.update(_reent_bundle(reentregas_levi, levi_dia, levi_mes, _empty_transp, _empty_transp_dia, total_l))
+    levitare.update(_reent_bundle(reentregas_levi, levi_dia, levi_mes, nf_transp_l, nf_transp_dia_l, total_l))
+
+    def r(df):
+        return json.loads(df.to_json(orient="records", date_format="iso"))
+    tirolez["nf_canal_dia"]  = r(_nf_canal_dia(nf))
+    levitare["nf_canal_dia"] = r(_nf_canal_dia(nf_levi))
 
     return {"tirolez": tirolez, "levitare": levitare}
 
@@ -884,9 +949,11 @@ def main():
     escala      = load_escala()
     nf_raw      = load_nf_raw()          # lido uma única vez
     nf          = load_nf(nf_raw)
+    nf_levi     = load_nf_entregas_levitare(nf_raw)
     reentregas, reentregas_levi = load_ocorrencias(nf_raw, nf)
     canal_lookup = load_clientes_canal()
     nf              = add_canal(nf, canal_lookup)
+    nf_levi         = add_canal(nf_levi, canal_lookup)
     reentregas      = add_canal(reentregas, canal_lookup)
     reentregas_levi = add_canal(reentregas_levi, canal_lookup)
     frota_disp, frota_util = load_frota()
@@ -898,7 +965,7 @@ def main():
     reentregas_unificada  = pd.concat([reentregas, reentregas_levi], ignore_index=True, sort=False)
 
     data = build_kpis(escala_unificada, nf, nf_raw, reentregas_unificada, frota_disp, frota_util,
-                       df_levitare=df_levitare, reentregas_levi=reentregas_levi)
+                       nf_levi=nf_levi)
 
     # === VESPERTINA ===
     print("[6/6] Processando Vespertina...")
@@ -968,7 +1035,7 @@ def main():
     data["filtros"]["dias_fresc"]  = f_dias
 
     # === SEGMENTOS POR OPERADOR (seletor TIROLEZ / LEVITARE; AMBOS = topo do JSON) ===
-    data["seg"] = build_segmentos(escala, df_levitare, reentregas, reentregas_levi, nf)
+    data["seg"] = build_segmentos(escala, df_levitare, reentregas, reentregas_levi, nf, nf_levi)
 
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

@@ -1938,12 +1938,12 @@ function transitionToSlide(targetIdx) {
                     const R  = cmSeg(cmRoteiroOp());
                     renderCMChartReentJust(filterByMes(RE.reentregas_just_dia, mk, 'DIA'));
                     const transpMk = filterByMes(RE.reentregas_transp_dia, mk, 'DIA');
-                    const nfMk     = filterByMes(D.nf_transp_dia,          mk, 'DIA');
+                    const nfMk     = filterByMes(RE.nf_transp_dia,         mk, 'DIA');
                     renderCMTableReent(transpMk, nfMk);
-                    renderCMTableReentCanal(filterByMes(RE.reentregas_canal_dia, mk, 'DIA'), filterByMes(D.nf_canal_dia, mk, 'DIA'));
+                    renderCMTableReentCanal(filterByMes(RE.reentregas_canal_dia, mk, 'DIA'), filterByMes(RE.nf_canal_dia || D.nf_canal_dia, mk, 'DIA'));
                     renderCMTableReentCanalFH(filterByMes(RE.reent_canal_fh_dia, mk, 'DIA'));
                     renderCMTableReentFHPeso(filterByMes(RE.reent_fh_peso_dia, mk, 'DIA'));
-                    const nfDiasMk = filterByMes(D.nf_entregas_dia, mk, 'DIA');
+                    const nfDiasMk = filterByMes(RE.nf_entregas_dia, mk, 'DIA');
                     renderCMTableReentDiaSemana(filterByMes(RE.reentregas_dia, mk, 'DIA'), nfDiasMk);
                     renderCMTableReentDiaSemana(
                         filterByMes(RE.reentregas_just_dia, mk, 'DIA').filter(r => r['DESC JUST OC'] === 'FORA DE HORARIO'),
@@ -2160,7 +2160,7 @@ function renderCMSemestreCharts(porDia, suffix, mesKey) {
 }
 
 // Evolução acumulada — Reentregas / Entregas / % (Jan até o mês do filtro)
-// reentDia = RE.reentregas_dia (segue operador) ; nfDia = D.nf_entregas_dia (sempre ambos)
+// reentDia = RE.reentregas_dia ; nfDia = RE.nf_entregas_dia (ambos seguem o operador)
 function renderCMSemestreReentCharts(reentDia, nfDia, mesKey) {
     const limite = _cmMesLimite(mesKey);
     const R = {}, N = {}, pctSum = {}, pctCnt = {}, reentByDia = {};
@@ -2443,16 +2443,6 @@ function renderCMGeoTabela(tableId, linhas, totalBloco, ordem) {
         <td class="num">${cmFmt.dec(tE > 0 ? tP / tE : 0, 0)}</td>
     </tr>`;
     tbody.innerHTML = html;
-}
-
-/* Entregas pela base NF, no período e na operação escolhidos.
-   É a mesma fonte do bloco Geografia (regioes_dia), para o card QTD. ENTREGAS
-   e o mapa fecharem no mesmo número. Devolve null se a base não veio. */
-function cmEntregasNF(mesKey, op) {
-    const linhas = filterByMes((window.DASH && window.DASH.regioes_dia) || [], mesKey, 'DIA');
-    if (!linhas.length) return null;
-    return linhas.reduce((s2, r) =>
-        (op === 'ambos' || r.OP === op) ? s2 + (r.entregas || 0) : s2, 0);
 }
 
 function renderCMGeografia(mesKey) {
@@ -2892,8 +2882,8 @@ function populateKPIs(mesKey) {
     const D = window.DASH;
     const isAll = mesKey === 'all';
 
-    // Roteiro segue o operador; Reentregas: reentregas seguem o operador,
-    // mas a Qtd. de Entregas é sempre o total de ambos (D).
+    // Roteiro e Reentregas seguem o operador; nas Reentregas a Qtd. de Entregas
+    // também é a do operador filtrado (RE).
     const R  = cmSeg(cmRoteiroOp());
     const RE = cmSeg(cmReentOp());
 
@@ -2928,10 +2918,9 @@ function populateKPIs(mesKey) {
         upd('real_kg',   roteiro.real_kg,       rkgOK);
         upd('peso_real', roteiro.peso / 1000);
         upd('veiculos',  roteiro.veiculos);
-        // QTD. ENTREGAS vem da NF (data de saída + cliente distintos), não da
-        // escala — assim bate com o bloco Geografia. Escala é só fallback.
-        const entNF = cmEntregasNF(mesKey, cmRoteiroOp());
-        upd('entregas',  entNF != null ? entNF : roteiro.entregas);
+        // QTD. ENTREGAS vem da escala (coluna ENTREGAS da roteirização), igual ao
+        // card da aba Roteiro do roteiro.html. O bloco Geografia segue pela NF.
+        upd('entregas',  roteiro.entregas);
 
         const difOcup = roteiro.ocupacao - 84;
         updTag('ocupacao', (difOcup >= 0 ? '▲ +' : '▼ ') + Math.abs(difOcup).toFixed(0) + '% ' + (difOcup >= 0 ? 'acima' : 'abaixo') + ' da meta');
@@ -2976,16 +2965,16 @@ function populateKPIs(mesKey) {
     renderCMSemestreCharts(D.vesp_por_dia, 'Vesp', mesKey);
 
     // === REENTREGAS ===
-    // Reentregas seguem o operador (RE); a Qtd. de Entregas é sempre o total de ambos (D).
+    // Reentregas e Qtd. de Entregas seguem o operador (RE): % = reentregas(op) / entregas(op).
     // YTD — sempre soma o ano todo (cards 4-5)
     const ytdReent = (RE.reentregas_mes || []).reduce((s, r) => s + (r.reentregas   || 0), 0);
-    const ytdNF    = (D.nf_entregas_mes || []).reduce((s, r) => s + (r.qtd_entregas || 0), 0);
+    const ytdNF    = (RE.nf_entregas_mes || []).reduce((s, r) => s + (r.qtd_entregas || 0), 0);
     const ytdPct   = ytdNF ? ytdReent / ytdNF * 100 : 0;
     upd('reent_mes',     ytdReent);
     upd('reent_pct_mes', ytdPct);
     // Cards 1-3: mês selecionado (ou ano todo se isAll)
     const reentData = isAll ? { reentregas: ytdReent }    : findByMes(RE.reentregas_mes, mesKey);
-    const nfData    = isAll ? { qtd_entregas: ytdNF }     : findByMes(D.nf_entregas_mes, mesKey);
+    const nfData    = isAll ? { qtd_entregas: ytdNF }     : findByMes(RE.nf_entregas_mes, mesKey);
     if (reentData && nfData) {
         const pct = nfData.qtd_entregas ? (reentData.reentregas / nfData.qtd_entregas * 100) : 0;
         upd('reent_total',        reentData.reentregas);
@@ -3001,18 +2990,18 @@ function populateKPIs(mesKey) {
             if (sub) sub.textContent = mesLabel;
         });
     }
-    // Tabela transportadora + gráfico justificativa (reentregas: RE; entregas: D=ambos)
+    // Tabela transportadora + gráfico justificativa (reentregas e entregas do operador)
     const transpDiasMes = filterByMes(RE.reentregas_transp_dia, mesKey, 'DIA');
-    const nfTranspMes   = filterByMes(D.nf_transp_dia,          mesKey, 'DIA');
+    const nfTranspMes   = filterByMes(RE.nf_transp_dia,         mesKey, 'DIA');
     const justDiasMes   = filterByMes(RE.reentregas_just_dia,   mesKey, 'DIA');
     renderCMTableReent(transpDiasMes, nfTranspMes);
     renderCMChartReentJust(justDiasMes);
-    renderCMTableReentCanal(filterByMes(RE.reentregas_canal_dia, mesKey, 'DIA'), filterByMes(D.nf_canal_dia, mesKey, 'DIA'));
+    renderCMTableReentCanal(filterByMes(RE.reentregas_canal_dia, mesKey, 'DIA'), filterByMes(RE.nf_canal_dia || D.nf_canal_dia, mesKey, 'DIA'));
     renderCMTableReentCanalFH(filterByMes(RE.reent_canal_fh_dia, mesKey, 'DIA'));
     renderCMTableReentFHPeso(filterByMes(RE.reent_fh_peso_dia, mesKey, 'DIA'));
     // Evolução acumulada — Reentregas / Entregas / % (Janeiro até o mês do filtro)
-    renderCMSemestreReentCharts(RE.reentregas_dia, D.nf_entregas_dia, mesKey);
-    const nfDiasMes = filterByMes(D.nf_entregas_dia, mesKey, 'DIA');
+    renderCMSemestreReentCharts(RE.reentregas_dia, RE.nf_entregas_dia, mesKey);
+    const nfDiasMes = filterByMes(RE.nf_entregas_dia, mesKey, 'DIA');
     renderCMTableReentDiaSemana(filterByMes(RE.reentregas_dia, mesKey, 'DIA'), nfDiasMes);
     renderCMTableReentDiaSemana(
         filterByMes(RE.reentregas_just_dia, mesKey, 'DIA').filter(r => r['DESC JUST OC'] === 'FORA DE HORARIO'),

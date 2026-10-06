@@ -1,6 +1,7 @@
 """
-Gera tres arquivos HTML standalone — sem servidor, sem Python, sem internet obrigatoria.
-  index.html        — Roteiro interativo normal (dados embutidos)
+Gera os arquivos HTML standalone — sem servidor, sem Python, sem internet obrigatoria.
+  roteiro.html      — Roteiro interativo normal (dados embutidos), a partir de
+                      templates/roteiro_template.html + roteiro.css + roteiro.js
   apresentacao.html — apresentacao automatica com transicoes a cada 30s (dados embutidos)
   metas.html        — Check de Metas (apresentacao slide-a-slide com dados embutidos)
 
@@ -13,13 +14,13 @@ import os
 import re
 
 BASE_DIR  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # raiz do ETL
-HTML_SRC  = os.path.join(BASE_DIR, "roteiro.html")
+HTML_SRC  = os.path.join(BASE_DIR, "templates", "roteiro_template.html")
 CSS_SRC   = os.path.join(BASE_DIR, "roteiro.css")
 JS_SRC    = os.path.join(BASE_DIR, "roteiro.js")
 JSON_SRC  = os.path.join(BASE_DIR, "roteiro_data.json")
 CHECK_SRC = os.path.join(BASE_DIR, "check_metas.html")
 FRESC_SRC = os.path.join(BASE_DIR, "frescal_diretoria.html")
-INDEX_OUT = os.path.join(BASE_DIR, "index.html")
+INDEX_OUT = os.path.join(BASE_DIR, "roteiro.html")
 APRES_OUT = os.path.join(BASE_DIR, "apresentacao.html")
 METAS_OUT = os.path.join(BASE_DIR, "metas.html")
 FRESC_OUT = os.path.join(BASE_DIR, "frescal.html")
@@ -61,7 +62,7 @@ def _inline_assets(html):
 
 
 def _embed_data(html, data):
-    """Embute o JSON no HTML e substitui o fetch pela variavel embutida (roteiro.html)."""
+    """Embute o JSON no HTML e substitui o fetch pela variavel embutida (roteiro_template.html)."""
     json_str = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
     inject   = f"<script>const __DADOS_EMBUTIDOS__={json_str};</script>"
     html     = html.replace("</head>", f"  {inject}\n</head>", 1)
@@ -72,7 +73,7 @@ def _embed_data(html, data):
     )
     html, n = fetch_pattern.subn("DATA = __DADOS_EMBUTIDOS__;", html)
     if n == 0:
-        print("  [AVISO] Padrao fetch nao encontrado — verifique roteiro.html.")
+        print("  [AVISO] Padrao fetch nao encontrado — verifique roteiro.js.")
 
     html = html.replace(
         "alert('Erro ao carregar dados. Execute pipeline.py e acesse via http://localhost:8080/roteiro.html')",
@@ -133,13 +134,13 @@ def main():
         data = json.load(f)
     gerado_em = data.get("gerado_em", "?")
 
-    print("[2/5] Lendo roteiro.html + assets...")
+    print("[2/5] Lendo templates/roteiro_template.html + assets...")
     with open(HTML_SRC, encoding="utf-8") as f:
         base_html = f.read()
     base_html = _inline_assets(base_html)
 
-    # ── index.html (interativo) ──────────────────────────────────────────
-    print("[3/5] Gerando index.html (interativo)...")
+    # ── roteiro.html (interativo) ────────────────────────────────────────
+    print("[3/5] Gerando roteiro.html (interativo)...")
     html_index = _embed_data(base_html, data)
     with open(INDEX_OUT, "w", encoding="utf-8") as f:
         f.write(html_index)
@@ -190,7 +191,7 @@ def main():
     print("=" * 58)
     print(f"  Dados de: {gerado_em}")
     print("=" * 58)
-    print(f"  index.html         {kb_index:>6.0f} KB  — uso interativo normal")
+    print(f"  roteiro.html       {kb_index:>6.0f} KB  — uso interativo normal")
     print(f"  apresentacao.html  {kb_ap:>6.0f} KB  — abre ja em apresentacao")
     if kb_metas:
         print(f"  metas.html         {kb_metas:>6.0f} KB  — Check de Metas (slide-a-slide)")

@@ -221,8 +221,8 @@ function applyFiltersReent() {
     const op  = document.getElementById('filterOperadorReent').value;
     updateDiaOptionsReent(mes);
 
-    // Reentregas seguem o operador filtrado (RE); a Qtd. de Entregas é SEMPRE o
-    // total de ambos (DATA = topo do JSON), então o % = reentregas(op) / entregas(ambos).
+    // Reentregas e Qtd. de Entregas seguem o operador filtrado (RE):
+    // % = reentregas(op) / entregas(op). Ambos = topo do JSON.
     const RE = op === 'ambos' ? DATA : DATA.seg[op];
     const reentKpis = op === 'ambos' ? DATA.kpis : RE.reent_kpis;
 
@@ -230,17 +230,17 @@ function applyFiltersReent() {
 
     if (dia !== 'all') {
         const rd = RE.reentregas_dia.find(r => r.DIA === dia);
-        const nd = DATA.nf_entregas_dia.find(r => r.DIA === dia);
+        const nd = RE.nf_entregas_dia.find(r => r.DIA === dia);
         totalReent = rd ? rd.reentregas : 0;
         totalEntregas = nd ? nd.qtd_entregas : 0;
     } else if (mes !== 'all') {
         const rm = RE.reentregas_mes.find(r => r.MES_KEY === mes);
-        const nm = DATA.nf_entregas_mes.find(r => r.MES_KEY === mes);
+        const nm = RE.nf_entregas_mes.find(r => r.MES_KEY === mes);
         totalReent = rm ? rm.reentregas : 0;
         totalEntregas = nm ? nm.qtd_entregas : 0;
     } else {
         totalReent = reentKpis.reentregas;
-        totalEntregas = DATA.kpis.qtd_entregas_nf;
+        totalEntregas = reentKpis.qtd_entregas_nf;
     }
 
     const pct = totalEntregas > 0 ? (totalReent / totalEntregas * 100) : 0;
@@ -253,7 +253,7 @@ function applyFiltersReent() {
     const mesKpiKey = dia !== 'all' ? dia.substring(0, 7) : (mes !== 'all' ? mes : null);
     if (mesKpiKey) {
         const rm = RE.reentregas_mes.find(r => r.MES_KEY === mesKpiKey);
-        const nm = DATA.nf_entregas_mes.find(r => r.MES_KEY === mesKpiKey);
+        const nm = RE.nf_entregas_mes.find(r => r.MES_KEY === mesKpiKey);
         const reentMes = rm ? rm.reentregas : 0;
         const entregasMes = nm ? nm.qtd_entregas : 0;
         const pctMes = entregasMes > 0 ? (reentMes / entregasMes * 100) : 0;

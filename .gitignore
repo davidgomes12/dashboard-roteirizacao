@@ -18,8 +18,10 @@ cloudflared.exe
 
 # HTMLs standalone gerados por scripts/gerar_index.py e
 # scripts/gerar_volume_distribuicao_BR.py (3-5 MB cada, recriados a cada
-# atualizacao). As FONTES ficam versionadas: roteiro.html/.css/.js,
-# check_metas.html, frescal_diretoria.html e templates/.
+# atualizacao). As FONTES ficam versionadas: roteiro.css/.js,
+# check_metas.html, frescal_diretoria.html e templates/ (inclui
+# templates/roteiro_template.html). Excecao: roteiro.html e gerado, mas fica
+# versionado porque e a pagina que o GitHub Pages publica.
 apresentacao.html
 index.html
 metas.html

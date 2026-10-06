@@ -9,7 +9,7 @@ if %ERRORLEVEL% NEQ 0 (
     exit /b 1
 )
 
-:: Gera index.html standalone (sem servidor, sem Python)
+:: Gera roteiro.html standalone (sem servidor, sem Python)
 python scripts\gerar_index.py
 
 :: Mata servidor antigo, inicia novo oculto, abre o Roteiro e check_metas via HTTP
