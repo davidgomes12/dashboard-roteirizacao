@@ -7,6 +7,8 @@ e gera os dados JSON para o dashboard HTML.
 import hashlib
 import json
 import os
+import re
+import unicodedata
 import warnings
 from datetime import datetime
 
@@ -36,6 +38,7 @@ LEVITARE_PATH = _resolve_path(_cfg["caminhos"]["levitare"])
 NF_PATH       = os.path.join(DADOS_DIR, "NF.xlsx")
 OCORRENCIAS_PATH = os.path.join(DADOS_DIR, "Ocorrencias.xlsx")
 CLIENTES_PATH = os.path.join(DADOS_DIR, "Clientes.xlsx")
+DEDICADOS_PATH = os.path.join(DADOS_DIR, "Dedicados.xlsx")
 OUTPUT_JSON   = os.path.join(ETL_DIR, "roteiro_data.json")
 
 TRANSPORTADORAS_FILTRO = _cfg["filtros"]["transportadoras"]
@@ -380,6 +383,85 @@ def load_frota():
 
     print(f"   -> Disponibilizado: {len(disp)} | Utilizado: {len(util)}")
     return disp, util
+
+
+def _norm_col(nome):
+    """Nome de coluna sem acento, caixa ou pontuação ("Carro Nº" -> "CARRONO")."""
+    txt = unicodedata.normalize("NFKD", str(nome)).encode("ascii", "ignore").decode()
+    return re.sub(r"[^A-Z0-9]", "", txt.upper())
+
+
+def load_dedicados():
+    """Lê Dedicados.xlsx (cargas dedicadas da Tirolez): uma linha por pedido.
+
+    O número do carro (Carro N) se repete entre pedidos e recomeça a cada dia,
+    então veículo = DIA + carro e entrega = DIA + carro + Razão Social.
+    Devolve DIA, MES_KEY, PESO, CHAVE_VEICULO e CHAVE_ENTREGA.
+    """
+    print("[+] Carregando DEDICADOS...")
+    vazio = pd.DataFrame(columns=["DIA", "MES_KEY", "PESO", "CHAVE_VEICULO", "CHAVE_ENTREGA"])
+    if not os.path.exists(DEDICADOS_PATH):
+        print(f"   [AVISO] {DEDICADOS_PATH} não encontrado — cartões sem carga dedicada")
+        return vazio
+
+    df = pd.read_excel(DEDICADOS_PATH)
+    norm = {_norm_col(c): c for c in df.columns}
+    def col(*prefixos):
+        for p in prefixos:
+            if p in norm:
+                return norm[p]
+        for p in prefixos:
+            for n, c in norm.items():
+                if n.startswith(p):
+                    return c
+        return None
+    c_data, c_carro, c_razao, c_peso = col("DATASAIDA"), col("CARRON"), col("RAZAOSOCIAL"), col("PESO")
+    faltando = [n for n, c in [("Data Saida", c_data), ("Carro N", c_carro),
+                               ("Razão Social", c_razao), ("Peso", c_peso)] if c is None]
+    if faltando:
+        raise ValueError(
+            f"[SCHEMA] DEDICADOS: colunas faltando → {faltando}\n"
+            f"      Colunas presentes: {df.columns.tolist()}")
+
+    df = df.dropna(subset=[c_data, c_carro])
+    data = pd.to_datetime(df[c_data], errors="coerce")
+    df = df[data.notna()]
+    data = data[data.notna()]
+    carro = pd.to_numeric(df[c_carro], errors="coerce")
+    # 3 e "3.0" são o mesmo carro; texto não numérico fica como veio
+    carro = carro.map(lambda v: f"{v:g}" if pd.notna(v) else None).fillna(
+        df[c_carro].astype(str).str.strip().str.upper())
+    razao = df[c_razao].fillna("").astype(str).str.strip().str.upper()
+
+    out = pd.DataFrame({
+        "DIA":     data.dt.strftime("%Y-%m-%d"),
+        "MES_KEY": data.dt.strftime("%Y-%m"),
+        "PESO":    pd.to_numeric(df[c_peso], errors="coerce").fillna(0),
+    })
+    out["CHAVE_VEICULO"] = out["DIA"] + "|" + carro
+    out["CHAVE_ENTREGA"] = out["CHAVE_VEICULO"] + "|" + razao
+    print(f"   -> {len(out)} pedidos | {out['CHAVE_VEICULO'].nunique()} veículos | "
+          f"{out['CHAVE_ENTREGA'].nunique()} entregas | {out['DIA'].nunique()} dias")
+    return out
+
+
+def build_dedicados(ded):
+    """Totais das cargas dedicadas (geral, por dia e por mês) para os cartões do Roteiro."""
+    agg = {"peso": ("PESO", "sum"), "veiculos": ("CHAVE_VEICULO", "nunique"),
+           "entregas": ("CHAVE_ENTREGA", "nunique")}
+    def grain(by):
+        g = ded.groupby(by).agg(**agg).reset_index().sort_values(by)
+        g["peso"] = g["peso"].round(2)
+        return json.loads(g.to_json(orient="records"))
+    return {
+        "kpis": {
+            "peso_total":   round(float(ded["PESO"].sum()), 2),
+            "qtd_veiculos": int(ded["CHAVE_VEICULO"].nunique()),
+            "qtd_entregas": int(ded["CHAVE_ENTREGA"].nunique()),
+        },
+        "por_dia": grain("DIA"),
+        "por_mes": grain("MES_KEY"),
+    }
 
 
 def load_levitare():
@@ -1036,6 +1118,9 @@ def main():
 
     # === SEGMENTOS POR OPERADOR (seletor TIROLEZ / LEVITARE; AMBOS = topo do JSON) ===
     data["seg"] = build_segmentos(escala, df_levitare, reentregas, reentregas_levi, nf, nf_levi)
+
+    # === CARGAS DEDICADAS (somam nos cartões do Roteiro em Ambos e Tirolez) ===
+    data["dedicados"] = build_dedicados(load_dedicados())
 
     with open(OUTPUT_JSON, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)

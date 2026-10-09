@@ -108,6 +108,30 @@ function perfPorTurno(kpis, turno, mes, dia) {
     return { ocup: b.capac > 0 ? b.peso / b.capac * 100 : null, rk: b.peso > 0 ? b.frete / b.peso : null };
 }
 
+// Cargas dedicadas (Dedicados.xlsx) no recorte de mês/dia. São da operação Tirolez:
+// entram nos cartões em Ambos e Tirolez, nunca em Levitare.
+function dedRecorte(mes, dia) {
+    const D = DATA.dedicados || {};
+    let v;
+    if (dia !== 'all')      v = (D.por_dia || []).find(r => r.DIA === dia);
+    else if (mes !== 'all') v = (D.por_mes || []).find(r => r.MES_KEY === mes);
+    else { const k = D.kpis || {}; v = { peso: k.peso_total, veiculos: k.qtd_veiculos, entregas: k.qtd_entregas }; }
+    return { peso: (v && v.peso) || 0, veiculos: (v && v.veiculos) || 0, entregas: (v && v.entregas) || 0 };
+}
+
+// Cartão com total em destaque e a quebra Dedicado / Compartilhado logo abaixo.
+// Sem `ded` (Levitare) volta ao cartão simples, com o subtítulo original.
+function setKpiSplit(id, comp, ded, f, subPadrao) {
+    const sub = document.getElementById(id + 'Sub');
+    if (ded == null) {
+        document.getElementById(id).textContent = f(comp);
+        sub.textContent = subPadrao;
+        return;
+    }
+    document.getElementById(id).textContent = f((comp || 0) + ded);
+    sub.innerHTML = `<div class="kpi-split"><span>Dedicado <b>${f(ded)}</b></span><span>Compartilhado <b>${f(comp)}</b></span></div>`;
+}
+
 function applyFilters() {
     const mes = document.getElementById('filterMes').value;
     const dia = document.getElementById('filterDia').value;
@@ -136,10 +160,15 @@ function applyFilters() {
 
     const kpis = kpisFromGrain(mes, dia, porDia, R.por_mes, R.kpis);
 
-    document.getElementById('kpiVeiculos').textContent = fmt.num(kpis.qtd_veiculos);
-    document.getElementById('kpiEntregas').textContent = fmt.num(kpis.qtd_entregas);
-    document.getElementById('kpiPeso').textContent = fmt.tons(kpis.peso_total);
+    // Veículos / Entregas / Peso: compartilhado (escala) + dedicado; Ocupação e R$/Kg seguem só da compartilhada
+    const ded = op === 'levitare' ? null : dedRecorte(mes, dia);
+    setKpiSplit('kpiVeiculos', kpis.qtd_veiculos, ded && ded.veiculos, fmt.num,  'veículos no período');
+    setKpiSplit('kpiEntregas', kpis.qtd_entregas, ded && ded.entregas, fmt.num,  'entregas realizadas');
+    setKpiSplit('kpiPeso',     kpis.peso_total,   ded && ded.peso,     fmt.tons, 'tons transportadas');
     document.getElementById('kpiRealKg').textContent = fmt.brl(kpis.real_kg_total);
+    const sufixoComp = ded ? ' Carga Compartilhada' : '';
+    document.getElementById('kpiOcupacaoLabel').textContent = 'Ocupação' + sufixoComp;
+    document.getElementById('kpiRealKgLabel').textContent   = 'R$ / Kg' + sufixoComp;
 
     // Ocupação KPI card - valor branco + delta vs meta
     const occRounded = Math.round(kpis.ocupacao_total);
