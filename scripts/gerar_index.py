@@ -47,7 +47,11 @@ def _inline_assets(html):
             f"<script>\n{js}</script>",
         )
 
-    # Logos viram data URI: o arquivo standalone vai por e-mail/pen drive sem a pasta.
+    return _inline_logos(html)
+
+
+def _inline_logos(html):
+    """Logos viram data URI: o arquivo standalone vai por e-mail/pen drive sem a pasta."""
     def _logo(m):
         caminho = os.path.join(BASE_DIR, m.group(1))
         if not os.path.exists(caminho):
@@ -56,9 +60,7 @@ def _inline_assets(html):
             b64 = base64.b64encode(f.read()).decode("ascii")
         return f'src="data:image/png;base64,{b64}"'
 
-    html = re.sub(r'src="(logo_[a-z_]+[.]png)"', _logo, html)
-
-    return html
+    return re.sub(r'src="(logo_[a-z_]+[.]png)"', _logo, html)
 
 
 def _embed_data(html, data):
@@ -167,7 +169,7 @@ def main():
         print("[5/5] Gerando metas.html (Check de Metas com dados embutidos)...")
         with open(CHECK_SRC, encoding="utf-8") as f:
             check_html = f.read()
-        html_metas = _embed_data_check(check_html, data)
+        html_metas = _inline_logos(_embed_data_check(check_html, data))
         with open(METAS_OUT, "w", encoding="utf-8") as f:
             f.write(html_metas)
         kb_metas = os.path.getsize(METAS_OUT) / 1024

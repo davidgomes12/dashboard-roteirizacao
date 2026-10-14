@@ -210,6 +210,11 @@
         /* === CARTÕES DE GRÁFICO E TABELA === */
         .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
         .charts-row.full { grid-template-columns: 1fr; }
+        /* Coluna com cartões em cima e tabela embaixo (Pendente / Planejado) */
+        .col-stack { display: flex; flex-direction: column; min-width: 0; }
+        .col-stack .chart-card { flex: 1; }
+        .col-stack [hidden] { display: none; }
+        .empty-msg { text-align: center; color: var(--ink-3); font-weight: 600; padding: 2.5rem 1rem; }
         .chart-card {
             background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
             padding: 1.1rem 1.2rem 1.2rem; position: relative; min-width: 0;

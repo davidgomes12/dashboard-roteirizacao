@@ -233,6 +233,59 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Pendente e Planejado: sem interação com filtros -->
+            <div class="charts-row">
+                <div class="col-stack">
+                    <div class="kpi-grid" id="pendenteKpis">
+                        <div class="kpi-card animate-in stagger-1">
+                            <div class="kpi-icon"><span class="material-icons-round">pending_actions</span></div>
+                            <div class="kpi-label">Pendente · Qtd. Entregas</div>
+                            <div class="kpi-value" id="kpiPendEntregas">--</div>
+                            <div class="kpi-sub">entregas pendentes</div>
+                        </div>
+                        <div class="kpi-card animate-in stagger-2">
+                            <div class="kpi-icon"><span class="material-icons-round">scale</span></div>
+                            <div class="kpi-label">Pendente · Peso</div>
+                            <div class="kpi-value" id="kpiPendPeso">--</div>
+                            <div class="kpi-sub">peso pendente</div>
+                        </div>
+                    </div>
+                    <div class="chart-card animate-in stagger-3">
+                        <div class="chart-title"><span class="dot"></span>Pendente</div>
+                        <div class="empty-msg" id="pendenteVazio" hidden>Sem Entregas Pendentes</div>
+                        <div class="table-wrapper" id="pendenteTabela">
+                            <table class="data-table" id="tablePendente"><thead><tr>
+                                <th>Cliente</th><th>Cidade</th><th>UF</th><th class="num">Peso</th>
+                            </tr></thead><tbody></tbody></table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-stack">
+                    <div class="kpi-grid">
+                        <div class="kpi-card animate-in stagger-1">
+                            <div class="kpi-icon"><span class="material-icons-round">event_available</span></div>
+                            <div class="kpi-label">Planejado · Qtd. Entregas</div>
+                            <div class="kpi-value" id="kpiPlanEntregas">--</div>
+                            <div class="kpi-sub">entregas planejadas</div>
+                        </div>
+                        <div class="kpi-card animate-in stagger-2">
+                            <div class="kpi-icon"><span class="material-icons-round">scale</span></div>
+                            <div class="kpi-label">Planejado · Peso</div>
+                            <div class="kpi-value" id="kpiPlanPeso">--</div>
+                            <div class="kpi-sub">peso planejado</div>
+                        </div>
+                    </div>
+                    <div class="chart-card animate-in stagger-3">
+                        <div class="chart-title"><span class="dot"></span>Planejado</div>
+                        <div class="table-wrapper">
+                            <table class="data-table" id="tablePlanejado"><thead><tr>
+                                <th>Data Saída</th><th>Razão Social</th><th>Cidade</th><th>UF</th><th class="num">Peso</th>
+                            </tr></thead><tbody></tbody></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ========== REENTREGAS ========== -->

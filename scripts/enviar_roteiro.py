@@ -1,6 +1,7 @@
 """
 Enviar Roteiro por E-mail e WhatsApp — Indicador da Roteirização 2026
-Atualiza pipeline, captura screenshots dos dashboards e envia via Outlook e WhatsApp Desktop.
+Atualiza pipeline, regenera o roteiro.html, captura screenshots dos dashboards e envia
+os prints + o roteiro.html via Outlook e só os prints via WhatsApp Desktop.
 """
 
 import json
@@ -15,6 +16,7 @@ SCRIPTS_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(SCRIPTS_DIR)  # raiz do ETL
 PIPELINE = os.path.join(SCRIPTS_DIR, "pipeline.py")
 GERAR_INDEX = os.path.join(SCRIPTS_DIR, "gerar_index.py")
+ROTEIRO_HTML = os.path.join(BASE_DIR, "roteiro.html")
 
 with open(os.path.join(BASE_DIR, "config.json"), encoding="utf-8") as _f:
     _cfg = json.load(_f)["distribuicao"]
@@ -147,6 +149,8 @@ def send_email(screenshots):
             "http://schemas.microsoft.com/mapi/proptag/0x3712001F",
             f"dash{i}"
         )
+    # O painel interativo vai como anexo comum (standalone: abre com duplo clique)
+    mail.Attachments.Add(ROTEIRO_HTML)
 
     # Montar HTML do e-mail
     sections = ""
@@ -178,6 +182,10 @@ def send_email(screenshots):
             </div>
 
             <div style="padding:32px 36px;">
+                <p style="margin:0 0 28px; font-size:14px; color:#444;">
+                    O painel interativo completo segue em anexo
+                    (<strong>roteiro.html</strong> — baixe e abra no navegador).
+                </p>
                 {sections}
             </div>
 
@@ -336,10 +344,14 @@ def main():
         print("[ERRO] Pipeline falhou.")
         return False
     # roteiro.html traz os dados embutidos: precisa ser regenerado após o pipeline
+    inicio_html = time.time()
     result = subprocess.run([sys.executable, GERAR_INDEX], cwd=BASE_DIR, stdout=subprocess.DEVNULL)
-    if result.returncode != 0:
+    # gerar_index.py sai com código 0 mesmo quando falha: confere se o arquivo foi regravado
+    if result.returncode != 0 or not os.path.exists(ROTEIRO_HTML) \
+            or os.path.getmtime(ROTEIRO_HTML) < inicio_html - 2:
         print("[ERRO] Falha ao gerar roteiro.html.")
         return False
+    print(f"   roteiro.html atualizado ({os.path.getsize(ROTEIRO_HTML) / 1024:,.0f} KB)")
 
     # 2. Servidor
     print(f"\n[2/{total}] Iniciando servidor...")

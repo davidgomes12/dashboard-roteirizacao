@@ -132,6 +132,34 @@ function setKpiSplit(id, comp, ded, f, subPadrao) {
     sub.innerHTML = `<div class="kpi-split"><span>Dedicado <b>${f(ded)}</b></span><span>Compartilhado <b>${f(comp)}</b></span></div>`;
 }
 
+const escHtml = s => String(s == null ? '' : s).replace(/[&<>"]/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;' }[ch]));
+const fmtKg = v => fmt.dec(v, 0) + ' kg';
+const fmtDataBR = d => { const [y,m,day] = d.split('-'); return day+'/'+m+'/'+y; };
+
+// Pendente (Pendente.xlsx): uma linha por entrega, sem interação com filtros.
+// Sem linhas, os cartões e a tabela dão lugar à mensagem.
+function renderPendente() {
+    const rows = DATA.pendente || [];
+    const vazio = !rows.length;
+    document.getElementById('pendenteKpis').hidden = vazio;
+    document.getElementById('pendenteTabela').hidden = vazio;
+    document.getElementById('pendenteVazio').hidden = !vazio;
+    document.getElementById('kpiPendEntregas').textContent = fmt.num(rows.length);
+    document.getElementById('kpiPendPeso').textContent = fmtKg(rows.reduce((s,r) => s + r.peso, 0));
+    document.querySelector('#tablePendente tbody').innerHTML = rows.map(r =>
+        `<tr><td><strong>${escHtml(r.cliente)}</strong></td><td>${escHtml(r.cidade)}</td><td>${escHtml(r.uf)}</td><td class="num">${fmt.dec(r.peso,2)} kg</td></tr>`).join('');
+}
+
+// Planejado (Planejado.xlsx), já consolidado por entrega: sem interação com filtros.
+function renderPlanejado() {
+    const rows = DATA.planejado || [];
+    document.getElementById('kpiPlanEntregas').textContent = fmt.num(rows.length);
+    document.getElementById('kpiPlanPeso').textContent = fmtKg(rows.reduce((s,r) => s + r.peso, 0));
+    document.querySelector('#tablePlanejado tbody').innerHTML = rows.length
+        ? rows.map(r => `<tr><td>${fmtDataBR(r.DIA)}</td><td><strong>${escHtml(r.razao)}</strong></td><td>${escHtml(r.cidade)}</td><td>${escHtml(r.uf)}</td><td class="num">${fmt.dec(r.peso,2)} kg</td></tr>`).join('')
+        : '<tr><td colspan="5" style="text-align:center;color:var(--ink-3);padding:2rem;">Sem Entregas Planejadas</td></tr>';
+}
+
 function applyFilters() {
     const mes = document.getElementById('filterMes').value;
     const dia = document.getElementById('filterDia').value;
@@ -240,6 +268,9 @@ function applyFilters() {
     renderTableVeiculo('tableDist0100Mes', mes !== 'all' ? d0100Mes : R.dist_0_100_veic);
     renderTableVeiculo('tableDist100pDia', d100pDia);
     renderTableVeiculo('tableDist100pMes', mes !== 'all' ? d100pMes : R.dist_100p_veic);
+
+    renderPendente();
+    renderPlanejado();
 }
 
 // ============ APPLY REENTREGAS ============
