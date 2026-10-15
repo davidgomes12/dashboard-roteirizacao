@@ -1,5 +1,5 @@
 {
-  "gerado_em": "14/10/2026 20:55",
+  "gerado_em": "14/10/2026 21:06",
   "kpis": {
     "peso_total": 11237943.97,
     "capac_total": 14465500.0,
@@ -270711,9 +270711,9 @@
   },
   "dedicados": {
     "kpis": {
-      "peso_total": 4510084.91,
-      "qtd_veiculos": 780,
-      "qtd_entregas": 865
+      "peso_total": 4543704.69,
+      "qtd_veiculos": 788,
+      "qtd_entregas": 873
     },
     "por_dia": [
       {
@@ -271291,6 +271291,12 @@
         "peso": 18018.28,
         "veiculos": 6,
         "entregas": 6
+      },
+      {
+        "DIA": "2026-10-15",
+        "peso": 33619.78,
+        "veiculos": 8,
+        "entregas": 8
       }
     ],
     "por_mes": [
@@ -271320,9 +271326,9 @@
       },
       {
         "MES_KEY": "2026-10",
-        "peso": 508239.39,
-        "veiculos": 81,
-        "entregas": 81
+        "peso": 541859.17,
+        "veiculos": 89,
+        "entregas": 89
       }
     ]
   },
