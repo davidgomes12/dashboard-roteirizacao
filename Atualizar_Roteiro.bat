@@ -3,9 +3,10 @@ chcp 65001 >nul
 cd /d "%~dp0"
 
 :: Executa pipeline ETL
-python scripts\pipeline.py
+:: A saida vai para pipeline.log: o .vbs roda esta janela oculta
+python scripts\pipeline.py > pipeline.log 2>&1
 if %ERRORLEVEL% NEQ 0 (
-    msg * "ERRO: Verifique se os arquivos Excel estao fechados."
+    msg * "ERRO na atualizacao do Roteiro. Veja o motivo no final do arquivo ETL\pipeline.log (planilha aberta, vazia ou com coluna faltando)."
     exit /b 1
 )
 

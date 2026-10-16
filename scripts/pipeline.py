@@ -417,6 +417,10 @@ def _load_pedidos(path, nome):
         return vazio
 
     df = pd.read_excel(path)
+    if df.empty:
+        # Planilha zerada (sem linhas, ou até sem cabeçalho): nada a somar
+        print(f"   -> planilha vazia — {nome} fica sem dados")
+        return vazio
     norm = {_norm_col(c): c for c in df.columns}
     def col(*prefixos):
         for p in prefixos:
@@ -494,6 +498,10 @@ def build_pendente():
         print(f"   [AVISO] {PENDENTE_PATH} não encontrado — sem entregas pendentes")
         return []
     df = pd.read_excel(PENDENTE_PATH, dtype=object)
+    if df.empty:
+        # Planilha zerada (sem linhas, ou até sem cabeçalho) = nada pendente
+        print("   -> planilha vazia — sem entregas pendentes")
+        return []
     norm = {_norm_col(c): c for c in df.columns}
     cols = {"cliente": "CLIENTE", "cidade": "MUNICIPIO", "uf": "ESTADO", "peso": "ENTREGAPESO"}
     faltando = [n for n in cols.values() if n not in norm]

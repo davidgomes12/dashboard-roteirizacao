@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 *.pyo
 auto_push.log
+pipeline.log
 _conectar.html
 _conectar_tunel.html
 _screenshot_*.png
