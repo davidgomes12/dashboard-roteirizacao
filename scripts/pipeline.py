@@ -8,6 +8,7 @@ import hashlib
 import json
 import os
 import re
+import sys
 import unicodedata
 import warnings
 from datetime import datetime
@@ -1216,5 +1217,31 @@ def main():
     print("=" * 60)
 
 
+class _Tee:
+    """Escreve na tela e no pipeline.log ao mesmo tempo."""
+    def __init__(self, *streams):
+        self.streams = streams
+    def write(self, texto):
+        for st in self.streams:
+            st.write(texto)
+            st.flush()
+        return len(texto)
+    def flush(self):
+        for st in self.streams:
+            st.flush()
+
+
 if __name__ == "__main__":
+    # A janela do .bat mostra as etapas; o pipeline.log guarda a mesma saída
+    # (inclusive o erro) para quando o .bat roda oculto pelo .vbs.
+    for _st in (sys.stdout, sys.stderr):
+        try:
+            _st.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError):
+            pass
+    # Sem "with": o traceback de um erro é impresso depois que main() sai,
+    # e o log precisa continuar aberto até lá (o Python fecha ao terminar).
+    _log = open(os.path.join(ETL_DIR, "pipeline.log"), "w", encoding="utf-8")
+    sys.stdout = _Tee(sys.__stdout__, _log)
+    sys.stderr = _Tee(sys.__stderr__, _log)
     main()

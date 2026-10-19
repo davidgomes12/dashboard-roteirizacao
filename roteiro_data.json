@@ -1,5 +1,5 @@
 {
-  "gerado_em": "19/10/2026 10:43",
+  "gerado_em": "19/10/2026 16:48",
   "kpis": {
     "peso_total": 11345059.82,
     "capac_total": 14613500.0,
@@ -273834,9 +273834,9 @@
   },
   "dedicados": {
     "kpis": {
-      "peso_total": 4652803.91,
-      "qtd_veiculos": 811,
-      "qtd_entregas": 896
+      "peso_total": 10709268.58,
+      "qtd_veiculos": 1859,
+      "qtd_entregas": 1915
     },
     "por_dia": [
       {
@@ -273925,9 +273925,9 @@
       },
       {
         "DIA": "2026-01-20",
-        "peso": 22221.37,
-        "veiculos": 7,
-        "entregas": 13
+        "peso": 21902.22,
+        "veiculos": 6,
+        "entregas": 6
       },
       {
         "DIA": "2026-01-21",
@@ -273955,9 +273955,9 @@
       },
       {
         "DIA": "2026-01-27",
-        "peso": 51080.24,
-        "veiculos": 9,
-        "entregas": 15
+        "peso": 50155.0,
+        "veiculos": 7,
+        "entregas": 7
       },
       {
         "DIA": "2026-01-28",
@@ -273985,15 +273985,15 @@
       },
       {
         "DIA": "2026-02-02",
-        "peso": 82024.21,
-        "veiculos": 14,
-        "entregas": 17
+        "peso": 81514.16,
+        "veiculos": 13,
+        "entregas": 13
       },
       {
         "DIA": "2026-02-03",
-        "peso": 16991.12,
-        "veiculos": 7,
-        "entregas": 16
+        "peso": 15047.21,
+        "veiculos": 3,
+        "entregas": 3
       },
       {
         "DIA": "2026-02-04",
@@ -274105,9 +274105,9 @@
       },
       {
         "DIA": "2026-03-03",
-        "peso": 41133.64,
-        "veiculos": 12,
-        "entregas": 35
+        "peso": 39595.37,
+        "veiculos": 10,
+        "entregas": 15
       },
       {
         "DIA": "2026-03-04",
@@ -274171,9 +274171,9 @@
       },
       {
         "DIA": "2026-03-17",
-        "peso": 52545.66,
-        "veiculos": 15,
-        "entregas": 25
+        "peso": 51502.62,
+        "veiculos": 13,
+        "entregas": 14
       },
       {
         "DIA": "2026-03-18",
@@ -274243,9 +274243,9 @@
       },
       {
         "DIA": "2026-04-01",
-        "peso": 111356.42,
-        "veiculos": 12,
-        "entregas": 12
+        "peso": 108792.92,
+        "veiculos": 11,
+        "entregas": 11
       },
       {
         "DIA": "2026-04-02",
@@ -274362,6 +274362,678 @@
         "entregas": 14
       },
       {
+        "DIA": "2026-05-04",
+        "peso": 95909.64,
+        "veiculos": 15,
+        "entregas": 15
+      },
+      {
+        "DIA": "2026-05-05",
+        "peso": 52264.63,
+        "veiculos": 13,
+        "entregas": 13
+      },
+      {
+        "DIA": "2026-05-06",
+        "peso": 56257.36,
+        "veiculos": 9,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-05-07",
+        "peso": 105034.1,
+        "veiculos": 14,
+        "entregas": 14
+      },
+      {
+        "DIA": "2026-05-08",
+        "peso": 43880.87,
+        "veiculos": 7,
+        "entregas": 7
+      },
+      {
+        "DIA": "2026-05-11",
+        "peso": 90708.67,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-05-12",
+        "peso": 50565.96,
+        "veiculos": 8,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-05-13",
+        "peso": 51825.28,
+        "veiculos": 13,
+        "entregas": 14
+      },
+      {
+        "DIA": "2026-05-14",
+        "peso": 43369.33,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-05-15",
+        "peso": 28932.19,
+        "veiculos": 6,
+        "entregas": 6
+      },
+      {
+        "DIA": "2026-05-18",
+        "peso": 28219.81,
+        "veiculos": 4,
+        "entregas": 4
+      },
+      {
+        "DIA": "2026-05-19",
+        "peso": 30649.5,
+        "veiculos": 5,
+        "entregas": 5
+      },
+      {
+        "DIA": "2026-05-20",
+        "peso": 31553.33,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-05-21",
+        "peso": 57760.1,
+        "veiculos": 15,
+        "entregas": 15
+      },
+      {
+        "DIA": "2026-05-22",
+        "peso": 37753.76,
+        "veiculos": 15,
+        "entregas": 15
+      },
+      {
+        "DIA": "2026-05-25",
+        "peso": 44981.58,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-05-26",
+        "peso": 44682.87,
+        "veiculos": 11,
+        "entregas": 11
+      },
+      {
+        "DIA": "2026-05-27",
+        "peso": 38391.34,
+        "veiculos": 7,
+        "entregas": 8
+      },
+      {
+        "DIA": "2026-05-28",
+        "peso": 86355.39,
+        "veiculos": 15,
+        "entregas": 15
+      },
+      {
+        "DIA": "2026-05-29",
+        "peso": 74981.35,
+        "veiculos": 14,
+        "entregas": 14
+      },
+      {
+        "DIA": "2026-06-01",
+        "peso": 80050.95,
+        "veiculos": 14,
+        "entregas": 14
+      },
+      {
+        "DIA": "2026-06-02",
+        "peso": 75239.22,
+        "veiculos": 14,
+        "entregas": 16
+      },
+      {
+        "DIA": "2026-06-03",
+        "peso": 53802.32,
+        "veiculos": 13,
+        "entregas": 14
+      },
+      {
+        "DIA": "2026-06-04",
+        "peso": 19199.04,
+        "veiculos": 1,
+        "entregas": 1
+      },
+      {
+        "DIA": "2026-06-05",
+        "peso": 128798.9,
+        "veiculos": 15,
+        "entregas": 18
+      },
+      {
+        "DIA": "2026-06-08",
+        "peso": 26133.11,
+        "veiculos": 6,
+        "entregas": 6
+      },
+      {
+        "DIA": "2026-06-09",
+        "peso": 58925.05,
+        "veiculos": 8,
+        "entregas": 8
+      },
+      {
+        "DIA": "2026-06-10",
+        "peso": 67571.5,
+        "veiculos": 10,
+        "entregas": 11
+      },
+      {
+        "DIA": "2026-06-11",
+        "peso": 62202.34,
+        "veiculos": 9,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-06-12",
+        "peso": 41655.4,
+        "veiculos": 9,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-06-15",
+        "peso": 43689.11,
+        "veiculos": 8,
+        "entregas": 8
+      },
+      {
+        "DIA": "2026-06-16",
+        "peso": 47180.9,
+        "veiculos": 11,
+        "entregas": 11
+      },
+      {
+        "DIA": "2026-06-17",
+        "peso": 31520.72,
+        "veiculos": 8,
+        "entregas": 8
+      },
+      {
+        "DIA": "2026-06-18",
+        "peso": 96598.53,
+        "veiculos": 12,
+        "entregas": 12
+      },
+      {
+        "DIA": "2026-06-19",
+        "peso": 26795.76,
+        "veiculos": 8,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-06-22",
+        "peso": 19586.89,
+        "veiculos": 5,
+        "entregas": 5
+      },
+      {
+        "DIA": "2026-06-23",
+        "peso": 42745.33,
+        "veiculos": 7,
+        "entregas": 7
+      },
+      {
+        "DIA": "2026-06-24",
+        "peso": 39054.01,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-06-25",
+        "peso": 59214.79,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-06-26",
+        "peso": 83302.27,
+        "veiculos": 14,
+        "entregas": 15
+      },
+      {
+        "DIA": "2026-06-29",
+        "peso": 85759.84,
+        "veiculos": 13,
+        "entregas": 13
+      },
+      {
+        "DIA": "2026-06-30",
+        "peso": 35571.0,
+        "veiculos": 11,
+        "entregas": 12
+      },
+      {
+        "DIA": "2026-07-01",
+        "peso": 37068.65,
+        "veiculos": 8,
+        "entregas": 8
+      },
+      {
+        "DIA": "2026-07-02",
+        "peso": 95382.47,
+        "veiculos": 15,
+        "entregas": 16
+      },
+      {
+        "DIA": "2026-07-03",
+        "peso": 58808.9,
+        "veiculos": 12,
+        "entregas": 12
+      },
+      {
+        "DIA": "2026-07-04",
+        "peso": 36577.61,
+        "veiculos": 3,
+        "entregas": 3
+      },
+      {
+        "DIA": "2026-07-06",
+        "peso": 36346.22,
+        "veiculos": 7,
+        "entregas": 7
+      },
+      {
+        "DIA": "2026-07-07",
+        "peso": 118752.77,
+        "veiculos": 12,
+        "entregas": 12
+      },
+      {
+        "DIA": "2026-07-08",
+        "peso": 68693.04,
+        "veiculos": 11,
+        "entregas": 11
+      },
+      {
+        "DIA": "2026-07-10",
+        "peso": 34431.06,
+        "veiculos": 9,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-07-13",
+        "peso": 62814.98,
+        "veiculos": 13,
+        "entregas": 13
+      },
+      {
+        "DIA": "2026-07-14",
+        "peso": 25211.57,
+        "veiculos": 7,
+        "entregas": 7
+      },
+      {
+        "DIA": "2026-07-15",
+        "peso": 16874.22,
+        "veiculos": 5,
+        "entregas": 6
+      },
+      {
+        "DIA": "2026-07-16",
+        "peso": 66616.85,
+        "veiculos": 14,
+        "entregas": 14
+      },
+      {
+        "DIA": "2026-07-17",
+        "peso": 49192.51,
+        "veiculos": 12,
+        "entregas": 12
+      },
+      {
+        "DIA": "2026-07-20",
+        "peso": 29561.66,
+        "veiculos": 7,
+        "entregas": 7
+      },
+      {
+        "DIA": "2026-07-21",
+        "peso": 63348.67,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-07-22",
+        "peso": 41428.55,
+        "veiculos": 7,
+        "entregas": 7
+      },
+      {
+        "DIA": "2026-07-23",
+        "peso": 41195.41,
+        "veiculos": 6,
+        "entregas": 6
+      },
+      {
+        "DIA": "2026-07-24",
+        "peso": 49368.32,
+        "veiculos": 8,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-07-27",
+        "peso": 32372.6,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-07-28",
+        "peso": 36253.72,
+        "veiculos": 7,
+        "entregas": 7
+      },
+      {
+        "DIA": "2026-07-29",
+        "peso": 78342.9,
+        "veiculos": 15,
+        "entregas": 15
+      },
+      {
+        "DIA": "2026-07-30",
+        "peso": 70564.67,
+        "veiculos": 9,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-07-31",
+        "peso": 49049.06,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-08-03",
+        "peso": 63879.35,
+        "veiculos": 12,
+        "entregas": 12
+      },
+      {
+        "DIA": "2026-08-04",
+        "peso": 52863.53,
+        "veiculos": 9,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-08-05",
+        "peso": 78777.04,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-08-06",
+        "peso": 98565.93,
+        "veiculos": 12,
+        "entregas": 12
+      },
+      {
+        "DIA": "2026-08-07",
+        "peso": 130686.29,
+        "veiculos": 13,
+        "entregas": 13
+      },
+      {
+        "DIA": "2026-08-10",
+        "peso": 46555.98,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-08-11",
+        "peso": 50085.14,
+        "veiculos": 11,
+        "entregas": 11
+      },
+      {
+        "DIA": "2026-08-12",
+        "peso": 20962.68,
+        "veiculos": 4,
+        "entregas": 4
+      },
+      {
+        "DIA": "2026-08-13",
+        "peso": 62905.33,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-08-14",
+        "peso": 79688.61,
+        "veiculos": 13,
+        "entregas": 14
+      },
+      {
+        "DIA": "2026-08-17",
+        "peso": 36143.96,
+        "veiculos": 9,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-08-18",
+        "peso": 19746.87,
+        "veiculos": 6,
+        "entregas": 6
+      },
+      {
+        "DIA": "2026-08-19",
+        "peso": 32019.42,
+        "veiculos": 4,
+        "entregas": 4
+      },
+      {
+        "DIA": "2026-08-20",
+        "peso": 47067.18,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-08-21",
+        "peso": 50633.34,
+        "veiculos": 8,
+        "entregas": 8
+      },
+      {
+        "DIA": "2026-08-22",
+        "peso": 6680.18,
+        "veiculos": 2,
+        "entregas": 2
+      },
+      {
+        "DIA": "2026-08-24",
+        "peso": 52542.68,
+        "veiculos": 5,
+        "entregas": 5
+      },
+      {
+        "DIA": "2026-08-25",
+        "peso": 33599.04,
+        "veiculos": 8,
+        "entregas": 8
+      },
+      {
+        "DIA": "2026-08-26",
+        "peso": 77359.02,
+        "veiculos": 11,
+        "entregas": 11
+      },
+      {
+        "DIA": "2026-08-27",
+        "peso": 42533.8,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-08-28",
+        "peso": 69371.71,
+        "veiculos": 11,
+        "entregas": 11
+      },
+      {
+        "DIA": "2026-08-29",
+        "peso": 4592.28,
+        "veiculos": 1,
+        "entregas": 1
+      },
+      {
+        "DIA": "2026-08-31",
+        "peso": 25351.02,
+        "veiculos": 7,
+        "entregas": 7
+      },
+      {
+        "DIA": "2026-09-01",
+        "peso": 41528.13,
+        "veiculos": 8,
+        "entregas": 8
+      },
+      {
+        "DIA": "2026-09-02",
+        "peso": 67168.76,
+        "veiculos": 9,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-09-03",
+        "peso": 64843.85,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-09-04",
+        "peso": 126044.94,
+        "veiculos": 12,
+        "entregas": 12
+      },
+      {
+        "DIA": "2026-09-08",
+        "peso": 137275.01,
+        "veiculos": 14,
+        "entregas": 14
+      },
+      {
+        "DIA": "2026-09-09",
+        "peso": 63316.48,
+        "veiculos": 9,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-09-10",
+        "peso": 79597.38,
+        "veiculos": 12,
+        "entregas": 13
+      },
+      {
+        "DIA": "2026-09-11",
+        "peso": 55530.89,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-09-12",
+        "peso": 4085.47,
+        "veiculos": 1,
+        "entregas": 1
+      },
+      {
+        "DIA": "2026-09-14",
+        "peso": 44784.36,
+        "veiculos": 13,
+        "entregas": 13
+      },
+      {
+        "DIA": "2026-09-15",
+        "peso": 38666.14,
+        "veiculos": 8,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-09-16",
+        "peso": 58422.55,
+        "veiculos": 12,
+        "entregas": 13
+      },
+      {
+        "DIA": "2026-09-17",
+        "peso": 60881.1,
+        "veiculos": 9,
+        "entregas": 9
+      },
+      {
+        "DIA": "2026-09-18",
+        "peso": 56870.13,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-09-19",
+        "peso": 22492.8,
+        "veiculos": 1,
+        "entregas": 1
+      },
+      {
+        "DIA": "2026-09-21",
+        "peso": 32106.87,
+        "veiculos": 6,
+        "entregas": 6
+      },
+      {
+        "DIA": "2026-09-22",
+        "peso": 46668.24,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-09-23",
+        "peso": 36568.81,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-09-24",
+        "peso": 55449.11,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-09-25",
+        "peso": 48317.53,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
+        "DIA": "2026-09-26",
+        "peso": 2662.83,
+        "veiculos": 1,
+        "entregas": 1
+      },
+      {
+        "DIA": "2026-09-28",
+        "peso": 89837.26,
+        "veiculos": 15,
+        "entregas": 15
+      },
+      {
+        "DIA": "2026-09-29",
+        "peso": 66389.59,
+        "veiculos": 11,
+        "entregas": 11
+      },
+      {
+        "DIA": "2026-09-30",
+        "peso": 66258.8,
+        "veiculos": 10,
+        "entregas": 10
+      },
+      {
         "DIA": "2026-10-01",
         "peso": 76586.2,
         "veiculos": 11,
@@ -274437,27 +275109,57 @@
     "por_mes": [
       {
         "MES_KEY": "2026-01",
-        "peso": 1041387.73,
-        "veiculos": 169,
-        "entregas": 191
+        "peso": 1040143.35,
+        "veiculos": 166,
+        "entregas": 176
       },
       {
         "MES_KEY": "2026-02",
-        "peso": 776663.19,
-        "veiculos": 137,
-        "entregas": 151
+        "peso": 774209.23,
+        "veiculos": 132,
+        "entregas": 134
       },
       {
         "MES_KEY": "2026-03",
-        "peso": 1170964.38,
-        "veiculos": 218,
-        "entregas": 261
+        "peso": 1168383.07,
+        "veiculos": 214,
+        "entregas": 230
       },
       {
         "MES_KEY": "2026-04",
-        "peso": 1012830.21,
-        "veiculos": 175,
-        "entregas": 181
+        "peso": 1010266.71,
+        "veiculos": 174,
+        "entregas": 180
+      },
+      {
+        "MES_KEY": "2026-05",
+        "peso": 1094077.04,
+        "veiculos": 211,
+        "entregas": 214
+      },
+      {
+        "MES_KEY": "2026-06",
+        "peso": 1224596.98,
+        "veiculos": 216,
+        "entregas": 227
+      },
+      {
+        "MES_KEY": "2026-07",
+        "peso": 1198256.42,
+        "veiculos": 217,
+        "entregas": 220
+      },
+      {
+        "MES_KEY": "2026-08",
+        "peso": 1182610.36,
+        "veiculos": 196,
+        "entregas": 198
+      },
+      {
+        "MES_KEY": "2026-09",
+        "peso": 1365767.03,
+        "veiculos": 221,
+        "entregas": 224
       },
       {
         "MES_KEY": "2026-10",
