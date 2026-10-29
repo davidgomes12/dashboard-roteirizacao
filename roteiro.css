@@ -228,6 +228,8 @@
         .chart-title .dot { width: 14px; height: 3px; border-radius: 2px; background: var(--yellow); flex: none; }
         /* Filtro próprio de um cartão (ex.: turno em Performance) */
         .chart-filter { margin-left: auto; font-family: var(--body); text-transform: none; letter-spacing: 0; }
+        .placa-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+        .placa-filters .filter-select { max-width: 260px; }
         .perf-status { background: var(--bg-surface); color: var(--ink-3); }
         .chart-title span[id] { color: var(--ink-3); font-weight: 500; }
 

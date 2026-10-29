@@ -85,7 +85,7 @@ function populateFiltersReent() { populateMesDia('filterMesReent', 'filterDiaRee
 
 function updateDiaOptionsReent(mes) { updateDiaSelect('filterDiaReent', DATA.filtros.dias_reent||[], mes); }
 
-function resetFiltersReent() { document.getElementById('filterMesReent').value='all'; document.getElementById('filterDiaReent').value='all'; document.getElementById('filterOperadorReent').value='ambos'; applyFiltersReent(); }
+function resetFiltersReent() { document.getElementById('filterMesReent').value='all'; document.getElementById('filterDiaReent').value='all'; document.getElementById('filterOperadorReent').value='ambos'; document.getElementById('filterPlacaTransp').value='all'; document.getElementById('filterPlacaJust').value='all'; applyFiltersReent(); }
 
 // ============ APPLY ROTEIRO ============
 // Peso/capacidade/frete das rotas Vespertinas no recorte de mês/dia. A escala
@@ -395,6 +395,62 @@ function applyFiltersReent() {
     renderTableReentTransp('tableReentTranspMes', transpMes);
     renderChartReentJust('chartReentJustMes', justMes, 'mes');
     renderTableReentDetail('tableReentDetailMes', detailMes);
+
+    // Reentrega por placa: mesmo recorte do dia (ou do mês, sem dia)
+    document.getElementById('labelPlaca').textContent = dia !== 'all' ? labelDia : (mes !== 'all' ? fmt.mesLabel(mes) : 'Todos os Meses');
+    renderReentPlaca(op, mes, dia);
+}
+
+// Linhas por placa do operador. Os dados só existem nos bundles: Ambos = Tirolez + Levitare.
+function placaRows(op, key) {
+    if (op === 'ambos') return [...(DATA.seg.tirolez[key] || []), ...(DATA.seg.levitare[key] || [])];
+    return DATA.seg[op][key] || [];
+}
+
+// Recarrega as opções de um filtro do cartão, mantendo a seleção quando ela ainda existe
+function fillSelectOptions(sel, valores, rotuloTodos) {
+    const atual = sel.value;
+    sel.innerHTML = `<option value="all">${rotuloTodos}</option>` +
+        valores.map(v => `<option value="${escHtml(v)}">${escHtml(v)}</option>`).join('');
+    sel.value = valores.includes(atual) ? atual : 'all';
+}
+
+// Tabela Transportadora / Placa / Justificativa. Entregas = entregas da placa no
+// período (independem da justificativa); % = reentregas / entregas.
+function renderReentPlaca(op, mes, dia) {
+    const noPeriodo = r => dia !== 'all' ? r.DIA === dia : (mes === 'all' || r.DIA.startsWith(mes));
+    const reent = placaRows(op, 'reent_placa_dia').filter(noPeriodo);
+    const nf    = placaRows(op, 'nf_placa_dia').filter(noPeriodo);
+
+    const selT = document.getElementById('filterPlacaTransp');
+    const selJ = document.getElementById('filterPlacaJust');
+    const uniq = arr => [...new Set(arr)].sort((a, b) => a.localeCompare(b, 'pt-BR'));
+    fillSelectOptions(selT, uniq(reent.map(r => r['NOME TRANSPORTADORA'])), 'Todas as Transportadoras');
+    const t = selT.value;
+    const daTransp = reent.filter(r => t === 'all' || r['NOME TRANSPORTADORA'] === t);
+    fillSelectOptions(selJ, uniq(daTransp.map(r => r['DESC JUST OC'])), 'Todas as Justificativas');
+    const j = selJ.value;
+
+    const entregas = {};
+    nf.forEach(r => { const k = r['NOME TRANSPORTADORA'] + '|' + r.PLACA; entregas[k] = (entregas[k] || 0) + r.entregas; });
+
+    const grupos = {};
+    daTransp.filter(r => j === 'all' || r['DESC JUST OC'] === j).forEach(r => {
+        const k = r['NOME TRANSPORTADORA'] + '|' + r.PLACA + '|' + r['DESC JUST OC'];
+        if (!grupos[k]) grupos[k] = { transp: r['NOME TRANSPORTADORA'], placa: r.PLACA, just: r['DESC JUST OC'], reentregas: 0 };
+        grupos[k].reentregas += r.reentregas;
+    });
+    const linhas = Object.values(grupos).map(g => {
+        const ent = entregas[g.transp + '|' + g.placa] || 0;
+        return { ...g, entregas: ent, pct: ent > 0 ? g.reentregas / ent * 100 : null };
+    }).sort((a, b) => b.reentregas - a.reentregas || (b.pct || 0) - (a.pct || 0));
+
+    const tbody = document.querySelector('#tableReentPlaca tbody');
+    tbody.innerHTML = linhas.length
+        ? linhas.map(g => `<tr><td>${escHtml(g.transp)}</td><td><strong>${escHtml(g.placa)}</strong></td><td>${escHtml(g.just)}</td>
+            <td class="num"><strong>${fmt.num(g.reentregas)}</strong></td><td class="num">${fmt.num(g.entregas)}</td>
+            <td class="num">${g.pct == null ? '--' : fmt.pct(g.pct)}</td></tr>`).join('')
+        : '<tr><td colspan="6" style="text-align:center;color:var(--ink-3);padding:2rem;">Sem reentregas no período</td></tr>';
 }
 
 function aggregateReentTransp(reentData, nfData) {

@@ -406,6 +406,23 @@
                 </div>
             </div>
 
+            <!-- Reentrega por placa (placa da saída na NF que gerou a reentrega) -->
+            <div class="charts-row full">
+                <div class="chart-card animate-in stagger-1">
+                    <div class="chart-title"><span class="dot"></span>Reentregas por Placa — <span id="labelPlaca">Dia</span>
+                        <div class="chart-filter placa-filters">
+                            <select class="filter-select" id="filterPlacaTransp" aria-label="Filtrar reentregas por placa pela transportadora" onchange="applyFiltersReent()"><option value="all">Todas as Transportadoras</option></select>
+                            <select class="filter-select" id="filterPlacaJust" aria-label="Filtrar reentregas por placa pela justificativa" onchange="applyFiltersReent()"><option value="all">Todas as Justificativas</option></select>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table class="data-table" id="tableReentPlaca"><thead><tr>
+                            <th>Transportadora</th><th>Placa</th><th>Justificativa</th><th class="num">Reentregas</th><th class="num">Entregas</th><th class="num">% Reentregas</th>
+                        </tr></thead><tbody></tbody></table>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <!-- ========== FROTA ========== -->

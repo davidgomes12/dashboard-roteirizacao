@@ -271,16 +271,54 @@ def _cod_inteiro(serie):
     return v.where(v == v.round()).astype("Int64")
 
 
+# Uma nota reentregue sai de novo na NF, às vezes por outra transportadora.
+# A ocorrência fica com a saída do mesmo dia; sem ela, com a saída mais recente
+# até este limite de dias antes da DATA INCLUSÃO (lançamento atrasado).
+DIAS_SAIDA_ANTES_OCORRENCIA = 7
+
+
 def _lookup_transp_por_nota(nf_raw):
-    """Código da transportadora por EMPRESA + NFF + COD. CLIENTE (chave NF x Ocorrência).
-    NFF sozinho não é chave: o número se repete entre empresas."""
+    """Saídas da NF por EMPRESA + NFF + COD. CLIENTE + DATA SAÍDA (chave NF x Ocorrência).
+    NFF sozinho não é chave: o número se repete entre empresas; a data separa
+    as várias saídas da mesma nota."""
     lk = pd.DataFrame({
         "_EMP_NF":    _empresa_nf(nf_raw["EMPRESA"]),
         "_NFF":       _cod_inteiro(nf_raw["NFF"]),
         "_CLI_NF":    _cod_inteiro(nf_raw["COD. CLIENTE"]),
+        "_SAIDA_NF":  pd.to_datetime(nf_raw["DATA  SAÍDA"], errors="coerce").dt.normalize(),
         "_TRANSP_NF": pd.to_numeric(nf_raw["TRANSPORTADORA"], errors="coerce"),
+        "_PLACA_NF":  _norm_placa(nf_raw["PLACA"]),
     })
-    return lk.dropna().drop_duplicates(subset=["_EMP_NF", "_NFF", "_CLI_NF"])
+    lk = lk.dropna(subset=["_EMP_NF", "_NFF", "_CLI_NF", "_SAIDA_NF", "_TRANSP_NF"])
+    return lk.drop_duplicates(subset=["_EMP_NF", "_NFF", "_CLI_NF", "_SAIDA_NF"])
+
+
+SEM_PLACA = "(sem placa)"
+
+
+def _norm_placa(serie):
+    """Placa sem hífen nem espaço, em maiúscula ('DIG-2176' -> 'DIG2176'); vazia -> SEM_PLACA."""
+    p = serie.fillna("").astype(str).str.upper().str.replace(r"[^A-Z0-9]", "", regex=True)
+    return p.where(p != "", SEM_PLACA)
+
+
+def _transp_da_saida(df, transp_nota):
+    """Transportadora e placa de cada ocorrência: as da saída da nota no dia da DATA INCLUSÃO
+    ou, sem ela, a da saída mais recente até DIAS_SAIDA_ANTES_OCORRENCIA dias antes.
+    Mesmo dia com duas transportadoras: fica a primeira linha da NF."""
+    oc = pd.DataFrame({
+        "_ID":     np.arange(len(df)),
+        "_EMP_NF": df["EMPRESA"].to_numpy(),
+        "_NFF":    _cod_inteiro(pd.to_numeric(df["DOCUMENTO"], errors="coerce")).to_numpy(),
+        "_CLI_NF": _cod_inteiro(df["COD. CLIENTE"]).to_numpy(),
+        "_INCL":   pd.to_datetime(df["DATA INCLUSÃO"], errors="coerce").dt.normalize().to_numpy(),
+    })
+    cand = oc.merge(transp_nota, on=["_EMP_NF", "_NFF", "_CLI_NF"], how="inner")
+    cand["_DIAS"] = (cand["_INCL"] - cand["_SAIDA_NF"]).dt.days
+    cand = cand[cand["_DIAS"].between(0, DIAS_SAIDA_ANTES_OCORRENCIA)]
+    escolha = cand.sort_values("_DIAS", kind="stable").drop_duplicates("_ID").set_index("_ID")
+    escolha = escolha[["_TRANSP_NF", "_PLACA_NF"]].reindex(oc["_ID"])
+    return escolha["_TRANSP_NF"].to_numpy(), escolha["_PLACA_NF"].fillna(SEM_PLACA).to_numpy()
 
 
 def _ocorrencias_por_empresa(df_ocorr, transp_lookup, transp_nota, empresa, label):
@@ -289,20 +327,18 @@ def _ocorrencias_por_empresa(df_ocorr, transp_lookup, transp_nota, empresa, labe
     df = df[df["MOTIVO OCORRÊNCIA"] == MOTIVO_REENTREGA].copy()
 
     # Transportadora = a da NF, casada por EMPRESA + NFF (DOCUMENTO) + COD. CLIENTE
+    # + DATA INCLUSÃO x DATA SAÍDA (ver _transp_da_saida)
+    df = df.reset_index(drop=True)
     df["DOCUMENTO"] = pd.to_numeric(df["DOCUMENTO"], errors="coerce")
-    df["_NFF"]      = _cod_inteiro(df["DOCUMENTO"])
-    df["_CLI_NF"]   = _cod_inteiro(df["COD. CLIENTE"])
-    df = df.merge(transp_nota, left_on=["EMPRESA", "_NFF", "_CLI_NF"],
-                  right_on=["_EMP_NF", "_NFF", "_CLI_NF"], how="left")
-    df["TRANSPORTADORA"] = df["_TRANSP_NF"]
-    df = df.drop(columns=["_EMP_NF", "_NFF", "_CLI_NF", "_TRANSP_NF"])
+    df["TRANSPORTADORA"], df["PLACA"] = _transp_da_saida(df, transp_nota)
 
-    # Sem nota na NF (ex.: Levitare antes de 27/07): usa o código TRANSP da ocorrência
+    # Sem saída da nota na NF (ex.: Levitare antes de 27/07): usa o código TRANSP da
+    # ocorrência; a placa fica SEM_PLACA
     sem_nf = df["TRANSPORTADORA"].isna()
     if sem_nf.any():
         df.loc[sem_nf, "TRANSPORTADORA"] = pd.to_numeric(df.loc[sem_nf, "TRANSP"], errors="coerce")
         restantes = int(df["TRANSPORTADORA"].isna().sum())
-        print(f"   [AVISO] {label}: {int(sem_nf.sum())} ocorrências sem nota na NF "
+        print(f"   [AVISO] {label}: {int(sem_nf.sum())} ocorrências sem saída da nota na NF "
               f"({int(sem_nf.sum()) - restantes} preenchidas pelo TRANSP, {restantes} sem transportadora)")
 
     df = df.merge(transp_lookup, on="TRANSPORTADORA", how="left")
@@ -1065,6 +1101,21 @@ def _reent_bundle(reent, nf_dia_df, nf_mes_df, nf_transp_df, nf_transp_dia_df, t
     }
 
 
+def _reent_placa(reent, nf_op):
+    """Reentregas por DIA x transportadora x placa x justificativa e as entregas da NF
+    das mesmas placas (só os pares transportadora x placa que tiveram reentrega,
+    para não inflar o JSON). % = reentregas / entregas da placa."""
+    def r(df):
+        return json.loads(df.to_json(orient="records", date_format="iso"))
+    chave = ["NOME TRANSPORTADORA", "PLACA"]
+    reent_p = reent.groupby(["DIA"] + chave + ["DESC JUST OC"]).agg(
+        reentregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+    nf_p = nf_op.assign(PLACA=_norm_placa(nf_op["PLACA"]))
+    nf_p = nf_p.merge(reent_p[chave].drop_duplicates(), on=chave, how="inner")
+    nf_p = nf_p.groupby(["DIA"] + chave).agg(entregas=("CHAVE_ENTREGA", "nunique")).reset_index()
+    return r(reent_p), r(nf_p)
+
+
 def build_segmentos(escala, df_levitare, reentregas, reentregas_levi, nf, nf_levi):
     """Monta os bundles por operador (TIROLEZ e LEVITARE) para o seletor de
     operação nos slides Roteiro e Reentregas. AMBOS já está no topo do JSON."""
@@ -1092,6 +1143,9 @@ def build_segmentos(escala, df_levitare, reentregas, reentregas_levi, nf, nf_lev
         return json.loads(df.to_json(orient="records", date_format="iso"))
     tirolez["nf_canal_dia"]  = r(_nf_canal_dia(nf))
     levitare["nf_canal_dia"] = r(_nf_canal_dia(nf_levi))
+    # Reentrega por placa: só nos bundles; Ambos é a soma dos dois no roteiro.js
+    tirolez["reent_placa_dia"],  tirolez["nf_placa_dia"]  = _reent_placa(reentregas, nf)
+    levitare["reent_placa_dia"], levitare["nf_placa_dia"] = _reent_placa(reentregas_levi, nf_levi)
 
     return {"tirolez": tirolez, "levitare": levitare}
 
